@@ -4,3 +4,6 @@ import { withInstall  } from  "@ym-UI/utils"
 
 export const YmButton = withInstall(Button);
 export const YmButtonGroup = withInstall(ButtonGroup);
+
+export * from './type.ts'
+

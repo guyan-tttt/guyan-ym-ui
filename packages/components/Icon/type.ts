@@ -1,5 +1,5 @@
 import type { IconDefinition} from '@fortawesome/fontawesome-svg-core'
-
+import type { Ref } from 'vue'
 
 
 // 图标属性
@@ -45,4 +45,9 @@ border?: boolean;
   spinReverse?: boolean;
   type?: "primary" | "success" | "warning" | "danger" | "info";
   color?: string;
+}
+
+// 图标实例
+export interface IconInstance {
+  ref:Ref<HTMLButtonElement | void>;
 }

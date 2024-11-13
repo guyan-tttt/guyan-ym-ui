@@ -5,7 +5,8 @@ import { BUTTON_GROUP_CTX_KEY } from './constant.ts';
 
 
 defineOptions({
-    name: 'ButtonGroup'
+    name: 'YmButtonGroup',
+    inheritAttrs: false
 })
 
 const props = defineProps<ButtonGroupProps>()
@@ -19,6 +20,7 @@ provide(
         disabled: toRef(props,"disabled"),
     })
 )
+
 </script>
 
 <template>

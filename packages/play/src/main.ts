@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 // import './style.css'
 import App from './App.vue'
-import YmUI from 'guyan-ym-ui'
-console.log(YmUI);
+import YmUi from 'guyan-ym-ui'
+
 
 import 'guyan-ym-ui/dist/index.css';
 // import type  * as Type  from 'guyan-ym-ui/dist/types/components/index.d.ts'
 
 const app = createApp(App)
-app.use(YmUI)
+app.use(YmUi)
 app.mount('#app')

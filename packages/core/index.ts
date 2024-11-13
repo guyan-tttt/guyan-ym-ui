@@ -7,6 +7,6 @@ import '@ym-UI/theme/index.css'
 library.add(fas) // 添加图标
 const installer = markInstaller(components);
 
-export * from "@ym-UI/components"
+export * from "../components"
 
 export default installer;
