@@ -1,0 +1,23 @@
+.ym-icon {
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.ym-icon {
+  --ym-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--ym-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary, info, success, warning, danger {
+  .ym-icon--$(val) {
+    --ym-icon-color: var(--ym-color-$(val));
+  }
+}

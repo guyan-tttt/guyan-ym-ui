@@ -7,17 +7,25 @@
     "dev": "pnpm --filter @ym-UI/play dev",
     "docs:dev": "pnpm --filter @ym-UI/docs dev",
     "docs:build": "pnpm --filter @ym-UI/docs build",
-    "docs:preview": "pnpm --filter @ym-UI/docs preview"
+    "docs:preview": "pnpm --filter @ym-UI/docs preview",
+    "test": "pnpm --filter @ym-UI/components test",
+    "storybook": "pnpm --filter @ym-UI/play storybook",
+    "build":"pnpm --filter guyan-ym-ui build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.11.20",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
+    "move-file-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
     "postcss-each-variables": "^0.3.0",
@@ -29,11 +37,11 @@
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
+    "@ym-UI/hooks": "workspace:*",
+    "@ym-UI/theme": "workspace:*",
+    "@ym-UI/utils": "workspace:*",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19",
-    "ym-UI": "workspace:*",
-    "@ym-UI/hooks": "workspace:*",
-    "@ym-UI/utils": "workspace:*",
-    "@ym-UI/theme": "workspace:*"
+    "guyan-ym-ui": "workspace:*"
   }
 }

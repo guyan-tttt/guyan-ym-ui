@@ -1,15 +1,50 @@
 {
-  "name": "ym-UI",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "guyan-ym-ui",
+  "version": "1.0.1",
+  "description": "一款基于Vue3 + TS 的个人开发组件库",
+  "main": "./dist/umd/index.umd.cjs",
+  "type": "module",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/core/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/umd/index.umd.cjs",
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/core/index.d.ts"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
+  },
+  "sideEffects": [
+    "./dist/index.css"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"run-s build-only move-style",
+    "build-only":"run-p build:es build:umd",
+    "build:umd": "vite build --config vite.umd.config.ts",
+    "build:es": "vite build --config vite.es.config.ts",
+    "move-style":"move-file dist/es/index.css dist/index.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@ym-UI/components": "workspace:*",
+    "vite-plugin-dts": "^3.9.1"
+  },
   "dependencies": {
-    "@ym-UI/components": "workspace:*"
+    "@popperjs/core": "^2.11.8",
+    "async-validator": "^4.2.5",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.19"
   }
 }
