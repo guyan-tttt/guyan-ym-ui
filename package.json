@@ -10,7 +10,8 @@
     "docs:preview": "pnpm --filter @ym-UI/docs preview",
     "test": "pnpm --filter @ym-UI/components test",
     "storybook": "pnpm --filter @ym-UI/play storybook",
-    "build":"pnpm --filter guyan-ym-ui build"
+    "build": "pnpm --filter guyan-ym-ui build",
+    "clear": ""
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,8 @@
     "postcss-each-variables": "^0.3.0",
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.1",
+    "release-it": "^17.10.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vitest": "^1.4.0",
@@ -40,8 +43,8 @@
     "@ym-UI/hooks": "workspace:*",
     "@ym-UI/theme": "workspace:*",
     "@ym-UI/utils": "workspace:*",
+    "guyan-ym-ui": "workspace:*",
     "lodash-es": "^4.17.21",
-    "vue": "^3.4.19",
-    "guyan-ym-ui": "workspace:*"
+    "vue": "^3.4.19"
   }
 }
