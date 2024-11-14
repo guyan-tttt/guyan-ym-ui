@@ -33,6 +33,7 @@ describe("Button.vue",() => {
     ["circle", "is-circle"],
     ["disabled", "is-disabled"],
     ["loading", "is-loading"],
+    
   ])(
     "should has the correct class when prop %s is set to true",
     (prop, className) => {
