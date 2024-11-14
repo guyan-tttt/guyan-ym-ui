@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import type { CollapseProps, CollapseEmits, CollapseItemName  } from './type'
 import { COLLAPSE_CTX_KEY  } from './constant';
-import { provide , ref, watch } from 'vue';
+import { provide , ref, watch, watchEffect } from 'vue';
+import { debugWarn  } from '@ym-UI/utils'
+
+const componentName = "YmCollapse" as const;
 
 defineOptions({
-    name: "YmCollapse"
+    name: componentName
 })
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref(props.modelValue)
 
-// 判断是否为手风琴模式
-if(props.accordion && activeNames.value.length > 1) {
-    console.warn(`accordion mode should only have one active item`);
-}
+
 
 function handleItemClick(item: CollapseItemName) {
     //TODO: 判断是否为手风琴模式
@@ -54,6 +54,12 @@ watch(
         updateActiveNames(newNames)
     }
 )
+watchEffect(() =>   {
+    // 判断是否为手风琴模式
+    if(props.accordion && activeNames.value.length > 1) {
+        debugWarn(componentName,"accordion mode should only have one active item(手风琴模式应该只有一个激活的组件)")
+    }
+})
 </script>
 
 <template>
@@ -65,5 +71,5 @@ watch(
 
 
 <style scoped>
-
+@import './style.css';
 </style>

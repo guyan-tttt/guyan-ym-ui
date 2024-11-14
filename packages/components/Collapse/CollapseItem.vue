@@ -3,6 +3,7 @@ import type { CollapseItemProps  } from './type'
 import { inject, computed  } from 'vue';
 import {  COLLAPSE_CTX_KEY } from './constant'
 import YmIcon from '../Icon/Icon.vue';
+import transitionEvents from './transition.ts';
 
 defineOptions({
     name: "YmCollapseItem"
@@ -48,17 +49,17 @@ function handleClick() {
         </span>
         <ym-icon icon="angle-right" class="header-angle" />
         </div>
-        <!-- <transition name="slide" v-on="transitionEvents"> -->
+        <transition name="slide" v-on="transitionEvents">
         <div class="ym-collapse-item__wapper" v-show="isActive">
             <div class="ym-collapse-item__content" :id="`item-content-${name}`">
             <slot></slot>
             </div>
         </div>
-        <!-- </transition> -->
+        </transition>
     </div>
 </template>
 
 
 <style scoped>
-
+@import './style.css';
 </style>

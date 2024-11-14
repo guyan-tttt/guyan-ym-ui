@@ -1,0 +1,59 @@
+.ym-collapse {
+    --ym-collapse-border-color: var(--ym-border-color-light);
+    --ym-collapse-header-height: 48px;
+    --ym-collapse-header-bg-color: var(--ym-fill-color-blank);
+    --ym-collapse-header-text-color: var(--ym-text-color-primary);
+    --ym-collapse-header-font-size: 13px;
+    --ym-collapse-content-bg-color: var(--ym-fill-color-blank);
+    --ym-collapse-content-font-size: 13px;
+    --ym-collapse-content-text-color: var(--ym-text-color-primary);
+    --ym-collapse-disabled-text-color: var(--ym-disabled-text-color);
+    --ym-collapse-disabled-border-color: var(--ym-border-color-lighter);
+    border-top: 1px solid var(--ym-collapse-border-color);
+    border-bottom: 1px solid var(--ym-collapse-border-color);
+  }
+  
+  .ym-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--ym-collapse-header-height);
+    line-height: var(--ym-collapse-header-height);
+    background-color: var(--ym-collapse-header-bg-color);
+    color: var(--ym-collapse-header-text-color);
+    cursor: pointer;
+    font-size: var(--ym-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--ym-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--ym-collapse-border-color);
+    &.is-disabled {
+      color: var(--ym-collapse-disabled-text-color);
+      cursor: not-allowed;
+      background-image: none;
+    }
+    &.is-active {
+      border-bottom-color: transparent;
+      .header-angle {
+        transform: rotate(90deg);
+      }
+    }
+    .header-angle {
+      transition: transform var(--ym-transition-duration);
+    }
+  }
+  .ym-collapse-item__content {
+    will-change: height;
+    background-color: var(--ym-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--ym-collapse-content-font-size);
+    color: var(--ym-collapse-content-text-color);
+    border-bottom: 1px solid var(--ym-collapse-border-color);
+    padding-bottom: 25px;
+  }
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: height var(--ym-transition-duration) ease-in-out;
+  }
+  
