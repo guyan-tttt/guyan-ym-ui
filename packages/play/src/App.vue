@@ -3,18 +3,27 @@
 </script>
 
 <template>
-  <ym-button type="primary" size="large">这是一个按钮</ym-button>
-  <br/>
-  <ym-button-group  size="small" type="primary" :disabled="false">
+  <div class="container">
+    <ym-button corrugation type="danger" size="large">这是一个按钮</ym-button>
+
+  </div>
+  
+  <!-- <ym-button-group  size="small" type="primary" :disabled="false">
     <ym-button round icon="search" type="primary">按钮1</ym-button>
     <ym-button icon="search" type="primary">按钮1</ym-button>
     <ym-button  round type="primary">按钮2</ym-button>
   </ym-button-group>
-  <ym-icon icon="search"></ym-icon>
+  <ym-icon icon="search"></ym-icon> -->
 
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

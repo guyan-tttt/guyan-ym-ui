@@ -24,6 +24,7 @@ export interface ButtonProps {
     useThrottle?: boolean; // 是否使用节流
     throttleDuration?: number; // 节流时间
     icon?: string; // 按钮图标
+    corrugation?: boolean; // 按钮是否开启波纹效果
 }
 
 // 按钮事件

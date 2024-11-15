@@ -94,6 +94,26 @@ border-color: var(--ym-button-disabled-border-color);
 width: 1em;
 height: 1em;
 }
+/* 波纹效果 */
+&.is-corrugation {
+    box-shadow:
+0 10px 13px rgba(31, 45, 61, 0.1),
+0 0 0 -1px rgba(32, 160, 255, 0.2),
+0 0 0 -25px var(--ym-button-bg-color);
+transition:
+all 0.25s,
+box-shadow 0s;
+letter-spacing: 1px;
+&:hover {
+    box-shadow:
+      0 10px 13px var(--ym-button-bg-color),
+      0 0 0 25px rgba(32, 160, 255, 0),
+      0 0 0 25px rgba(32, 160, 255, 0);
+    transition:
+      all 1s,
+      box-shadow 1s ease-out 0.1s;
+  }
+}
 }
 
 @each $val in primary, success, warning, info, danger {

@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<ButtonProps>(),{
     circle: false,
     plain: false,
     round: false,
+    corrugation: false,
     nativeType: "button",
     tag: "button",
     throttleDuration: 500,
@@ -61,7 +62,8 @@ defineExpose<ButtonInstance>({
     'is-plain': plain,
     'is-loading': loading,
     'is-circle': circle,
-    'is-round':round
+    'is-round':round,
+    'is-corrugation': corrugation
     }"
     @click="(e:MouseEvent) => useThrottle ? buttonClickThrottle(e) : buttonClick(e)"
    >
