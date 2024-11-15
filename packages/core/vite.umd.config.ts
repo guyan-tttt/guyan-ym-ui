@@ -6,7 +6,11 @@ import {  readFileSync } from "fs"
 import shelljs from "shelljs"
 import { delay } from 'lodash-es'
 import hooksPlugin from './hooksPlugin'
+import terser from '@rollup/plugin-terser'
 
+const isProd = process.env.NODE_ENV === "production";
+const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
 
 const MOVE_STYLE_DELUCTION = 800
 // 移动css文件
@@ -28,7 +32,19 @@ export default defineConfig({
         hooksPlugin({
             rmFiles: ['./dist/umd','./dist/index/css'],
             afterBuild: moveStyle,
-        })
+        }),
+        terser({
+            compress: {
+              drop_console: ["log"],
+              drop_debugger: true,
+              passes: 3,
+              global_defs: {
+                "@DEV": JSON.stringify(isDev),
+                "@PROD": JSON.stringify(isProd),
+                "@TEST": JSON.stringify(isTest),
+              },
+            },
+          }),
     ],
     build: {
         outDir: "dist/umd",

@@ -4,7 +4,7 @@
 
 <template>
   <div class="container">
-    <ym-button corrugation type="danger" size="large">这是一个按钮</ym-button>
+    <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button>
 
   </div>
   

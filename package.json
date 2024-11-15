@@ -8,10 +8,11 @@
     "docs:dev": "pnpm --filter @ym-UI/docs dev",
     "docs:build": "pnpm --filter @ym-UI/docs build",
     "docs:preview": "pnpm --filter @ym-UI/docs preview",
-    "test": "pnpm --filter @ym-UI/components test",
+    "test": " cross-env NODE_ENV=test pnpm --filter @ym-UI/components test",
     "storybook": "pnpm --filter @ym-UI/play storybook",
-    "build": "pnpm --filter guyan-ym-ui build",
-    "clear": ""
+    "build": "cross-env NODE_ENV=production pnpm --filter guyan-ym-ui build",
+    "build:dev": "cross-env NODE_ENV=development pnpm --filter guyan-ym-ui build:watch"
+    
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
+    "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",

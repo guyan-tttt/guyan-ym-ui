@@ -45,6 +45,9 @@ defineExpose<ButtonInstance>({
     ref: buttonRef
 })
 
+console.log("dsad");
+
+
 </script>
 
 <template>

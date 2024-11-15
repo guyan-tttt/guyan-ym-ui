@@ -6,7 +6,12 @@ import { readdirSync } from 'fs'
 import { filter ,map, delay} from 'lodash-es'
 import shelljs from 'shelljs'
 import hooksPlugin from './hooksPlugin'
+import terser from '@rollup/plugin-terser'
 
+
+const isProd = process.env.NODE_ENV === "production";
+const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
 
 
 const MOVE_STYLE_DELUCTION = 800
@@ -43,12 +48,41 @@ export default defineConfig({
         hooksPlugin({
             rmFiles:['./dist/es', './dist/theme','./dist/types'],
             afterBuild:moveStyle
-        })
+        }),
+        terser({
+            compress: {
+              sequences: isProd, // 保留逗号
+              arguments: isProd, // 保留函数参数
+              drop_console: isProd && ["log"], // 移除console
+              drop_debugger: isProd, // 移除debugger
+              passes: isProd ? 4 : 1, // 压缩次数
+              global_defs: {
+                "@DEV": JSON.stringify(isDev),
+                "@PROD": JSON.stringify(isProd),
+                "@TEST": JSON.stringify(isTest),
+              },
+            },
+            format: {
+              semicolons: false,
+              shorthand: isProd,
+              braces: !isProd,
+              beautify: !isProd,
+              comments: !isProd,
+            },
+            mangle: {
+              toplevel: isProd,
+              eval: isProd,
+              keep_classnames: isDev,
+              keep_fnames: isDev,
+            },
+          })
 
 ],
     build: {
         outDir: "dist/es",
-        cssCodeSplit: true, // 开启CSS代码分离
+        minify: false,
+        cssCodeSplit: true, // 开启CSS代码分离,
+
         lib: {
             entry: resolve(__dirname, './index.ts'),
             name: "云墨UI",
@@ -88,12 +122,15 @@ export default defineConfig({
                     if(id.includes("/packages/utils")) {
                         return "utils"; // 将utils打包到一个名为vendor的chunk中
                     }
-
+                    if(id.includes("plugin-vue:export-helper")) {
+                        return "utils"
+                    }
                     for(const dirName of getDirectoriesSync("../components")) {
                         if(id.includes(`/packages/components/${dirName}`)) {
                             return `${dirName}`; // 将组件打包到各自名称下的chunk中
                         }
                     }
+                    
                 }
 
             }

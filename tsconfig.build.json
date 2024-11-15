@@ -20,15 +20,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
+    "baseUrl": "./",
+    "paths": {
+        "@ym-UI/components": ["./packages/components"],
+    }
 },
 "include": [
     "packages/core/index.ts", 
     "packages/hooks/**/*.ts", 
     "packages/utils/**/*.ts",
-    "packages/components/index.ts",
     "packages/components/**/*.ts",
-    "packages/components/**/*.vue" 
+    "env.d.ts"
 ],
 
 "exclude": [

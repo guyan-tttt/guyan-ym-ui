@@ -37,6 +37,6 @@ defineExpose<IconInstance>({
 </template>
 
 
-<style>
+<style scoped>
 @import './style.css';
 </style>
