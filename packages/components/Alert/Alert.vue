@@ -79,5 +79,5 @@ defineExpose<AlertInstance>({
 
 
 <style scoped>
-
+@import './style.css';
 </style>

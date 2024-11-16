@@ -24,13 +24,11 @@ const options = [
 </script>
 
 <template>
-  <div class="container">
-    <!-- <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button> -->
+  <!-- <div class="container">
     <ym-context-menu :options="options">
-      <!-- <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button> -->
        <div class="box"></div>
     </ym-context-menu>
-  </div>
+  </div> -->
   
   <!-- <ym-button-group  size="small" type="primary" :disabled="false">
     <ym-button round icon="search" type="primary">按钮1</ym-button>
@@ -38,7 +36,9 @@ const options = [
     <ym-button  round type="primary">按钮2</ym-button>
   </ym-button-group>
   <ym-icon icon="search"></ym-icon> -->
-
+  <ym-alert title="标题" type="primary">
+    擦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+  </ym-alert>
 </template>
 
 <style scoped>

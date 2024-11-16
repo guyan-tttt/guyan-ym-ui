@@ -1,4 +1,12 @@
-import { YmButton , YmIcon, YmButtonGroup, YmCollapse, YmCollapseItem, YmContextMenu } from '@ym-UI/components'
+import { 
+    YmButton , 
+    YmIcon, 
+    YmButtonGroup, 
+    YmCollapse, 
+    YmCollapseItem, 
+    YmContextMenu ,
+    YmAlert
+} from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
 
@@ -8,5 +16,6 @@ export default [
     YmIcon,
     YmCollapse,
     YmCollapseItem,
-    YmContextMenu
+    YmContextMenu,
+    YmAlert
 ] as Plugin[]

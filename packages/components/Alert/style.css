@@ -1,0 +1,100 @@
+.ym-alert {
+    --ym-alert-padding: 8px 16px;
+    --ym-alert-border-radius-base: var(--ym-border-radius-base);
+    --ym-alert-bg-color: var(--ym-color-white);
+    --ym-alert-title-font-size: 14px;
+    --ym-alert-title-font-size-with-desc: 16px;
+    --ym-alert-desc-font-size: 14px;
+    --ym-alert-text-color: var(--ym-text-color-primary);
+    --ym-alert-top-margin: 20px;
+    --ym-alert-icon-size: 16px;
+    --ym-alert-icon-margin: 8px;
+    --ym-alert-big-icon-size: 28px;
+    --ym-alert-big-icon-margin: 12px;
+  }
+  .ym-alert {
+    padding: var(--ym-alert-padding);
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: var(--ym-alert-border-radius-base);
+    position: relative;
+    background-color: var(--ym-alert-bg-color);
+    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity var(--ym-transition-duration);
+    margin-top: var(--ym-alert-top-margin);
+    .ym-alert__icon {
+      color: var(--ym-alert-text-color);
+      font-size: var(--ym-alert-icon-size);
+      width: var(--ym-alert-icon-size);
+      margin-right: var(--ym-alert-icon-margin);
+      &.big-icon{
+        font-size: var(--ym-alert-big-icon-size);
+        width: var(--ym-alert-big-icon-size);
+        margin-right: var(--ym-alert-big-icon-margin);
+      }
+    }
+    .ym-alert__content {
+      color:  var(--ym-alert-text-color);
+      vertical-align: text-top;
+      .er-alert__title{
+        font-size: var(--ym-alert-title-font-size);
+        line-height: 24px;
+        &.with-desc {
+          font-size: var(--ym-alert-title-font-size-with-desc);
+        }
+      } 
+      .er-alert__description{
+        font-size: var(--ym-alert-desc-font-size);
+        margin: 0;
+      }
+  
+      .ym-alert__close {
+        font-size: var(--ym-alert-close-font-size);
+        opacity: 1;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        cursor: pointer;
+        :deep(.er-icon) {
+          vertical-align: top;
+        }
+      }
+      &.ym-alert__light {
+        .er-alert__close {
+          color: var(--ym-text-color-placeholder);
+        }
+      }
+      &.ym-alert__dark {
+        .er-alert__close {
+          color: var(--ym-color-white);
+        }
+      }
+    }
+  
+  
+    &.text-center {
+      justify-content: center;
+      span,p {
+        text-align: center;
+      }
+    }
+  }
+  
+  .ym-alert-fade-enter-from,
+  .ym-alert-fade-leave-to {
+    opacity: 0;
+  }
+  
+  @each $val in  primary,success,warning,info,danger { 
+    .ym-alert__$(val).ym-alert__light {
+      --ym-alert-text-color: var(--ym-color-$(val));
+      --ym-alert-bg-color: var(--ym-color-$(val)-light-9);
+    }
+    .ym-alert__$(val).ym-alert__dark {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-$(val));
+    }
+  }
