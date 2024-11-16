@@ -4,22 +4,25 @@ layout: home
 
 hero:
   name: "云墨UI"
-  text: "一个个人UI组件库"
-  tagline: My great project tagline
+  text: "一个基于Vue3的组件库"
+  tagline: 在这个快速变化的技术时代，前端开发领域迎来了Vue 3，一个革命性的框架，以其卓越的性能和易用性重新定义了现代Web开发。我们自豪地介绍我们的Vue 3组件库——一个专为开发者设计的、功能全面且高度可定制的工具集，旨在帮助您以前所未有的速度和效率构建下一代Web应用。
+  image: ./assest/logo.jpg
+  
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 快速开始
+      link: /get-start
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 组件文档
+      link: /components/button
+    
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 响应式设计
+    details: 每个组件都经过精心设计，以适应各种屏幕尺寸和设备，确保在任何设备上都能提供一致的用户体验。
+  - title: 组件丰富
+    details: 从基础的按钮和输入框到复杂的数据表格和图表，我们的组件库提供了您需要构建任何类型Web应用的所有组件。
+  - title: 最佳实践
+    details: 我们的组件库遵循Vue 3的最佳实践和最新趋势，确保您的项目始终保持在技术前沿。
 ---
 

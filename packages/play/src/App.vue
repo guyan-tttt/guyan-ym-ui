@@ -39,6 +39,7 @@ const options = [
   <ym-alert title="标题" type="primary">
     擦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
   </ym-alert>
+  <ym-icon type="primary" icon="search"></ym-icon>
 </template>
 
 <style scoped>

@@ -28,7 +28,7 @@ defineExpose<IconInstance>({
     <i
         ref="iconRef"
         class="ym-icon"
-        :class="{[`ym-icon-${props.type}`]: type}"
+        :class="{[`ym-icon--${props.type}`]: type}"
         :style="customStyle"
         v-bind="$attrs"
     >
