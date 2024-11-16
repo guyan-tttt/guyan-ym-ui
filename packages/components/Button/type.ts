@@ -1,4 +1,4 @@
-import type { Component,Ref } from "vue";
+import type { Component,Ref, ComputedRef } from "vue";
 
 // 按钮样式类型
 export type ButtonType = 'primary' | 'default' | 'dashed' | 'text';
@@ -35,6 +35,9 @@ export interface ButtonEmits {
 // 按钮组件实例
 export interface ButtonInstance {
     ref:Ref<HTMLButtonElement | void>;
+    disabled: ComputedRef<boolean>;
+    size: ComputedRef<ButtonSize>;
+    type: ComputedRef<ButtonType>;
 }
 
 // 按钮组属性类型

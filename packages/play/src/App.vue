@@ -1,11 +1,35 @@
 <script setup lang="ts">
-
+const options = [
+  {
+    label: "目录一",
+    handle: () => {}
+  },
+  {
+    label: "目录二",
+    handle: () => {}
+  },
+  {
+    label: "目录三",
+    handle: () => {}
+  },
+  {
+    label: "目录四",
+    handle: () => {}
+  },
+  {
+    label: "目录五",
+    handle: () => {}
+  },
+]
 </script>
 
 <template>
   <div class="container">
-    <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button>
-
+    <!-- <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button> -->
+    <ym-context-menu :options="options">
+      <!-- <ym-button corrugation type="primary" size="large">这是一个按钮</ym-button> -->
+       <div class="box"></div>
+    </ym-context-menu>
   </div>
   
   <!-- <ym-button-group  size="small" type="primary" :disabled="false">
@@ -18,6 +42,11 @@
 </template>
 
 <style scoped>
+.box {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+}
 .container {
   display: flex;
   justify-content: center;
