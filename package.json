@@ -12,9 +12,10 @@
     "test:comp": " cross-env NODE_ENV=test pnpm --filter @ym-UI/components test",
     "test:utils": "cross-env NODE_ENV=test pnpm --filter @ym-UI/utils test",
     "storybook": "pnpm --filter @ym-UI/play storybook",
-    "build": "cross-env NODE_ENV=production pnpm --filter guyan-ym-ui build",
-    "build:dev": "cross-env NODE_ENV=development pnpm --filter guyan-ym-ui build:watch"
-    
+    "build": "run-s build:hooks build:comp",
+    "build:comp": "cross-env NODE_ENV=production pnpm --filter guyan-ym-ui build",
+    "build:dev": "cross-env NODE_ENV=development pnpm --filter guyan-ym-ui build:watch",
+    "build:hooks": "cross-env NODE_ENV=production pnpm --filter @ym-UI/hooks build"
   },
   "keywords": [],
   "author": "",
@@ -41,7 +42,8 @@
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vitest": "^1.4.0",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^1.8.27",
+      "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
     "@ym-UI/hooks": "workspace:*",

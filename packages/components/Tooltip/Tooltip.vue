@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import  {ref, withDefaults , type Ref, computed, watchEffect } from 'vue'
+import  {ref, withDefaults , type Ref, computed, watchEffect , watch, onUnmounted} from 'vue'
 import type  { TooltipProps ,TooltipEmits,TooltipInstance} from './type'
 import { debounce, type DebouncedFunc,bind , isNil } from 'lodash-es'
 import { createPopper, type Instance  } from '@popperjs/core'
+import { useClickOutside } from '@ym-UI/hooks'
+import useEventsToTriggerNode from './useEventsToTriggerNode'
 
+
+interface _TooltipProps extends TooltipProps {
+    virtualRef?: HTMLElement | void,
+    virtualTriggering?: boolean
+}
 defineOptions({
     name: "YmTooltip"
 })
 
-const props = withDefaults(defineProps<TooltipProps>(),{
+const props = withDefaults(defineProps<_TooltipProps>(),{
     placement:'top', // top bottom left right
     trigger:'hover',
     transition: "fade",
@@ -26,9 +33,14 @@ const dropdownEvents: Ref<Record<string,EventListener>> = ref({})
 
 
 const containerNode = ref<HTMLElement | null>(null)
-const triggerNode = ref<HTMLElement | null>(null)
+const _triggerNode = ref<HTMLElement | null>(null)
 const popperNode = ref<HTMLElement | null>(null)
-
+const triggerNode = computed(() => {
+    if(props.virtualTriggering) {
+        return (props.virtualRef as HTMLElement) ?? _triggerNode.value as HTMLElement
+    } 
+    return _triggerNode.value as HTMLElement
+})
 const popperOptions  = computed(() => {
     return {
     placement: props.placement,
@@ -82,9 +94,9 @@ watchEffect(() => {
 function attachEvents() {
     if(props.disabled || props.manual) return
     if(props.trigger === "hover") {
-        events.value["mouseenter"] = openDebounce as EventListener
-        outerEvents.value["mouseenter"] = closeDebounce as EventListener
-        dropdownEvents.value["mouseenter"] = openDebounce as EventListener
+        events.value["mouseenter"] = openFinal 
+        outerEvents.value["mouseleave"] = closeFinal
+        dropdownEvents.value["mouseenter"] = openFinal
         return
     }
     if(props.trigger === 'click') {
@@ -125,14 +137,54 @@ defineExpose<TooltipInstance>({
     show,
     hide
 })
+
+watch(visible,(val) => {
+    if(!val) return 
+    if(_triggerNode.value && popperNode.value) {
+        popperInstance = createPopper(_triggerNode.value,popperNode.value, popperOptions.value)
+    }
+},{
+    flush: "post", // 确保在 DOM 更新后执行
+})
+
+watch(() => props.manual,(isManual) => {
+    if(isManual) {
+        resetEvents()
+        return
+    }
+    attachEvents()
+})
+
+watch(() => props.trigger,(val,oldVal) => {
+    if(oldVal === val) return 
+    openDebounce?.cancel()
+    visible.value = false
+    emits("visible-change", false)
+    resetEvents()
+})
+onUnmounted(() => {
+    destroyPopperInstance()
+})
+
+useClickOutside(containerNode, () => {
+    emits("click-outside")
+    if(props.trigger === 'hover' || props.manual ) return 
+    visible.value && closeFinal()
+})
+
+useEventsToTriggerNode(props, triggerNode, events, () => {
+    openDebounce?.cancel()
+    setVisible(false)
+})
+
 </script>
 <template>
     <div class="ym-tooltip" ref="containerNode" v-on="outerEvents">
     <div
       class="ym-tooltip__trigger"
-      ref="triggerNode"
+      ref="_triggerNode"
       v-on="events"
-      v-if="true"
+      v-if="!virtualTriggering"
     >
       <slot></slot>
     </div>
@@ -157,5 +209,5 @@ defineExpose<TooltipInstance>({
 
 
 <style scoped>
-
+@import './style.css';
 </style>

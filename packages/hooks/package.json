@@ -2,11 +2,23 @@
   "name": "@ym-UI/hooks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "./dist/index.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    "." : {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "test": "vitest --coverage",
+    "build": "vite build"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "lodash-es": "^4.17.21",
+    "vue": "^3.4.19"
+  }
 }

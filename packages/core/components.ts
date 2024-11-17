@@ -5,7 +5,8 @@ import {
     YmCollapse, 
     YmCollapseItem, 
     YmContextMenu ,
-    YmAlert
+    YmAlert,
+    YmTooltip
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -17,5 +18,6 @@ export default [
     YmCollapse,
     YmCollapseItem,
     YmContextMenu,
-    YmAlert
+    YmAlert,
+    YmTooltip
 ] as Plugin[]
