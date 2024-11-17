@@ -1,12 +1,20 @@
-.content-menu {
+
+
+.ym-content-menu {
     width: 100%;
     height: 100%;
   }
   .menu {
+    --ym-context-menu-bg-color: var(--ym-fill-color-blank);
+    --ym-collapse-header-height: 48px;
+    --ym-context-menu-text-color: var(--ym-text-color-primary);
+    --ym-context-menu-font-size: 13px;
+    --ym-context-menu-disabled-text-color: var(--ym-disabled-text-color);
+    --ym-context-menu-disabled-border-color: var(--ym-border-color-lighter);
     position: fixed;
-    background-color: #fff;
+    background-color: var(--ym-context-menu-bg-color);
+    color: var(--ym-context-menu-text-color);
     width: 150px;
-    color: #000;
     border-radius: 20px;
     padding: 0;
     box-shadow: 0 1px 3px #ccc;
@@ -23,7 +31,7 @@
       flex-direction: column;
       align-items: center;
       li {
-        margin: 0 5px;
+        margin: 0 10px;
         height: 30px;
         width: 100%;
         line-height: 30px;
@@ -45,4 +53,12 @@
         }
       }
     }
+  }
+
+  @each $val in primary, success, warning, info, danger {
+    .ym-menu--$(val) {
+      --ym-context-menu-bg-color: var(--ym-color-$(val));
+      --ym-context-menu-text-color: var(--ym-color-white);
+    }
+
   }

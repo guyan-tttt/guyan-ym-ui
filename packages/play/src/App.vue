@@ -24,27 +24,30 @@ const options = [
 </script>
 
 <template>
-  <!-- <div class="container">
-    <ym-context-menu :options="options">
+  <div class="container">
+    <ym-context-menu :options="options" type="primary" customize>
+      <template #menu>
+        xaxaaaaaaaaaaa
+      </template>
        <div class="box"></div>
     </ym-context-menu>
-  </div> -->
-  
+  </div>
+  +-
   <!-- <ym-button-group  size="small" type="primary" :disabled="false">
     <ym-button round icon="search" type="primary">按钮1</ym-button>
     <ym-button icon="search" type="primary">按钮1</ym-button>
     <ym-button  round type="primary">按钮2</ym-button>
   </ym-button-group>
   <ym-icon icon="search"></ym-icon> -->
-  <ym-alert title="标题" type="primary">
+  <!-- <ym-alert title="标题" type="primary">
     擦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
   </ym-alert>
-  <ym-icon type="primary" icon="search"></ym-icon>
+  <ym-icon type="primary" icon="search"></ym-icon> -->
 </template>
 
 <style scoped>
 .box {
-  background-color: red;
+  /* background-color: red; */
   width: 100%;
   height: 100%;
 }

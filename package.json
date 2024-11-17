@@ -8,7 +8,9 @@
     "docs:dev": "pnpm --filter @ym-UI/docs dev",
     "docs:build": "pnpm --filter @ym-UI/docs build",
     "docs:preview": "pnpm --filter @ym-UI/docs preview",
-    "test": " cross-env NODE_ENV=test pnpm --filter @ym-UI/components test",
+    "test": "run-p test:utils test:comp",
+    "test:comp": " cross-env NODE_ENV=test pnpm --filter @ym-UI/components test",
+    "test:utils": "cross-env NODE_ENV=test pnpm --filter @ym-UI/utils test",
     "storybook": "pnpm --filter @ym-UI/play storybook",
     "build": "cross-env NODE_ENV=production pnpm --filter guyan-ym-ui build",
     "build:dev": "cross-env NODE_ENV=development pnpm --filter guyan-ym-ui build:watch"
@@ -47,6 +49,9 @@
     "@ym-UI/utils": "workspace:*",
     "guyan-ym-ui": "workspace:*",
     "lodash-es": "^4.17.21",
-    "vue": "^3.4.19"
+    "vue": "^3.4.19",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "jsdom": "^24.0.0"
   }
 }
