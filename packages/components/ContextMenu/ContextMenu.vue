@@ -54,19 +54,29 @@ const isOut = (x: number, y: number, menu: any) => {
   return position
 }
 
-onMounted(() => {
-  const { x, y, visible } = useContextMenu(contextMenuRef.value)
-  contextInfo.value.x = x.value
-  contextInfo.value.y = y.value
-  contextInfo.value.visible = visible.value
-  watch(visible, () => {
-    contextInfo.value.visible = visible.value
-    const position = isOut(x.value, y.value, {
+const openMenu = (showVisible: boolean, x: number, y: number) => {
+  
+  contextInfo.value.visible = showVisible
+  console.log(contextInfo.value.visible,'31313');
+    const position = isOut(x, y, {
       clientWidth: 150,
       clientHeight: menuHeight.value || 150
     })
     contextInfo.value.x = position.x
     contextInfo.value.y = position.y
+}
+
+
+
+onMounted(() => {
+  const { x, y, visible } = useContextMenu(contextMenuRef.value)
+
+  contextInfo.value.x = x.value
+  contextInfo.value.y = y.value
+  contextInfo.value.visible = visible.value
+
+  watch(visible, () => {
+    openMenu(visible.value, x.value, y.value)
   })
   watch(x, () => {
     contextInfo.value.visible = false
@@ -82,6 +92,10 @@ onMounted(() => {
   })
 })
 
+defineExpose({
+  contextMenuRef,
+  openMenu
+})
 </script>
 <template>
     <div class="ym-content-menu" ref="contextMenuRef" >
@@ -93,7 +107,7 @@ onMounted(() => {
             [`ym-menu--${type}`]: type,
           }">
             <ul v-if="!customize">
-              <li v-for="item in options" :key="item.label" @click="item.handle">{{ item.label }}</li>
+              <li v-for="item in options" :key="item.label" @click="item.handle(item)">{{ item.label }}</li>
             </ul>
             <template v-else>
             <slot name="menu"></slot>

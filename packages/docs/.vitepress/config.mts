@@ -21,6 +21,7 @@ export default defineConfig({
           { text: 'Icon 图标', link: '/components/icon' },
           { text: 'Collapse 折叠面板', link: '/components/collapse' },
           { text: 'Alert 提示', link: '/components/alert' },
+          {text: 'ContextMenu 右键菜单', link: "/components/contextMenu"},
         ]
       }
     ],

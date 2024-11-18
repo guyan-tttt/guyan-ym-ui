@@ -1,4 +1,5 @@
-import { ref, onMounted, onUnmounted, watch } from "vue"
+import { ref, onUnmounted } from "vue"
+import { useClickOutside } from "@ym-UI/hooks"
 
 export const useContextMenu = (container: HTMLElement) => {
   const x = ref(0)
@@ -26,7 +27,8 @@ export const useContextMenu = (container: HTMLElement) => {
   container.addEventListener("contextmenu", openMenu)
   window.addEventListener("click", closeMenu)
   window.addEventListener("contextmenu", closeMenu)
-
+  window.addEventListener("scroll", closeMenu)
+  useClickOutside(container as any, closeMenu)
   onUnmounted(() => {
     // 移除事件
     container.removeEventListener("contextmenu", openMenu)

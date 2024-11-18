@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=production pnpm --filter @ym-UI/hooks build vitest --coverage" 
+    "test": " vitest --coverage" 
   },
   "keywords": [],
   "author": "",

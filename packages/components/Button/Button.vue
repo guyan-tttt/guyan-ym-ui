@@ -48,8 +48,6 @@ defineExpose<ButtonInstance>({
     disabled
 })
 
-console.log("dsad");
-
 
 </script>
 

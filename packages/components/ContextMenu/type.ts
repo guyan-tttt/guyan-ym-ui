@@ -2,7 +2,7 @@ export type ContextMenuType = "primary" | "success" | "warning" | "danger" | "in
 
 export interface ContextMenuOptionsItem {
     label: string,
-    handle(): void
+    handle(item: ContextMenuOptionsItem): void
 }
 
 export interface ContextMenuProps {

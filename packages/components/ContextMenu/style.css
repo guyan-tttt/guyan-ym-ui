@@ -1,8 +1,9 @@
 
 
 .ym-content-menu {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    display: inline-block;
   }
   .menu {
     --ym-context-menu-bg-color: var(--ym-fill-color-blank);

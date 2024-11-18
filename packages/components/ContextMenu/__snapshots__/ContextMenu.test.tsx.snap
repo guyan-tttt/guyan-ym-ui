@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContextMenu > renders correctly 1`] = `
+"<div data-v-b7bebcf8="" class="ym-content-menu">Default Slot Content
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;

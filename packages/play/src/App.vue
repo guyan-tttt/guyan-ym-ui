@@ -2,30 +2,41 @@
 const options = [
   {
     label: "目录一",
-    handle: () => {}
+    handle: (item: any) => {
+     console.log('目录一',item);
+     
+    }
   },
   {
     label: "目录二",
-    handle: () => {}
+    handle: () => {
+     console.log('目录二');
+    }
   },
   {
     label: "目录三",
-    handle: () => {}
+    handle: () => {
+     console.log('目录三');
+    }
   },
   {
     label: "目录四",
-    handle: () => {}
+    handle: () => {
+     console.log('目录四');
+    }
   },
   {
     label: "目录五",
-    handle: () => {}
+    handle: () => {
+     console.log('目录五');
+    }
   },
 ]
 </script>
 
 <template>
   <div class="container">
-    <ym-context-menu :options="options" type="primary" customize>
+    <ym-context-menu :options="options" type="primary">
       <template #menu>
         xaxaaaaaaaaaaa
       </template>
