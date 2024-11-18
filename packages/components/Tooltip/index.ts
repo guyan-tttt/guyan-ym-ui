@@ -4,4 +4,4 @@ import { withInstall  } from  "@ym-UI/utils"
 export const YmTooltip = withInstall(Tooltip);
 
 
-// export * from './type.ts'
+export * from './type.ts'
