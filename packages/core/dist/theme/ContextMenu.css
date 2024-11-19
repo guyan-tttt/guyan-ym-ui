@@ -1,0 +1,76 @@
+
+.ym-content-menu[data-v-9130b886] {
+    /* width: 100%;
+    height: 100%; */
+    display: inline-block;
+}
+.menu[data-v-9130b886] {
+    --ym-context-menu-bg-color: var(--ym-fill-color-blank);
+    --ym-collapse-header-height: 48px;
+    --ym-context-menu-text-color: var(--ym-text-color-primary);
+    --ym-context-menu-font-size: 13px;
+    --ym-context-menu-disabled-text-color: var(--ym-disabled-text-color);
+    --ym-context-menu-disabled-border-color: var(--ym-border-color-lighter);
+    position: fixed;
+    background-color: var(--ym-context-menu-bg-color);
+    color: var(--ym-context-menu-text-color);
+    width: 150px;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 1px 3px #ccc;
+    border: 1px solid #ccc;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.menu ul[data-v-9130b886] {
+      width: 100%;
+      margin: 10px 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+.menu ul li[data-v-9130b886] {
+        margin: 0 10px;
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+        text-align: center;
+        border-bottom: 1px solid #efefef;
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+}
+.menu ul li[data-v-9130b886]:hover {
+          background-color: #efefef;
+          transform: translateY(-10px);
+          box-shadow: 0 0 10px #ccc;
+          border: 1px solid #fff;
+          color: #46bff0;
+          border-radius: 10px;
+}
+.menu ul li[data-v-9130b886]:last-child {
+          border-bottom: none;
+}
+.ym-menu--primary[data-v-9130b886] {
+      --ym-context-menu-bg-color: var(--ym-color-primary);
+      --ym-context-menu-text-color: var(--ym-color-white);
+}
+.ym-menu--success[data-v-9130b886] {
+      --ym-context-menu-bg-color: var(--ym-color-success);
+      --ym-context-menu-text-color: var(--ym-color-white);
+}
+.ym-menu--warning[data-v-9130b886] {
+      --ym-context-menu-bg-color: var(--ym-color-warning);
+      --ym-context-menu-text-color: var(--ym-color-white);
+}
+.ym-menu--info[data-v-9130b886] {
+      --ym-context-menu-bg-color: var(--ym-color-info);
+      --ym-context-menu-text-color: var(--ym-color-white);
+}
+.ym-menu--danger[data-v-9130b886] {
+      --ym-context-menu-bg-color: var(--ym-color-danger);
+      --ym-context-menu-text-color: var(--ym-color-white);
+}
+  

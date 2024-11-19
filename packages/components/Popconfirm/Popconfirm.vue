@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type {  PopconfirmProps, PopconfirmEmits  } from './types'
-import { withDefaults , ref} from 'vue';
+import { withDefaults , ref, computed } from 'vue';
 import YmTooltip from  '../Tooltip/Tooltip.vue'
 import type { TooltipInstance } from '../Tooltip'
 import YmIcon from '../Icon/Icon.vue'
+import YmButton from '../Button/Button.vue'
+import { addUnit } from '@ym-UI/utils'
 
 defineOptions({
     name: "YmPopconfirm"
@@ -22,8 +24,23 @@ const props = withDefaults(defineProps<PopconfirmProps>(),{
     width: 200, // 默认为200px宽度
 })
 
+const emits = defineEmits<PopconfirmEmits>()
+
 const tooltipRef = ref<TooltipInstance>()
 
+const style = computed(() => ({width: addUnit(props.width)}))
+
+function hidePopper() {
+    tooltipRef.value?.hide()
+}
+function confirm(e: Event) {
+    emits("confirm",e as MouseEvent)
+    hidePopper()
+}
+function cancel(e: Event) {
+    emits("cancel",e as MouseEvent)
+    hidePopper()
+}
 </script>
 
 <template>
@@ -33,7 +50,20 @@ const tooltipRef = ref<TooltipInstance>()
     :width="width"
     >
         <template #content>
-            <div class="ym-popconfirm"></div>
+            <div class="ym-popconfirm" :style="style">
+                <div class="ym-popconfirm__main">
+                    <ym-icon v-if="!hideIcon && icon" :icon="icon" :color="iconColor"></ym-icon>
+                    {{ title }}
+                </div>
+                <div class="ym-popconfirm__action">
+                    <ym-button size="small" :type="cancelButtonType"  @click="cancel">
+                        {{ cancelButtonText }}
+                    </ym-button>
+                    <ym-button size="small" :type="confirmButtonType"  @click="confirm">
+                        {{ confirmButtonText }}
+                    </ym-button>
+                </div>
+            </div>
         </template>
         <template v-if="$slots.default" #default>
             <slot name="default"></slot>
@@ -47,5 +77,5 @@ const tooltipRef = ref<TooltipInstance>()
 
 
 <style scoped>
-
+@import './style.css';
 </style>

@@ -1,0 +1,11 @@
+.ym-popconfirm .ym-popconfirm__main[data-v-b0861c36] {
+      display: flex;
+      align-items: center;
+}
+.ym-popconfirm .ym-popconfirm__main i[data-v-b0861c36] {
+        margin-right: 5px;
+}
+.ym-popconfirm .ym-popconfirm__action[data-v-b0861c36] {
+      text-align: right;
+      margin-top: 8px;
+}

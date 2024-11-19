@@ -1,0 +1,121 @@
+.ym-alert[data-v-4eaf3a48] {
+    --ym-alert-padding: 8px 16px;
+    --ym-alert-border-radius-base: var(--ym-border-radius-base);
+    --ym-alert-bg-color: var(--ym-color-white);
+    --ym-alert-title-font-size: 14px;
+    --ym-alert-title-font-size-with-desc: 16px;
+    --ym-alert-desc-font-size: 14px;
+    --ym-alert-text-color: var(--ym-text-color-primary);
+    --ym-alert-top-margin: 20px;
+    --ym-alert-icon-size: 16px;
+    --ym-alert-icon-margin: 8px;
+    --ym-alert-big-icon-size: 28px;
+    --ym-alert-big-icon-margin: 12px;
+}
+.ym-alert[data-v-4eaf3a48] {
+    padding: var(--ym-alert-padding);
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: var(--ym-alert-border-radius-base);
+    position: relative;
+    background-color: var(--ym-alert-bg-color);
+    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity var(--ym-transition-duration);
+    margin-top: var(--ym-alert-top-margin);
+}
+.ym-alert .ym-alert__icon[data-v-4eaf3a48] {
+      color: var(--ym-alert-text-color);
+      font-size: var(--ym-alert-icon-size);
+      width: var(--ym-alert-icon-size);
+      margin-right: var(--ym-alert-icon-margin);
+}
+.ym-alert .ym-alert__icon.big-icon[data-v-4eaf3a48]{
+        font-size: var(--ym-alert-big-icon-size);
+        width: var(--ym-alert-big-icon-size);
+        margin-right: var(--ym-alert-big-icon-margin);
+}
+.ym-alert .ym-alert__content[data-v-4eaf3a48] {
+      color:  var(--ym-alert-text-color);
+      vertical-align: text-top;
+}
+.ym-alert .ym-alert__content .er-alert__title[data-v-4eaf3a48]{
+        font-size: var(--ym-alert-title-font-size);
+        line-height: 24px;
+}
+.ym-alert .ym-alert__content .er-alert__title.with-desc[data-v-4eaf3a48] {
+          font-size: var(--ym-alert-title-font-size-with-desc);
+}
+.ym-alert .ym-alert__content .er-alert__description[data-v-4eaf3a48]{
+        font-size: var(--ym-alert-desc-font-size);
+        margin: 0;
+}
+.ym-alert .ym-alert__content .ym-alert__close[data-v-4eaf3a48] {
+        font-size: var(--ym-alert-close-font-size);
+        opacity: 1;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        cursor: pointer;
+}
+.ym-alert .ym-alert__content .ym-alert__close[data-v-4eaf3a48] .er-icon {
+          vertical-align: top;
+}
+.ym-alert .ym-alert__content.ym-alert__light .er-alert__close[data-v-4eaf3a48] {
+          color: var(--ym-text-color-placeholder);
+}
+.ym-alert .ym-alert__content.ym-alert__dark .er-alert__close[data-v-4eaf3a48] {
+          color: var(--ym-color-white);
+}
+.ym-alert.text-center[data-v-4eaf3a48] {
+      justify-content: center;
+}
+.ym-alert.text-center span[data-v-4eaf3a48],.ym-alert.text-center p[data-v-4eaf3a48] {
+        text-align: center;
+}
+.ym-alert-fade-enter-from[data-v-4eaf3a48],
+  .ym-alert-fade-leave-to[data-v-4eaf3a48] {
+    opacity: 0;
+}
+.ym-alert__primary.ym-alert__light[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-primary);
+      --ym-alert-bg-color: var(--ym-color-primary-light-9);
+}
+.ym-alert__primary.ym-alert__dark[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-primary);
+}
+.ym-alert__success.ym-alert__light[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-success);
+      --ym-alert-bg-color: var(--ym-color-success-light-9);
+}
+.ym-alert__success.ym-alert__dark[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-success);
+}
+.ym-alert__warning.ym-alert__light[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-warning);
+      --ym-alert-bg-color: var(--ym-color-warning-light-9);
+}
+.ym-alert__warning.ym-alert__dark[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-warning);
+}
+.ym-alert__info.ym-alert__light[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-info);
+      --ym-alert-bg-color: var(--ym-color-info-light-9);
+}
+.ym-alert__info.ym-alert__dark[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-info);
+}
+.ym-alert__danger.ym-alert__light[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-danger);
+      --ym-alert-bg-color: var(--ym-color-danger-light-9);
+}
+.ym-alert__danger.ym-alert__dark[data-v-4eaf3a48] {
+      --ym-alert-text-color: var(--ym-color-white);
+      --ym-alert-bg-color: var(--ym-color-danger);
+}

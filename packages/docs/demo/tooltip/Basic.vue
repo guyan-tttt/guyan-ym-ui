@@ -1,103 +1,103 @@
 <template>
   <div class="tooltip-base-box">
     <div class="row center">
-      <er-tooltip
+      <ym-tooltip
         class="box-item"
         content="Top Left prompts info"
         placement="top-start"
       >
-        <er-button>top-start</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>top-start</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Top Center prompts info"
         placement="top"
       >
-        <er-button>top</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>top</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Top Right prompts info"
         placement="top-end"
       >
-        <er-button>top-end</er-button>
-      </er-tooltip>
+        <ym-button>top-end</ym-button>
+      </ym-tooltip>
     </div>
     <div class="row">
-      <er-tooltip
+      <ym-tooltip
         class="box-item"
         content="Left Top prompts info"
         placement="left-start"
       >
-        <er-button>left-start</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>left-start</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Right Top prompts info"
         placement="right-start"
       >
-        <er-button>right-start</er-button>
-      </er-tooltip>
+        <ym-button>right-start</ym-button>
+      </ym-tooltip>
     </div>
     <div class="row">
-      <er-tooltip
+      <ym-tooltip
         class="box-item"
         content="Left Center prompts info"
         placement="left"
       >
-        <er-button class="mt-3 mb-3">left</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button class="mt-3 mb-3">left</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Right Center prompts info"
         placement="right"
       >
-        <er-button>right</er-button>
-      </er-tooltip>
+        <ym-button>right</ym-button>
+      </ym-tooltip>
     </div>
     <div class="row">
-      <er-tooltip
+      <ym-tooltip
         class="box-item"
         content="Left Bottom prompts info"
         placement="left-end"
       >
-        <er-button>left-end</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>left-end</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Right Bottom prompts info"
         placement="right-end"
       >
-        <er-button>right-end</er-button>
-      </er-tooltip>
+        <ym-button>right-end</ym-button>
+      </ym-tooltip>
     </div>
     <div class="row center">
-      <er-tooltip
+      <ym-tooltip
         class="box-item"
         content="Bottom Left prompts info"
         placement="bottom-start"
       >
-        <er-button>bottom-start</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>bottom-start</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Bottom Center prompts info"
         placement="bottom"
       >
-        <er-button>bottom</er-button>
-      </er-tooltip>
-      <er-tooltip
+        <ym-button>bottom</ym-button>
+      </ym-tooltip>
+      <ym-tooltip
         class="box-item"
         content="Bottom Right prompts info"
         placement="bottom-end"
       >
-        <er-button>bottom-end</er-button>
-      </er-tooltip>
+        <ym-button>bottom-end</ym-button>
+      </ym-tooltip>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .tooltip-base-box {
   width: 600px;
 }

@@ -1,0 +1,31 @@
+.ym-icon[data-v-4ca78051] {
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1;
+    vertical-align: middle;
+}
+.ym-icon[data-v-4ca78051] {
+  --ym-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--ym-icon-color);
+  font-size: inherit;
+}
+.ym-icon--primary[data-v-4ca78051] {
+    --ym-icon-color: var(--ym-color-primary);
+}
+.ym-icon--info[data-v-4ca78051] {
+    --ym-icon-color: var(--ym-color-info);
+}
+.ym-icon--success[data-v-4ca78051] {
+    --ym-icon-color: var(--ym-color-success);
+}
+.ym-icon--warning[data-v-4ca78051] {
+    --ym-icon-color: var(--ym-color-warning);
+}
+.ym-icon--danger[data-v-4ca78051] {
+    --ym-icon-color: var(--ym-color-danger);
+}
