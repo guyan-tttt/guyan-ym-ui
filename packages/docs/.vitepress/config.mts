@@ -6,7 +6,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: 'public/logo.ico' }]],
   title: "云墨UI",
   description: "一个个人UI组件库",
-  base: "/ym-UI/",
+  base: "/guyan-ym-ui/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
