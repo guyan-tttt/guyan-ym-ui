@@ -3,7 +3,9 @@ import { containerPreview,componentPreview } from '@vitepress-demo-preview/plugi
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  head: [['link', { rel: 'icon', href: 'public/logo.ico' }]],
+  srcDir: './src',
+
+  head: [['link', { rel: 'icon', href: '/logo.ico' }]],
   title: "云墨UI",
   description: "一个个人UI组件库",
   base: "/guyan-ym-ui/",
@@ -13,7 +15,7 @@ export default defineConfig({
       { text: '快速开始', link: '/get-start' },
       { text: '组件', link: '/components/button' }
     ],
-    logo: '/public/logo.svg',
+    logo: '/logo.svg',
     sidebar: [
       {
         text: '基础组件',

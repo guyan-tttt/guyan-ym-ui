@@ -6,7 +6,7 @@ hero:
   name: "云墨UI"
   text: "基于Vue3的组件库"
   tagline: 在这个快速变化的技术时代，前端开发领域迎来了Vue 3，一个革命性的框架，以其卓越的性能和易用性重新定义了现代Web开发。我们自豪地介绍我们的Vue 3组件库——一个专为开发者设计的、功能全面且高度可定制的工具集，旨在帮助您以前所未有的速度和效率构建下一代Web应用。
-  image:  ./public/logo.png
+  image:  ./logo.png
   
   
   actions:
