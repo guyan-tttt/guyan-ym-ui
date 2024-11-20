@@ -11,15 +11,14 @@ prev:
   text: Alert 警示
 ---
 
-# ContextMenu 右键菜单 <Badge type="warning" text="测试阶段" />
-
+# ContextMenu 右键菜单
 通过鼠标右键点击来触发一个定制化的菜单而不是默认的浏览器右键菜单。
 
 ::: tip
 contextmenu: 目前只做了部分功能，且不是完全符合规范，后续会继续优化。
 :::
 
-## 基础用法
+## 基础用法 
 
 可使用`options`,`type`来设置菜单项和菜单样式。
 
@@ -37,7 +36,8 @@ demo-preview=../demo/contextmenu/Customize.vue
 
 
 
-## ContextMenu API
+## ContextMenu API <Badge type="warning" text="测试阶段" />
+
 
 ### Props
 

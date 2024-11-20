@@ -1,0 +1,6 @@
+:root {
+    --vp-sidebar-bg-color: #fff; /* 设置亮色主题下侧边栏的背景色为白色 */
+  }
+  :root.dark {
+    --vp-sidebar-bg-color: #161618; /* 设置暗色主题下侧边栏的背景色 */
+  }

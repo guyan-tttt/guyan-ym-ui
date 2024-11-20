@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<PopconfirmProps>(),{
     confirmButtonText: "确定",
     cancelButtonText: "取消",
     cancelButtonType: "default",
-    confirmButtonType: "default",
+    confirmButtonType: "primary",
     title:"确定当前操作吗？",
     icon: "check-circle",
     iconColor: "green",

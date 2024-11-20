@@ -1,12 +1,14 @@
 <template>
-  <er-popconfirm 
+  <ym-popconfirm 
     width="220"
-    confirm-button-text="Delete"
-    cancel-button-text="No,Thanks"
+    confirm-button-text="删除"
+    cancel-button-text="不，取消"
     icon="trash"
     icon-color="#626aef"
-    title="Are you sure to delete this item?"
+    title="你确定要删除吗？"
+    cancelButtonType="danger"
+    confirmButtonType="primary"
   >
-    <er-button>Delete</er-button>
-  </er-popconfirm>
+    <ym-button>Delete</ym-button>
+  </ym-popconfirm>
 </template>

@@ -145,3 +145,4 @@ demo-preview=../demo/button/Throttle.vue
 | Name    | Description | Sub Component |
 | ------- | ----------- | ------------- |
 | default | 默认插槽    | Button        |
+
