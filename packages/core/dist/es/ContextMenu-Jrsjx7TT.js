@@ -38,7 +38,7 @@ const E = { key: 0 }, _ = ["onClick"], L = g(k(n({ name: "YmContextMenu", __name
       }, 0);
     });
   }), k2({ contextMenuRef: g2, openMenu: R }), (e2, t2) => (u(), a("div", { class: "ym-content-menu", ref_key: "contextMenuRef", ref: g2 }, [v(e2.$slots, "default", {}, void 0, true), (u(), s(r, { to: "body" }, [c(d, { onEnter: W }, { default: m(() => [H.value.visible ? (u(), a("div", { key: 0, class: y(["menu", { [`ym-menu--${e2.type}`]: e2.type }]), ref_key: "menuRef", ref: L2, style: x({ top: H.value.y + "px", left: H.value.x + "px" }) }, [e2.customize ? v(e2.$slots, "menu", { key: 1 }, void 0, true) : (u(), a("ul", E, [(u(true), a(p, null, h(e2.options, (e3) => (u(), a("li", { key: e3.label, onClick: (t3) => e3.handle(e3) }, w(e3.label), 9, _))), 128))]))], 6)) : f("", true)]), _: 3 })]))], 512));
-} }), [["__scopeId", "data-v-9130b886"]]));
+} }), [["__scopeId", "data-v-0de9e977"]]));
 export {
   L as Y
 };

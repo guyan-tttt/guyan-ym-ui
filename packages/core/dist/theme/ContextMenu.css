@@ -1,10 +1,10 @@
 
-.ym-content-menu[data-v-9130b886] {
+.ym-content-menu[data-v-0de9e977] {
     /* width: 100%;
     height: 100%; */
     display: inline-block;
 }
-.menu[data-v-9130b886] {
+.menu[data-v-0de9e977] {
     --ym-context-menu-bg-color: var(--ym-fill-color-blank);
     --ym-collapse-header-height: 48px;
     --ym-context-menu-text-color: var(--ym-text-color-primary);
@@ -23,7 +23,7 @@
     overflow: hidden;
     padding: 0 10px;
 }
-.menu ul[data-v-9130b886] {
+.menu ul[data-v-0de9e977] {
       width: 100%;
       margin: 10px 0;
       padding: 0;
@@ -32,7 +32,7 @@
       flex-direction: column;
       align-items: center;
 }
-.menu ul li[data-v-9130b886] {
+.menu ul li[data-v-0de9e977] {
         margin: 0 10px;
         height: 30px;
         width: 100%;
@@ -42,7 +42,7 @@
         cursor: pointer;
         transition: all 0.2s ease-in;
 }
-.menu ul li[data-v-9130b886]:hover {
+.menu ul li[data-v-0de9e977]:hover {
           background-color: #efefef;
           transform: translateY(-10px);
           box-shadow: 0 0 10px #ccc;
@@ -50,26 +50,26 @@
           color: #46bff0;
           border-radius: 10px;
 }
-.menu ul li[data-v-9130b886]:last-child {
+.menu ul li[data-v-0de9e977]:last-child {
           border-bottom: none;
 }
-.ym-menu--primary[data-v-9130b886] {
+.ym-menu--primary[data-v-0de9e977] {
       --ym-context-menu-bg-color: var(--ym-color-primary);
       --ym-context-menu-text-color: var(--ym-color-white);
 }
-.ym-menu--success[data-v-9130b886] {
+.ym-menu--success[data-v-0de9e977] {
       --ym-context-menu-bg-color: var(--ym-color-success);
       --ym-context-menu-text-color: var(--ym-color-white);
 }
-.ym-menu--warning[data-v-9130b886] {
+.ym-menu--warning[data-v-0de9e977] {
       --ym-context-menu-bg-color: var(--ym-color-warning);
       --ym-context-menu-text-color: var(--ym-color-white);
 }
-.ym-menu--info[data-v-9130b886] {
+.ym-menu--info[data-v-0de9e977] {
       --ym-context-menu-bg-color: var(--ym-color-info);
       --ym-context-menu-text-color: var(--ym-color-white);
 }
-.ym-menu--danger[data-v-9130b886] {
+.ym-menu--danger[data-v-0de9e977] {
       --ym-context-menu-bg-color: var(--ym-color-danger);
       --ym-context-menu-text-color: var(--ym-color-white);
 }

@@ -1,8 +1,8 @@
 
 <script setup lang="ts">
-import { ref, onMounted, watch, defineProps, useSlots, withDefaults } from "vue"
+import { ref, onMounted, watch, useSlots } from "vue"
 import { useContextMenu } from "./useContextMenu"
-import  type { ContextMenuProps, ContextMenuOptionsItem  } from './type'
+import  type { ContextMenuProps  } from './type'
 
 defineOptions({
   name: "YmContextMenu"
