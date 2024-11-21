@@ -7,7 +7,6 @@ import { BUTTON_GROUP_CTX_KEY } from './constant';
 
 defineOptions({
     name: "YmButton",
-    inheritAttrs: false
 })
 
 const props = withDefaults(defineProps<ButtonProps>(),{

@@ -56,10 +56,10 @@ function cancel(e: Event) {
                     {{ title }}
                 </div>
                 <div class="ym-popconfirm__action">
-                    <ym-button size="small" :type="cancelButtonType"  @click="cancel">
+                    <ym-button class="ym-popconfirm__cancel" size="small" :type="cancelButtonType"  @click="cancel">
                         {{ cancelButtonText }}
                     </ym-button>
-                    <ym-button size="small" :type="confirmButtonType"  @click="confirm">
+                    <ym-button class="ym-popconfirm__confirm" size="small" :type="confirmButtonType"  @click="confirm">
                         {{ confirmButtonText }}
                     </ym-button>
                 </div>
