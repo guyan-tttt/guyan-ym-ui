@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type DropdownItemProps } from "eric-ui";
+import { type DropdownItemProps } from "guyan-ym-ui";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Action 1" },
@@ -12,31 +12,31 @@ const items: DropdownItemProps[] = [
 <template>
   <div class="row">
     <div class="col">
-      <div class="desc">hover to trigger</div>
-      <er-dropdown :items="items">
+      <div class="desc">鼠标悬浮</div>
+      <ym-dropdown :items="items">
         <span class="dropdown-link">
           Dropdown List
-          <er-icon icon="angle-down" />
+          <ym-icon icon="angle-down" />
         </span>
-      </er-dropdown>
+      </ym-dropdown>
     </div>
     <div class="col">
-      <div class="desc">click to trigger</div>
-      <er-dropdown :items="items" trigger="click">
+      <div class="desc">鼠标点击</div>
+      <ym-dropdown :items="items" trigger="click">
         <span class="dropdown-link">
           Dropdown List
-          <er-icon icon="angle-down" />
+          <ym-icon icon="angle-down" />
         </span>
-      </er-dropdown>
+      </ym-dropdown>
     </div>
     <div class="col">
-      <div class="desc">right click to trigger</div>
-      <er-dropdown :items="items" trigger="contextmenu">
+      <div class="desc">鼠标右击</div>
+      <ym-dropdown :items="items" trigger="contextmenu">
         <span class="dropdown-link">
           Dropdown List
-          <er-icon icon="angle-down" />
+          <ym-icon icon="angle-down" />
         </span>
-      </er-dropdown>
+      </ym-dropdown>
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ const items: DropdownItemProps[] = [
 }
 .desc {
   display: block;
-  color: var(--er-text-color-secondary);
+  color: var(--ym-text-color-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -59,7 +59,7 @@ const items: DropdownItemProps[] = [
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--er-color-primary);
+  color: var(--ym-color-primary);
   i {
     margin-left: 8px;
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type DropdownItemProps } from "eric-ui";
+import { type DropdownItemProps } from "guyan-ym-ui";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Action 1" },
@@ -11,13 +11,13 @@ const items: DropdownItemProps[] = [
 
 <template>
   <div class="row">
-    <er-dropdown :items="items" size="large" split-button>
+    <ym-dropdown :items="items" size="large" split-button>
       Large List
-    </er-dropdown>
-    <er-dropdown :items="items" split-button> Default List </er-dropdown>
-    <er-dropdown :items="items" size="small" split-button>
+    </ym-dropdown>
+    <ym-dropdown :items="items" split-button> Default List </ym-dropdown>
+    <ym-dropdown :items="items" size="small" split-button>
       small List
-    </er-dropdown>
+    </ym-dropdown>
   </div>
 </template>
 

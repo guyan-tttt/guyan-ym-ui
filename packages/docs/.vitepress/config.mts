@@ -35,7 +35,8 @@ export default defineConfig({
           { text: 'Alert 警示', link: '/components/alert' },
           {text: 'ContextMenu 右键菜单', link: "/components/contextMenu"},
           {text: 'Tooltip 提示', link: '/components/tooltip'},
-          {text: "Popconfirm 气泡确认", link: "/components/popconfirm"}
+          {text: "Popconfirm 气泡确认", link: "/components/popconfirm"},
+          { text: "Dropdown 下拉菜单", link: "/components/dropdown"}
         ]
       },
 

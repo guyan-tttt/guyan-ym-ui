@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type DropdownItemProps, ErMessage } from "eric-ui";
+import { type DropdownItemProps} from "guyan-ym-ui";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Action 1" },
@@ -9,26 +9,27 @@ const items: DropdownItemProps[] = [
 ];
 
 function handleClick() {
-  ErMessage.info("button click");
+  // ErMessage.info("button click");
+  alert("button click")
 }
 </script>
 
 <template>
   <div class="row">
-    <er-dropdown :items="items">
-      <er-button type="primary">
+    <ym-dropdown :items="items" placement="bottom">
+      <ym-button type="primary">
         Dropdown List
-        <er-icon icon="angle-down" style="margin-left: 8px" />
-      </er-button>
-    </er-dropdown>
-    <er-dropdown
+        <ym-icon icon="angle-down" style="margin-left: 8px" />
+      </ym-button>
+    </ym-dropdown>
+    <ym-dropdown
       :items="items"
       type="primary"
       @click="handleClick"
       split-button
     >
       Dropdown List
-    </er-dropdown>
+    </ym-dropdown>
   </div>
 </template>
 

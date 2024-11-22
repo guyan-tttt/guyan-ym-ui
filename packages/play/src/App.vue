@@ -11,6 +11,9 @@ const items = [
 const handleCommand:any = (command: string) => {
   alert(command)
 }
+const handleClick = () => [
+  alert('click')
+]
 </script>
 
 <template>
@@ -27,7 +30,7 @@ const handleCommand:any = (command: string) => {
           <ym-dropdown-item command="4" divided>Action 4</ym-dropdown-item>
         </template>
     </ym-dropdown> -->
-    <ym-dropdown :items="items" @command="handleCommand">
+    <ym-dropdown :items="items"  splitButton @click="handleClick">
     <span class="dropdown-link">
       Dropdown List
       <ym-icon icon="angle-down" />

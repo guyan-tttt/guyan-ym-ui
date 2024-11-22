@@ -1,4 +1,4 @@
-.ym-tooltip[data-v-2d9dbdb4] {
+.ym-tooltip[data-v-0926dd93] {
     --ym-popover-bg-color: var(--ym-bg-color-overlay);
     --ym-popover-font-size: var(--ym-font-size-base);
     --ym-popover-border-color: var(--ym-border-color-lighter);
@@ -6,15 +6,15 @@
     --ym-popover-border-radius: 4px;
     display: inline-block;
 }
-.ym-tooltip .fade-enter-active[data-v-2d9dbdb4],
-    .ym-tooltip .fade-leave-active[data-v-2d9dbdb4] {
+.ym-tooltip .fade-enter-active[data-v-0926dd93],
+    .ym-tooltip .fade-leave-active[data-v-0926dd93] {
       transition: opacity var(--ym-transition-duration);
 }
-.ym-tooltip .fade-enter-from[data-v-2d9dbdb4],
-    .ym-tooltip .fade-leave-to[data-v-2d9dbdb4] {
+.ym-tooltip .fade-enter-from[data-v-0926dd93],
+    .ym-tooltip .fade-leave-to[data-v-0926dd93] {
       opacity: 0;
 }
-.ym-tooltip .ym-tooltip__popper[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper[data-v-0926dd93] {
       background: var(--ym-popover-bg-color);
       border-radius: var(--ym-popover-border-radius);
       border: 1px solid var(--ym-popover-border-color);
@@ -28,47 +28,47 @@
       box-sizing: border-box;
       z-index: 1000;
 }
-.ym-tooltip .ym-tooltip__popper #arrow[data-v-2d9dbdb4],
-      .ym-tooltip .ym-tooltip__popper #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper #arrow[data-v-0926dd93],
+      .ym-tooltip .ym-tooltip__popper #arrow[data-v-0926dd93]::before {
         position: absolute;
         width: 8px;
         height: 8px;
         box-sizing: border-box;
         background: var(--ym-popover-bg-color);
 }
-.ym-tooltip .ym-tooltip__popper #arrow[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper #arrow[data-v-0926dd93] {
         visibility: hidden;
 }
-.ym-tooltip .ym-tooltip__popper #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper #arrow[data-v-0926dd93]::before {
         visibility: visible;
         content: '';
         transform: rotate(45deg);
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='top'] > #arrow[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='top'] > #arrow[data-v-0926dd93] {
         bottom: -5px;
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='bottom'] > #arrow[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='bottom'] > #arrow[data-v-0926dd93] {
         top: -5px;
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='left'] > #arrow[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='left'] > #arrow[data-v-0926dd93] {
         right: -5px;
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='right'] > #arrow[data-v-2d9dbdb4] {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='right'] > #arrow[data-v-0926dd93] {
         left: -5px;
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='top'] > #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='top'] > #arrow[data-v-0926dd93]::before {
         border-right: 1px solid var(--ym-popover-border-color);
         border-bottom: 1px solid var(--ym-popover-border-color);
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='bottom'] > #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='bottom'] > #arrow[data-v-0926dd93]::before {
         border-left: 1px solid var(--ym-popover-border-color);
         border-top: 1px solid var(--ym-popover-border-color);
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='left'] > #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='left'] > #arrow[data-v-0926dd93]::before {
         border-right: 1px solid var(--ym-popover-border-color);
         border-top: 1px solid var(--ym-popover-border-color);
 }
-.ym-tooltip .ym-tooltip__popper[data-popper-placement^='right'] > #arrow[data-v-2d9dbdb4]::before {
+.ym-tooltip .ym-tooltip__popper[data-popper-placement^='right'] > #arrow[data-v-0926dd93]::before {
         border-left: 1px solid var(--ym-popover-border-color);
         border-bottom: 1px solid var(--ym-popover-border-color);
 }

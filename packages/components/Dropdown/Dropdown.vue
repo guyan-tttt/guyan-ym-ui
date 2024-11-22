@@ -62,19 +62,20 @@ provide<DropdownContext>(DROPDOWN_CTX_KEY,{
     <YmTooltip 
     ref="tooltipRef"
      v-bind="tooltipParams"
-     :virtual-triggering="splitButton"
      :virtual-ref="virtualRef?.value"
      @visible-change="$emit('visible-change',$event)"
      >
      <!-- 默认切换按钮 -->
+
      <YmButtonGroup v-if="splitButton" :type="type" :size="size" :disabled="disabled">
-        <YmButton  @click="$emit('click',$event as any)">
+        <YmButton  @click.stop="$emit('click',$event as any)">
             <slot name="default"></slot>
         </YmButton>
-        <YmButton  ref="triggerRef" icon="angle-down"></YmButton>
+        <YmButton  ref="triggerRef" icon="angle-down"/>
      </YmButtonGroup>
+
      <!-- 自定义切换按钮 -->
-     <slot v-else></slot>
+     <slot v-else name="default"></slot>
 
     <template #content>
         <!-- 菜单内容 -->

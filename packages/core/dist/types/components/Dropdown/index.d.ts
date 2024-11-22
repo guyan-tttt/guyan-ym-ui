@@ -35,7 +35,7 @@ export declare const YmDropdown: {
             type: import('vue').PropType<number>;
         };
         items: {
-            type: import('vue').PropType<import('./type').DropdownItemProps[]>;
+            type: import('vue').PropType<import('packages/core').DropdownItemProps[]>;
         };
         hideOnClick: {
             type: import('vue').PropType<boolean>;
@@ -47,13 +47,13 @@ export declare const YmDropdown: {
     }>> & Readonly<{
         onClick?: ((value: MouseEvent) => any) | undefined;
         "onVisible-change"?: ((value: boolean) => any) | undefined;
-        onCommand?: ((value: import('./type').DropdownCommand) => any) | undefined;
+        onCommand?: ((value: import('packages/core').DropdownCommand) => any) | undefined;
     }>, {
         open(): void;
         close(): void;
     }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
         "visible-change": (value: boolean) => void;
-        command: (value: import('./type').DropdownCommand) => void;
+        command: (value: import('packages/core').DropdownCommand) => void;
         click: (value: MouseEvent) => void;
     }, import('vue').PublicProps, {
         trigger: "hover" | "click" | "contextmenu";
@@ -101,7 +101,7 @@ export declare const YmDropdown: {
             type: import('vue').PropType<number>;
         };
         items: {
-            type: import('vue').PropType<import('./type').DropdownItemProps[]>;
+            type: import('vue').PropType<import('packages/core').DropdownItemProps[]>;
         };
         hideOnClick: {
             type: import('vue').PropType<boolean>;
@@ -113,7 +113,7 @@ export declare const YmDropdown: {
     }>> & Readonly<{
         onClick?: ((value: MouseEvent) => any) | undefined;
         "onVisible-change"?: ((value: boolean) => any) | undefined;
-        onCommand?: ((value: import('./type').DropdownCommand) => any) | undefined;
+        onCommand?: ((value: import('packages/core').DropdownCommand) => any) | undefined;
     }>, {
         open(): void;
         close(): void;
@@ -160,7 +160,7 @@ export declare const YmDropdown: {
         type: import('vue').PropType<number>;
     };
     items: {
-        type: import('vue').PropType<import('./type').DropdownItemProps[]>;
+        type: import('vue').PropType<import('packages/core').DropdownItemProps[]>;
     };
     hideOnClick: {
         type: import('vue').PropType<boolean>;
@@ -172,13 +172,13 @@ export declare const YmDropdown: {
 }>> & Readonly<{
     onClick?: ((value: MouseEvent) => any) | undefined;
     "onVisible-change"?: ((value: boolean) => any) | undefined;
-    onCommand?: ((value: import('./type').DropdownCommand) => any) | undefined;
+    onCommand?: ((value: import('packages/core').DropdownCommand) => any) | undefined;
 }>, {
     open(): void;
     close(): void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "visible-change": (value: boolean) => void;
-    command: (value: import('./type').DropdownCommand) => void;
+    command: (value: import('packages/core').DropdownCommand) => void;
     click: (value: MouseEvent) => void;
 }, string, {
     trigger: "hover" | "click" | "contextmenu";
@@ -199,7 +199,7 @@ export declare const YmDropdownItem: {
             default: boolean;
         };
         command: {
-            type: import('vue').PropType<import('./type').DropdownCommand>;
+            type: import('vue').PropType<import('packages/core').DropdownCommand>;
             default: string;
         };
         divided: {
@@ -208,7 +208,7 @@ export declare const YmDropdownItem: {
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
         disabled: boolean;
-        command: import('./type').DropdownCommand;
+        command: import('packages/core').DropdownCommand;
         divided: boolean;
     }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
         P: {};
@@ -229,7 +229,7 @@ export declare const YmDropdownItem: {
             default: boolean;
         };
         command: {
-            type: import('vue').PropType<import('./type').DropdownCommand>;
+            type: import('vue').PropType<import('packages/core').DropdownCommand>;
             default: string;
         };
         divided: {
@@ -238,7 +238,7 @@ export declare const YmDropdownItem: {
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
         disabled: boolean;
-        command: import('./type').DropdownCommand;
+        command: import('packages/core').DropdownCommand;
         divided: boolean;
     }>;
     __isFragment?: never;
@@ -256,7 +256,7 @@ export declare const YmDropdownItem: {
         default: boolean;
     };
     command: {
-        type: import('vue').PropType<import('./type').DropdownCommand>;
+        type: import('vue').PropType<import('packages/core').DropdownCommand>;
         default: string;
     };
     divided: {
@@ -265,10 +265,11 @@ export declare const YmDropdownItem: {
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
     disabled: boolean;
-    command: import('./type').DropdownCommand;
+    command: import('packages/core').DropdownCommand;
     divided: boolean;
 }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
     };
 }) & import('vue').Plugin;
+export * from './type';

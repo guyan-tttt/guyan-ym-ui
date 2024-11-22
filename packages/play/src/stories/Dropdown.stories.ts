@@ -115,7 +115,7 @@ const DownRef = ref(null)
 export const SplitButton:Story = {
     args: {
         onClick:(e) => {
-            DownRef.value?.open()
+            alert(e)
          },
         items: [
             {

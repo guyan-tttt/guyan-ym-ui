@@ -16,7 +16,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<_TooltipProps>(),{
-    placement:'top', // top bottom left right
+    placement:'bottom', // top bottom left right
     trigger:'hover',
     transition: "fade",
     showTimeout: 0,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DropdownItemProps, DropdownInstance } from "eric-ui";
+import type { DropdownItemProps, DropdownInstance } from "guyan-ym-ui";
 import { ref } from "vue";
 
 const items: DropdownItemProps[] = [
@@ -12,15 +12,15 @@ const dropdownRef = ref<DropdownInstance>();
 </script>
 
 <template>
-  <er-button @click="() => dropdownRef?.open()">open</er-button>
-  <er-button @click="() => dropdownRef?.close()">close</er-button>
+  <ym-button @click="() => dropdownRef?.open()" type="primary">open</ym-button>
+  <ym-button @click="() => dropdownRef?.close()" >close</ym-button>
   <br />
-  <er-dropdown ref="dropdownRef" :items="items">
+  <ym-dropdown ref="dropdownRef" :items="items">
     <span class="dropdown-link">
       Dropdown List
-      <er-icon icon="angle-down" />
+      <ym-icon icon="angle-down" />
     </span>
-  </er-dropdown>
+  </ym-dropdown>
 </template>
 
 <style scoped>
@@ -28,7 +28,7 @@ const dropdownRef = ref<DropdownInstance>();
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--er-color-primary);
+  color: var(--ym-color-primary);
   margin-top: 20px;
   i {
     margin-left: 8px;

@@ -2,8 +2,7 @@
 import {
   type DropdownItemProps,
   type DropdownCommand,
-  ErMessage,
-} from "eric-ui";
+} from "guyan-ym-ui";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Action 1" },
@@ -13,17 +12,17 @@ const items: DropdownItemProps[] = [
 ];
 
 function handleCommand(command: DropdownCommand) {
-  ErMessage.info("click on item " + command);
+  alert(`click on item ${command}`)
 }
 </script>
 
 <template>
-  <er-dropdown :items="items" @command="handleCommand">
+  <ym-dropdown :items="items" @command="handleCommand">
     <span class="dropdown-link">
       Dropdown List
-      <er-icon icon="angle-down" />
+      <ym-icon icon="angle-down" />
     </span>
-  </er-dropdown>
+  </ym-dropdown>
 </template>
 
 <style scoped>
@@ -31,7 +30,7 @@ function handleCommand(command: DropdownCommand) {
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--er-color-primary);
+  color: var(--ym-color-primary);
 
   i {
     margin-left: 8px;

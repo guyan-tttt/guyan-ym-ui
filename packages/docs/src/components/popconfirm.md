@@ -7,8 +7,8 @@ prev:
   text: Tooltip 文字提示
 
 next:
-  link: /components/tooltip
-  text: Tooltip 文字提示
+  link: /components/dropdown
+  text: Dropdown 下拉菜单
 ---
 
 # Popconfirm 气泡确认框

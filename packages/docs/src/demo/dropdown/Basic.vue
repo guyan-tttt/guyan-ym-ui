@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type DropdownItemProps } from "eric-ui";
+import { type DropdownItemProps } from "guyan-ym-ui";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Action 1" },
@@ -13,27 +13,27 @@ const items: DropdownItemProps[] = [
   <div class="row">
     <div class="col">
       <div class="desc">通过 slot 传入 item</div>
-      <er-dropdown>
+      <ym-dropdown>
         <span class="dropdown-link">
           Dropdown List
-          <er-icon icon="angle-down" />
+          <ym-icon icon="angle-down" />
         </span>
         <template #dropdown>
-          <er-dropdown-item command="1">Action 1</er-dropdown-item>
-          <er-dropdown-item command="2" label="Action 2" />
-          <er-dropdown-item command="3" disabled>Action 3</er-dropdown-item>
-          <er-dropdown-item command="4" divided>Action 4</er-dropdown-item>
+          <ym-dropdown-item command="1">Action 1</ym-dropdown-item>
+          <ym-dropdown-item command="2" label="Action 2" />
+          <ym-dropdown-item command="3" disabled>Action 3</ym-dropdown-item>
+          <ym-dropdown-item command="4" divided>Action 4</ym-dropdown-item>
         </template>
-      </er-dropdown>
+      </ym-dropdown>
     </div>
     <div class="col">
       <div class="desc">通过 props 传入 item</div>
-      <er-dropdown :items="items">
+      <ym-dropdown :items="items">
         <span class="dropdown-link">
           Dropdown List
-          <er-icon icon="angle-down" />
+          <ym-icon icon="angle-down" />
         </span>
-      </er-dropdown>
+      </ym-dropdown>
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ const items: DropdownItemProps[] = [
 }
 .desc {
   display: block;
-  color: var(--er-text-color-secondary);
+  color: var(--ym-text-color-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -56,7 +56,7 @@ const items: DropdownItemProps[] = [
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--er-color-primary);
+  color: var(--ym-color-primary);
   i {
     margin-left: 8px;
   }
