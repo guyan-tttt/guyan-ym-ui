@@ -26,6 +26,7 @@ export default defineConfig({
           { text: 'Button 按钮', link: '/components/button' },
           { text: 'Icon 图标', link: '/components/icon' },
           { text: 'Collapse 折叠面板', link: '/components/collapse' },
+          { text: "Card 卡片", link: "/components/card"}
         ]
       },
       {
@@ -36,7 +37,8 @@ export default defineConfig({
           {text: 'ContextMenu 右键菜单', link: "/components/contextMenu"},
           {text: 'Tooltip 提示', link: '/components/tooltip'},
           {text: "Popconfirm 气泡确认", link: "/components/popconfirm"},
-          { text: "Dropdown 下拉菜单", link: "/components/dropdown"}
+          { text: "Dropdown 下拉菜单", link: "/components/dropdown"},
+          
         ]
       },
 

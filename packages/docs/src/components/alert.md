@@ -7,8 +7,8 @@ next:
   text: Loading 加载
 
 prev:
-  link: /components/collapse
-  text: Collapse 折叠面板
+  link: /components/card
+  text: Card 卡片
 ---
 
 # Alert 提示
