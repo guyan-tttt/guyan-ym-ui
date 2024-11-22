@@ -1,41 +1,21 @@
 <script setup lang="ts">
-import { YmDropdown } from 'guyan-ym-ui';
-
-const items = [
-  { command: "1", label: "Action 1" },
-  { command: "2", label: "Action 2" },
-  { command: "3", label: "Action 3", disabled: true },
-  { command: "4", label: "Action 4", divided: true },
-];
-
-const handleCommand:any = (command: string) => {
-  alert(command)
-}
-const handleClick = () => [
-  alert('click')
-]
+import Card from './components/Card.vue'
 </script>
 
 <template>
   <div class="container">
-    <!-- <ym-dropdown>
-        <span class="dropdown-link">
-          Dropdown List
-          <ym-icon icon="angle-down" />
-        </span>
-        <template #dropdown>
-          <ym-dropdown-item command="1">Action 1</ym-dropdown-item>
-          <ym-dropdown-item command="2" label="Action 2" />
-          <ym-dropdown-item command="3" disabled>Action 3</ym-dropdown-item>
-          <ym-dropdown-item command="4" divided>Action 4</ym-dropdown-item>
-        </template>
-    </ym-dropdown> -->
-    <ym-dropdown :items="items"  splitButton @click="handleClick">
-    <span class="dropdown-link">
-      Dropdown List
-      <ym-icon icon="angle-down" />
-    </span>
-  </ym-dropdown>
+    <Card>
+      <template #header>
+        header
+      </template>
+      <!-- <template #footer>
+        footer
+      </template> -->
+      <img
+      src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+      style="width: 100%"
+    />
+    </Card>
   </div>
 
 </template>

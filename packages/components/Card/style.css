@@ -1,0 +1,41 @@
+.ym-card {
+    --ym-card-border-color: var(--ym-border-color-light);
+    --ym-card-header-padding: 20px;
+    --ym-card-content-padding: 20px;
+    --ym-card-footer-padding: 20px;
+    --ym-card-bg-color: var(--ym-fill-color-blank);
+    --ym-card-text-color: var(--ym-text-color-primary);
+    --ym-card-font-size: 13px;
+    --ym-card-shadow: 0 2px 10px var(--ym-border-color);
+    --ym-card-min-width: 200px;
+    --ym-card-border-radius: 4px;
+    --ym-card-transition: all 0.3s ease-in-out;
+
+
+    min-width: var(--ym-card-min-width);
+    border-radius: var(--ym-card-border-radius);
+    border: 1px solid var(--ym-card-border-color);
+    overflow: hidden;
+    color: var(--ym-card-text-color);
+    transition: var(--ym-card-transition);
+}
+.ym-card__header {
+    padding: var(--ym-card-header-padding);
+    border-bottom: 1px solid var(--ym-border-color);
+}
+.ym-card__content {
+    padding:  var(--ym-card-content-padding);
+}
+.ym-card__footer {
+    padding: var(--ym-card-footer-padding);
+    border-top: 1px solid var(--ym-border-color);
+}
+.is-always-shadow {
+    box-shadow: var(--ym-card-shadow);
+}
+.is-hover-shadow:hover {
+    box-shadow: var(--ym-card-shadow);
+}
+.is-never-shadow {
+    box-shadow: none;
+}
