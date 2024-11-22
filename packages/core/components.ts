@@ -7,7 +7,9 @@ import {
     YmContextMenu ,
     YmAlert,
     YmTooltip,
-    YmPopconfirm
+    YmPopconfirm,
+    YmDropdown,
+    YmDropdownItem
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -21,5 +23,7 @@ export default [
     YmContextMenu,
     YmAlert,
     YmTooltip,
-    YmPopconfirm
+    YmPopconfirm,
+    YmDropdown,
+    YmDropdownItem
 ] as Plugin[]

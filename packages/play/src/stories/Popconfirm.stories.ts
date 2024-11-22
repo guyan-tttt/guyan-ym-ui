@@ -7,7 +7,7 @@ import 'guyan-ym-ui/dist/index.css'
 type Story = StoryObj<typeof YmPopconfirm>;
 
 const meta: Meta<typeof YmPopconfirm> = {
-  title: "Example/YmPopconfirm",
+  title: "Example/Popconfirm",
   component: YmPopconfirm,
   tags: ["autodocs"],
   argTypes: {

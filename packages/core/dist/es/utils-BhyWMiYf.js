@@ -1,4 +1,4 @@
-import { f as r, c as n, e } from "./vendor-mRsNTCw1.js";
+import { f as r, c as n, e } from "./vendor-Clj6B87w.js";
 function s(n2) {
   return (e2) => r(n2, (r2) => e2.use(r2));
 }

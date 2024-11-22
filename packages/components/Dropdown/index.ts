@@ -5,4 +5,5 @@ import { withInstall } from "@ym-UI/utils";
 export const YmDropdown = withInstall(Dropdown);
 export const YmDropdownItem = withInstall(DropdownItem);
 
+export * from './type'
 

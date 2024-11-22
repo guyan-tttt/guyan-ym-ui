@@ -188,9 +188,6 @@ export declare const YmDropdown: {
 }) & import('vue').Plugin;
 export declare const YmDropdownItem: {
     new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
-        command: {
-            type: import('vue').PropType<import('./type').DropdownCommand>;
-        };
         label: {
             type: import('vue').PropType<string | import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
                 [key: string]: any;
@@ -199,11 +196,21 @@ export declare const YmDropdownItem: {
         };
         disabled: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
+        command: {
+            type: import('vue').PropType<import('./type').DropdownCommand>;
+            default: string;
         };
         divided: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
-    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
+    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
+        disabled: boolean;
+        command: import('./type').DropdownCommand;
+        divided: boolean;
+    }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
         P: {};
         B: {};
         D: {};
@@ -211,9 +218,6 @@ export declare const YmDropdownItem: {
         M: {};
         Defaults: {};
     }, Readonly<import('vue').ExtractPropTypes<{
-        command: {
-            type: import('vue').PropType<import('./type').DropdownCommand>;
-        };
         label: {
             type: import('vue').PropType<string | import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
                 [key: string]: any;
@@ -222,18 +226,25 @@ export declare const YmDropdownItem: {
         };
         disabled: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
+        command: {
+            type: import('vue').PropType<import('./type').DropdownCommand>;
+            default: string;
         };
         divided: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
-    }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    }>> & Readonly<{}>, {}, {}, {}, {}, {
+        disabled: boolean;
+        command: import('./type').DropdownCommand;
+        divided: boolean;
+    }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
-    command: {
-        type: import('vue').PropType<import('./type').DropdownCommand>;
-    };
     label: {
         type: import('vue').PropType<string | import('vue').VNode<import('vue').RendererNode, import('vue').RendererElement, {
             [key: string]: any;
@@ -242,8 +253,22 @@ export declare const YmDropdownItem: {
     };
     disabled: {
         type: import('vue').PropType<boolean>;
+        default: boolean;
+    };
+    command: {
+        type: import('vue').PropType<import('./type').DropdownCommand>;
+        default: string;
     };
     divided: {
         type: import('vue').PropType<boolean>;
+        default: boolean;
     };
-}>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & import('vue').Plugin;
+}>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
+    disabled: boolean;
+    command: import('./type').DropdownCommand;
+    divided: boolean;
+}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+}) & import('vue').Plugin;

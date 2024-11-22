@@ -1,59 +1,40 @@
 <script setup lang="ts">
-const options = [
-  {
-    label: "目录一",
-    handle: (item: any) => {
-     console.log('目录一',item);
-     
-    }
-  },
-  {
-    label: "目录二",
-    handle: () => {
-     console.log('目录二');
-    }
-  },
-  {
-    label: "目录三",
-    handle: () => {
-     console.log('目录三');
-    }
-  },
-  {
-    label: "目录四",
-    handle: () => {
-     console.log('目录四');
-    }
-  },
-  {
-    label: "目录五",
-    handle: () => {
-     console.log('目录五');
-    }
-  },
-]
+import { YmDropdown } from 'guyan-ym-ui';
+
+const items = [
+  { command: "1", label: "Action 1" },
+  { command: "2", label: "Action 2" },
+  { command: "3", label: "Action 3", disabled: true },
+  { command: "4", label: "Action 4", divided: true },
+];
+
+const handleCommand:any = (command: string) => {
+  alert(command)
+}
 </script>
 
 <template>
   <div class="container">
-    <ym-context-menu :options="options" type="primary">
-      <template #menu>
-        xaxaaaaaaaaaaa
-      </template>
-       <div class="box"></div>
-    </ym-context-menu>
+    <!-- <ym-dropdown>
+        <span class="dropdown-link">
+          Dropdown List
+          <ym-icon icon="angle-down" />
+        </span>
+        <template #dropdown>
+          <ym-dropdown-item command="1">Action 1</ym-dropdown-item>
+          <ym-dropdown-item command="2" label="Action 2" />
+          <ym-dropdown-item command="3" disabled>Action 3</ym-dropdown-item>
+          <ym-dropdown-item command="4" divided>Action 4</ym-dropdown-item>
+        </template>
+    </ym-dropdown> -->
+    <ym-dropdown :items="items" @command="handleCommand">
+    <span class="dropdown-link">
+      Dropdown List
+      <ym-icon icon="angle-down" />
+    </span>
+  </ym-dropdown>
   </div>
-  +-
-  <!-- <ym-button-group  size="small" type="primary" :disabled="false">
-    <ym-button round icon="search" type="primary">按钮1</ym-button>
-    <ym-button icon="search" type="primary">按钮1</ym-button>
-    <ym-button  round type="primary">按钮2</ym-button>
-  </ym-button-group>
-  <ym-icon icon="search"></ym-icon> -->
-  <!-- <ym-alert title="标题" type="primary">
-    擦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-  </ym-alert>
-  <ym-icon type="primary" icon="search"></ym-icon> -->
+
 </template>
 
 <style scoped>

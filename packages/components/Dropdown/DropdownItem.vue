@@ -49,5 +49,5 @@ const handleClick =  () => {
 
 
 <style scoped>
-
+@import './style.css';
 </style> 

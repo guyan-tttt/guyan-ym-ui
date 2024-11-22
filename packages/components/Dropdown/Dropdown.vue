@@ -68,7 +68,7 @@ provide<DropdownContext>(DROPDOWN_CTX_KEY,{
      >
      <!-- 默认切换按钮 -->
      <YmButtonGroup v-if="splitButton" :type="type" :size="size" :disabled="disabled">
-        <YmButton  @click="$emit('click',$event as MouseEvent)">
+        <YmButton  @click="$emit('click',$event as any)">
             <slot name="default"></slot>
         </YmButton>
         <YmButton  ref="triggerRef" icon="angle-down"></YmButton>
@@ -93,5 +93,5 @@ provide<DropdownContext>(DROPDOWN_CTX_KEY,{
 
 
 <style scoped>
-
+@import './style';
 </style>

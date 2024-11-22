@@ -7,7 +7,7 @@ import 'guyan-ym-ui/dist/index.css'
 type Story = StoryObj<typeof YmContextMenu>;
 
 const meta: Meta<typeof  YmContextMenu> = {
-  title: "Example/YmContextMenu",
+  title: "Example/ContextMenu",
   component:YmContextMenu,
   tags: ["autodocs"],
   argTypes: {

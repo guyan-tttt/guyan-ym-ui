@@ -859,13 +859,13 @@ function Je(t2, r2, e2) {
   return g(e2) && (n2 = "leading" in e2 ? !!e2.leading : n2, o2 = "trailing" in e2 ? !!e2.trailing : o2), Ne(t2, r2, { leading: n2, maxWait: r2, trailing: o2 });
 }
 export {
-  qe as a,
+  Ve as a,
   Gr as b,
   We as c,
   Ne as d,
   Le as e,
   Re as f,
-  Ve as i,
+  qe as i,
   He as o,
   Je as t
 };
