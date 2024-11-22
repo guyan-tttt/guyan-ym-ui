@@ -1,6 +1,6 @@
 {
   "name": "guyan-ym-ui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "一款基于Vue3 + TS 的个人开发组件库",
   "main": "./dist/umd/index.umd.cjs",
   "type": "module",
