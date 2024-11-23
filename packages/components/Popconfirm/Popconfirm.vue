@@ -6,14 +6,13 @@ import type { TooltipInstance } from '../Tooltip'
 import YmIcon from '../Icon/Icon.vue'
 import YmButton from '../Button/Button.vue'
 import { addUnit } from '@ym-UI/utils'
+import { useLocale } from '@ym-UI/hooks';
 
 defineOptions({
     name: "YmPopconfirm"
 })
 
 const props = withDefaults(defineProps<PopconfirmProps>(),{
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
     cancelButtonType: "default",
     confirmButtonType: "primary",
     title:"确定当前操作吗？",
@@ -41,6 +40,8 @@ function cancel(e: Event) {
     emits("cancel",e as MouseEvent)
     hidePopper()
 }
+const { t } = useLocale()
+
 </script>
 
 <template>
@@ -57,10 +58,10 @@ function cancel(e: Event) {
                 </div>
                 <div class="ym-popconfirm__action">
                     <ym-button class="ym-popconfirm__cancel" size="small" :type="cancelButtonType"  @click="cancel">
-                        {{ cancelButtonText }}
+                        {{ cancelButtonText || t("popconfirm.cancelButtonText") }}
                     </ym-button>
                     <ym-button class="ym-popconfirm__confirm" size="small" :type="confirmButtonType"  @click="confirm">
-                        {{ confirmButtonText }}
+                        {{ confirmButtonText || t("popconfirm.confirmButtonText") }}
                     </ym-button>
                 </div>
             </div>

@@ -41,19 +41,21 @@
     "shelljs": "^0.8.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.4.0",
     "vue-tsc": "^1.8.27",
-      "vite-plugin-dts": "^3.9.1"
+    "vue3-i18n": "^1.1.5"
   },
   "dependencies": {
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
     "@ym-UI/hooks": "workspace:*",
     "@ym-UI/theme": "workspace:*",
     "@ym-UI/utils": "workspace:*",
+    "@ym-UI/locale": "workspace:*",
     "guyan-ym-ui": "workspace:*",
+    "jsdom": "^24.0.0",
     "lodash-es": "^4.17.21",
-    "vue": "^3.4.19",
-    "@vitest/coverage-v8": "^1.4.0",
-    "@vue/test-utils": "^2.4.5",
-    "jsdom": "^24.0.0"
+    "vue": "^3.4.19"
   }
 }

@@ -8,6 +8,7 @@ import YmTooltip from '../Tooltip/Tooltip.vue'
 import DropdownItem from './DropdownItem.vue'
 import { YmButtonGroup , YmButton} from  '../Button'
 import { DROPDOWN_CTX_KEY } from './constant.ts'
+import { useDisabledStyle } from '@ym-UI/hooks'
 
 defineOptions({
     name: 'YmDropdown',
@@ -51,6 +52,8 @@ provide<DropdownContext>(DROPDOWN_CTX_KEY,{
     handleItemClick,
     size: computed(() => props.size)
 })
+
+!TEST && useDisabledStyle()
 </script>
 
 <template>

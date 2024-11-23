@@ -15,7 +15,7 @@ const meta: Meta<typeof  YmDropdown> = {
             control: {
                 type: "select"
             },
-            options: ['primary' , 'default' , 'dashed' , 'text']
+            options: ['primary' , 'default' , 'success' , 'warning',"danger"]
         },
         trigger: {
             control: {

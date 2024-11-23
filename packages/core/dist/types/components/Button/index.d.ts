@@ -1,11 +1,11 @@
 export declare const YmButton: {
     new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: import('vue').PropType<string>;
+        };
         size: {
             type: import('vue').PropType<import('packages/core/index.ts').ButtonSize>;
             default: string;
-        };
-        icon: {
-            type: import('vue').PropType<string>;
         };
         type: {
             type: import('vue').PropType<import('packages/core/index.ts').ButtonType>;
@@ -91,12 +91,12 @@ export declare const YmButton: {
         M: {};
         Defaults: {};
     }, Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: import('vue').PropType<string>;
+        };
         size: {
             type: import('vue').PropType<import('packages/core/index.ts').ButtonSize>;
             default: string;
-        };
-        icon: {
-            type: import('vue').PropType<string>;
         };
         type: {
             type: import('vue').PropType<import('packages/core/index.ts').ButtonType>;
@@ -177,12 +177,12 @@ export declare const YmButton: {
     __isTeleport?: never;
     __isSuspense?: never;
 } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+    icon: {
+        type: import('vue').PropType<string>;
+    };
     size: {
         type: import('vue').PropType<import('packages/core/index.ts').ButtonSize>;
         default: string;
-    };
-    icon: {
-        type: import('vue').PropType<string>;
     };
     type: {
         type: import('vue').PropType<import('packages/core/index.ts').ButtonType>;

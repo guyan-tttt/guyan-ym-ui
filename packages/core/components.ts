@@ -10,7 +10,8 @@ import {
     YmPopconfirm,
     YmDropdown,
     YmDropdownItem,
-    YmCard
+    YmCard,
+    YmConfigProvider
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -27,5 +28,6 @@ export default [
     YmPopconfirm,
     YmDropdown,
     YmDropdownItem,
-    YmCard
+    YmCard,
+    YmConfigProvider
 ] as Plugin[]

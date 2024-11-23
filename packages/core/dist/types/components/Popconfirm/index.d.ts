@@ -11,11 +11,9 @@ export declare const YmPopconfirm: {
         };
         confirmButtonText: {
             type: import('vue').PropType<string>;
-            default: string;
         };
         cancelButtonText: {
             type: import('vue').PropType<string>;
-            default: string;
         };
         confirmButtonType: {
             type: import('vue').PropType<import('packages/core').ButtonType>;
@@ -50,8 +48,6 @@ export declare const YmPopconfirm: {
     }, import('vue').PublicProps, {
         icon: string;
         title: string;
-        confirmButtonText: string;
-        cancelButtonText: string;
         confirmButtonType: import('packages/core').ButtonType;
         cancelButtonType: import('packages/core').ButtonType;
         iconColor: string;
@@ -77,11 +73,9 @@ export declare const YmPopconfirm: {
         };
         confirmButtonText: {
             type: import('vue').PropType<string>;
-            default: string;
         };
         cancelButtonText: {
             type: import('vue').PropType<string>;
-            default: string;
         };
         confirmButtonType: {
             type: import('vue').PropType<import('packages/core').ButtonType>;
@@ -113,8 +107,6 @@ export declare const YmPopconfirm: {
     }>, {}, {}, {}, {}, {
         icon: string;
         title: string;
-        confirmButtonText: string;
-        cancelButtonText: string;
         confirmButtonType: import('packages/core').ButtonType;
         cancelButtonType: import('packages/core').ButtonType;
         iconColor: string;
@@ -137,11 +129,9 @@ export declare const YmPopconfirm: {
     };
     confirmButtonText: {
         type: import('vue').PropType<string>;
-        default: string;
     };
     cancelButtonText: {
         type: import('vue').PropType<string>;
-        default: string;
     };
     confirmButtonType: {
         type: import('vue').PropType<import('packages/core').ButtonType>;
@@ -176,8 +166,6 @@ export declare const YmPopconfirm: {
 }, string, {
     icon: string;
     title: string;
-    confirmButtonText: string;
-    cancelButtonText: string;
     confirmButtonType: import('packages/core').ButtonType;
     cancelButtonType: import('packages/core').ButtonType;
     iconColor: string;
