@@ -8,3 +8,4 @@ export * from './Popconfirm';
 export * from './Dropdown';
 export * from './Card';
 export * from './ConfigProvider';
+export * from './Message';
