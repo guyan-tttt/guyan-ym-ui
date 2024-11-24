@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-import { ErMessage } from "eric-ui";
+import { YmMessage } from "guyan-ym-ui";
 
 const open1 = () => {
-  ErMessage({
+  YmMessage({
     message: "Congrats, this is a success message.",
     type: "success",
   });
 };
 const open2 = () => {
-  ErMessage.success("Congrats, this is a success message.");
+  YmMessage.success("Congrats, this is a success message.");
 };
 </script>
 <template>
   <div>
-    <er-button @click="open1">插件式调用</er-button>
-    <er-button @click="open2">函数式调用</er-button>
-    <er-button @click="$message.success('Congrats, this is a success message.')"
-      >全局方法调用</er-button
+    <ym-button @click="open1">插件式调用</ym-button>
+    <ym-button @click="open2">函数式调用</ym-button>
+    <ym-button @click="$YmMessage.success('Congrats, this is a success message.')"
+      >全局方法调用</ym-button
     >
   </div>
 </template>

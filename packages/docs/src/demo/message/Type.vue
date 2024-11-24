@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import { ErMessage } from "eric-ui";
+import { YmMessage } from "guyan-ym-ui";
 
 const open1 = () => {
-  ErMessage("This is a message.");
+  YmMessage("This is a message.");
 };
 const open2 = () => {
-  ErMessage({
+  YmMessage({
     message: "Congrats, this is a success message.",
     type: "success",
   });
 };
 const open3 = () => {
-  ErMessage({
+  YmMessage({
     message: "Warning, this is a warning message.",
     type: "warning",
   });
 };
 const open4 = () => {
-  ErMessage.error("Oops, this is a error message.");
+  YmMessage.error("Oops, this is a error message.");
 };
 </script>
 
 <template>
-  <er-button :plain="true" @click="open2">Success</er-button>
-  <er-button :plain="true" @click="open3">Warning</er-button>
-  <er-button :plain="true" @click="open1">Message</er-button>
-  <er-button :plain="true" @click="open4">Error</er-button>
+  <ym-button :plain="true" @click="open2">Success</ym-button>
+  <ym-button :plain="true" @click="open3">Warning</ym-button>
+  <ym-button :plain="true" @click="open1">Message</ym-button>
+  <ym-button :plain="true" @click="open4">Error</ym-button>
 </template>

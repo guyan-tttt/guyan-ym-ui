@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { h } from "vue";
-import { ErMessage } from "eric-ui";
+import { YmMessage } from "guyan-ym-ui";
 
 const open = () => {
-  ErMessage("This is a message.");
+  YmMessage("This is a message.");
 };
 
 const openVn = () => {
-  ErMessage({
+  YmMessage({
     message: h("p", { style: "line-height: 1; font-size: 14px" }, [
       h("span", null, "Message can be "),
       h("i", { style: "color: teal" }, "VNode"),
@@ -17,6 +17,6 @@ const openVn = () => {
 </script>
 
 <template>
-  <er-button :plain="true" @click="open">Show message</er-button>
-  <er-button :plain="true" @click="openVn">VNode</er-button>
+  <ym-button :plain="true" @click="open">Show message</ym-button>
+  <ym-button :plain="true" @click="openVn">VNode</ym-button>
 </template>

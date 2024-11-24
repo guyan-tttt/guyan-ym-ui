@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ErMessage } from "eric-ui";
+import { YmMessage } from "guyan-ym-ui";
 
 const openCenter = () => {
-  ErMessage({
+  YmMessage({
     showClose: true,
     message: "Centered text",
     center: true
@@ -11,5 +11,5 @@ const openCenter = () => {
 </script>
 
 <template>
-  <er-button plain @click="openCenter">Centered text</er-button>
+  <ym-button plain @click="openCenter">Centered text</ym-button>
 </template>

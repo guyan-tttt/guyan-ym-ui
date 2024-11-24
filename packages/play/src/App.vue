@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import Card from './components/Card.vue'
+
 import { YmMessage } from "guyan-ym-ui";
 
 const open1 = () => {
