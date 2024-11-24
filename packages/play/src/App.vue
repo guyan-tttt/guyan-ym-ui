@@ -7,6 +7,8 @@ const open1 = () => {
   YmNotification({
     showClose: true,
     message: "This is a message.",
+    position: "top-left",
+    title: "Title",
   });
 };
 const open2 = () => {
@@ -14,6 +16,7 @@ const open2 = () => {
     showClose: true,
     message: "Congrats, this is a success message.",
     type: "success",
+    position: "top-right",
   });
 };
 const open3 = () => {
@@ -21,6 +24,7 @@ const open3 = () => {
     showClose: true,
     message: "Warning, this is a warning message.",
     type: "warning",
+    position: "bottom-left",
   });
 };
 const open4 = () => {
@@ -28,6 +32,7 @@ const open4 = () => {
     showClose: true,
     message: "Oops, this is a error message.",
     type: "danger",
+    position: "bottom-right",
   });
 };
 </script>

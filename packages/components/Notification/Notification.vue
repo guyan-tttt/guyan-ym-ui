@@ -39,16 +39,16 @@ const iconName = computed(() => {
   return typeIconMap.get(props.type);
 });
 
-// const horizontalClass = computed(() =>
-//   props.position.endsWith("right") ? "right" : "left"
-// );
+const horizontalClass = computed(() =>
+  props.position.endsWith("right") ? "right" : "left"
+);
 
-// const verticalProperty = computed(() =>
-//   props.position.startsWith("top") ? "top" : "bottom"
-// );
+const verticalProperty = computed(() =>
+  props.position.startsWith("top") ? "top" : "bottom"
+);
 
 const cssStyle = computed(() => ({
-  top: topOffset.value + "px",
+  [verticalProperty.value]: topOffset.value + "px",
   zIndex: props.zIndex,
 }));
 
@@ -88,12 +88,11 @@ defineExpose<NotificationComponentInstance>({
   >
     <div
       ref="notifyRef"
-      class="ym-notification right"
+      class="ym-notification"
       :class="{
         [`ym-notification--${type}`]: type,
         'show-close': showClose,
-        
-        // [horizontalClass]: true,
+        [horizontalClass]: true,
       }"
       :style="cssStyle"
       v-show="visible"

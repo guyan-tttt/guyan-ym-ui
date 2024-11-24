@@ -1,11 +1,16 @@
-import { notificationTypes, type CreateNotificationProps, type Notification, type NotificationFn, type NotificationHandler, type NotificationInstance, type NotificationParams, type NotificationProps, type notificationType} from './type'
+import { notificationTypes, type CreateNotificationProps, type Notification, type NotificationFn, type NotificationHandler, type NotificationInstance, type NotificationParams, type NotificationProps, type notificationType,notificationPosition } from './type'
 import { h, isVNode, render, shallowReactive } from 'vue'
 import { useId, useZIndex } from '@ym-UI/hooks'
 import { each, findIndex , get, isString, set } from 'lodash-es'
 import NotificationConstructor from './Notification.vue'
 
-const instances: NotificationInstance[] = shallowReactive([])
+// const instances: NotificationInstance[] = shallowReactive([])
 
+const instancesMap:Map<NotificationProps['position'], NotificationInstance[]> = new Map()
+
+each(notificationPosition, (position) => {
+    instancesMap.set(position, shallowReactive([]))
+})
 const { nextZIndex } = useZIndex()
 
 export const  notificationDefault = {
@@ -17,6 +22,7 @@ export const  notificationDefault = {
 } as const
 
 export function getLastBottomOffset(this:NotificationProps) {
+    const instances = getInstanceByPosition(this.position || 'top-right')
     const idx = findIndex(instances, {id: this.id})
     if(idx <= 0) return 0
     return get(instances,[idx - 1, 'vm', 'exposed', 'bottomOffset','value'] )
@@ -31,11 +37,14 @@ const normalizeOptions = (options:NotificationParams): CreateNotificationProps =
     return {...notificationDefault, ...result} as CreateNotificationProps
 }
 
+const getInstanceByPosition = (position: NotificationProps['position']): NotificationInstance[] => {
+    return instancesMap.get(position)!
+}
 
 const createNotification = (props: CreateNotificationProps): NotificationInstance => {
     const id = useId().value // 唯一标识
     const container = document.createElement('div')
-
+    const instances = getInstanceByPosition(props.position || 'top-right')
     // 移除方法
     const destory = () => {
         const idx = findIndex(instances, { id })
@@ -82,13 +91,16 @@ export const notification:NotificationFn & Partial<Notification> = (options = {}
 }
 
 export function closeAll (type?:notificationType)  {
-    each(instances, (instance) => {
-        if(type ) {
-            instance.props.type === type && instance.handler.close() // 关闭对应类型的消息
-            return 
-        }
-        instance.handler.close() // 关闭
+    instancesMap.forEach((instances) => {
+        each(instances, (instance) => {
+            if(type ) {
+                instance.props.type === type && instance.handler.close() // 关闭对应类型的消息
+                return 
+            }
+            instance.handler.close() // 关闭
+        })
     })
+    
 }
 
 each(notificationTypes, (type) => {
