@@ -1,30 +1,30 @@
 
 <script setup lang="ts">
 
-import { YmMessage } from "guyan-ym-ui";
+import { YmNotification } from "guyan-ym-ui";
 
 const open1 = () => {
-  YmMessage({
+  YmNotification({
     showClose: true,
     message: "This is a message.",
   });
 };
 const open2 = () => {
-  YmMessage({
+  YmNotification({
     showClose: true,
     message: "Congrats, this is a success message.",
     type: "success",
   });
 };
 const open3 = () => {
-  YmMessage({
+  YmNotification({
     showClose: true,
     message: "Warning, this is a warning message.",
     type: "warning",
   });
 };
 const open4 = () => {
-  YmMessage({
+  YmNotification({
     showClose: true,
     message: "Oops, this is a error message.",
     type: "danger",

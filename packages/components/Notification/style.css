@@ -1,0 +1,95 @@
+.ym-notification {
+    --ym-notification-width: 330px;
+    --ym-notification-padding: 14px 26px 14px 13px;
+    --ym-notification-radius: 8px;
+    --ym-notification-shadow: var(--ym-box-shadow-light);
+    --ym-notification-border-color: var(--ym-border-color-lighter);
+    --ym-notification-icon-size: 24px;
+    --ym-notification-close-font-size: var(--ym-message-close-size, 16px);
+    --ym-notification-content-font-size: var(--ym-font-size-base);
+    --ym-notification-content-color: var(--ym-text-color-regular);
+    --ym-notification-title-font-size: 16px;
+    --ym-notification-title-color: var(--ym-text-color-primary);
+    --ym-notification-close-color: var(--ym-text-color-secondary);
+    --ym-notification-close-hover-color: var(--ym-text-color-regular)
+  }
+  .ym-notification {
+    display: flex;
+    width: var(--ym-notification-width);
+    padding: var(--ym-notification-padding);
+    border-radius: var(--ym-notification-radius);
+    box-sizing: border-box;
+    border: 1px solid var(--ym-notification-border-color);
+    position: fixed;
+    background-color: var(--ym-bg-color-overlay);
+    box-shadow: var(--ym-notification-shadow);
+    transition: opacity var(--ym-transition-duration),transform var(--ym-transition-duration),right var(--ym-transition-duration),top .4s,bottom var(--ym-transition-duration);
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    z-index: 9999;
+  
+    &.right {
+      right: 10px;
+    }
+  
+    &.left {
+      left: 10px;
+    }
+  
+    .ym-notification__text {
+      margin: 0 10px;
+    }
+    .ym-notification__icon {
+      height: var(--ym-notification-icon-size);
+      width: var(--ym-notification-icon-size);
+      font-size: var(--ym-notification-icon-size);
+      color: var(--ym-notification-icon-color);
+    }
+  
+    .ym-notification__title {
+      font-weight: 700;
+      font-size: var(--ym-notification-title-font-size);
+      line-height: var(--ym-notification-icon-size);
+      color: var(--ym-notification-title-color);
+      margin: 0
+    }
+    .ym-notification__content {
+      font-size: var(--ym-notification-content-font-size);
+      line-height: 24px;
+      margin: 6px 0 0;
+      color: var(--ym-notification-content-color);
+      text-align: justify
+    }
+    .ym-notification__close {
+      position: absolute;
+      top: 18px;
+      right: 15px;
+      cursor: pointer;
+      color: var(--ym-notification-close-color);
+      font-size: var(--ym-notification-close-font-size)
+    }
+  }
+  @each $val in info,success,warning,danger { 
+    .ym-notification--$(val) {
+      --ym-notification-icon-color: var(--ym-color-$(val));
+      color: var(--el-notification-icon-color);
+    }
+  }
+  .ym-notification--error {
+    --ym-notification-icon-color: var(--ym-color-danger);
+    color: var(--el-notification-icon-color);
+  }
+  
+  .ym-notification-fade-enter-from {
+    &.right{
+      right: 0;
+      transform: translate(100%);
+    }
+    &.left{
+      left:0;
+      transform: translate(-100%);
+    }
+  }
+  .ym-notification-fade-leave-to {
+    opacity: 0;
+  }

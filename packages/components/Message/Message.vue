@@ -38,7 +38,7 @@ const iconName = computed(() => {
 const customStyle = computed(() => {
   return {
     top: addUnit(topOffset.value),
-  
+    zIndex: props.zIndex
   }
 })
 

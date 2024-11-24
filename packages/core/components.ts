@@ -12,7 +12,8 @@ import {
     YmDropdownItem,
     YmCard,
     YmConfigProvider,
-    YmMessage
+    YmMessage,
+    YmNotification
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -31,5 +32,6 @@ export default [
     YmDropdownItem,
     YmCard,
     YmConfigProvider,
-    YmMessage
+    YmMessage,
+    YmNotification
 ] as Plugin[]
