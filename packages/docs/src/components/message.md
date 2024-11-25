@@ -3,7 +3,7 @@ title: Message
 description: Message 组件文档
 
 next: 
-  link: /components/messagebox
+  link: /components/notification
   text: MessageBox 消息弹出框
 
 prev:

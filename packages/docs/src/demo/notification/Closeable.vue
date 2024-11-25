@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import {ErNotification} from 'eric-ui'
+import {YmNotification} from 'guyan-ym-ui'
 
 const open = () => {
-  ErNotification.success({
+  YmNotification.success({
     title: 'Info',
     message: 'This is a message without close button',
     showClose: false,
@@ -11,5 +11,5 @@ const open = () => {
 </script>
 
 <template>
-  <er-button plain @click="open"> Hide close button </er-button>
+  <ym-button plain @click="open"> Hide close button </ym-button>
 </template>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { ErNotification } from "eric-ui";
+import { YmNotification } from "guyan-ym-ui";
 
 const open1 = () => {
-  ErNotification({
+  YmNotification({
     title: "Success",
     message: "This is a success message",
     type: "success",
@@ -10,7 +10,7 @@ const open1 = () => {
 };
 
 const open2 = () => {
-  ErNotification({
+  YmNotification({
     title: "Warning",
     message: "This is a warning message",
     type: "warning",
@@ -18,7 +18,7 @@ const open2 = () => {
 };
 
 const open3 = () => {
-  ErNotification({
+  YmNotification({
     title: "Info",
     message: "This is an info message",
     type: "info",
@@ -26,7 +26,7 @@ const open3 = () => {
 };
 
 const open4 = () => {
-  ErNotification({
+  YmNotification({
     title: "Error",
     message: "This is an error message",
     type: "danger",
@@ -35,8 +35,8 @@ const open4 = () => {
 </script>
 
 <template>
-  <er-button plain @click="open1"> Success </er-button>
-  <er-button plain @click="open2"> Warning </er-button>
-  <er-button plain @click="open3"> Info </er-button>
-  <er-button plain @click="open4"> Error </er-button>
+  <ym-button plain @click="open1"> Success </ym-button>
+  <ym-button plain @click="open2"> Warning </ym-button>
+  <ym-button plain @click="open3"> Info </ym-button>
+  <ym-button plain @click="open4"> Error </ym-button>
 </template>

@@ -38,8 +38,14 @@ export default defineConfig({
           {text: 'Tooltip 提示', link: '/components/tooltip'},
           {text: "Popconfirm 气泡确认", link: "/components/popconfirm"},
           { text: "Dropdown 下拉菜单", link: "/components/dropdown"},
-          { text: "Message 消息提示", link: "/components/message"}
-          
+        ]
+      },
+      {
+        text: '函数组件',
+        collapsed: false,
+        items: [
+          { text: "Message 消息提示", link: "/components/message"},
+          { text: "Notification 消息通知", link: "/components/notification"}
         ]
       },
 
