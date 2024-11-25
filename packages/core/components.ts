@@ -13,7 +13,8 @@ import {
     YmCard,
     YmConfigProvider,
     YmMessage,
-    YmNotification
+    YmNotification,
+    YmInput
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -33,5 +34,6 @@ export default [
     YmCard,
     YmConfigProvider,
     YmMessage,
-    YmNotification
+    YmNotification,
+    YmInput
 ] as Plugin[]

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref , computed,watch,useAttrs, shallowRef,nextTick} from 'vue';
 import type {  InputInstance , InputProps, InputEmits } from './type'
-import { useFocusController } from '@ym-UI/hooks'
+import { useFocusController , useId} from '@ym-UI/hooks'
 import Icon from '../Icon/Icon.vue'
 import { each, noop } from 'lodash-es';
 
@@ -26,10 +26,10 @@ const textareaRef = shallowRef<HTMLTextAreaElement>()
 
 
 // 密码框显示隐藏
-const psaawordVisible = ref(false)
+const passwordVisible = ref(false)
 
 // 输入框值
-const innerValue = ref() 
+const innerValue = ref(props.modelValue) 
 
 // 导出的实例
 const _ref = computed(() => {
@@ -60,10 +60,60 @@ const showPwdArea = computed(() => {
     return props.type === "password" && props.showPassword && !isDisabled.value && !!innerValue.value
 })
 
+const clear:InputInstance["clear"] = function() {
+  innerValue.value = ""
+  each(['input','change','update:modelValue'],(e) => {
+    emit(e as any, innerValue.value)
+  })
+  emit("clear")
+  // TODO： form校验
+}
+
+const focus:InputInstance["focus"] = async function() {
+  await nextTick()
+  _ref.value?.focus()
+}
+ 
+const blur:InputInstance["blur"] = function() {
+  _ref.value?.blur()
+}
+
+const select:InputInstance["select"] = function() {
+    _ref.value?.select()
+}
+
+const handleInput = function() {
+emit("input", innerValue.value)
+emit("update:modelValue", innerValue.value)
+}
+
+const togglePwdVisible = function() {
+  passwordVisible.value = !passwordVisible.value
+}
+
+const handleChange = function() {
+emit("change", innerValue.value)
+}
+
+watch(
+  () => props.modelValue,
+  (val) => {
+    innerValue.value = val
+    //TODO: 表单校验的触发
+  }
+)
+
 // 实例
 defineExpose<InputInstance>({
     ref: _ref,
+    clear: clear,
+    focus,
+    blur,
+    select
 })
+
+const inputId = useId("input")
+
 </script>
 
 <template>
@@ -94,7 +144,8 @@ defineExpose<InputInstance>({
         <input
           class="ym-input__inner"
           ref="inputRef"
-          :type="showPassword ? (showPassword ? 'text' : 'password') : type"
+          :id="inputId"
+          :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
           :disabled="isDisabled"
           :readonly="readonly"
           :autocomplete="autocomplete"
@@ -123,15 +174,15 @@ defineExpose<InputInstance>({
           />
           <Icon
             icon="eye"
-            v-if="showPwdArea && showPassword"
+            v-if="showPwdArea && passwordVisible"
             class="ym-input__password"
-            @click="togglePasswordVisible"
+            @click="togglePwdVisible"
           />
           <Icon
             icon="eye-slash"
-            v-if="showPwdArea && !showPassword"
+            v-if="showPwdArea && !passwordVisible"
             class="ym-input__password"
-            @click="togglePasswordVisible"
+            @click="togglePwdVisible"
           />
         </span>
       </div>
@@ -142,7 +193,7 @@ defineExpose<InputInstance>({
     </template>
 
     <!-- textarea -->
-    <!-- <template v-else>
+    <template v-else>
       <textarea
         class="ym-textarea__wrapper"
         ref="textareaRef"
@@ -157,15 +208,15 @@ defineExpose<InputInstance>({
         v-bind="attrs"
         @input="handleInput"
         @change="handleChange"
-        @focus="handleFocus"
-        @blur="handleBlur"
+        @focus="handlerFocus"
+        @blur="handlerBlur"
       ></textarea>
-    </template> -->
+    </template>
   </div>
 </template>
 
 
 
 <style scoped>
-
+@import './style';
 </style>

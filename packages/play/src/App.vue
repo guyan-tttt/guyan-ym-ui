@@ -39,11 +39,17 @@ const open4 = () => {
 
 <template>
   <div class="container">
-    <ym-button :plain="true" @click="open1">Message</ym-button>
+    <div>
+      <ym-button :plain="true" @click="open1">Message</ym-button>
     <ym-button :plain="true" @click="open2">Success</ym-button>
     <ym-button :plain="true" @click="open3">Warning</ym-button>
     <ym-button :plain="true" @click="open4">Error</ym-button>
+    </div>
+    <ym-input type="textarea"></ym-input>
+    <input type="password" />
   </div>
+
+
 
 </template>
 

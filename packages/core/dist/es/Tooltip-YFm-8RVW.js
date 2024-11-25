@@ -1,8 +1,8 @@
 import { onMounted as e, watch as t, onUnmounted as a, defineComponent as o, ref as l, computed as i, watchEffect as n, openBlock as r, createElementBlock as u, mergeProps as s, toHandlers as v, renderSlot as c, createVNode as p, Transition as m, withCtx as d, createTextVNode as f, toDisplayString as g, createElementVNode as h, createCommentVNode as _ } from "vue";
-import { createPopper as y } from "@popperjs/core";
-import { u as k } from "./hooks-CJ5-z7fg.js";
-import { h as T, f as b, j as w, b as j, i as x } from "./vendor-0IoZ3Zfz.js";
-import { _ as B, w as L } from "./utils-qFOQpxdb.js";
+import { createPopper as k } from "@popperjs/core";
+import { u as y } from "./hooks-jOANP4Y2.js";
+import { j as T, f as b, k as w, c as j, i as x } from "./vendor-Dfj-y_bx.js";
+import { _ as B, w as L } from "./utils-BRb2rlgQ.js";
 const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, virtualTriggering: { type: Boolean }, content: {}, trigger: { default: "hover" }, placement: { default: "bottom" }, manual: { type: Boolean }, disabled: { type: Boolean }, popperOptions: {}, transition: { default: "fade" }, showTimeout: { default: 0 }, hideTimeout: { default: 200 } }, emits: ["visible-change", "click-outside"], setup(o2, { expose: B2, emit: L2 }) {
   const N2 = o2, $2 = L2, E = l(false), O = l({}), R = l({}), Y = l({}), A = l(null), D = l(null), I = l(null), M = i(() => N2.virtualTriggering ? N2.virtualRef ?? D.value : D.value), q = i(() => ({ placement: N2.placement, modifiers: [{ name: "offset", options: { offset: [0, 9] } }], ...N2.popperOptions })), z = i(() => "hover" === N2.trigger ? N2.showTimeout : 0), C = i(() => "hover" === N2.trigger ? N2.hideTimeout : 0);
   let F, G, H;
@@ -34,14 +34,14 @@ const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, v
   }), B2({ show: J, hide: function() {
     F == null ? void 0 : F.cancel(), Q(false);
   } }), t(E, (e2) => {
-    e2 && D.value && I.value && (H = y(D.value, I.value, q.value));
+    e2 && D.value && I.value && (H = k(D.value, I.value, q.value));
   }, { flush: "post" }), t(() => N2.manual, (e2) => {
     e2 ? V() : S();
   }), t(() => N2.trigger, (e2, t2) => {
     t2 !== e2 && (F == null ? void 0 : F.cancel(), E.value = false, $2("visible-change", false), V());
   }), a(() => {
     U();
-  }), k(A, () => {
+  }), y(A, () => {
     $2("click-outside"), "hover" === N2.trigger || N2.manual || E.value && K();
   }), function(o3, l2, i2) {
     let n2, r2;
