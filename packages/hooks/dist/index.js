@@ -5,10 +5,12 @@ import { u as u4 } from "./useDisabledStyle-C4L7ejVJ.js";
 import { u as u5 } from "./useLocale-Dl6o5Lbt.js";
 import { u as u6 } from "./useOffset-BO02G_9O.js";
 import { u as u7 } from "./useZIndex-DYNAJc5I.js";
+import { u as u8 } from "./useFocusController-_AutLHzf.js";
 export {
   u as useClickOutside,
   u4 as useDisabledStyle,
   u2 as useEventListener,
+  u8 as useFocusController,
   u3 as useId,
   u5 as useLocale,
   u6 as useOffset,
