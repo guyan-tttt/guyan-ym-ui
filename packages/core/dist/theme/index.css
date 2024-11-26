@@ -81,7 +81,7 @@
     --ym-border-width: 1px;
     --ym-border-style: solid;
     --ym-border-color-hover: var(--ym-text-color-disabled);
-    --ym-border: var(--er-border-width) var(--ym-border-style) var(--er-border-color);
+    --ym-border: var(--ym-border-width) var(--ym-border-style) var(--ym-border-color);
     --ym-border-radius-base: 4px;
     --ym-border-radius-small: 2px;
     --ym-border-radius-round: 20px;
@@ -99,9 +99,9 @@
     --ym-font-weight-primary: 500;
   
     /*disabled*/
-    --ym-disabled-bg-color: var(--er-fill-color-light);
-    --ym-disabled-text-color: var(--er-text-color-placeholder);
-    --ym-disabled-border-color: var(--er-border-color-light);
+    --ym-disabled-bg-color: var(--ym-fill-color-light);
+    --ym-disabled-text-color: var(--ym-text-color-placeholder);
+    --ym-disabled-border-color: var(--ym-border-color-light);
   
     /*animation*/
     --ym-transition-duration: 0.4s;
@@ -189,7 +189,7 @@
     --ym-border-width: 1px;
     --ym-border-style: solid;
     --ym-border-color-hover: var(--ym-text-color-disabled);
-    --ym-border: var(--er-border-width) var(--ym-border-style) var(--er-border-color);
+    --ym-border: var(--ym-border-width) var(--ym-border-style) var(--ym-border-color);
     --ym-border-radius-base: 4px;
     --ym-border-radius-small: 2px;
     --ym-border-radius-round: 20px;
@@ -207,9 +207,9 @@
     --ym-font-weight-primary: 500;
   
     /*disabled*/
-    --ym-disabled-bg-color: var(--er-fill-color-light);
-    --ym-disabled-text-color: var(--er-text-color-placeholder);
-    --ym-disabled-border-color: var(--er-border-color-light);
+    --ym-disabled-bg-color: var(--ym-fill-color-light);
+    --ym-disabled-text-color: var(--ym-text-color-placeholder);
+    --ym-disabled-border-color: var(--ym-border-color-light);
   
     /*animation*/
     --ym-transition-duration: 0.4s;

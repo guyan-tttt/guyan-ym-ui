@@ -48,6 +48,13 @@ export default defineConfig({
           { text: "Notification 消息通知", link: "/components/notification"}
         ]
       },
+      {
+        text: '表单组件',
+        collapsed: false,
+        items: [
+          { text: "Input 输入框", link: "/components/input"},
+        ]
+      },
 
     ],
 
