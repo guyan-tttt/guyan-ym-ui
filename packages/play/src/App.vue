@@ -1,15 +1,18 @@
 
 <script setup lang="ts">
 
-import { YmNotification } from "guyan-ym-ui";
+import { YmNotification, YmMessageBox } from "guyan-ym-ui";
 
 const open1 = () => {
-  YmNotification({
-    showClose: true,
-    message: "This is a message.",
-    position: "top-left",
-    title: "Title",
-  });
+  YmMessageBox.confirm("是否操作","温馨提示",{
+    showCancelButton: true,
+    confirmButtonText: "确定",
+    cancelButtonText: "取消",
+  }).then(() => {
+    alert("确定")
+  }).catch(() => {
+    alert("取消")
+  })
 };
 const open2 = () => {
   YmNotification({
