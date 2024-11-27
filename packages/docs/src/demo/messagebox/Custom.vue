@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { h } from "vue";
-import { ErMessage, ErMessageBox } from "eric-ui";
+import { YmMessage, YmMessageBox , type MessageBoxAction, type MessageBoxOptions} from "guyan-ym-ui";
 import { delay } from "lodash-es";
 
 async function openMsgBox() {
   try {
-    const action = await ErMessageBox({
+    const action = await YmMessageBox({
       title: "Message",
       message: h("p", null, [
         h("span", null, "Message can be "),
@@ -14,9 +14,9 @@ async function openMsgBox() {
       showCancelButton: true,
       confirmButtonText: "Yes",
       cancelButtonText: "No",
-      type: "danger",
+      type: "dangYm",
       icon: "trash",
-      beforeClose(action, instance, done) {
+      beforeClose(action: MessageBoxAction, instance: MessageBoxOptions, done:() => void) {
         if (action !== "confirm") {
           done();
           return;
@@ -31,13 +31,13 @@ async function openMsgBox() {
       },
     });
 
-    ErMessage.info(`action : ${action}`);
+    YmMessage.info(`action : ${action}`);
   } catch (action) {
-    ErMessage.warning(`action : ${action}`);
+    YmMessage.warning(`action : ${action}`);
   }
 }
 </script>
 
 <template>
-  <er-button @click="openMsgBox" plain>Click to open Message Box</er-button>
+  <ym-button @click="openMsgBox" plain>Click to open Message Box</ym-button>
 </template>

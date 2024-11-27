@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import { ErMessageBox, ErMessage } from "eric-ui";
+import { YmMessageBox, YmMessage, type MessageBoxAction , } from "guyan-ym-ui";
 
 function openConfirm() {
-  ErMessageBox.prompt("Place input your name", "Tip", { type: "info" })
-    .then(({ value }) => {
-      ErMessage.info(`your name is: ${value}`);
+  YmMessageBox.prompt("Place input your name", "Tip", { type: "info" })
+    .then(({ value }: { value: string}) => {
+      console.log(value);
+      
+      YmMessage.info(`your name is: ${value}`);
     })
-    .catch((action) => {
-      ErMessage.warning(`action: ${action}`);
+    .catch((action: MessageBoxAction) => {
+      YmMessage.warning(`action: ${action}`);
     });
 }
 </script>
 
 <template>
-  <er-button @click="openConfirm" plain> Click to open the Confirm</er-button>
+  <ym-button @click="openConfirm" plain> Click to open the Confirm</ym-button>
 </template>

@@ -127,7 +127,7 @@ const MESSAGE_BOX_DEFAULT_OPTIONS: Record<
 (typeof MESSAGWE_BOX_VARIANTS)[number],
 Partial<MessageBoxOptions>
 >  = {
-    alert: { closeOnClickModal: false},
+    alert: { closeOnClickModal: false,showCancelButton: false},
     confirm: { closeOnClickModal: true},
     prompt: { closeOnClickModal: true, showInput: true}
 }

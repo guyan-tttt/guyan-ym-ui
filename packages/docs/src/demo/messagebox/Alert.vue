@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ErMessageBox, ErMessage } from "eric-ui";
+import { YmMessageBox, YmMessage, type MessageBoxAction } from "guyan-ym-ui";
 
 function openAlert() {
-  ErMessageBox.alert("This is a message", "Title")
-    .then((action) => {
-      ErMessage.info(`action: ${action}`);
+  YmMessageBox.alert("This is a message", "Title")
+    .then((action: MessageBoxAction) => {
+      YmMessage.info(`action: ${action}`);
     })
-    .catch((action) => {
-      ErMessage.warning(`action: ${action}`);
+    .catch((action: MessageBoxAction) => {
+      YmMessage.warning(`action: ${action}`);
     });
 }
 </script>
 
 <template>
-  <er-button @click="openAlert" plain> Click to open the Alert</er-button>
+  <ym-button @click="openAlert" plain> Click to open the Alert</ym-button>
 </template>

@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { ErMessage, ErMessageBox } from "eric-ui";
+import { YmMessage, YmMessageBox, type MessageBoxAction } from "guyan-ym-ui";
 
 function openMsgBox() {
-  ErMessageBox.confirm(
+  YmMessageBox.confirm(
     "proxy will permanently delete the file. Continue?",
     "Warning",
     {
       type: "warning",
       center: true,
       // 这里展示一下 不用 Promise 写法的时候
-      callback(action) {
+      callback(action: MessageBoxAction ) {
         if (action === "confirm") {
-          ErMessage.info(action);
+          YmMessage.info(action);
         } else {
-          ErMessage.warning(action as string);
+          YmMessage.warning(action as string);
         }
       },
     }
@@ -22,5 +22,5 @@ function openMsgBox() {
 </script>
 
 <template>
-  <er-button @click="openMsgBox" plain>Click to open Message Box</er-button>
+  <ym-button @click="openMsgBox" plain>Click to open Message Box</ym-button>
 </template>

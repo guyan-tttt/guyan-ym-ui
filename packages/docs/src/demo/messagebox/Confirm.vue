@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ErMessageBox, ErMessage } from "eric-ui";
+import { YmMessageBox, YmMessage, type MessageBoxAction } from "guyan-ym-ui";
 
 function openConfirm() {
-  ErMessageBox.confirm("proxy will permanently delete the file. Continue?", "Warning", { type: "warning" })
-    .then((action) => {
-      ErMessage.info(`action: ${action}`);
+  YmMessageBox.confirm("proxy will pYmmanently delete the file. Continue?", "Warning", { type: "warning" })
+    .then((action:  MessageBoxAction) => {
+      YmMessage.info(`action: ${action}`);
     })
-    .catch((action) => {
-      ErMessage.warning(`action: ${action}`);
+    .catch((action:  MessageBoxAction) => {
+      YmMessage.warning(`action: ${action}`);
     });
 }
 </script>
 
 <template>
-  <er-button @click="openConfirm" plain> Click to open the Confirm</er-button>
+  <ym-button @click="openConfirm" plain> Click to open the Confirm</ym-button>
 </template>

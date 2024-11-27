@@ -64,4 +64,53 @@ demo-preview=../demo/input/Textarea.vue
 demo-preview=../demo/input/Size.vue
 :::
 
+## Input API
+
+### Props
+
+
+| Name     | Description | Type               | Default |
+| -------- | ----------- | ------------------ | ------- |
+| type     | 类型  | `enum` - `'text' \| 'password' \| 'textarea'` | text       |
+| v-model    | 绑定值    | `string` / `number`           | -      |
+| disabled | 是否禁用    | `boolean`          | false   |
+| clearable | 是否可一键清空    | `boolean`          | false   |
+| showPassword | 密码框是否显示密码    | `boolean`          | false   |
+| size | 输入框大小    | `enum` - `'small' \| 'large'`          | -   |
+| placeholder | 输入框占位符    | `string`          | "" |
+| readonly | 是否只读    | `boolean`          |  false  |
+| autocomplete | 输入框自动补全    | `string`          |  -  |
+| autofocus | 输入框自动聚焦    | `boolean`          |  false  |
+
+
+### Events
+| Name     | Description | Type               |
+| -------- | ----------- | ------------------ |
+| update:modelValue | 修改值    | `(value: string) => void` |
+| input | 输入值    | `(value: string) => void` |
+| change | 修改值且 失去焦点    | `(value: string) => void` |
+| focus | 聚焦    | `(event: FocusEvent) => void` |
+| blur | 失焦    | `(event: FocusEvent) => void` |
+| clear | 清空    | `() => void` |
+
+
+### Exposes
+
+| Name  | Description  | Type         |
+| ----- | ------------ | ------------ |
+| blur | 输入框失焦  | `() => void` |
+| focus | 输入框聚焦  | `() => void` |
+| clear | 清空输入框内容  | `() => void` |
+| select | 选中输入框内容  | `() => void` |
+
+
+### Slots
+
+| Name  | Description  |
+| ----- | ------------ |
+| prefix | 输入框起始位置图标  |
+| suffix | 输入框结束位置图标  |
+| prepend | 输入框前置内容  |
+| append | 输入框后置内容  |
+
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { h, ref } from "vue";
-import { ErMessageBox, ErSwitch, type SwitchValueType } from "eric-ui";
+import { YmMessageBox } from "guyan-ym-ui";
 
 function open1() {
-  ErMessageBox({
+  YmMessageBox({
     title: "Message",
     message: h("p", null, [
       h("span", null, "Message can be "),
@@ -13,21 +13,21 @@ function open1() {
 }
 
 function open2() {
-  const checked = ref<SwitchValueType>(false);
-  ErMessageBox({
-    title: "Message",
-    message: () =>
-      h(ErSwitch, {
-        modelValue: checked.value,
-        "onUpdate:modelValue": (val: SwitchValueType) => {
-          checked.value = val;
-        },
-      }),
-  });
+  // const checked = ref<SwitchValueType>(false);
+  // YmMessageBox({
+  //   title: "Message",
+  //   message: () =>
+  //     h(YmSwitch, {
+  //       modelValue: checked.value,
+  //       "onUpdate:modelValue": (val: SwitchValueType) => {
+  //         checked.value = val;
+  //       },
+  //     }),
+  // });
 }
 </script>
 
 <template>
-  <er-button @click="open1" plain>Common VNode</er-button>
-  <er-button @click="open2" plain>Dynamic props</er-button>
+  <ym-button @click="open1" plain>Common VNode</ym-button>
+  <ym-button @click="open2" plain>Dynamic props</ym-button>
 </template>
