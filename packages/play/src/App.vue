@@ -1,83 +1,36 @@
+<script setup>
+import { ref } from "vue";
+import { YmLoading } from "guyan-ym-ui";
 
-<script setup lang="ts">
+const loading = ref(false);
 
-import { YmNotification, YmMessageBox } from "guyan-ym-ui";
+function openLoading1() {
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 2000);
+}
 
-const open1 = () => {
-  YmMessageBox.confirm("是否操作","温馨提示",{
-    showCancelButton: true,
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
-  }).then(() => {
-    alert("确定")
-  }).catch(() => {
-    alert("取消")
-  })
-};
-const open2 = () => {
-  YmNotification({
-    showClose: true,
-    message: "Congrats, this is a success message.",
-    type: "success",
-    position: "top-right",
+function openLoading2() {
+  const _loading = YmLoading.service({
+    lock: true,
+    spinner: "snowflake",
+    text: "加载中...",
+    background: "rgba(255,255,255,0.5)",
   });
-};
-const open3 = () => {
-  YmNotification({
-    showClose: true,
-    message: "Warning, this is a warning message.",
-    type: "warning",
-    position: "bottom-left",
-  });
-};
-const open4 = () => {
-  YmNotification({
-    showClose: true,
-    message: "Oops, this is a error message.",
-    type: "danger",
-    position: "bottom-right",
-  });
-};
+  setTimeout(() => {
+    _loading.close();
+  }, 2000);
+}
 </script>
 
 <template>
-  <div class="container">
-    <div>
-      <ym-button :plain="true" @click="open1">Message</ym-button>
-    <ym-button :plain="true" @click="open2">Success</ym-button>
-    <ym-button :plain="true" @click="open3">Warning</ym-button>
-    <ym-button :plain="true" @click="open4">Error</ym-button>
-    </div>
-    <ym-input type="textarea"></ym-input>
-    <input type="password" />
-  </div>
-
-
-
+  <ym-button
+    v-loading.fullscreen.lock="loading"
+    type="primary"
+    @click="openLoading1"
+  >
+    As a directive
+  </ym-button>
+  <ym-button type="primary" @click="openLoading2"> As a service </ym-button>
 </template>
-
-<style scoped>
-.box {
-  /* background-color: red; */
-  width: 100%;
-  height: 100%;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

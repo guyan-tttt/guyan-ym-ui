@@ -16,7 +16,8 @@ import {
     YmNotification,
     YmInput,
     YmMessageBox,
-    YmOverlay
+    YmOverlay,
+    YmLoading
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -39,5 +40,6 @@ export default [
     YmNotification,
     YmInput,
     YmMessageBox,
-    YmOverlay
+    YmOverlay,
+    YmLoading
 ] as Plugin[]

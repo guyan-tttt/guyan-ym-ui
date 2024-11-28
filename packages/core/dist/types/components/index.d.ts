@@ -13,3 +13,4 @@ export * from './Notification';
 export * from './Input';
 export * from './MessageBox';
 export * from './Overlay';
+export * from './Loading';

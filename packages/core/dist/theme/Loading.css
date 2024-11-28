@@ -1,0 +1,55 @@
+.ym-loading {
+    --ym-loading-icon-color: var(--ym-color-primary);
+    --ym-loading-mask-margin: 0;
+    --ym-loading-mask-size: 100%;
+    --ym-loading-icon-size: 42px;
+    --ym-loading-font-size: 14px;
+    --ym-loading-z-index: 20000;
+}
+.ym-loading {
+    opacity: 1;
+    transition: opacity var(--ym-transition-duration);
+}
+.ym-loading.ym-loading__mask {
+      position: absolute;
+      margin: var(--ym-loading-mask-margin);
+      top: var(--ym-loading-mask-margin);
+      right: var(--ym-loading-mask-margin);
+      bottom: var(--ym-loading-mask-margin);
+      left: var(--ym-loading-mask-margin);
+      height: var(--ym-loading-mask-size);
+      width: var(--ym-loading-mask-size);
+      z-index: var(--ym-loading-z-index);
+      background: var(--ym-loading-bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.ym-loading.ym-loading__mask.is-fullscreen {
+        position: fixed;
+}
+.ym-loading .ym-loading__spinner {
+      color: var(--ym-loading-icon-color);
+      text-align: center;
+}
+.ym-loading .ym-loading__spinner .ym-loading-text {
+        margin: 3px 0;
+        font-size: var(--ym-loading-font-size);
+}
+.ym-loading .ym-loading__spinner i {
+        font-size: var(--ym-loading-icon-size);
+}
+.fade-in-linear-enter-from,
+  .fade-in-linear-leave-to {
+      opacity: 0;
+}
+.ym-loading-parent--relative {
+    position: relative !important;
+}
+.ym-loading-parent--hiden {
+    overflow: hidden !important;
+}
+.ym-loading {
+  --ym-loading-bg-color: var(--0062c62c) !important;
+  --ym-loading-z-index: var(--328efa34) !important;
+}

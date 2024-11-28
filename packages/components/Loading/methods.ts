@@ -1,7 +1,9 @@
-import { isNil, isString } from "lodash-es";
+import { defer, delay, isNil, isString } from "lodash-es";
 import type { LoadingOptions, LoadingOptionsResolved } from "./type";
 import { useZIndex } from "@ym-UI/hooks";
-import { assert } from "console";
+import { nextTick } from "vue";
+import { createApp, reactive, ref } from "vue";
+import LoadingComp from './Loading.vue'
 
 const LOADING_NUMBER_KEY = "ym-loading-number" as const
 const RELATIVE_CLASS = "ym-loading-parent--relative" as const 
@@ -11,7 +13,75 @@ const { nextZIndex } = useZIndex(3000)
 
 
 
-function createLoading(options: LoadingOptions) {
+function createLoading(options: LoadingOptionsResolved) {
+    const visible = ref(options.visible)
+
+    const afterLeaveFlag = ref(false)
+
+    const handleAfterLeave = () => {
+        if(!afterLeaveFlag.value) {
+            return 
+        }
+        destory() // 销毁loading
+    }
+
+    const data = reactive({
+        ...options,
+        onAfterLeave: handleAfterLeave,
+        
+    })
+    const setText = (text: string) => {
+        data.text = text
+    }
+
+    
+
+    // 添加loading实例
+    const app = createApp(LoadingComp, {
+        ...data, // 将data传入组件
+        zIndex: data.fullscreen ? nextZIndex() : void 0, // 判断是否全屏,全屏的話需要保证层级
+        visible, // 控制loading的显示隐藏
+    })
+
+    // 添加loading实例到一个dom元素上
+    const vm = app.mount(document.createElement('div'))
+
+    // 卸载loading实例需要调用的钩子
+    const destory = () => {
+        const target = data.parent
+        subLoadingNumber(target) // 减少loading数量
+        if(getLadingNumber(target)) return ; // 如果还有其他loading，则不销毁
+        delay(() => {
+            removeRelativeClass(target)// 移除相对定位
+            removeHideClass(target) // 移除隐藏
+        },1)
+        instanceMap.delete(target ?? document.body) // 移除实例
+        vm.$el.parentNode?.removeChild(vm.$el) // 移除dom
+        app.unmount() // 卸载实例
+    }
+
+    // 
+    let afterLeaveTimer: number
+
+    // 关闭loading
+    const close = () => {
+        if(options.beforeClose && options.beforeClose() === false) return  // 如果beforeClose返回false，则不关闭loading
+        afterLeaveFlag.value = true
+        clearTimeout(afterLeaveTimer) // 清除定时器
+        afterLeaveTimer = defer(handleAfterLeave) // 延迟执行
+        visible.value = false // 隐藏loading
+        options.closed?.() // 执行关闭回调
+    }
+
+    return {
+        get $el():HTMLElement {
+            return vm.$el
+        },
+        vm,
+        close,
+        visible,
+        setText,
+    }
 
 }
 
@@ -66,6 +136,13 @@ export function Loading(options: LoadingOptions = {}): LoadingInstance {
 
     addClass(options,resolved?.parent)
 
+    resolved.parent?.appendChild(instance.$el)
+
+    nextTick(() => (instance.visible.value = !!resolved.visible))
+    if(resolved.fullscreen) {
+        fullscreenLoadingInstance =   instance
+    }
+    instanceMap.set(target,instance)
     return instance
 }
 

@@ -30,7 +30,7 @@ const iconName = computed(() => {
       :class="{ 'is-fullscreen': fullscreen }"
     >
       <div class="ym-loading__spinner">
-        <er-icon v-if="props.spinner !== false" :icon="iconName" spin />
+        <ym-icon v-if="props.spinner !== false" :icon="iconName" spin />
         <p v-if="text" class="ym-loading-text">{{ text }}</p>
       </div>
     </div>

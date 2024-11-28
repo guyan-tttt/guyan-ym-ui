@@ -1014,19 +1014,22 @@ function me(t2, r2, n2, e2, o2) {
     }
   }, jr);
 }
-var Oe = Lt(function(t2, r2, n2) {
-  return function(t3, r3, n3) {
-    if ("function" != typeof t3) throw new TypeError("Expected a function");
-    return setTimeout(function() {
-      t3.apply(void 0, n3);
-    }, r3);
-  }(t2, S(r2) || 0, n2);
+function Oe(t2, r2, n2) {
+  if ("function" != typeof t2) throw new TypeError("Expected a function");
+  return setTimeout(function() {
+    t2.apply(void 0, n2);
+  }, r2);
+}
+var Ae = Lt(function(t2, r2) {
+  return Oe(t2, 1, r2);
+}), xe = Lt(function(t2, r2, n2) {
+  return Oe(t2, S(r2) || 0, n2);
 });
-function Ae(t2, r2) {
+function Se(t2, r2) {
   var n2;
   return (y(t2) ? gt : ye)(t2, "function" == typeof (n2 = r2) ? n2 : z);
 }
-function xe(t2, r2, n2) {
+function Ee(t2, r2, n2) {
   return null != t2 && t2.length ? jt(t2, "function" == typeof (e2 = r2) ? e2 : null == e2 ? z : "object" == typeof e2 ? y(e2) ? (u2 = e2[0], a2 = e2[1], Or(u2) && le(a2) ? se(Lr(u2), a2) : function(t3) {
     var r3 = Vr(t3, u2);
     return void 0 === r3 && r3 === a2 ? function(t4, r4) {
@@ -1073,25 +1076,25 @@ function xe(t2, r2, n2) {
   }(e2), 0) : -1;
   var e2, o2, i2, u2, a2;
 }
-function Se(t2) {
+function Pe(t2) {
   return "string" == typeof t2 || !y(t2) && p(t2) && "[object String]" == s(t2);
 }
-function Ee(t2) {
+function ze(t2) {
   return p(t2) && 1 === t2.nodeType && !rn(t2);
 }
-function Pe(t2) {
+function Te(t2) {
   return "number" == typeof t2 || p(t2) && "[object Number]" == s(t2);
 }
-function ze(t2) {
+function ke(t2) {
   return null == t2;
 }
-function Te(t2) {
+function Fe(t2) {
   return void 0 === t2;
 }
-var ke = qt(function(t2, r2, n2) {
+var Me = qt(function(t2, r2, n2) {
   me(t2, r2, n2);
 });
-function Fe(t2, r2) {
+function $e(t2, r2) {
   return null == (t2 = function(t3, r3) {
     return r3.length < 2 ? t3 : Rr(t3, function(t4, r4, n3) {
       var e3 = -1, o2 = t4.length;
@@ -1102,10 +1105,10 @@ function Fe(t2, r2) {
   }(t2, r2 = Cr(r2, t2))) || delete t2[Lr((n2 = r2, e2 = null == n2 ? 0 : n2.length, e2 ? n2[e2 - 1] : void 0))];
   var n2, e2;
 }
-function Me(t2) {
+function Ie(t2) {
   return rn(t2) ? void 0 : t2;
 }
-var $e = function(t2) {
+var Ue = function(t2) {
   return dt(Ct(t2, void 0, Hr), t2 + "");
 }(function(t2, r2) {
   var n2 = {};
@@ -1113,11 +1116,11 @@ var $e = function(t2) {
   var e2 = false;
   r2 = h(r2, function(r3) {
     return r3 = Cr(r3, t2), e2 || (e2 = r3.length > 1), r3;
-  }), Dt(t2, _n(t2), n2), e2 && (n2 = Hn(n2, 7, Me));
-  for (var o2 = r2.length; o2--; ) Fe(n2, r2[o2]);
+  }), Dt(t2, _n(t2), n2), e2 && (n2 = Hn(n2, 7, Ie));
+  for (var o2 = r2.length; o2--; ) $e(n2, r2[o2]);
   return n2;
 });
-function Ie(t2, r2, n2) {
+function Ne(t2, r2, n2) {
   return null == t2 ? t2 : function(t3, r3, n3) {
     if (!w(t3)) return t3;
     for (var e2 = -1, o2 = (r3 = Cr(r3, t3)).length, i2 = o2 - 1, u2 = t3; null != u2 && ++e2 < o2; ) {
@@ -1132,18 +1135,18 @@ function Ie(t2, r2, n2) {
     return t3;
   }(t2, r2, n2);
 }
-function Ue(t2, r2, n2) {
+function Be(t2, r2, n2) {
   var e2 = true, o2 = true;
   if ("function" != typeof t2) throw new TypeError("Expected a function");
   return w(n2) && (e2 = "leading" in n2 ? !!n2.leading : e2, o2 = "trailing" in n2 ? !!n2.trailing : o2), ge(t2, r2, { leading: e2, maxWait: r2, trailing: o2 });
 }
-const Ne = Symbol("i18n"), Be = (t2, r2, n2) => {
+const De = Symbol("i18n"), We = (t2, r2, n2) => {
   const e2 = t2[0];
   if (~e2.indexOf("[")) {
     const [o2, i2] = e2.split("["), u2 = parseInt(i2.replace("]", ""));
     if (u2 > -1) {
       if (!r2[o2] && r2[o2].length > 0 && r2[o2][u2] && "" !== r2[o2][u2]) throw new Error("Not Found");
-      return 1 === t2.length ? "string" == typeof r2[o2][u2] ? r2[o2][u2] : "" : Be(t2.slice(1), r2[o2][u2], n2);
+      return 1 === t2.length ? "string" == typeof r2[o2][u2] ? r2[o2][u2] : "" : We(t2.slice(1), r2[o2][u2], n2);
     }
     throw new Error(`Not Found: ${e2}`);
   }
@@ -1160,16 +1163,16 @@ const Ne = Symbol("i18n"), Be = (t2, r2, n2) => {
         return o2;
       })(e3, n2)), e3;
     }
-    return Be(t2.slice(1), r2[t2[0]], n2);
+    return We(t2.slice(1), r2[t2[0]], n2);
   }
   throw new Error("Not Found");
-}, De = (r2) => {
+}, Ce = (r2) => {
   const n2 = t(r2.locale || "en"), e2 = r2.messages;
   return { messages: e2, t: (t2, r3) => {
     const o2 = e2[n2.value] || e2.en;
     if ("string" != typeof t2) return console.warn("Warn(i18n):", "keypath must be a type of string"), "";
     try {
-      return Be(t2.split("."), o2, r3);
+      return We(t2.split("."), o2, r3);
     } catch (r4) {
       return console.warn(`Warn(i18n): the keypath '${t2}' not found`), "";
     }
@@ -1177,30 +1180,31 @@ const Ne = Symbol("i18n"), Be = (t2, r2, n2) => {
     e2[t2] || console.warn(`Warn(i18n): the '${t2}' language pack not found, fall back to English language pack`), n2.value = t2;
   }, getLocale: () => n2.value, install(t2) {
     const r3 = this;
-    t2.provide(Ne, r3), t2.config.globalProperties.$t = r3.t, t2.config.globalProperties.$i18n = r3;
+    t2.provide(De, r3), t2.config.globalProperties.$t = r3.t, t2.config.globalProperties.$i18n = r3;
   } };
 };
 export {
-  $e as a,
+  Ue as a,
   nt as b,
-  nn as c,
-  Oe as d,
-  Se as e,
-  Ae as f,
-  xe as g,
-  Vr as h,
-  ze as i,
-  T as j,
-  dr as k,
-  w as l,
-  ke as m,
-  Ne as n,
-  De as o,
-  Te as p,
-  Ee as q,
-  ge as r,
-  Ie as s,
-  Ue as t,
-  Jn as u,
-  Pe as v
+  Pe as c,
+  xe as d,
+  Ae as e,
+  Se as f,
+  nn as g,
+  Ee as h,
+  ke as i,
+  Vr as j,
+  T as k,
+  dr as l,
+  Me as m,
+  De as n,
+  Ce as o,
+  w as p,
+  Fe as q,
+  ze as r,
+  Ne as s,
+  Be as t,
+  ge as u,
+  Jn as v,
+  Te as w
 };
