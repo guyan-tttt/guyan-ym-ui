@@ -6,14 +6,14 @@ const activeNames = ref(["1", "2"]);
 </script>
 <template>
   <div class="container">
-    <er-collapse v-model="activeNames">
-      <er-collapse-item
+    <ym-collapse v-model="activeNames">
+      <ym-collapse-item
         title="Consistency"
         name="1"
         v-loading="isLoading"
-        er-loading-text="Loading..."
-        er-loading-spinner="circle-notch"
-        er-loading-background="rgba(250, 250, 250, 0.8)"
+        ym-loading-text="Loading..."
+        ym-loading-spinner="circle-notch"
+        ym-loading-background="rgba(250, 250, 250, 0.8)"
       >
         <div>
           Consistent with real life: in line with the process and logic of real
@@ -23,8 +23,8 @@ const activeNames = ref(["1", "2"]);
           Consistent within interface: all elements should be consistent, such
           as: design style, icons and texts, position of elements, etc.
         </div>
-      </er-collapse-item>
-      <er-collapse-item title="Feedback" name="2" v-loading="isLoading">
+      </ym-collapse-item>
+      <ym-collapse-item title="Feedback" name="2" v-loading="isLoading">
         <div>
           Operation feedback: enable the users to clearly perceive their
           operations by style updates and interactive effects;
@@ -33,13 +33,13 @@ const activeNames = ref(["1", "2"]);
           Visual feedback: reflect current state by updating or rearranging
           elements of the page.
         </div>
-      </er-collapse-item>
-    </er-collapse>
+      </ym-collapse-item>
+    </ym-collapse>
   </div>
 </template>
 
 <style scoped>
-:deep(.er-collapse-item) {
+:deep(.ym-collapse-item) {
   padding: 10px;
 }
 </style>

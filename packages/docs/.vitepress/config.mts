@@ -46,7 +46,8 @@ export default defineConfig({
         items: [
           { text: "Message 消息提示", link: "/components/message"},
           { text: "Notification 消息通知", link: "/components/notification"},
-          { text: "MessageBox 消息弹框", link: "/components/messageBox"}
+          { text: "MessageBox 消息弹框", link: "/components/messageBox"},
+          { text: "Loading 加载", link: '/components/loading'}
         ]
       },
       {

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { ErLoading } from "eric-ui";
+import { YmLoading } from "guyan-ym-ui";
 
 const loading = ref(false);
 
@@ -12,7 +12,7 @@ function openLoading1() {
 }
 
 function openLoading2() {
-  const _loading = ErLoading.service({
+  const _loading = YmLoading.service({
     lock: true,
     spinner: "circle-notch",
     text: "加载中...",
@@ -25,12 +25,12 @@ function openLoading2() {
 </script>
 
 <template>
-  <er-button
+  <ym-button
     v-loading.fullscreen.lock="loading"
     type="primary"
     @click="openLoading1"
   >
     As a directive
-  </er-button>
-  <er-button type="primary" @click="openLoading2"> As a service </er-button>
+  </ym-button>
+  <ym-button type="primary" @click="openLoading2"> As a service </ym-button>
 </template>
