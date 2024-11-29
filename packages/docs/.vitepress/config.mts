@@ -55,6 +55,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Input 输入框", link: "/components/input"},
+          { text: "Switch 开关", link: "/components/switch"}
         ]
       },
       {
