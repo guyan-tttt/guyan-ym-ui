@@ -7,7 +7,7 @@ interface UserFocusOptions {
 }
 export default function useFocusController<T extends HTMLElement | {
     focus(): void;
-}>(target: Ref<T | void>, { afterBlur, afterFocus, beforeBlur }: UserFocusOptions): {
+}>(target: Ref<T | void>, { afterBlur, afterFocus, beforeBlur }?: UserFocusOptions): {
     wrapperRef: Ref<HTMLElement | undefined, HTMLElement | undefined>;
     isFocused: Ref<boolean, boolean>;
     handlerFocus: (event: FocusEvent) => void;
