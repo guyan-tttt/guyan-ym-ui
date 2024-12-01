@@ -46,6 +46,7 @@ export declare const YmInput: {
         onChange?: ((value: string) => any) | undefined;
         onBlur?: ((value: FocusEvent) => any) | undefined;
         onFocus?: ((value: FocusEvent) => any) | undefined;
+        onKeydown?: ((value: KeyboardEvent) => any) | undefined;
     }>, {
         ref: import('vue').Ref<HTMLInputElement | HTMLTextAreaElement | void>;
         focus(): Promise<void>;
@@ -59,6 +60,7 @@ export declare const YmInput: {
         focus: (value: FocusEvent) => void;
         blur: (value: FocusEvent) => void;
         clear: () => void;
+        keydown: (value: KeyboardEvent) => void;
     }, import('vue').PublicProps, {
         type: string;
         autocomplete: string;
@@ -116,6 +118,7 @@ export declare const YmInput: {
         onChange?: ((value: string) => any) | undefined;
         onBlur?: ((value: FocusEvent) => any) | undefined;
         onFocus?: ((value: FocusEvent) => any) | undefined;
+        onKeydown?: ((value: KeyboardEvent) => any) | undefined;
     }>, {
         ref: import('vue').Ref<HTMLInputElement | HTMLTextAreaElement | void>;
         focus(): Promise<void>;
@@ -176,6 +179,7 @@ export declare const YmInput: {
     onChange?: ((value: string) => any) | undefined;
     onBlur?: ((value: FocusEvent) => any) | undefined;
     onFocus?: ((value: FocusEvent) => any) | undefined;
+    onKeydown?: ((value: KeyboardEvent) => any) | undefined;
 }>, {
     ref: import('vue').Ref<HTMLInputElement | HTMLTextAreaElement | void>;
     focus(): Promise<void>;
@@ -189,6 +193,7 @@ export declare const YmInput: {
     focus: (value: FocusEvent) => void;
     blur: (value: FocusEvent) => void;
     clear: () => void;
+    keydown: (value: KeyboardEvent) => void;
 }, string, {
     type: string;
     autocomplete: string;

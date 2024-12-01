@@ -23,6 +23,7 @@ export interface InputEmits {
   (e: "focus", value: FocusEvent): void; // 聚焦
   (e: "blur", value: FocusEvent): void; // 失焦
   (e: "clear"): void; // 清空
+  (e: "keydown", value: KeyboardEvent): void; // 键盘按下
 }
 
 export interface InputInstance {

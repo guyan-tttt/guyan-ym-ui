@@ -6,8 +6,24 @@ const activeRef = ref(0);
 const toggle = (value) => {
     console.log(value);
 };
+
+const options = [
+  {
+    label: "选项1",
+    value: 1,
+  },
+  {
+    label: "选项2",
+    value: 2,
+  },
+  {
+    label: "选项3",
+    value: 3,
+  },
+];
 </script>
 
 <template>
-  <ym-switch name="switch" size="large" v-model="activeRef" @change="toggle" :activeValue="1" :inactiveValue="0" activeText="激活" inactiveText="未激活"></ym-switch>
+  <ym-select v-model="activeRef" clearable filterable :options="options">
+  </ym-select>
 </template>

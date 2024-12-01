@@ -1,8 +1,8 @@
 import { defineComponent as t, ref as o, computed as e, onMounted as n, openBlock as s, createBlock as i, Transition as a, withCtx as l, withDirectives as c, createElementVNode as f, normalizeClass as r, normalizeStyle as d, createCommentVNode as u, toDisplayString as m, renderSlot as p, unref as v, createElementBlock as h, createVNode as y, withModifiers as g, vShow as _, shallowReactive as x, isVNode as C, h as k, render as b } from "vue";
-import { e as N, d as w, a as I } from "./hooks-CHFdZlTw.js";
-import { t as j, R as O, _ as z, b as E } from "./utils-CG1f-MPP.js";
-import { Y } from "./Icon-C3MBYC73.js";
-import { g as $, c as B, d as D, f as M, s as R, h as A, j as L } from "./vendor-BaLO6kvJ.js";
+import { e as N, d as w, a as I } from "./hooks-DZI5xxe9.js";
+import { t as j, R as O, _ as z, b as E } from "./utils-JcduRB7A.js";
+import { Y } from "./Icon-DfJGnspx.js";
+import { g as $, c as B, d as D, f as M, s as R, h as A, j as L } from "./vendor-IunAiIJb.js";
 const W = ["info", "success", "warning", "danger"], H = ["top-right", "top-left", "bottom-right", "bottom-left"], T = { class: "ym-notification__text" }, Z = { class: "ym-notification__title" }, q = { class: "ym-notification__content" }, F = { key: 1, class: "ym-notification__close" }, G = z(t({ name: "YmNotification", __name: "Notification", props: { title: {}, id: {}, zIndex: {}, position: { default: "top-right" }, type: { default: "info" }, message: {}, duration: { default: 3e3 }, showClose: { type: Boolean, default: true }, offset: { default: 20 }, transitionName: { default: "fade" }, icon: {}, onClick: {}, onClose: {}, onDestory: {} }, setup(t2, { expose: x2 }) {
   const C2 = t2, k2 = o(false), b2 = o(), w2 = o(0), { topOffset: I2, bottomOffset: z2 } = N({ getLastBottomOffset: $(Q, C2), offset: C2.offset, boxHeight: w2 }), E2 = e(() => B(C2.icon) ? C2.icon : j.get(C2.type)), M2 = e(() => C2.position.endsWith("right") ? "right" : "left"), R2 = e(() => C2.position.startsWith("top") ? "top" : "bottom"), A2 = e(() => ({ [R2.value]: I2.value + "px", zIndex: C2.zIndex }));
   let L2;

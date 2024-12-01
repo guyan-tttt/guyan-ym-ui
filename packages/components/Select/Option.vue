@@ -53,5 +53,5 @@ function handleClick() {
 
 
 <style scoped>
-
+@import './style';
 </style>

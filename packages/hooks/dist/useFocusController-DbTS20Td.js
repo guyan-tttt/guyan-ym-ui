@@ -1,7 +1,7 @@
 import { isFunction } from "lodash-es";
 import { getCurrentInstance, ref } from "vue";
 import { u as useEventListener } from "./useEventListener-D7BiV7nd.js";
-function useFocusController(target, { afterBlur, afterFocus, beforeBlur }) {
+function useFocusController(target, { afterBlur, afterFocus, beforeBlur } = {}) {
   const instance = getCurrentInstance();
   const { emit } = instance;
   const wrapperRef = ref();

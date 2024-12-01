@@ -129,6 +129,7 @@ const inputId = useId("input")
       'is-suffix': $slots.suffix,
       'is-focus': isFocused,
     }"
+    @keydown="$emit('keydown', $event)"
   >
     <!-- input -->
     <template v-if="type !== 'textarea'">
@@ -158,6 +159,7 @@ const inputId = useId("input")
           @change="handleChange"
           @focus="handlerFocus"
           @blur="handlerBlur"
+
         />
         <!-- suffix slot -->
         <span

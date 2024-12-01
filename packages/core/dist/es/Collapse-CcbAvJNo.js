@@ -1,6 +1,6 @@
 import { defineComponent as e, ref as a, provide as l, watch as t, watchEffect as s, openBlock as o, createElementBlock as i, renderSlot as d, inject as n, computed as m, normalizeClass as c, createElementVNode as r, createTextVNode as p, toDisplayString as u, createVNode as v, Transition as h, mergeProps as _, toHandlers as f, unref as y, withCtx as b, withDirectives as g, vShow as C } from "vue";
-import { d as I, _ as $, w as V } from "./utils-CG1f-MPP.js";
-import { Y } from "./Icon-C3MBYC73.js";
+import { d as I, _ as $, w as V } from "./utils-JcduRB7A.js";
+import { Y } from "./Icon-DfJGnspx.js";
 const w = Symbol("COLLAPSE_CTX_KEY"), x = { class: "ym-collapse" }, E = "YmCollapse", L = $(e({ name: E, __name: "Collapse", props: { modelValue: {}, accordion: { type: Boolean } }, emits: ["update:modelValue", "change"], setup(e2, { emit: n2 }) {
   const m2 = e2, c2 = n2, r2 = a(m2.modelValue);
   function p2(e3) {

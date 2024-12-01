@@ -1,5 +1,5 @@
 import { isRef as e, watch as t, onMounted as a, onBeforeUnmount as n, unref as r, computed as o, getCurrentInstance as l, useSlots as c, watchEffect as s, inject as i, ref as u } from "vue";
-import { f as d, k as p, v as m, l as f, a as v, n as h, o as g } from "./vendor-BaLO6kvJ.js";
+import { f as d, k as p, D as m, l as f, a as v, n as h, o as g } from "./vendor-IunAiIJb.js";
 function x(o2, l2, c2) {
   e(o2) ? t(o2, (e2, t2) => {
     null == t2 || t2.removeEventListener(l2, c2), null == e2 || e2.addEventListener(l2, c2);
@@ -35,16 +35,16 @@ const F = { name: "zh-cn", el: { colorpicker: { confirm: "确定", clear: "清�
 function M(e2) {
   return v(i(h, g({ locale: F.name, messages: { en: F.el } })), "install");
 }
-function B(e2) {
+function D(e2) {
   const t2 = o(() => e2.getLastBottomOffset()), a2 = o(() => t2.value + e2.offset), n2 = o(() => a2.value + e2.boxHeight.value);
   return { topOffset: a2, bottomOffset: n2 };
 }
-const D = u(0);
+const B = u(0);
 function L(e2 = 2e3) {
-  const t2 = u(e2), a2 = o(() => t2.value + D.value);
-  return { initialValue: t2, currentZIndex: a2, nextZIndex: () => (D.value++, a2.value) };
+  const t2 = u(e2), a2 = o(() => t2.value + B.value);
+  return { initialValue: t2, currentZIndex: a2, nextZIndex: () => (B.value++, a2.value) };
 }
-function j(e2, { afterBlur: t2, afterFocus: a2, beforeBlur: n2 }) {
+function j(e2, { afterBlur: t2, afterFocus: a2, beforeBlur: n2 } = {}) {
   const r2 = l(), { emit: o2 } = r2, c2 = u(), s2 = u(false);
   return x(c2, "click", () => {
     var t3;
@@ -61,7 +61,7 @@ export {
   y as b,
   j as c,
   L as d,
-  B as e,
+  D as e,
   x as f,
   M as g,
   T as u

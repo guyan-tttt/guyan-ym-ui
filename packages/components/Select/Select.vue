@@ -4,12 +4,13 @@ import { YmInput, type InputInstance } from '../Input';
 import { YmTooltip, type TooltipInstance } from '../Tooltip';
 import { YmIcon } from '../Icon';
 import { POPPER_OPTIONS, SELECT_CTX_KEY } from './constant';
-import { computed, provide, reactive, ref, watch, type VNode } from 'vue';
+import { computed, provide, reactive, ref, watch, type VNode ,nextTick, type Ref, h, onMounted} from 'vue';
 import { useId , useFocusController, useClickOutside} from '@ym-UI/hooks';
-import { eq, filter, find, size,get  ,noop, isFunction} from 'lodash-es';
+import { eq, filter, find, size,get  ,noop, isFunction, map, isBoolean, isNil, assign, includes, each, debounce} from 'lodash-es';
 import YmOption from './Option.vue'
-import { nextTick } from 'process';
-
+import { debugWarn } from '@ym-UI/utils';
+import { RenderVnode } from '@ym-UI/utils';
+import useKeyMap from './useKeyMap';
 
 // 组件配置
 defineOptions({
@@ -69,10 +70,22 @@ function toggleVisible() {
 function controlVisible(visible: boolean) {
    if(!tooltipRef.value) return 
    get(tooltipRef,["value",visible ? "show" :"hide"])?.() // 控制下拉框显示
+   props.filterable && controlInputValueVisible(visible)
    isDropdownVisible.value = visible // 更新下拉框状态
    emits("visible-change", visible) // 触发visible-change事件
 
    selectStates.highlightedIndex = -1 // 重置高亮索引
+}
+
+function controlInputValueVisible(visible: boolean) {
+  if(!props.filterable) return 
+  if(visible) {
+    if(selectStates.selectedOption) selectStates.inputValue = "" 
+    handleFilterDebounce()
+    return 
+  } 
+  selectStates.inputValue = selectStates.selectedOption?.label ?? ""
+
 }
 
 // 查找选项
@@ -88,10 +101,11 @@ const showClear = computed(() => props.clearable && selectStates.mouseHover && s
 const highlightedLine = computed(() => {
     let result:SelectOptionProps | void
     if(hasChildren.value) {
-        const node = children.value[selectStates.highlightedIndex] // 获取高亮节点
-        result = node?.props?.value // 获取节点属性
+        const node = [...filterChilds.value][selectStates.highlightedIndex]?.[0] // 获取高亮节点
+        // result = node?.props?.value // 获取节点属性
+        result = filterChilds.value.get(node) // 获取节点属性
     } else {
-        result = props.options[selectStates.highlightedIndex] // 获取选项
+        result = filterOptions.value[selectStates.highlightedIndex] // 获取选项
     }
     return result
 })
@@ -158,6 +172,7 @@ function setSelected() {
 
 useClickOutside(selectRef,(e) => handleClickOutside(e)) // 点击外部关闭下拉框
 
+// 监听选中值变化
 watch(
     () => props.modelValue,
     () => {
@@ -169,6 +184,159 @@ defineExpose<SelectInstance>({
     blur,
     focus
 })
+
+const filterChilds:Ref<Map<VNode, SelectOptionProps>> = ref(new Map()) // 子组件映射
+const filterOptions = ref(props.options ?? [])
+
+const childrenOptions = computed(()  => {{
+  if(!hasChildren.value) return []
+  return map(children.value,item => {
+    return {
+      VNode: h(item),
+      props: assign(item.props, {
+        disabled: item.props.disabled === true || (!isNil(item.props.disabled) && !isBoolean(item.props.disabled)) // 判断是否禁用
+      })
+    }
+  })
+}})
+
+const isNoData = computed(() => {
+  if(!props.filterable) return false
+  if(!hasData.value) return true
+  return false
+} )
+
+// 判断当前是否有值
+const hasData = computed(() => {
+  return (hasChildren.value && filterChilds.value.size > 0) || (!hasChildren.value && size(filterOptions.value) > 0)
+})
+
+// 最大索引
+const lastIndex = computed(() => hasChildren.value ? filterChilds.value.size - 1 : size(filterOptions.value) - 1)
+
+// 处理输入值检索
+const handleFilter = () => {
+  const  searchKey = selectStates.inputValue
+  selectStates.highlightedIndex = -1
+  if(hasChildren.value) {
+    genFilterChildrens(searchKey)
+  } else {
+    genFilterOptions(searchKey)
+  }
+}
+// 传入插槽的检索处理
+const genFilterChildrens = async(search: string) => {
+  if(!props.filterable) return  // 判断当前是否开启了可检索功能
+
+  // 判断当前是否需要做远程检索且传入的远程检索必须的参数
+  if(props.remote && props.remoteMethod && isFunction(props.remoteMethod)) {
+    await callRemoteMethod(props.remoteMethod, search)
+    setFilterChilds(childrenOptions.value)
+    return 
+  } 
+  // 判断用户是否自定义了filter需要的方法
+  if(props.filterMethod && isFunction(props.filterMethod)) {
+    const opts = map(props.filterMethod(search),"value")
+    setFilterChilds(
+      filter(childrenOptions.value, item => includes(opts, get(item,["props",'value'])))
+    )
+    return 
+  }
+  setFilterChilds(
+    filter(childrenOptions.value, item => includes(get(item, ['props','label']),search))
+  )
+
+}
+
+// 传入选项的检索处理
+const genFilterOptions = async(search: string) => {
+  if(!props.filterable) return 
+  if(props.remote && props.remoteMethod && isFunction(props.remoteMethod)) {
+    filterOptions.value  = await callRemoteMethod(props.remoteMethod, search)
+    return 
+  }
+  if(props.filterMethod && isFunction(props.filterMethod)) {
+    filterOptions.value = props.filterMethod(search)
+    return 
+  }
+  // 模糊匹配label含有关键词的选项
+  filterOptions.value = filter(props.options,(opt) => includes(opt.label,search))
+
+}
+
+const callRemoteMethod = async(remoteMethod: Function, search: string) => {
+  if(!remoteMethod || !isFunction(remoteMethod)) return 
+  selectStates.loading = true // 开启加载
+  let result
+  try{
+    result = await remoteMethod(search) // 执行检索
+  }
+  catch(e) {
+    debugWarn(e as Error)
+    debugWarn("YmSelect", "callRemoteMethod error")
+    result = []
+    return Promise.reject(e)
+  }
+  return result
+
+}
+const setFilterChilds = (opts: typeof childrenOptions.value) => {
+  filterChilds.value.clear()
+  each(opts,item => {
+    filterChilds.value.set(item.VNode, item.props as SelectOptionProps)
+  })
+}
+
+const timeout = computed(() => {
+  if(props.remote) return 300
+  return 100
+})
+
+const handleFilterDebounce = debounce(handleFilter,timeout.value)
+
+const filterPlaceholder = computed(() => {
+  return props.filterable && selectStates.selectedOption && isDropdownVisible.value ? selectStates.selectedOption.label : props.placeholder 
+})
+
+
+onMounted(() => {
+  setSelected()
+})
+
+watch(
+  () => props.options, 
+  (newValue) => {
+    filterOptions.value = newValue ?? []
+  }
+)
+
+watch(
+  () => childrenOptions.value ,
+  (newVal) => {
+    setFilterChilds(newVal)
+  },
+  {
+    immediate: true
+  }
+)
+
+// 键盘邦定事件map
+const keyMap  = useKeyMap({
+isDropdownVisible,
+controlVisible,
+selectStates,
+highlightedLine,
+hasData,
+lastIndex,
+handleSelect
+})
+
+const handleKeyDown = (e: KeyboardEvent) => {
+  console.log(e);
+  keyMap.has(e.key) && keyMap.get(e.key)?.(e)
+}
+
+
 </script>
 
 <template>
@@ -196,10 +364,12 @@ defineExpose<SelectInstance>({
             v-model="selectStates.inputValue"
             :id="inputId"
             :disabled="isDisabled"
-            :placeholder="placeholder"
+            :placeholder="filterable ? filterPlaceholder : placeholder"
             :readonly="!filterable || !isDropdownVisible"
             @focus="handlerFocus"
             @blur="handlerBlur"
+            @input="handleFilterDebounce"
+            @keydown="handleKeyDown"
           >
             <template #suffix>
               <ym-icon
@@ -223,17 +393,22 @@ defineExpose<SelectInstance>({
         <div class="ym-select__loading" v-if="selectStates.loading">
           <ym-icon icon="spinner" spin />
         </div>
-
+        <div class="ym-select-nodata" v-else-if="filterable && isNoData">
+          No Data
+        </div>
         <ul class="ym-select__menu" >
           <template v-if="!hasChildren">
             <ym-option
-              v-for="item in options"
+              v-for="item in filterOptions"
               :key="item.value"
               v-bind="item"
             />
           </template>
           <template v-else>
-            <slot></slot>
+            <template v-for="[vNode, _props] in filterChilds" :key="_props.value">
+              <render-vnode :vNode="vNode"></render-vnode>
+            </template>
+
           </template>
         </ul>
       </template>
@@ -244,5 +419,5 @@ defineExpose<SelectInstance>({
 
 
 <style scoped>
-
+@import './style';
 </style>
