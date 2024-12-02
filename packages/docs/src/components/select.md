@@ -1,59 +1,76 @@
 ---
-title: Switch
-description: Switch 开关
+title: Select
+description: Select 选择器
 
 next:
-  link: /components/select
+  link: /components/form
   text: Form 表单
 
 prev:
-  link: /components/input
+  link: /components/select
   text: Input 输入框
 ---
 
-# Switch 开关
-
-开关选择器，表示两种相互对立的状态间的切换，多用于触发「开/关」。
+# Select 选择器
+当选项过多时，使用下拉菜单展示并选择内容。
 
 
 ## 基础用法
-可以使用一个 `v-model` 绑定开关的选中状态。默认情况下，`Switch` 的选中状态为 `false`，且绑定的值为布尔值。
+::: tip
+使用 `v-model` 绑定开关的选中状态。
+:::
+可以使用`ym-option`来定义选项，使用`v-model`绑定开关的选中状态。
 
 ::: preview
-demo-preview=../demo/switch/Basic.vue
+demo-preview=../demo/select/Basic.vue
 :::
 
-## 开关尺寸
-可以使用 `size` 属性来定义开关的大小，默认不用书写，可选值为 `small` ,`large`。
+## props定义选项
+可以使用 `options` 属性来定义选项，可以传入一个选项数组。
 
 ::: preview
-demo-preview=../demo/switch/Size.vue
+demo-preview=../demo/select/Options.vue
 :::
 
-
-## 文字描述
-
-可以使用 `activeText`和`inactiveText` 属性来定义开关打开或关闭时的文字描述。
-
-::: preview
-demo-preview=../demo/switch/Text.vue
-:::
-
-
-## 自定义Value
-
-可以使用 `activeValue`和`inactiveValue` 属性来自定义激活时的值。
-
-::: preview
-demo-preview=../demo/switch/Value.vue
-:::
 
 ## 禁用状态
 
-可以使用 `disabled` 属性来定义开关打开或关闭时的文字描述。
+可以使用`disabled`属性来控制组件的禁用状态。
+
 
 ::: preview
-demo-preview=../demo/switch/Disabled.vue
+demo-preview=../demo/select/Disabled.vue
+:::
+
+
+## 选项禁用
+
+选择框选项`ym-option`组件可以通过 `disabled` 属性来禁用，如果是props传入的选项，可以使用`disabled`属性来禁用。
+
+::: preview
+demo-preview=../demo/select/OptionDisabled.vue
+:::
+
+## 可清空单选
+
+可以使用 `clearable` 属性来控制是否显示清空按钮。
+
+::: preview
+demo-preview=../demo/select/Clearable.vue
+:::
+## 自定义选项内容
+
+可以使用 `renderLabel` 属性来自定义`label`内容，该属性接受一个函数，函数参数为`option`对象，需要返回一个`string`或者`VNode`。`props`和`options`传入的选项都可以使用`renderLabel`属性。
+
+::: preview
+demo-preview=../demo/select/renderLabel.vue
+:::
+## 可输入检索框
+
+可以使用 `filterable` 属性控制选项框的输入检索，可以使用 `filterMethod` 属性自定义过滤方法。
+
+::: preview
+demo-preview=../demo/select/Filterable.vue
 :::
 
 
