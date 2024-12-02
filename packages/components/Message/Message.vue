@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type  { MessageProps , MessageComponentInstance} from './type'
 import { computed, onMounted, ref, watch } from 'vue'
-import { delay , bind, add} from 'lodash-es';
+import { delay , bind} from 'lodash-es';
 import { typeIconMap  , RenderVnode, addUnit} from '@ym-UI/utils'
 import { useOffset , useEventListener} from '@ym-UI/hooks';
 import YmIcon from '../Icon/Icon.vue'

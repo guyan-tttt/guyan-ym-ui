@@ -276,6 +276,8 @@ const callRemoteMethod = async(remoteMethod: Function, search: string) => {
     debugWarn("YmSelect", "callRemoteMethod error")
     result = []
     return Promise.reject(e)
+  } finally {
+    selectStates.loading = false // 关闭加载
   }
   return result
 
@@ -393,10 +395,10 @@ const handleKeyDown = (e: KeyboardEvent) => {
         <div class="ym-select__loading" v-if="selectStates.loading">
           <ym-icon icon="spinner" spin />
         </div>
-        <div class="ym-select-nodata" v-else-if="filterable && isNoData">
+        <div class="ym-select__nodata" v-else-if="filterable && isNoData" >
           No Data
         </div>
-        <ul class="ym-select__menu" >
+        <ul class="ym-select__menu" v-else>
           <template v-if="!hasChildren">
             <ym-option
               v-for="item in filterOptions"

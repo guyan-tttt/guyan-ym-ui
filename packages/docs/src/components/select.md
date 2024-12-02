@@ -67,29 +67,40 @@ demo-preview=../demo/select/renderLabel.vue
 :::
 ## 可输入检索框
 
-可以使用 `filterable` 属性控制选项框的输入检索，可以使用 `filterMethod` 属性自定义过滤方法。
+可以使用 `filterable` 属性控制选项框的输入检索，可以使用 `filterMethod` 属性自定义过滤方法。如果不传递`filterMethod`属性，则默认使用`label`属性进行过滤。
 
 ::: preview
 demo-preview=../demo/select/Filterable.vue
+:::
+## 远程检索
+
+输入关键字以从远程服务器中查找数据。
+
+从服务器搜索数据，输入关键字进行查找。为了启用远程搜索，需要将`filterable`和`remote`设置为true，同时传入一个`remoteMethod`。 `remoteMethod`为一个Function，它会在输入值发生变化时调用，参数为当前输入值。 
+
+::: preview
+demo-preview=../demo/select/Remote.vue
 :::
 
 
 
 
-## Switch API
+## Select API
 
 ### Props
 
-| Name           | Description | Type                                                     | Default |
-| -------------- | ----------- | -------------------------------------------------------- | ------- |
-| v-model        | 绑定value值    | `boolean`                                                 | -       |
-| disabled       | 是否禁用    | `boolean`                                                | false   |
-| size      | 尺寸    | `enum`- `small \|  large`                                                | -  |
-| activeText        | 激活时文字    | `string`                                                 | -   |
-| inactiveText         | 未激活文字    | `string`                                                | -   |
-| activeValue | 自定义激活时的值 | `boolean \| string \| number`      |
-| inactiveValue     | 自定义未激活时的值        |  `boolean \| string \| number`          | -    |
-| name   | 原生name    | `string`                                                 | -       |
+| Name           | Description    | Type                                                     | Default |
+| -------------- | -----------    | -------------------------------------------------------- | ------- |
+| v-model        | 绑定value值     | `boolean`                                                 | -       |
+| disabled       | 是否禁用        | `boolean`                                                | false   |
+| options        | 选项数组        | `SelectOptionProps[]`                                                | -  |
+| placeholder    | 文字占位符（原生） | `string`                                                 | -   |
+| clearable         | 是否显示清空按钮 | `boolean`                                                | false   |
+| filterable     | 是否可检索          | `boolean `                                               | false |
+| remote     | 是否开启远程检索  |  `boolean`                               |  false  |
+| renderLabel   | 自定义渲染函数  | `RenderLabelFunc`                                             | -       |
+| filterMethod   | 检索函数  | `CustomFilterFunc`                                             | -       |
+|  remoteMethod   | 远程检索函数  | `CustomFilterRemoteFunc`                                             | -       |
 
 
 ### Events
@@ -97,7 +108,12 @@ demo-preview=../demo/select/Filterable.vue
 | Name           | Description            | Type                         |
 | -------------- | ---------------------- | ---------------------------- |
 | update:modelValue | 绑定值改变时触发 | `(visible: boolean) => void` |
-| change | 绑定值改变时触发 | `(visible: boolean) => void` |
+| change | 绑定值改变时触发 | `(visible: string) => void` |
+| visible-change | 绑定值改变时触发 | `(visible: boolean) => void` |
+| visible-change | 选择框显示状态切换时触发 | `(visible: boolean) => void` |
+| clear | 清空选项时触发 | `() => void` |
+| focus | 选择框聚焦触发 | `() => void` |
+| blur | 清选择框失焦触发 | `() => void` |
 
 
 
@@ -105,5 +121,44 @@ demo-preview=../demo/select/Filterable.vue
 
 | Name | Description | Type         |
 | ---- | ----------- | ------------ |
-| checked | 当前是否选中        | `boolean` |
+| blur | 失焦        | `() => void` |
 | focus | 聚焦        | `() => void` |
+
+
+## Option API
+
+### Props
+| Name           | Description    | Type                                                     | Default |
+| -------------- | -----------    | -------------------------------------------------------- | ------- |
+| value        | 选项值     | `string`                                                 | -       |
+| label      | 选项名        | `string`                                                |    |
+| disabled?        | 是否禁用        | `disabled`                                                | false  |
+
+
+## Types
+### SelectOptionProps
+
+```ts
+interface SelectOptionProps {
+  value: string;
+  label?: string;
+  disabled?: boolean;
+}
+```
+### RenderLabelFunc
+
+```ts
+type RenderLabelFunc = (option: SelectOptionProps) => string;
+```
+
+### CustomFilterFunc
+
+```ts
+type CustomFilterFunc = (query: string, option: SelectOptionProps) => boolean;
+```
+
+### CustomFilterRemoteFunc
+
+```ts
+type CustomFilterRemoteFunc = (query: string) => void;
+```

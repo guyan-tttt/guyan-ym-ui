@@ -12,7 +12,7 @@ import {
     type ConfigProviderContext,
   } from "./constants";
   import { createI18n, i18nSymbol } from "vue3-i18n";
-  import type { TranslatePair, zhCn } from "@ym-UI/locale";
+  import type { TranslatePair } from "@ym-UI/locale";
   import Chinese from "@ym-UI/locale/lang/zh-cn";
   import { merge } from "lodash-es";
   import { debugWarn } from "@ym-UI/utils";
