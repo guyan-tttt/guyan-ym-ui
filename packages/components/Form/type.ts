@@ -75,8 +75,8 @@ import type {
       trigger: string,
       callback?: FormValidateCallback
     ): FormValidateResult;
-    resetField(): void;
-    clearValidate(): void;
+    resetField(): void; // 重置字段
+    clearValidate(): void; // 清除验证信息
   }
   
   export interface FormContext extends FormProps {

@@ -4,12 +4,17 @@ import type {  InputInstance , InputProps, InputEmits } from './type'
 import { useFocusController , useId} from '@ym-UI/hooks'
 import Icon from '../Icon/Icon.vue'
 import { each, noop } from 'lodash-es';
+import { useFormItem } from '../Form';
+import { debugWarn } from '@ym-UI/utils';
 
 //  组件声明
 defineOptions({
     name: "YmInput",
     inheritAttrs: false // 关闭默认继承属性
 })
+
+// 表单组件上下文
+const { formItem } = useFormItem()
 
 // props
 const props  = withDefaults(defineProps<InputProps>(), {
@@ -53,6 +58,7 @@ const showClear = computed(() => {
 const { wrapperRef, isFocused, handlerBlur, handlerFocus } = useFocusController(_ref, {
     afterBlur: () => {
         // form校验
+        formItem?.validate('blur').catch((err) => debugWarn(err))
     }
 })
 
@@ -67,6 +73,7 @@ const clear:InputInstance["clear"] = function() {
   })
   emit("clear")
   // TODO： form校验
+  formItem?.clearValidate()
 }
 
 const focus:InputInstance["focus"] = async function() {
@@ -100,6 +107,7 @@ watch(
   (val) => {
     innerValue.value = val
     //TODO: 表单校验的触发
+    formItem?.validate("change").catch((err) => debugWarn(err))
   }
 )
 
@@ -113,6 +121,7 @@ defineExpose<InputInstance>({
 })
 
 const inputId = useId("input")
+
 
 </script>
 
