@@ -2,7 +2,7 @@
 <div align="center">
 
 
-![Alt](../../docs/logo.png){:height="40%" width="40%"}
+<img src="../../docs/logo.png" style="width: 300px;height: 300px;" alt=""></img>
 
 <h1>云墨UI</h1>
 
