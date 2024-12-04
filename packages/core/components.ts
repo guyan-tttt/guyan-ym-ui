@@ -20,7 +20,9 @@ import {
     YmLoading,
     YmSwitch,
     YmSelect,
-    YmOption
+    YmOption,
+    YmForm,
+    YmFormItem
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -47,5 +49,7 @@ export default [
     YmLoading,
     YmSwitch,
     YmSelect,
-    YmOption
+    YmOption,
+    YmForm,
+    YmFormItem
 ] as Plugin[]

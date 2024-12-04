@@ -6,6 +6,7 @@ import useLocale from "./useLocale";
 import useOffset from './useOffset'
 import useZIndex from "./useZIndex";
 import useFocusController from './useFocusController'
+import useProp from "./useProp";
 
 export { 
     useClickOutside, 
@@ -15,5 +16,6 @@ export {
     useLocale,
     useOffset,
     useZIndex,
-    useFocusController
+    useFocusController,
+    useProp,
 };

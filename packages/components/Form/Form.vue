@@ -126,5 +126,5 @@ defineExpose<FormInstance>({
 
 
 <style scoped>
-
+@import './style';
 </style>

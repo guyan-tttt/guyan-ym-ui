@@ -1,6 +1,6 @@
-import { _ as e, w as a } from "./utils-JcduRB7A.js";
+import { _ as e, w as a } from "./utils-CN-UVqEO.js";
 import { defineComponent as t, computed as i, ref as c, onMounted as l, watch as s, openBlock as n, createElementBlock as u, normalizeClass as o, createElementVNode as d, unref as r, withKeys as v, toDisplayString as m, createCommentVNode as h } from "vue";
-import { a as p } from "./hooks-DZI5xxe9.js";
+import { a as p } from "./hooks-CB8aTc5l.js";
 const _ = ["id", "name", "disabled", "checked"], y = { class: "ym-switch__core" }, f = { class: "ym-switch__core-inner" }, w = { key: 0, class: "ym-switch__core-inner-text" }, k = a(e(t({ name: "YmSwitch", inheritAttrs: false, __name: "Switch", props: { modelValue: { type: [Boolean, String, Number] }, disabled: { type: Boolean }, activeText: {}, inactiveText: {}, activeValue: { type: [Boolean, String, Number], default: true }, inactiveValue: { type: [Boolean, String, Number], default: false }, name: {}, id: {}, size: {} }, emits: ["update:modelValue", "change"], setup(e2, { expose: a2, emit: t2 }) {
   const k2 = e2, x = t2, b = i(() => k2.disabled), V = c(k2.modelValue), T = c(null), g = i(() => V.value === k2.activeValue), S = p(), B = () => {
     if (b.value) return;

@@ -6,5 +6,6 @@ import { default as useLocale } from './useLocale';
 import { default as useOffset } from './useOffset';
 import { default as useZIndex } from './useZIndex';
 import { default as useFocusController } from './useFocusController';
+import { default as useProp } from './useProp';
 
-export { useClickOutside, useEventListener, useId, useDisabledStyle, useLocale, useOffset, useZIndex, useFocusController };
+export { useClickOutside, useEventListener, useId, useDisabledStyle, useLocale, useOffset, useZIndex, useFocusController, useProp, };

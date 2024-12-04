@@ -1,0 +1,90 @@
+.ym-form-item {
+    --ym-form-label-width: 150px;
+    --ym-form-label-font-size: var(--ym-font-size-base);
+    --ym-form-content-font-size: var(--ym-font-size-base);
+  }
+  
+  .ym-form-item {
+    display: flex;
+    margin-bottom: 18px;
+    &:has(> .position-top){
+      flex-direction: column;
+    }
+  
+    .ym-form-item__label {
+      height: 32px;
+      line-height: 32px;
+      width: var(--ym-form-label-width);
+      padding: 0;
+      padding-right: 10px;
+      box-sizing: border-box;
+      display: inline-flex;
+      font-size: var(--ym-form-label-font-size);    
+      color: var(--ym-text-color-regular);
+      &.position-right {
+        padding-left: 12px;
+        justify-content: flex-end;
+      }
+      &.position-left {
+        padding-right: 12px;
+        justify-content: flex-start;
+      }
+      &.position-top {
+        padding-bottom: 12px;
+        justify-content: flex-start;
+      }
+    }
+  
+    .ym-form-item__content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      flex: 1;
+      line-height: 32px;
+      font-size: var(--ym-form-content-font-size);
+      min-width: 0;
+      position: relative;
+    }
+  
+    .ym-form-item__error-msg {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 2px;
+      color: var(--ym-color-danger);
+      font-size: 12px;
+      line-height: 1;
+    }
+  
+    &.is-error {
+      :deep(.ym-input__wrapper){
+        box-shadow: 0 0 0 1px var(--ym-color-danger) inset;
+      }
+    }
+  
+    &.is-required.asterisk-right > .ym-form-item__label::after{
+      content: '*';
+      color: var(--ym-color-danger);
+      margin-left: 4px;
+    }
+  
+    &.is-required.asterisk-left > .ym-form-item__label::before{
+      content: '*';
+      color: var(--ym-color-danger);
+      margin-right: 4px;
+    }
+  
+    &.is-disabled > .ym-form-item__label{
+      color: var(--ym-disabled-text-color);
+      cursor: not-allowed;
+      &::before,&::after{
+        cursor: not-allowed;
+      }
+    }
+  
+    &.is-disabled > .ym-form-item__content{
+      color: var(--ym-disabled-text-color);
+      cursor: not-allowed;
+    }
+  }
+  

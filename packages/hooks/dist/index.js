@@ -6,6 +6,7 @@ import { u as u5 } from "./useLocale-Dl6o5Lbt.js";
 import { u as u6 } from "./useOffset-BO02G_9O.js";
 import { u as u7 } from "./useZIndex-DYNAJc5I.js";
 import { u as u8 } from "./useFocusController-DbTS20Td.js";
+import { u as u9 } from "./useProp-BKnLQbYM.js";
 export {
   u as useClickOutside,
   u4 as useDisabledStyle,
@@ -14,5 +15,6 @@ export {
   u3 as useId,
   u5 as useLocale,
   u6 as useOffset,
+  u9 as useProp,
   u7 as useZIndex
 };

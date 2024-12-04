@@ -2,8 +2,9 @@
 import type {  FormItemContext, FormItemInstance, FormItemProps, FormItemRule, FormProps, FormValidateCallback, FormValidateFailuer, ValidateStatus } from './type'
 import { FORM_CTX_KEY,FORM_ITEM_CTX_KEY } from './constant'
 import { computed, inject, onMounted, onUnmounted, reactive, toRefs, ref, type Ref, nextTick, provide } from 'vue';
-import { cloneDeep, filter, get, includes, isArray, isNil, isString, keys, map, size } from 'lodash-es';
+import { cloneDeep, endsWith, filter, get, includes, isArray, isNil, isNumber, isString, keys, map, size, some } from 'lodash-es';
 import Schema, { type RuleItem } from 'async-validator';
+import { useId } from '@ym-UI/hooks';
 
 defineOptions({
     name: "YmFormItem"
@@ -19,6 +20,7 @@ const slots = defineSlots()
 
 // form的上下文对象
 const ctx = inject(FORM_CTX_KEY)
+const inputIds = ref<string[]>([])
 
 const isDisabled = computed(() => {
     return ctx?.disabled || props.disabled
@@ -174,6 +176,20 @@ const clearValidate:FormItemInstance['clearValidate'] = () => {
 }
 
 
+const addInputId:FormItemContext['addInputId'] = (id: string) => {
+    if(!includes(inputIds.value,id)) {
+        inputIds.value.push(id)
+    }
+}
+
+const removeInputId:FormItemContext['removeInputId'] = (id: string) => {
+    const index = inputIds.value.indexOf(id)
+    if(index > -1) {
+        inputIds.value.splice(index, 1)
+    }
+}
+
+
 
 
 // 当前item的上下文对象
@@ -183,8 +199,8 @@ const formItemCtx:FormItemContext = reactive({
     validate: validate,
     resetField,
     clearValidate,
-    addInputId:() => {},
-    removeInputId:() => {},
+    addInputId,
+    removeInputId,
 })
 
 onMounted(() => {
@@ -209,17 +225,63 @@ defineExpose<FormItemInstance>({
     validateMessage: errMsg,
     validateStatus,
 })
+
+
+const hasLabel = computed(() => {
+    return !!(props.label || slots.label)
+})
+
+
+const labelFor = computed(() => {
+    return props.for || (inputIds.value.length ? inputIds?.value[0] : "")
+})
+const labelId = useId()
+
+const currentLabel = computed(() => `${props.label ?? ""}${ctx?.labelSuffix ?? ""}`)
+
+const normalizeLabelWidth = computed(() => {
+    const _normalizeStyle = (val: number | string) => {
+        if(isNumber(val)) return `${val}px`
+        return endsWith(val,'px') ? val : `${val}px`
+    }
+    if(props.labelWidth) return _normalizeStyle(props.labelWidth)
+    if(ctx?.labelWidth) return _normalizeStyle(ctx.labelWidth)
+    return '150px'
+})  
+
+
+const isRequired = computed(() => {
+    return !ctx?.hideRequiredAsterisk && (some(itemRules.value, 'required')) || props.required
+})
 </script>
 
 
 <template>
-    <div class="ym-form-item">
+    <div 
+    class="ym-form-item"
+    :class="{
+        'is-error': validateStatus === 'error', // 当前校验状态为error时，添加is-error类名
+        'is-disabled': isDisabled, // 当前表单项被禁用时，添加is-disabled类名
+        'is-required':isRequired, // 当前表单项为必填项时，添加is-required类名
+        'asterisk-left':ctx?.requiredAsteriskPosition === 'left', // 当前表单项的必填项星号在左边时，添加asterisk-left类名
+        'asterisk-right':ctx?.requiredAsteriskPosition === 'right', // 当前表单项的必填项星号在右边时，添加asterisk-right类名
+    }"
+    >
+    <component 
+    v-if="hasLabel"
+     class="ym-form-item__label"
+    :class="`position-${ctx?.labelPosition ?? 'right'}`"
+    :is="labelFor ? 'label' : 'div'" 
+    :id="labelId"
+    :for="labelFor"
+     >
+     <slot name="label" :label="currentLabel">{{ currentLabel }}</slot>
+    </component>
         <div class="ym-form-item__content">
-            <slot></slot>
+            <slot :validate="validate"></slot>
             <div class="ym-form-item_error-msg" v-if="validateStatus === 'error'">
                 <template v-if="ctx?.showMessage && showMessage">
                     <slot name="error" :error="errMsg">{{ errMsg }}</slot>
-
                 </template>
             </div>
         </div>
@@ -228,5 +290,9 @@ defineExpose<FormItemInstance>({
 
 
 <style scoped>
+@import './style';
 
+.ym-form-item {
+    --ym-form-item-label-width: v-bind(normalizeLabelWidth) !important; /* 设置label的宽度 */
+}
 </style>

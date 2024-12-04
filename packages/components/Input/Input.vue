@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref , computed,watch,useAttrs, shallowRef,nextTick} from 'vue';
 import type {  InputInstance , InputProps, InputEmits } from './type'
-import { useFocusController , useId} from '@ym-UI/hooks'
+import { useFocusController } from '@ym-UI/hooks'
 import Icon from '../Icon/Icon.vue'
 import { each, noop } from 'lodash-es';
-import { useFormItem } from '../Form';
+import { useFormDisabled, useFormItem, useFormItemInputId } from '../Form';
 import { debugWarn } from '@ym-UI/utils';
 
 //  组件声明
@@ -42,9 +42,11 @@ const _ref = computed(() => {
 })
 
 // 是否禁用
-const isDisabled = computed(() => {
-    return props.disabled
-})
+// const isDisabled = computed(() => {
+//     return props.disabled
+// })
+
+const isDisabled = useFormDisabled() // 表单禁用
 
 // 属性
 const attrs = useAttrs()
@@ -120,7 +122,8 @@ defineExpose<InputInstance>({
     select
 })
 
-const inputId = useId("input")
+// const inputId = useId("input")
+const { inputId } = useFormItemInputId(props, formItem) // 表单组件id
 
 
 </script>
