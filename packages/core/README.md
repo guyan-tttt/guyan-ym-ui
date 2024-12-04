@@ -1,23 +1,18 @@
 
 <div align="center">
-
-
-<img src="../../docs/logo.png" style="width: 300px;height: 300px;" alt=""></img>
-
+<p>
+<img src="./logo_md.png"  alt=""></img>
+</P>
 <h1>云墨UI</h1>
-
-<div style="display: flex; justify-content: center; align-items: center;gap: 10px;">
-
+<span>
 <a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/npm/d18m/guyan-ym-ui?logo=npm&color=orange" alt="npm downloads"></a> 
-
+</span>
+<span>
 <a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/npm/v/guyan-ym-ui?logo=npm&color=blue" alt="npm downloads"></a> 
-
-<a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/npm/unpacked-size/guyan-ym-ui?logo=GitLFS&logoColor=white&color=yellow" alt="npm unpacked size"></a> 
-
-</div>
-
+</span>
+<a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/npm/unpacked-size/guyan-ym-ui?logo=GitLFS&logoColor=white&color=yellow" alt="npm unpacked size"></a>  
+</span>
 <h4>最新个人开发的一套基于Vue3 + Ts UI的组件库</h4>
-
 </div>
 
 **一个专为开发者设计**的、功能全面且高度可定制的组件库，旨在帮助您以前所未有的速度和效率构建下一代Web应用。
