@@ -1,80 +1,80 @@
-.ym-switch[data-v-f9ee3098] {
+.ym-switch[data-v-6062b175] {
     --ym-switch-on-color: var(--ym-color-primary);
     --ym-switch-off-color: var(--ym-border-color);
     --ym-switch-on-border-color: var(--ym-color-primary);
     --ym-switch-off-border-color: var(--ym-border-color);
 }
-.ym-switch[data-v-f9ee3098] {
+.ym-switch[data-v-6062b175] {
     display: inline-flex;
     align-items: center;
     font-size: 14px;
     line-height: 20px;
     height: 32px;
 }
-.ym-switch .ym-switch__input[data-v-f9ee3098]{
+.ym-switch .ym-switch__input[data-v-6062b175]{
       position: absolute;
       width: 0;
       height: 0;
       opacity: 0;
       margin: 0;
 }
-.ym-switch .ym-switch__input:focus-visible ~ .ym-switch__core[data-v-f9ee3098]{
+.ym-switch .ym-switch__input:focus-visible ~ .ym-switch__core[data-v-6062b175]{
           outline: 2px solid var(--ym-switch-on-color);
           outline-offset: 1px;
 }
-.ym-switch.is-disabled[data-v-f9ee3098] {
+.ym-switch.is-disabled[data-v-6062b175] {
       opacity: .6;
 }
-.ym-switch.is-disabled .ym-switch__core[data-v-f9ee3098] {
+.ym-switch.is-disabled .ym-switch__core[data-v-6062b175] {
         cursor: not-allowed;
 }
-.ym-switch.is-checked .ym-switch__core[data-v-f9ee3098]{
+.ym-switch.is-checked .ym-switch__core[data-v-6062b175]{
         border-color: var(--ym-switch-on-border-color);
         background-color: var(--ym-switch-on-color);
 }
-.ym-switch.is-checked .ym-switch__core .ym-switch__core-action[data-v-f9ee3098]{
+.ym-switch.is-checked .ym-switch__core .ym-switch__core-action[data-v-6062b175]{
           left: calc(100% - 17px);
 }
-.ym-switch.is-checked .ym-switch__core .ym-switch__core-inner[data-v-f9ee3098] {
+.ym-switch.is-checked .ym-switch__core .ym-switch__core-inner[data-v-6062b175] {
           padding: 0 18px 0 4px;
 }
-.ym-switch--large[data-v-f9ee3098] {
+.ym-switch--large[data-v-6062b175] {
     font-size: 14px;
     line-height: 24px;
     height: 40px;
 }
-.ym-switch--large .ym-switch__core[data-v-f9ee3098] {
+.ym-switch--large .ym-switch__core[data-v-6062b175] {
       min-width: 50px;
       height: 24px;
       border-radius: 12px;
 }
-.ym-switch--large .ym-switch__core .ym-switch__core-action[data-v-f9ee3098] {
+.ym-switch--large .ym-switch__core .ym-switch__core-action[data-v-6062b175] {
         width: 20px;
         height: 20px;
 }
-.ym-switch--large.is-checked .ym-switch__core .ym-switch__core-action[data-v-f9ee3098] {
+.ym-switch--large.is-checked .ym-switch__core .ym-switch__core-action[data-v-6062b175] {
         left: calc(100% - 21px);
         color: var(--ym-switch-on-color);
 }
-.ym-switch--small[data-v-f9ee3098] {
+.ym-switch--small[data-v-6062b175] {
     font-size: 12px;
     line-height: 16px;
     height: 24px;
 }
-.ym-switch--small .ym-switch__core[data-v-f9ee3098] {
+.ym-switch--small .ym-switch__core[data-v-6062b175] {
       min-width: 30px;
       height: 16px;
       border-radius: 8px;
 }
-.ym-switch--small .ym-switch__core .ym-switch__core-action[data-v-f9ee3098] {
+.ym-switch--small .ym-switch__core .ym-switch__core-action[data-v-6062b175] {
         width: 12px;
         height: 12px;
 }
-.ym-switch--small.is-checked .ym-switch__core .ym-switch-core-action[data-v-f9ee3098] {
+.ym-switch--small.is-checked .ym-switch__core .ym-switch-core-action[data-v-6062b175] {
         left: calc(100% - 13px);
         color: var(--ym-switch-on-color);
 }
-.ym-switch__core[data-v-f9ee3098]{
+.ym-switch__core[data-v-6062b175]{
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -88,7 +88,7 @@
     background: var(--ym-switch-off-color);
     transition: border-color var(--ym-transition-duration),background-color var(--ym-transition-duration);
 }
-.ym-switch__core .ym-switch__core-action[data-v-f9ee3098]{
+.ym-switch__core .ym-switch__core-action[data-v-6062b175]{
        position: absolute;
        border-radius: var(--ym-border-radius-circle);
        left: 1px;
@@ -97,7 +97,7 @@
        background-color: var(--ym-color-white);
        transition: all var(--ym-transition-duration);
 }
-.ym-switch__core .ym-switch__core-inner[data-v-f9ee3098]{
+.ym-switch__core .ym-switch__core-inner[data-v-6062b175]{
       width: 100%;
       height: 16px;
       display: flex;
@@ -106,7 +106,7 @@
       overflow: hidden;
       padding: 0 4px 0 18px;
 }
-.ym-switch__core .ym-switch__core-inner .ym-switch__core-inner-text[data-v-f9ee3098]{
+.ym-switch__core .ym-switch__core-inner .ym-switch__core-inner-text[data-v-6062b175]{
         font-size: 12px;
         color: var(--ym-color-white);
         user-select: none;

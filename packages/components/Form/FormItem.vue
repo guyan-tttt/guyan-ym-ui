@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {  FormItemContext, FormItemInstance, FormItemProps, FormItemRule, FormProps, FormValidateCallback, FormValidateFailuer, ValidateStatus } from './type'
+import type {  FormItemContext, FormItemInstance, FormItemProps, FormItemRule, FormValidateCallback, FormValidateFailuer, ValidateStatus } from './type'
 import { FORM_CTX_KEY,FORM_ITEM_CTX_KEY } from './constant'
 import { computed, inject, onMounted, onUnmounted, reactive, toRefs, ref, type Ref, nextTick, provide } from 'vue';
 import { cloneDeep, endsWith, filter, get, includes, isArray, isNil, isNumber, isString, keys, map, size, some } from 'lodash-es';
@@ -116,6 +116,7 @@ const getTriggerRules = (trigger:string) => {
     const rules = itemRules.value
     if(!rules) return []
     // 过滤出与当前trigger相关的校验规则
+    if(trigger === "") return rules // 如果trigger为空，则返回所有校验规则
     return  filter(rules, (rule) => {
         if(!rule.trigger || trigger) return true
         if(isArray(rule.trigger)) {
@@ -279,7 +280,7 @@ const isRequired = computed(() => {
     </component>
         <div class="ym-form-item__content">
             <slot :validate="validate"></slot>
-            <div class="ym-form-item_error-msg" v-if="validateStatus === 'error'">
+            <div class="ym-form-item__error-msg" v-if="validateStatus === 'error'">
                 <template v-if="ctx?.showMessage && showMessage">
                     <slot name="error" :error="errMsg">{{ errMsg }}</slot>
                 </template>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { ErMessage, type FormProps } from "eric-ui";
+import { YmMessage, type FormProps } from "guyan-ym-ui";
 
 const form = reactive({
   name: "",
@@ -9,55 +9,56 @@ const form = reactive({
   desc: "",
 });
 const options = ref([
-  { value: "beijing", label: "Zone One" },
-  { value: "shanghai", label: "Zone Two" },
+  { value: "beijing", label: "北京" },
+  { value: "shanghai", label: "上海" },
 ]);
+
 const labelPosition = ref<FormProps["labelPosition"]>("right");
 
 const onSubmit = () => {
-  ErMessage.success("submit");
+  YmMessage.success("submit");
 };
 </script>
 
 <template>
-  <er-button-group size="small">
-    <er-button
+  <ym-button-group size="small">
+    <ym-button
       @click="labelPosition = 'left'"
       :type="labelPosition === 'left' ? 'primary' : 'info'"
-      >Left</er-button
+      >Left</ym-button
     >
-    <er-button
+    <ym-button
       @click="labelPosition = 'right'"
       :type="labelPosition === 'right' ? 'primary' : 'info'"
-      >Right</er-button
+      >Right</ym-button
     >
-    <er-button
+    <ym-button
       @click="labelPosition = 'top'"
       :type="labelPosition === 'top' ? 'primary' : 'info'"
-      >Top</er-button
+      >Top</ym-button
     >
-  </er-button-group>
+  </ym-button-group>
   <div style="margin: 20px"></div>
-  <er-form :model="form" :label-position="labelPosition">
-    <er-form-item label="Activity name">
-      <er-input v-model="form.name" />
-    </er-form-item>
-    <er-form-item label="Activity zone">
-      <er-select
+  <ym-form :model="form" :label-position="labelPosition">
+    <ym-form-item label="输入框">
+      <ym-input v-model="form.name" />
+    </ym-form-item>
+    <ym-form-item label="选择框">
+      <ym-select
         v-model="form.region"
-        placeholder="please select your zone"
+        placeholder="请选择"
         :options="options"
       />
-    </er-form-item>
-    <er-form-item label="Instant delivery">
-      <er-switch v-model="form.delivery" />
-    </er-form-item>
-    <er-form-item label="Activity form">
-      <er-input v-model="form.desc" type="textarea" />
-    </er-form-item>
-    <er-form-item>
-      <er-button type="primary" @click="onSubmit">Create</er-button>
-      <er-button>Cancel</er-button>
-    </er-form-item>
-  </er-form>
+    </ym-form-item>
+    <ym-form-item label="开关">
+      <ym-switch v-model="form.delivery" />
+    </ym-form-item>
+    <ym-form-item label="文本域">
+      <ym-input v-model="form.desc" type="textarea" />
+    </ym-form-item>
+    <ym-form-item >
+      <ym-button type="primary" @click="onSubmit">提交</ym-button>
+      <ym-button>取消</ym-button>
+    </ym-form-item>
+  </ym-form>
 </template>

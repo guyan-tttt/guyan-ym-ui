@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type {  FormProps, FormEmits, FormInstance , FormContext,FormItemContext,FormItemInstance,FormItemProps} from './type'
+import type {  FormProps, FormEmits, FormInstance , FormContext,FormItemContext} from './type'
 import {  FORM_CTX_KEY } from './constant'
 import { provide, reactive, toRefs } from 'vue';
 import { each, filter, includes, size } from 'lodash-es';
-import type { ValidateError, ValidateFieldsError } from 'async-validator';
+import type { ValidateFieldsError } from 'async-validator';
 
 defineOptions({
     name: "YmForm"
@@ -126,5 +126,4 @@ defineExpose<FormInstance>({
 
 
 <style scoped>
-@import './style';
 </style>

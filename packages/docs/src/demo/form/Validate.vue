@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { ErMessage, type FormInstance } from "eric-ui";
+import { YmMessage, type FormInstance } from "guyan-ym-ui";
 
 const formRef = ref<FormInstance>();
 const form = reactive({
@@ -11,8 +11,8 @@ const form = reactive({
 });
 
 const options = ref([
-  { value: "beijing", label: "Zone One" },
-  { value: "shanghai", label: "Zone Two" },
+  { value: "beijing", label: "北京" },
+  { value: "shanghai", label: "上海" },
 ]);
 
 const rules = reactive({
@@ -25,9 +25,9 @@ const rules = reactive({
 });
 
 const onSubmit = () => {
-  formRef.value?.validate().then((valid) => {
+  formRef.value?.validate().then((valid: boolean) => {
     if (valid) {
-      ErMessage.success("submit!");
+      YmMessage.success("submit!");
     }
   });
 };
@@ -38,26 +38,26 @@ const onReset = () => {
 </script>
 
 <template>
-  <er-form ref="formRef" :model="form" :rules="rules">
-    <er-form-item label="Activity name" prop="name">
-      <er-input v-model="form.name" />
-    </er-form-item>
-    <er-form-item label="Activity zone" prop="region">
-      <er-select
+  <ym-form ref="formRef" :model="form" :rules="rules">
+    <ym-form-item label="输入框" prop="name">
+      <ym-input v-model="form.name" />
+    </ym-form-item>
+    <ym-form-item label="选择框" prop="region">
+      <ym-select
         v-model="form.region"
-        placeholder="please select your zone"
+        placeholder="请选择"
         :options="options"
       />
-    </er-form-item>
-    <er-form-item label="Instant delivery" prop="delivery">
-      <er-switch v-model="form.delivery" />
-    </er-form-item>
-    <er-form-item label="Activity form" prop="desc">
-      <er-input v-model="form.desc" type="textarea" />
-    </er-form-item>
-    <er-form-item>
-      <er-button type="primary" @click="onSubmit">Create</er-button>
-      <er-button @click="onReset">Reset</er-button>
-    </er-form-item>
-  </er-form>
+    </ym-form-item>
+    <ym-form-item label="开关" >
+      <ym-switch v-model="form.delivery" />
+    </ym-form-item>
+    <ym-form-item label="文本域" prop="desc">
+      <ym-input v-model="form.desc" type="textarea" />
+    </ym-form-item>
+    <ym-form-item>
+      <ym-button type="primary" @click="onSubmit">提交</ym-button>
+      <ym-button @click="onReset">重置</ym-button>
+    </ym-form-item>
+  </ym-form>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import type { SwitchProps, SwitchEmits, SwitchInstance } from './type'
-import { useId } from '@ym-UI/hooks';
+import { useFormDisabled, useFormItem, useFormItemInputId } from '../Form';
 
 defineOptions({
     name: "YmSwitch",
@@ -15,13 +15,14 @@ const props = withDefaults(defineProps<SwitchProps>(), {
 
 const emits  = defineEmits<SwitchEmits>()
 
-const isDisabled = computed(() => props.disabled)
+const isDisabled = useFormDisabled()
 
 const innerValue = ref(props.modelValue) // 内部值
 const inputRef = ref<HTMLInputElement | null>(null) // input元素
 const checked = computed(() => innerValue.value === props.activeValue) // 是否激活
+const  { formItem } = useFormItem()
 
-const inputId = useId() // input的id
+const { inputId } = useFormItemInputId(props, formItem)
 
 const focus:SwitchInstance['focus'] = function () {
     inputRef.value?.focus()

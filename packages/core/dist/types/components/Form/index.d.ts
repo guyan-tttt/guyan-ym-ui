@@ -8,7 +8,7 @@ export declare const YmForm: {
             required: true;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormRules>;
+            type: import('vue').PropType<import('packages/core').FormRules>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -35,14 +35,14 @@ export declare const YmForm: {
             default: string;
         };
     }>> & Readonly<{
-        onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+        onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
     }>, {
-        validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-        validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+        validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetFields(keys?: string[]): void;
         clearValidate(keys?: string[]): void;
     }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-        validate: (prop: import('./type').FormItemProps, isValid: boolean, message: string) => void;
+        validate: (prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => void;
     }, import('vue').PublicProps, {
         labelWidth: number | string;
         labelPosition: "left" | "right" | "top";
@@ -66,7 +66,7 @@ export declare const YmForm: {
             required: true;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormRules>;
+            type: import('vue').PropType<import('packages/core').FormRules>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -93,10 +93,10 @@ export declare const YmForm: {
             default: string;
         };
     }>> & Readonly<{
-        onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+        onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
     }>, {
-        validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-        validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+        validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetFields(keys?: string[]): void;
         clearValidate(keys?: string[]): void;
     }, {}, {}, {}, {
@@ -119,7 +119,7 @@ export declare const YmForm: {
         required: true;
     };
     rules: {
-        type: import('vue').PropType<import('./type').FormRules>;
+        type: import('vue').PropType<import('packages/core').FormRules>;
     };
     labelWidth: {
         type: import('vue').PropType<string | number>;
@@ -146,14 +146,14 @@ export declare const YmForm: {
         default: string;
     };
 }>> & Readonly<{
-    onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+    onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
 }>, {
-    validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-    validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+    validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+    validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
     resetFields(keys?: string[]): void;
     clearValidate(keys?: string[]): void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    validate: (prop: import('./type').FormItemProps, isValid: boolean, message: string) => void;
+    validate: (prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => void;
 }, string, {
     labelWidth: number | string;
     labelPosition: "left" | "right" | "top";
@@ -182,7 +182,7 @@ export declare const YmFormItem: {
             type: import('vue').PropType<string>;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormItemRule[]>;
+            type: import('vue').PropType<import('packages/core').FormItemRule[]>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -198,9 +198,9 @@ export declare const YmFormItem: {
             type: import('vue').PropType<string>;
         };
     }>> & Readonly<{}>, {
-        validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+        validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
         validateMessage: import('vue').Ref<string>;
-        validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetField(): void;
         clearValidate(): void;
     }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
@@ -228,7 +228,7 @@ export declare const YmFormItem: {
             type: import('vue').PropType<string>;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormItemRule[]>;
+            type: import('vue').PropType<import('packages/core').FormItemRule[]>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -244,9 +244,9 @@ export declare const YmFormItem: {
             type: import('vue').PropType<string>;
         };
     }>> & Readonly<{}>, {
-        validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+        validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
         validateMessage: import('vue').Ref<string>;
-        validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetField(): void;
         clearValidate(): void;
     }, {}, {}, {}, {
@@ -271,7 +271,7 @@ export declare const YmFormItem: {
         type: import('vue').PropType<string>;
     };
     rules: {
-        type: import('vue').PropType<import('./type').FormItemRule[]>;
+        type: import('vue').PropType<import('packages/core').FormItemRule[]>;
     };
     labelWidth: {
         type: import('vue').PropType<string | number>;
@@ -287,9 +287,9 @@ export declare const YmFormItem: {
         type: import('vue').PropType<string>;
     };
 }>> & Readonly<{}>, {
-    validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+    validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
     validateMessage: import('vue').Ref<string>;
-    validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+    validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
     resetField(): void;
     clearValidate(): void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
@@ -309,7 +309,7 @@ declare const _default: {
                 required: true;
             };
             rules: {
-                type: import('vue').PropType<import('./type').FormRules>;
+                type: import('vue').PropType<import('packages/core').FormRules>;
             };
             labelWidth: {
                 type: import('vue').PropType<string | number>;
@@ -336,14 +336,14 @@ declare const _default: {
                 default: string;
             };
         }>> & Readonly<{
-            onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+            onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
         }>, {
-            validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-            validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+            validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+            validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
             resetFields(keys?: string[]): void;
             clearValidate(keys?: string[]): void;
         }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-            validate: (prop: import('./type').FormItemProps, isValid: boolean, message: string) => void;
+            validate: (prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => void;
         }, import('vue').PublicProps, {
             labelWidth: number | string;
             labelPosition: "left" | "right" | "top";
@@ -367,7 +367,7 @@ declare const _default: {
                 required: true;
             };
             rules: {
-                type: import('vue').PropType<import('./type').FormRules>;
+                type: import('vue').PropType<import('packages/core').FormRules>;
             };
             labelWidth: {
                 type: import('vue').PropType<string | number>;
@@ -394,10 +394,10 @@ declare const _default: {
                 default: string;
             };
         }>> & Readonly<{
-            onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+            onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
         }>, {
-            validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-            validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+            validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+            validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
             resetFields(keys?: string[]): void;
             clearValidate(keys?: string[]): void;
         }, {}, {}, {}, {
@@ -420,7 +420,7 @@ declare const _default: {
             required: true;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormRules>;
+            type: import('vue').PropType<import('packages/core').FormRules>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -447,14 +447,14 @@ declare const _default: {
             default: string;
         };
     }>> & Readonly<{
-        onValidate?: ((prop: import('./type').FormItemProps, isValid: boolean, message: string) => any) | undefined;
+        onValidate?: ((prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => any) | undefined;
     }>, {
-        validate(callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
-        validateField(keys?: string[], callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
+        validateField(keys?: string[], callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetFields(keys?: string[]): void;
         clearValidate(keys?: string[]): void;
     }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-        validate: (prop: import('./type').FormItemProps, isValid: boolean, message: string) => void;
+        validate: (prop: import('packages/core').FormItemProps, isValid: boolean, message: string) => void;
     }, string, {
         labelWidth: number | string;
         labelPosition: "left" | "right" | "top";
@@ -483,7 +483,7 @@ declare const _default: {
                 type: import('vue').PropType<string>;
             };
             rules: {
-                type: import('vue').PropType<import('./type').FormItemRule[]>;
+                type: import('vue').PropType<import('packages/core').FormItemRule[]>;
             };
             labelWidth: {
                 type: import('vue').PropType<string | number>;
@@ -499,9 +499,9 @@ declare const _default: {
                 type: import('vue').PropType<string>;
             };
         }>> & Readonly<{}>, {
-            validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+            validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
             validateMessage: import('vue').Ref<string>;
-            validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+            validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
             resetField(): void;
             clearValidate(): void;
         }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
@@ -529,7 +529,7 @@ declare const _default: {
                 type: import('vue').PropType<string>;
             };
             rules: {
-                type: import('vue').PropType<import('./type').FormItemRule[]>;
+                type: import('vue').PropType<import('packages/core').FormItemRule[]>;
             };
             labelWidth: {
                 type: import('vue').PropType<string | number>;
@@ -545,9 +545,9 @@ declare const _default: {
                 type: import('vue').PropType<string>;
             };
         }>> & Readonly<{}>, {
-            validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+            validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
             validateMessage: import('vue').Ref<string>;
-            validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+            validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
             resetField(): void;
             clearValidate(): void;
         }, {}, {}, {}, {
@@ -572,7 +572,7 @@ declare const _default: {
             type: import('vue').PropType<string>;
         };
         rules: {
-            type: import('vue').PropType<import('./type').FormItemRule[]>;
+            type: import('vue').PropType<import('packages/core').FormItemRule[]>;
         };
         labelWidth: {
             type: import('vue').PropType<string | number>;
@@ -588,9 +588,9 @@ declare const _default: {
             type: import('vue').PropType<string>;
         };
     }>> & Readonly<{}>, {
-        validateStatus: import('vue').Ref<import('./type').ValidateStatus>;
+        validateStatus: import('vue').Ref<import('packages/core').ValidateStatus>;
         validateMessage: import('vue').Ref<string>;
-        validate(trigger: string, callback?: import('./type').FormValidateCallback): import('./type').FormValidateResult;
+        validate(trigger: string, callback?: import('packages/core').FormValidateCallback): import('packages/core').FormValidateResult;
         resetField(): void;
         clearValidate(): void;
     }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {

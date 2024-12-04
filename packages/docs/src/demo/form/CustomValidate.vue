@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import { ErMessage, type FormInstance } from "eric-ui";
+import { YmMessage, type FormInstance } from "guyan-ym-ui";
 
 const formRef = ref<FormInstance>();
 const form = reactive({
@@ -32,7 +32,7 @@ const rules: any = reactive({
 const onSubmit = async (instance?: FormInstance) => {
   const valid = await instance?.validate();
   if (!valid) return;
-  ErMessage.success("submit!");
+  YmMessage.success("submit!");
 };
 
 const onReset = () => {
@@ -41,25 +41,25 @@ const onReset = () => {
 </script>
 
 <template>
-  <er-form
+  <ym-form
     ref="formRef"
     :model="form"
     :rules="rules"
     label-position="top"
     @submit.prevent="onSubmit(formRef)"
   >
-    <er-form-item label="Activity name" prop="name">
-      <er-input v-model="form.name" />
-    </er-form-item>
-    <er-form-item label="Password" prop="password">
-      <er-input v-model="form.password" type="password" />
-    </er-form-item>
-    <er-form-item label="Password Confirm" prop="passwordConfirm">
-      <er-input v-model="form.passwordConfirm" type="password" />
-    </er-form-item>
-    <er-form-item>
-      <er-button type="primary" native-type="submit">Create</er-button>
-      <er-button @click="onReset">Reset</er-button>
-    </er-form-item>
-  </er-form>
+    <ym-form-item label="用户名" prop="name">
+      <ym-input v-model="form.name" />
+    </ym-form-item>
+    <ym-form-item label="密码" prop="password">
+      <ym-input v-model="form.password" type="password" />
+    </ym-form-item>
+    <ym-form-item label="确认密码" prop="passwordConfirm">
+      <ym-input v-model="form.passwordConfirm" type="password" />
+    </ym-form-item>
+    <ym-form-item>
+      <ym-button type="primary" native-type="submit">提交</ym-button>
+      <ym-button @click="onReset">重置</ym-button>
+    </ym-form-item>
+  </ym-form>
 </template>

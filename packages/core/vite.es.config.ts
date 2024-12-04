@@ -54,7 +54,7 @@ export default defineConfig({
               sequences: isProd, // 保留逗号
               arguments: isProd, // 保留函数参数
               drop_console: isProd && ["log"], // 移除console
-              drop_debugger: isProd, // 移除debugger
+              drop_debugger: false, // 移除debugger
               passes: isProd ? 4 : 1, // 压缩次数
               global_defs: {
                 "@DEV": JSON.stringify(isDev),
