@@ -118,7 +118,7 @@ const getTriggerRules = (trigger:string) => {
     // 过滤出与当前trigger相关的校验规则
     if(trigger === "") return rules // 如果trigger为空，则返回所有校验规则
     return  filter(rules, (rule) => {
-        if(!rule.trigger || trigger) return true
+        if(!rule.trigger || !trigger) return true
         if(isArray(rule.trigger)) {
             return includes(rule.trigger, trigger)
         }

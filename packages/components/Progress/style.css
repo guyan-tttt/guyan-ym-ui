@@ -1,0 +1,68 @@
+.ym-progress  {
+    --ym-progress-bg-color: var(--ym-fill-color-blank);
+    --ym-progress-text-color: var(--ym-text-color-primary);
+    --ym-progress-line-height: 1;
+    --ym-progress-font-size: 14px;
+
+    --ym-progress-bar-inner-transition: width .6s ease;
+    --ym-progress-bar-inner-border-radius: 100px;
+    --ym-progress-bar-inner-line-height: 1;
+    --ym-progress-bar-inner-white-space: nowrap;
+    --ym-progress-bar-inner-bg-color: var(--ym-color-primary);
+    --ym-progress-bar-outer-bg-color: #ebeef5;
+  }
+.ym-progress {
+    position: relative;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+.ym-progress-bar {
+    flex-grow: 1;
+    box-sizing: border-box;
+    width: 100%;
+}
+.ym-progress-text {
+    font-size: 14px;
+    color: #606266;
+    margin-left: 5px;
+    min-width: 50px;
+    line-height: 1;
+}
+.ym-progress-bar__outer {
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    background-color: var(--ym-progress-bar-outer-bg-color);
+}
+.ym-progress-bar__inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--ym-progress-bar-inner-bg-color);
+    text-align: right;
+    border-radius: 100px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: width .6s ease;
+    .ym-progress-bar__innerText {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+@each $val in primary, success, warning, info, danger {
+    .ym-progress.is-$(val) {
+        --ym-progress-bar-inner-bg-color: var(--ym-color-$(val));
+        .ym-progress-text .ym-progress-icon {
+            color: var(--ym-color-$(val));
+        }
+    }
+}

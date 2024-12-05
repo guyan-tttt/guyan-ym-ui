@@ -1,7 +1,7 @@
 
 <div align="center">
 <p>
-<img src="./logo_md.png"  alt=""></img>
+<img src="https://gitee.com/DT-guyan/yunmo-ui/raw/master/docs/logo_md.png"  alt=""></img>
 </P>
 <h1>云墨UI</h1>
 <span>
