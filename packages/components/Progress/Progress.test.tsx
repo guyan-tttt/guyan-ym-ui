@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from '@vue/test-utils'
 import Progress from './Progress.vue'
-
+import  type { ProgressStatus } from './type'
 describe("Progress.vue",() => {
     // 1.基础内容渲染
     it("基础内容渲染",() => {
@@ -30,8 +30,114 @@ describe("Progress.vue",() => {
         expect(wrapper.find(".ym-progress .ym-progress-bar")).toBeTruthy()
 
         expect(wrapper.find(".ym-progress").html()).not.include("ym-progress-text")
-        // expect(wrapper.find(".ym-progress-text")).toBeFalsy()
         expect(wrapper.find(".ym-progress-bar__inner").attributes("style")).include("height: 10px")
+
+    })
+    // 3. 测试状态
+    it.each([ "primary", "success", "warning", "danger" ])("测试状态",(item) => {
+        const wrapper = mount(Progress,{
+            props: {
+                percentage: 30,
+                status: item as any,
+            }
+            })
+
+        expect(wrapper.find(`.is-${item}`)).toBeTruthy()
+        if(item === 'primary') {
+            expect(wrapper.find(".ym-progress-text span")).toBeTruthy()
+            return 
+        }
+        expect(wrapper.find(".ym-progress-text .ym-icon")).toBeTruthy()
         
+    })
+    // 4. 测试自定义颜色
+    it("测试自定义颜色",() => {
+        const wrapper = mount(Progress,{
+            props: {
+                percentage: 30,
+                color: "#ff0000",
+            }
+        })
+        expect(wrapper.find(".ym-progress-bar__inner")).toBeTruthy()
+        expect(wrapper.find(".ym-progress-bar__inner").attributes("style")).include("background-color: rgb(255, 0, 0)")
+    })
+    // 5 测试自定义文字
+    it("测试自定义文字",() => {
+        const wrapper1 = mount(Progress,{
+            props: {
+                percentage: 30,
+                format: (percentage: number) => `${percentage}%-自定义`
+            }
+        }
+        )
+        console.log(wrapper1.find(".ym-progress-text").text());
+        
+        expect(wrapper1.find(".ym-progress-text").text()).toBe("30%-自定义")
+
+        const wrapper2 = mount(Progress,{
+            props: {
+                percentage: 30,
+                format: 1 as any
+            }
+        })
+        expect(wrapper2.find(".ym-progress-text").text()).toBe("30%")
+    })
+    //  6.测试文字内联显示
+    it("测试文字内联显示",() => {
+        const wrapper1 = mount(Progress,{
+            props: {
+                percentage: 30,
+                textInside: true,
+                strokeWidth: 20
+            }
+        })
+        
+        expect(wrapper1.find(".ym-progress").html()).not.include(".ym-progress-text")
+        expect(wrapper1.find(".ym-progress-bar__innerText")).toBeTruthy()
+        expect(wrapper1.find(".ym-progress-bar__inner").attributes("style")).include("height: 20px")
+
+        const wrapper2 = mount(Progress,{
+            props: {
+                percentage: 30,
+                textInside: true,
+                showText: true
+            }
+        })
+        expect(wrapper2.find(".ym-progress .ym-progress-text")).toBeTruthy()
+        expect(wrapper2.find(".ym-progress").html()).not.include("ym-progress-bar__innerText")
+        const wrapper3 = mount(Progress,{
+            props: {
+                percentage: 30,
+                textInside: true,
+                showText: false
+            }
+        }
+        )
+        expect(wrapper3.find(".ym-progress").html()).not.include("ym-progress-text")
+        expect(wrapper3.find(".ym-progress").html()).not.include("ym-progress-bar__innerText")
+    })
+    // 7.测试width
+    it("测试width",() => {
+        const wrapper1 = mount(Progress,{
+            props: {
+                percentage: 30,
+                width: 200,
+            }
+        })
+        expect(wrapper1.find(".ym-progress").attributes("style")).include("width: 200px")
+        const wrapper2 = mount(Progress,{
+            props: {
+                percentage: 30,
+                width: "200px",
+            }
+        })
+        expect(wrapper2.find(".ym-progress").attributes("style")).include("width: 200px")
+        const wrapper3 = mount(Progress,{
+            props: {
+                percentage: 30,
+                width: "200"
+            }
+        })
+        expect(wrapper3.find(".ym-progress").attributes("style")).include("width: 200px")
     })
 })
