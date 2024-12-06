@@ -4,7 +4,7 @@ description: Switch 开关
 
 next:
   link: /components/select
-  text: Form 表单
+  text: Select 选择器
 
 prev:
   link: /components/input

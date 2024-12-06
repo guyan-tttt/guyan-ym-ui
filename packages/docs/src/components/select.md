@@ -8,7 +8,7 @@ next:
 
 prev:
   link: /components/select
-  text: Input 输入框
+  text: Select 选择器
 ---
 
 # Select 选择器

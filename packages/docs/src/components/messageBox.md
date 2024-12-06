@@ -3,12 +3,12 @@ title: MessageBox
 description: MessageBox 组件文档
 
 next: 
-  link: /components/input
-  text: Input 输入框
+  link: /components/loading
+  text: Loading 加载
 
 prev:
   link: /components/Notification
-  text: Notification 通知
+  text: Notification 消息通知
 ---
 
 # MessageBox 消息弹框

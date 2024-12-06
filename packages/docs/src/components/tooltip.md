@@ -3,12 +3,12 @@ title: Tooltip
 description: Tooltip 组件文档
 
 next:
-  link: /components/form
-  text: Form 表单
+  link: /components/popconfirm
+  text: Popconfirm 气泡确认框
 
 prev:
   link: /components/contextmenu
-  text: Popconfirm 气泡确认框
+  text: Contextmenu 右键菜单
 ---
 
 # Tooltip 文字提示

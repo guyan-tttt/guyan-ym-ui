@@ -3,12 +3,12 @@ title: Input
 description: Input 输入框组件
 
 next:
-  link: components/collapse
-  text: Collapse 折叠面板
+  link: components/switch
+  text: Switch 开关
 
 prev:
-  link: components/MessageBox
-  text: MessageBox 消息弹窗
+  link: components/loading
+  text: Loading 加载
 ---
 
 # Input 输入框

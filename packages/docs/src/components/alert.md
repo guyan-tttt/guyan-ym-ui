@@ -3,8 +3,8 @@ title: Alert
 description: Alert 组件文档
 
 next:
-  link: /components/tooltip
-  text: Loading 加载
+  link: /components/contextmenu
+  text: ContextMenu 右键菜单
 
 prev:
   link: /components/card

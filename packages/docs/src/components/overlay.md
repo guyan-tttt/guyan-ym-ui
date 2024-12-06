@@ -2,13 +2,12 @@
 title: Overlay
 description: Overlay 遮罩层
 
-next:
-  link: /components/alert
-  text: Alert 警示
+next: 
+  --
 
 prev:
-  link: /components/collapse
-  text: Collapse 折叠面板
+  link: /components/form
+  text: Form 表单
 ---
 
 # Overlay 遮罩层

@@ -7,8 +7,8 @@ next:
   text: Card 卡片
 
 prev:
-  link: components/button
-  text: Button 按钮
+  link: components/icon
+  text: Icon 图标
 ---
 
 # Collapse 折叠面板
