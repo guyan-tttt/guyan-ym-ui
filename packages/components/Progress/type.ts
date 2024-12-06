@@ -9,4 +9,7 @@ export interface ProgressProps {
     format?: (percentage: number) => string;
     textInside?: boolean;
     strokeWidth?: number;
+    striped?:boolean
+    stripedFlow?:boolean
+    duration?: number
 }

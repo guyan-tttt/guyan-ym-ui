@@ -1,4 +1,4 @@
-.ym-progress[data-v-ea361153]  {
+.ym-progress[data-v-e2c88a57]  {
     --ym-progress-bg-color: var(--ym-fill-color-blank);
     --ym-progress-text-color: var(--ym-text-color-primary);
     --ym-progress-line-height: 1;
@@ -11,32 +11,32 @@
     --ym-progress-bar-inner-bg-color: var(--ym-color-primary);
     --ym-progress-bar-outer-bg-color: #ebeef5;
 }
-.ym-progress[data-v-ea361153] {
+.ym-progress[data-v-e2c88a57] {
     position: relative;
     line-height: 1;
     display: flex;
     align-items: center;
 }
-.ym-progress-bar[data-v-ea361153] {
+.ym-progress-bar[data-v-e2c88a57] {
     flex-grow: 1;
     box-sizing: border-box;
     width: 100%;
 }
-.ym-progress-text[data-v-ea361153] {
+.ym-progress-text[data-v-e2c88a57] {
     font-size: 14px;
     color: #606266;
     margin-left: 5px;
     min-width: 50px;
     line-height: 1;
 }
-.ym-progress-bar__outer[data-v-ea361153] {
+.ym-progress-bar__outer[data-v-e2c88a57] {
     border-radius: 100px;
     overflow: hidden;
     position: relative;
     vertical-align: middle;
     background-color: var(--ym-progress-bar-outer-bg-color);
 }
-.ym-progress-bar__inner[data-v-ea361153] {
+.ym-progress-bar__inner[data-v-e2c88a57] {
     position: absolute;
     left: 0;
     top: 0;
@@ -48,7 +48,7 @@
     white-space: nowrap;
     transition: width .6s ease;
 }
-.ym-progress-bar__inner .ym-progress-bar__innerText[data-v-ea361153] {
+.ym-progress-bar__inner .ym-progress-bar__innerText[data-v-e2c88a57] {
         position: absolute;
         top: 50%;
         right: 10px;
@@ -57,33 +57,53 @@
         font-size: 12px;
         font-weight: 700;
 }
-.ym-progress.is-primary[data-v-ea361153] {
+.ym-progress.is-primary[data-v-e2c88a57] {
         --ym-progress-bar-inner-bg-color: var(--ym-color-primary);
 }
-.ym-progress.is-primary .ym-progress-text .ym-progress-icon[data-v-ea361153] {
+.ym-progress.is-primary .ym-progress-text .ym-progress-icon[data-v-e2c88a57] {
             color: var(--ym-color-primary);
 }
-.ym-progress.is-success[data-v-ea361153] {
+.ym-progress.is-success[data-v-e2c88a57] {
         --ym-progress-bar-inner-bg-color: var(--ym-color-success);
 }
-.ym-progress.is-success .ym-progress-text .ym-progress-icon[data-v-ea361153] {
+.ym-progress.is-success .ym-progress-text .ym-progress-icon[data-v-e2c88a57] {
             color: var(--ym-color-success);
 }
-.ym-progress.is-warning[data-v-ea361153] {
+.ym-progress.is-warning[data-v-e2c88a57] {
         --ym-progress-bar-inner-bg-color: var(--ym-color-warning);
 }
-.ym-progress.is-warning .ym-progress-text .ym-progress-icon[data-v-ea361153] {
+.ym-progress.is-warning .ym-progress-text .ym-progress-icon[data-v-e2c88a57] {
             color: var(--ym-color-warning);
 }
-.ym-progress.is-info[data-v-ea361153] {
+.ym-progress.is-info[data-v-e2c88a57] {
         --ym-progress-bar-inner-bg-color: var(--ym-color-info);
 }
-.ym-progress.is-info .ym-progress-text .ym-progress-icon[data-v-ea361153] {
+.ym-progress.is-info .ym-progress-text .ym-progress-icon[data-v-e2c88a57] {
             color: var(--ym-color-info);
 }
-.ym-progress.is-danger[data-v-ea361153] {
+.ym-progress.is-danger[data-v-e2c88a57] {
         --ym-progress-bar-inner-bg-color: var(--ym-color-danger);
 }
-.ym-progress.is-danger .ym-progress-text .ym-progress-icon[data-v-ea361153] {
+.ym-progress.is-danger .ym-progress-text .ym-progress-icon[data-v-e2c88a57] {
             color: var(--ym-color-danger);
+}
+.ym-progress-bar__inner.is-striped[data-v-e2c88a57] {
+    background-image: linear-gradient(
+        45deg, rgba(0, 0, 0, .3) 25%, 
+        transparent 25%, transparent 50%, 
+        rgba(0, 0, 0, .3) 50%,
+            rgba(0, 0, 0, .3) 75%, 
+            transparent 75%, transparent);
+    background-size: 1.25em 1.25em;
+}
+@keyframes stripedFlow-e2c88a57 {
+0% {
+            background-position: -100%;
+}
+100% {
+            background-position: 100%;
+}
+}
+.ym-progress-bar__inner.isStripedFlow[data-v-e2c88a57] {
+    animation: stripedFlow-e2c88a57 linear infinite;
 }

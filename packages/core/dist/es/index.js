@@ -21,7 +21,7 @@ import { Y as j } from "./Switch-BwQ1L1fd.js";
 import { Y as P, a as F } from "./Select-C9cBld92.js";
 import { Y as M, c as Y } from "./Form-Bt_ZHbky.js";
 import { a as a2, u as u2, b } from "./Form-Bt_ZHbky.js";
-import { Y as N } from "./Progress-BoCsvRh9.js";
+import { Y as N } from "./Progress-B85BSOcS.js";
 import { f as S } from "./vendor-BmDHKAAA.js";
 import { library as A } from "@fortawesome/fontawesome-svg-core";
 import { fas as E } from "@fortawesome/free-solid-svg-icons";

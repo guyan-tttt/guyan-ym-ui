@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Progress   width="400px" :percentage="value" status="success"></Progress >
+    <Progress   width="400px" :percentage="value" status="success"  :stroke-width="20" stripedFlow></Progress >
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Progress from './components/Progress.vue'
+import Progress from '../../components/Progress/Progress.vue'
 
 const value = ref(0)
 

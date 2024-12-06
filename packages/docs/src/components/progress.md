@@ -51,6 +51,12 @@ demo-preview=../demo/progress/textInside.vue
 demo-preview=../demo/progress/Color.vue
 :::
 
+## 条纹进度条
+可以使用`striped`属性来设置进度条为条纹样式，该属性接受一个`boolean`值，默认为`false`。可以使用`stripedFlow`属性来设置条纹是否运动，该属性接受一个`boolean`值，默认为`false`。可以使用`duration`属性来设置条纹运动的时长，该属性接受一个`number`值，默认为`6`。
+::: preview
+demo-preview=../demo/progress/Striped.vue
+::: 
+
 ## Progress API
 
 ### Props
@@ -65,3 +71,6 @@ demo-preview=../demo/progress/Color.vue
 | textInside                | 文字是否显示在内部（只在strokeWidth > 20 时生效）                        | `boolean`  | false |
 | strokeWidth         | 进度条高度                     | `number`  |  6            |
 | format           | 自定义显示文字                     | `(percentage: number) => string` | -           |
+| striped           | 是否显示条纹                     | `boolean`  | false           |
+| stripedFlow           | 条纹是否运动                     | `boolean`  | false           |
+| duration           | 条纹运动时长                     | `number`  | 6           |

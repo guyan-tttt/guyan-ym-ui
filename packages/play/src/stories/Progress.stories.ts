@@ -87,5 +87,43 @@ export const Default: Story = {
     `,
   }),
 };
+export const Striped: Story = {
+    args: {
+        status: "success",
+        showText: true,
+        strokeWidth: 20,
+        width: 300,
+        striped: true,
+        stripedFlow: true,
+        duration: 6
+    },
+
+    render: (args) => ({
+        components: {
+            YmProgress
+        },
+    
+        setup() {
+          const value  = ref(0)
+          let timer = setInterval(() => {
+            if(value.value >= 100) {
+                clearInterval(timer)
+                return 
+            }
+            value.value += 10
+          },1000)
+
+        return {
+            args,
+            value
+        };
+    },
+    template: `
+    <ym-progress v-bind="args" :percentage="value">
+    </ym-progress>
+    `,
+  }),
+};
+
 
 export default meta;

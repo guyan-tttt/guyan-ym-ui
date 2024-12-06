@@ -21,7 +21,12 @@
                 :style="{
                     backgroundColor: props.color,
                     width: innerWidth + '%',
-                    height: strokeWidth + 'px'
+                    height: strokeWidth + 'px',
+                    animationDuration: duration + 's'
+                }"
+                :class="{
+                    'is-striped': striped,
+                    'isStripedFlow': striped && stripedFlow
                 }"
                 >
                     <div class="ym-progress-bar__innerText" v-if="showText && isInnerText">
@@ -63,6 +68,9 @@ interface ProgressProps {
     format?: (percentage: number) => string;
     textInside?: boolean
     strokeWidth?: number
+    striped?:boolean
+    stripedFlow?:boolean
+    duration?: number
 }
 
 const props = withDefaults(defineProps<ProgressProps>(),{
@@ -72,7 +80,10 @@ const props = withDefaults(defineProps<ProgressProps>(),{
     showText: true,
     format: (percentage: number) => `${percentage}%`,
     textInside: false,
-    strokeWidth: 6
+    strokeWidth: 6,
+    striped: false,
+    stripedFlow: false,
+    duration: 6
 })
 
 const progressText = computed(() => {
@@ -90,7 +101,6 @@ const progressWidth = computed(() => {
 const outRef = ref<HTMLElement | null>(null)
 
 const innerWidth = ref(0)
-const innerHeight = ref(props.strokeWidth)
 
 watch(() => props.percentage, (val) => {
     innerWidth.value = val
@@ -183,6 +193,27 @@ const isInnerText = computed(() => {
         font-size: 12px;
         font-weight: 700;
     }
+}
+.ym-progress-bar__inner.is-striped {
+    background-image: linear-gradient(
+        45deg, rgba(0, 0, 0, .3) 25%, 
+        transparent 25%, transparent 50%, 
+        rgba(0, 0, 0, .3) 50%,
+            rgba(0, 0, 0, .3) 75%, 
+            transparent 75%, transparent);
+    background-size: 1.25em 1.25em;
+}
+@keyframes stripedFlow {
+        0% {
+            background-position: -100%;
+        }
+        100% {
+            background-position: 100%;
+
+        }
+}
+.ym-progress-bar__inner.isStripedFlow {
+    animation: stripedFlow linear infinite;
 }
 
 @each $val in primary, success, warning, info, danger {

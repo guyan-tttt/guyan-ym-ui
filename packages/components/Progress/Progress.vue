@@ -18,7 +18,10 @@ const props = withDefaults(defineProps<ProgressProps>(),{
     showText: true,
     format: (percentage: number) => `${percentage}%`,
     textInside: false,
-    strokeWidth: 6
+    strokeWidth: 6,
+    striped: false,
+    stripedFlow: false,
+    duration: 6
 })
 
 const progressText = computed(() => {
@@ -76,7 +79,12 @@ const isInnerText = computed(() => {
                 :style="{
                     backgroundColor: props.color,
                     width: innerWidth + '%',
-                    height: strokeWidth + 'px'
+                    height: strokeWidth + 'px',
+                    animationDuration: duration + 's'
+                }"
+                :class="{
+                    'is-striped': striped,
+                    'isStripedFlow': striped && stripedFlow
                 }"
                 >
                     <div class="ym-progress-bar__innerText" v-if="showText && isInnerText">
