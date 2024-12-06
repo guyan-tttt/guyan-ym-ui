@@ -1,6 +1,6 @@
 import { _ as e, w as a } from "./utils-B0xUaq8Y.js";
 import { defineComponent as t, ref as i, computed as c, onMounted as s, watch as l, openBlock as n, createElementBlock as u, normalizeClass as o, unref as d, createElementVNode as m, withKeys as r, toDisplayString as v, createCommentVNode as p } from "vue";
-import { a as h, u as _, b as y } from "./Form-BR7ly_sz.js";
+import { a as h, u as _, b as y } from "./Form-Bt_ZHbky.js";
 const f = ["id", "name", "disabled", "checked"], w = { class: "ym-switch__core" }, b = { class: "ym-switch__core-inner" }, k = { key: 0, class: "ym-switch__core-inner-text" }, x = a(e(t({ name: "YmSwitch", inheritAttrs: false, __name: "Switch", props: { modelValue: { type: [Boolean, String, Number] }, disabled: { type: Boolean }, activeText: {}, inactiveText: {}, activeValue: { type: [Boolean, String, Number], default: true }, inactiveValue: { type: [Boolean, String, Number], default: false }, name: {}, id: {}, size: {} }, emits: ["update:modelValue", "change"], setup(e2, { expose: a2, emit: t2 }) {
   const x2 = e2, V = t2, T = h(), g = i(x2.modelValue), S = i(null), B = c(() => g.value === x2.activeValue), { formItem: z } = _(), { inputId: I } = y(x2, z), N = () => {
     if (T.value) return;

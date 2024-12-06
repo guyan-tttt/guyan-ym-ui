@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Progress :showText="false"  width="400px" :percentage="value" :strokeWidth="20" :textInside="true"></Progress>
+    <Progress   width="400px" :percentage="value" status="success"></Progress >
   </div>
 </template>
 

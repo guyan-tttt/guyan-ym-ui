@@ -41,6 +41,13 @@ export default defineConfig({
         ]
       },
       {
+        text: "展示组件",
+        collapsed: false,
+        items: [
+          { text: "Progress 进度条", link: "/components/progress"}
+        ]
+      },
+      {
         text: '函数组件',
         collapsed: false,
         items: [

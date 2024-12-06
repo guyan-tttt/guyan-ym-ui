@@ -7,8 +7,8 @@ next:
   text: MessageBox 消息弹出框
 
 prev:
-  link: /components/dropdown
-  text: Dropdown 下拉菜单
+  link: /components/progress
+  text: Progress 进度条
 ---
 
 # Message 消息提示

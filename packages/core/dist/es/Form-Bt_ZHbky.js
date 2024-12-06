@@ -36,7 +36,7 @@ const J = Symbol("formContext"), K = Symbol("formItemContext"), L = { class: "ym
     P(c2(d2, e3 ?? []), (e4) => e4.clearValidate());
   } }), (e3, a2) => (l(), s("form", L, [o(e3.$slots, "default")]));
 } }), Q = { class: "ym-form-item__content" }, T = { key: 0, class: "ym-form-item__error-msg" }, U = G(e({ name: "YmFormItem", __name: "FormItem", props: { prop: {}, label: {}, for: {}, labelWidth: {}, disabled: { type: Boolean }, required: { type: Boolean, default: void 0 }, showMessage: { type: Boolean, default: true }, error: {}, rules: {} }, setup(e2, { expose: k2 }) {
-  i((e3) => ({ "4773dadf": ve.value }));
+  i((e3) => ({ "476af77e": ve.value }));
   const x2 = e2, w2 = u(), P2 = d(J), G2 = n([]), H2 = v(() => (P2 == null ? void 0 : P2.disabled) || x2.disabled), L2 = (e3) => e3 && x2.prop && !M(O(e3, x2.prop)) ? O(e3, x2.prop) : null, N2 = v(() => {
     const e3 = P2 == null ? void 0 : P2.model;
     return L2(e3);
@@ -64,7 +64,7 @@ const J = Symbol("formContext"), K = Symbol("formItemContext"), L = { class: "ym
     if (!Z2.value) return a2 == null ? void 0 : a2(false), false;
     const r2 = ((e4) => {
       const a3 = ae2.value;
-      return a3 ? "" === e4 ? a3 : B(a3, (a4) => !(a4.trigger && !e4) || (z(a4.trigger) ? W(a4.trigger, e4) : a4.trigger === e4)).map(({ trigger: e5, ...a4 }) => a4) : [];
+      return a3 ? "" === e4 ? a3 : B(a3, (a4) => !a4.trigger || !e4 || (z(a4.trigger) ? W(a4.trigger, e4) : a4.trigger === e4)).map(({ trigger: e5, ...a4 }) => a4) : [];
     })(e3);
     return $(r2) ? (Z2.value = "validating", async function(e4) {
       const a3 = X2.value;
@@ -102,7 +102,7 @@ const J = Symbol("formContext"), K = Symbol("formItemContext"), L = { class: "ym
     var _a, _b, _c, _d;
     return l(), s("div", { class: m(["ym-form-item", { "is-error": "error" === Z2.value, "is-disabled": H2.value, "is-required": ce.value, "asterisk-left": "left" === ((_a = f(P2)) == null ? void 0 : _a.requiredAsteriskPosition), "asterisk-right": "right" === ((_b = f(P2)) == null ? void 0 : _b.requiredAsteriskPosition) }]) }, [ie.value ? (l(), b(h(ue.value ? "label" : "div"), { key: 0, class: m(["ym-form-item__label", `position-${((_c = f(P2)) == null ? void 0 : _c.labelPosition) ?? "right"}`]), id: f(de), for: ue.value }, { default: g(() => [o(e3.$slots, "label", { label: ne.value }, () => [y(I(ne.value), 1)], true)]), _: 3 }, 8, ["class", "id", "for"])) : q("", true), F("div", Q, [o(e3.$slots, "default", { validate: re2 }, void 0, true), "error" === Z2.value ? (l(), s("div", T, [((_d = f(P2)) == null ? void 0 : _d.showMessage) && e3.showMessage ? o(e3.$slots, "error", { key: 0, error: ee2.value }, () => [y(I(ee2.value), 1)], true) : q("", true)])) : q("", true)])], 2);
   };
-} }), [["__scopeId", "data-v-e6828fa2"]]);
+} }), [["__scopeId", "data-v-00d75393"]]);
 function X() {
   return { form: d(J), formItem: d(K, void 0) };
 }
