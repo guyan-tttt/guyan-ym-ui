@@ -14,7 +14,7 @@
 <a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/npm/unpacked-size/guyan-ym-ui?logo=GitLFS&logoColor=white&color=yellow" alt="npm unpacked size"></a>  
 </span>
 <span>
-<a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/badge/any_text-you_like-blue" alt="npm unpacked size"></a>  
+<a href="https://www.npmjs.com/package/guyan-ym-ui"><img src="https://img.shields.io/badge/coverage-100-blue" alt="npm unpacked size"></a>  
 </span>
 
 <h4>最新个人开发的一套基于Vue3 + Ts UI的组件库</h4>

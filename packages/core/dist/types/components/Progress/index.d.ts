@@ -1,5 +1,9 @@
 export declare const YmProgress: {
     new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+        type: {
+            type: import('vue').PropType<import('packages/core').ProgressType>;
+            default: string;
+        };
         color: {
             type: import('vue').PropType<string>;
         };
@@ -45,6 +49,7 @@ export declare const YmProgress: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
+        type: import('packages/core').ProgressType;
         width: number | string;
         duration: number;
         percentage: number;
@@ -63,6 +68,10 @@ export declare const YmProgress: {
         M: {};
         Defaults: {};
     }, Readonly<import('vue').ExtractPropTypes<{
+        type: {
+            type: import('vue').PropType<import('packages/core').ProgressType>;
+            default: string;
+        };
         color: {
             type: import('vue').PropType<string>;
         };
@@ -108,6 +117,7 @@ export declare const YmProgress: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
+        type: import('packages/core').ProgressType;
         width: number | string;
         duration: number;
         percentage: number;
@@ -123,6 +133,10 @@ export declare const YmProgress: {
     __isTeleport?: never;
     __isSuspense?: never;
 } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+    type: {
+        type: import('vue').PropType<import('packages/core').ProgressType>;
+        default: string;
+    };
     color: {
         type: import('vue').PropType<string>;
     };
@@ -168,6 +182,7 @@ export declare const YmProgress: {
         default: boolean;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {
+    type: import('packages/core').ProgressType;
     width: number | string;
     duration: number;
     percentage: number;
@@ -178,5 +193,11 @@ export declare const YmProgress: {
     strokeWidth: number;
     striped: boolean;
     stripedFlow: boolean;
-}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & import('vue').Plugin;
+}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {
+            percentage: number;
+        }): any;
+    };
+}) & import('vue').Plugin;
 export * from './type';

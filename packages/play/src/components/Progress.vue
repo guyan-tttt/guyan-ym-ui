@@ -5,8 +5,10 @@
         width: progressWidth ,
     }"
     :class="{
-        [`is-${status}`]: status
+        [`is-${status}`]: status,
+        [`ym-progress-${type}`]: type
     }"
+    v-if="type === 'line'"
     >
         <div class="ym-progress-bar">
             <div 
@@ -30,7 +32,8 @@
                 }"
                 >
                     <div class="ym-progress-bar__innerText" v-if="showText && isInnerText">
-                        <span>{{ progressText }}</span>
+                        <slot v-if="$slots.default" :percentage="percentage"></slot>
+                        <span v-else>{{ progressText }}</span>
                     </div>
                 </div>
             </div>
@@ -39,7 +42,50 @@
             class="ym-progress-text"
             v-if="showText && !isInnerText"
         >
-            <span v-if="!status || status === 'primary'">{{  progressText }}{{ isInnerText }}</span>
+            <slot v-if="$slots.default" :percentage="percentage"></slot>
+            <span v-else-if="!status || status === 'primary'">{{  progressText }}{{ isInnerText }}</span>
+            <ym-icon class="ym-progress-icon" v-else :icon="typeIconMap.get(status)"></ym-icon>
+        </div>
+    </div>
+    <div class="ym-progress" v-else 
+        :class="{
+             [`ym-progress-${type}`]: type,
+             [`is-${status}`]: status,
+        }"
+    >
+        <div class="ym-progress-circle">
+            <svg viewBox="0 0 100 100"
+                :style="{
+                    width: progressWidth ,
+                    height: progressWidth
+                }"
+            >
+            <path class="el-progress-circle__track" d="
+                M 50 50
+                m 0 -47
+                a 47 47 0 1 1 0 94
+                a 47 47 0 1 1 0 -94
+                " stroke="#ebeef5" stroke-linecap="round" stroke-width="4.8" fill="none" style="stroke-dasharray: 300px, 300px; stroke-dashoffset: 0px;">
+            </path>
+            <path class="el-progress-circle__path" d="
+                M 50 50
+                m 0 -47
+                a 47 47 0 1 1 0 94
+                a 47 47 0 1 1 0 -94
+                " stroke="#13ce66" fill="none" opacity="1" stroke-linecap="round" stroke-width="4.8" style="stroke-dashoffset: 0px; transition: stroke-dasharray 0.6s, stroke 0.6s, opacity 0.6s;"
+                :style="{
+                    strokeDasharray: `${percentage * 3}px 300px`,
+                }"
+                >
+            </path>
+            </svg>
+        </div>
+        <div 
+            class="ym-progress-text"
+            v-if="showText && !isInnerText"
+        >   
+            <slot v-if="$slots.default" :percentage="percentage"></slot>
+            <span v-else-if="!status || status === 'primary'">{{  progressText }}</span>
             <ym-icon class="ym-progress-icon" v-else :icon="typeIconMap.get(status)"></ym-icon>
         </div>
     </div>
@@ -70,7 +116,8 @@ interface ProgressProps {
     strokeWidth?: number
     striped?:boolean
     stripedFlow?:boolean
-    duration?: number
+    duration?: number,
+    type?: 'line' | 'circle' | 'dashboard'
 }
 
 const props = withDefaults(defineProps<ProgressProps>(),{
@@ -83,8 +130,10 @@ const props = withDefaults(defineProps<ProgressProps>(),{
     strokeWidth: 6,
     striped: false,
     stripedFlow: false,
-    duration: 6
+    duration: 6,
+    type: 'line'
 })
+
 
 const progressText = computed(() => {
     if(props.format && isFunction(props.format)) {
@@ -159,12 +208,21 @@ const isInnerText = computed(() => {
     box-sizing: border-box;
     width: 100%;
 }
-.ym-progress-text {
+.ym-progress-line .ym-progress-text {
     font-size: 14px;
     color: #606266;
     margin-left: 5px;
     min-width: 50px;
     line-height: 1;
+}
+.ym-progress-circle .ym-progress-text {
+    font-size: 34px;
+    color: #606266;
+    line-height: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .ym-progress-bar__outer {
     border-radius: 100px;
@@ -224,4 +282,6 @@ const isInnerText = computed(() => {
         }
     }
 }
+
+
 </style>

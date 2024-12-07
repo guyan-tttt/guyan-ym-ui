@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <Progress   width="400px" :percentage="value" status="success"  :stroke-width="20" stripedFlow></Progress >
+  <div class="container">
+    <Progress    width="200px" :percentage="value" color="red" type="circle">
+      <template v-slot="{ percentage }">
+        <div>{{ percentage }}</div>
+      </template>
+    </Progress >
   </div>
 </template>
 
@@ -23,5 +27,10 @@ setInterval(() => {
 </script>
 
 <style  scoped>
-
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 </style>

@@ -57,6 +57,18 @@ demo-preview=../demo/progress/Color.vue
 demo-preview=../demo/progress/Striped.vue
 ::: 
 
+## 环形进度条
+可以使用`type`属性来指定进度条的类型，可选值为line或者circle，设置为circle即为环形进度条，默认为line。环形进度条必须使用width属性来指定宽度。同时对于环形进度条来说`textInside,strokeWidth,striped，stripedFlow`等属性将无效。环形进度条同样可以使用`color`属性来指定颜色，该属性的优先级高于`status`属性。
+::: preview
+demo-preview=../demo/progress/Circle.vue
+:::
+
+## 自定义内容
+可以通过具名插槽`default`来设置环形进度条的内容，该插槽的默认值为`percentage`。同时插槽的优先级高于`percentage`属性，且插槽会传入一个`percentage`参数表示当前进度。
+::: preview
+demo-preview=../demo/progress/Slot.vue
+:::
+
 ## Progress API
 
 ### Props
@@ -74,3 +86,10 @@ demo-preview=../demo/progress/Striped.vue
 | striped           | 是否显示条纹                     | `boolean`  | false           |
 | stripedFlow           | 条纹是否运动                     | `boolean`  | false           |
 | duration           | 条纹运动时长                     | `number`  | 6           |
+| type           | 进度条类型                     | `enum` - `'line'\| 'circle'`  | line           |
+
+### Slots
+
+| Name                | Description                  |
+| ------------------- | ---------------------------- |
+| default           | 自定义内容                     |

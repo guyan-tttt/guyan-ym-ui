@@ -22,12 +22,21 @@
     box-sizing: border-box;
     width: 100%;
 }
-.ym-progress-text {
+.ym-progress-line .ym-progress-text {
     font-size: 14px;
     color: #606266;
     margin-left: 5px;
     min-width: 50px;
     line-height: 1;
+}
+.ym-progress-circle .ym-progress-text {
+    font-size: 34px;
+    color: #606266;
+    line-height: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .ym-progress-bar__outer {
     border-radius: 100px;
@@ -62,6 +71,9 @@
     .ym-progress.is-$(val) {
         --ym-progress-bar-inner-bg-color: var(--ym-color-$(val));
         .ym-progress-text .ym-progress-icon {
+            color: var(--ym-color-$(val));
+        }
+        .ym-progress-circle__path {
             color: var(--ym-color-$(val));
         }
     }

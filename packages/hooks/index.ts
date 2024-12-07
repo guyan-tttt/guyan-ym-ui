@@ -7,6 +7,7 @@ import useOffset from './useOffset'
 import useZIndex from "./useZIndex";
 import useFocusController from './useFocusController'
 import useProp from "./useProp";
+import  useComputedStyle  from "./useComputedStyle";
 
 export { 
     useClickOutside, 
@@ -18,4 +19,5 @@ export {
     useZIndex,
     useFocusController,
     useProp,
+    useComputedStyle
 };

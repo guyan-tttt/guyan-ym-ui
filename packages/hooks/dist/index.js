@@ -7,8 +7,10 @@ import { u as u6 } from "./useOffset-BO02G_9O.js";
 import { u as u7 } from "./useZIndex-DYNAJc5I.js";
 import { u as u8 } from "./useFocusController-DbTS20Td.js";
 import { u as u9 } from "./useProp-BKnLQbYM.js";
+import { u as u10 } from "./useComputedStyle-9YEKZ3I3.js";
 export {
   u as useClickOutside,
+  u10 as useComputedStyle,
   u4 as useDisabledStyle,
   u2 as useEventListener,
   u8 as useFocusController,

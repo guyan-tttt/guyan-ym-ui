@@ -40,6 +40,11 @@ const meta: Meta<typeof YmProgress > = {
         control: "color",
         defaultValue: "#409eff",
     },
+    type: {
+        control: "select",
+        options: ["line", "circle"],
+        defaultValue: "line",
+    }
   }
 };
 
@@ -59,6 +64,41 @@ export const Default: Story = {
             return `${percentage}%`
         },
         color: "#409eff",
+    },
+
+    render: (args) => ({
+        components: {
+            YmProgress
+        },
+    
+        setup() {
+          const value  = ref(0)
+          let timer = setInterval(() => {
+            if(value.value >= 100) {
+                clearInterval(timer)
+                return 
+            }
+            value.value += 10
+          },1000)
+
+        return {
+            args,
+            value
+        };
+    },
+    template: `
+    <ym-progress v-bind="args" :percentage="value">
+    </ym-progress>
+    `,
+  }),
+};
+
+export const Circle: Story = {
+    args: {
+        status: "success",
+        showText: true,
+        width: 200,
+        type: "circle",
     },
 
     render: (args) => ({

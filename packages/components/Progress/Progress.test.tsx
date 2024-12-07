@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { mount } from '@vue/test-utils'
 import Progress from './Progress.vue'
 import  type { ProgressStatus } from './type'
+import '../../theme/index.css'
 describe("Progress.vue",() => {
     // 1.基础内容渲染
     it("基础内容渲染",() => {
@@ -140,4 +141,34 @@ describe("Progress.vue",() => {
         })
         expect(wrapper3.find(".ym-progress").attributes("style")).include("width: 200px")
     })
+    // 8. 测试stroke颜色
+    it("测试stroke颜色",() => {
+        const wrapper = mount(Progress,{
+            props: {
+                type: 'circle',
+                percentage: 30,
+                color: 'red',
+                width:200
+            }
+        }
+        )
+        expect(wrapper.find(".ym-progress-circle")).toBeTruthy()
+        expect(wrapper.find(".ym-progress-circle__path").attributes("stroke")).include("red")
+
+
+        const wrapper2 = mount(Progress,{
+            props: {
+                type: 'circle',
+                percentage: 30,
+                status: "success",
+                width:200
+            }
+        }
+        )
+        expect(wrapper2.find(".ym-progress-circle")).toBeTruthy()
+        console.log(wrapper2.find(".ym-progress").html());
+        
+        expect(wrapper2.find(".ym-progress-circle__path").attributes("stroke"))
+    })
+
 })
