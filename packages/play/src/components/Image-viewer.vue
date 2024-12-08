@@ -1,10 +1,10 @@
 <template>
     <Teleport to="body">
         <Transition name="viewer-fade">
-            <ym-overlay overlayClass="ym-image__viewer__overlay" v-if="showVisible">
-                <div class="ym-image__viewer">
+            <ym-overlay overlayClass="ym-image__viewer__overlay" v-if="showVisible" :zIndex="zIndex" @click="handleHideOnClickModal">
+                <div class="ym-image__viewer" @click.stop="">
                     <div class="ym-image_canvas" :style="imageViewerStyle">
-                        <img class="ym-image__viewer__img" src="https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg" alt="">
+                        <img  class="ym-image__viewer__img" :src="currentImage" alt="">
                     </div>
                     <div class="ym-image__toolbar">
                         <div class="ym-image__toolbar__item"  @click="handleActions('zoomOut')">
@@ -24,10 +24,10 @@
                         <ym-icon icon="fa-times-circle" color="#fff" size="3x"></ym-icon>
                     </div>
                     <div class="ym-image__arrow">
-                        <div class="ym-image__arrow-item">
+                        <div class="ym-image__arrow-item" @click="prev">
                             <ym-icon icon="fa-chevron-left" color="#fff" size="2xl"></ym-icon>
                         </div>
-                        <div class="ym-image__arrow-item">
+                        <div class="ym-image__arrow-item" @click="next">
                             <ym-icon icon="fa-chevron-right" color="#fff" size="2xl"></ym-icon>
                         </div>
                     </div>
@@ -38,7 +38,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
+import { throttle } from 'lodash-es'
 
 interface ImageViewerProps {
     urlList: string[] // 图片列表
@@ -68,12 +69,17 @@ const transform = reactive({
     offsetY: 0
 })
 
-const isLoading = ref(false)
 
 const imageViewerStyle = computed(() => {
     return {
         transform: `translate3d(${transform.offsetX}px, ${transform.offsetY}px, 0) scale(${transform.scale}) rotate(${transform.deg}deg)`,
     }
+})
+
+const currentIndex = ref<number>(props.initialIndex ?? 0)
+
+const currentImage = computed(() => {
+    return props.urlList[currentIndex.value]
 })
 
 const handleActionsMap = new Map<string, () => void>([
@@ -128,6 +134,50 @@ defineExpose({
     close: handleClose
 })
 
+// 上一页
+const prev = () => {
+    if(currentIndex.value === 0) {
+        currentIndex.value = props.urlList.length - 1
+        return 
+    }
+    currentIndex.value -= 1
+}
+
+// 下一页
+const next = () => {
+    if(currentIndex.value === props.urlList.length - 1) {
+        currentIndex.value = 0
+        return 
+    }
+    currentIndex.value += 1
+}
+
+const handleHideOnClickModal = () => {
+    if(!props.hideOnClickModal) return 
+    handleClose()
+}
+
+const handlePressEsc = (e: Event) => {
+    console.log(e);
+    
+    if(!props.closeOnPressEsc) return ;
+    e.preventDefault()
+    e.stopPropagation()
+    const event = e as KeyboardEvent
+    let  code = event.code 
+    if(code === 'Escape') {
+        handleClose()
+    }
+}
+
+const registerEventListener = () => {
+    const keyEvent = throttle(handlePressEsc, 300)
+    window.addEventListener('keydown', keyEvent)
+}
+
+onMounted(() => {
+    registerEventListener()
+})
 </script>
 
 <style scoped>
