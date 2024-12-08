@@ -1,28 +1,22 @@
 <template>
   <div class="container">
-    <Progress    width="200px" :percentage="value" color="red" type="circle">
-      <template v-slot="{ percentage }">
-        <div>{{ percentage }}</div>
-      </template>
-    </Progress >
+    <button @click="open">打开</button>
+    <ImageViewer ref="imageRef"></ImageViewer>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Progress from '../../components/Progress/Progress.vue'
+import ImageViewer from './components/Image-viewer.vue'
 
 const value = ref(0)
 
-setInterval(() => {
-  console.log(1);
-  
-  if( value.value < 100)  {
-      value.value = value.value + 10
-  }
-  
-}, 1000)
+const  imageRef = ref<HTMLElement | null>(null)
 
+
+const open = () => {
+  imageRef.value?.open()
+}
 
 </script>
 
