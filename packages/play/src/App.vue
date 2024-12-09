@@ -1,7 +1,16 @@
 <template>
   <div class="container">
     <button @click="open">打开</button>
-    <ImageViewer ref="imageRef" :urlList="srcList" :initial-index="0" :hide-on-click-modal="true" closeOnPressEsc></ImageViewer>
+    <ImageViewer ref="imageRef" 
+      :urlList="srcList"
+     :initial-index="0" 
+     :hide-on-click-modal="true" 
+     closeOnPressEsc
+     @close="console.log('close')"
+     @rotate="console.log('rotate')"
+     @wheel="console.log('wheel')"
+     @switch="switchFun"
+     ></ImageViewer>
   </div>
 </template>
 
@@ -25,6 +34,9 @@ const srcList = [
 
 const open = () => {
   imageRef.value?.open()
+}
+const switchFun = (src: string, index: number) => {
+  console.log(src, index)
 }
 
 </script>

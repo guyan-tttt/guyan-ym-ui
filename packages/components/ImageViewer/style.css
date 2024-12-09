@@ -1,0 +1,78 @@
+.viewer-fade-enter-active,
+.viewer-fade-leave-active {
+    transition: opacity 0.3s;
+}
+.viewer-fade-enter-from,
+.viewer-fade-leave-to {
+    opacity: 0;
+}
+
+.ym-image__viewer__overlay {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden !important;
+}
+
+.ym-image__viewer {
+    --ym-image-viewer-toolbar-bottom: 60px;
+    --ym-image-viewer-toolbar-gap: 40px;
+    --ym-image-viewer-close-top: 40px;
+    --ym-image-viewer-arrow-width: 100%;
+    --ym-image-viewer-arrow-item-width: 60px;
+    --ym-image-viewer-transition: transform 0.3s ease-in-out;;
+}
+.ym-image__viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+   .ym-image__toolbar {
+        position: absolute;
+        bottom: var(--ym-image-viewer-toolbar-bottom);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--ym-image-viewer-toolbar-gap);
+        .ym-image__toolbar__item {
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+   }
+   .ym-image__close {
+        position: absolute;
+        top: var(--ym-image-viewer-close-top);
+        right: var(--ym-image-viewer-close-top);
+        cursor: pointer;
+   }
+   .ym-image__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: var(--ym-image-viewer-arrow-width);
+        display: flex;
+        justify-content: space-between;
+        .ym-image__arrow-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--ym-image-viewer-arrow-item-width);
+            height: var(--ym-image-viewer-arrow-item-width);
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            margin: 0 20px;
+        }
+   }
+   .ym-image_canvas {
+        transition: var(--ym-image-viewer-transition);
+   }
+}

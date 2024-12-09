@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, onMounted } from 'vue'
+import { computed, reactive, ref, onMounted, onUnmounted } from 'vue'
 import { throttle } from 'lodash-es'
 
 interface ImageViewerProps {
@@ -51,6 +51,13 @@ interface ImageViewerProps {
     maxScale?: number // 最大缩放比例
     closeOnPressEsc?: boolean // 按下esc关闭
 }
+interface ImageViewerEmits {
+    (e: "close"): void
+    (e: "switch", url: string, index: number): void
+    (e: "rotate", deg: number):void
+    (e: "wheel"):void
+}
+
 
 const props = withDefaults(defineProps<ImageViewerProps>(),{
     zIndex: 3000,
@@ -61,6 +68,8 @@ const props = withDefaults(defineProps<ImageViewerProps>(),{
     maxScale: 2,
     closeOnPressEsc: false
 })
+
+const emits = defineEmits<ImageViewerEmits>()
 
 const transform = reactive({
     scale: 1,
@@ -102,11 +111,13 @@ const handleActionsMap = new Map<string, () => void>([
     [
         'clockwise', () => {
             transform.deg += 90
+            emits("rotate", transform.deg)
         }
     ],
     [
         'anticlockwise', () => {
             transform.deg -= 90
+            emits("rotate", transform.deg)
         }
     ],
 ])
@@ -127,29 +138,40 @@ const handleOpen = () => {
 
 const handleClose = () => {
     changeVisible(false)
+    emits("close")
 }
+
+const setActiveItem = (index: number) => {
+    if(index < 0) {
+        currentIndex.value = props.urlList.length - 1
+        return
+    }
+    if(index > props.urlList.length - 1) {
+        currentIndex.value = 0
+        return
+    }
+    currentIndex.value = index
+    emits("switch",currentImage.value, currentIndex.value)
+}
+
 
 defineExpose({
     open: handleOpen,
-    close: handleClose
+    close: handleClose,
+    setActiveItem
 })
 
 // 上一页
 const prev = () => {
-    if(currentIndex.value === 0) {
-        currentIndex.value = props.urlList.length - 1
-        return 
-    }
     currentIndex.value -= 1
+    setActiveItem(currentIndex.value)
 }
 
 // 下一页
 const next = () => {
-    if(currentIndex.value === props.urlList.length - 1) {
-        currentIndex.value = 0
-        return 
-    }
+
     currentIndex.value += 1
+    setActiveItem(currentIndex.value)
 }
 
 const handleHideOnClickModal = () => {
@@ -170,14 +192,45 @@ const handlePressEsc = (e: Event) => {
     }
 }
 
-const registerEventListener = () => {
-    const keyEvent = throttle(handlePressEsc, 300)
-    window.addEventListener('keydown', keyEvent)
+const handleWheel = (e: WheelEvent) => {
+    
+    const delta = e.deltaY || e.deltaX
+    if(delta > 0) {
+        transform.scale -= props.zoomRate
+        if(transform.scale < props.minScale) {
+            transform.scale = props.minScale
+        }
+    } else {
+        transform.scale += props.zoomRate
+        if(transform.scale > props.maxScale) {
+            transform.scale = props.maxScale
+        }
+    }
+    emits("wheel")
 }
 
+
+const registerEventListener = () => {
+    const keyEvent = throttle(handlePressEsc, 300)
+    const wheelEvent = throttle(handleWheel, 300)
+    window.addEventListener('keydown', keyEvent)
+    window.addEventListener('wheel', wheelEvent)
+
+}
+const unregisterEventListener = () => {
+    window.removeEventListener('keydown', handlePressEsc)
+    window.removeEventListener('wheel', handleWheel)
+}
 onMounted(() => {
     registerEventListener()
 })
+
+onUnmounted(() => {
+    unregisterEventListener()
+})
+
+
+
 </script>
 
 <style scoped>
