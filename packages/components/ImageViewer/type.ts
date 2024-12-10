@@ -1,4 +1,4 @@
-interface ImageViewerProps {
+export interface ImageViewerProps {
     urlList: string[] // 图片列表
     zIndex?: number // 层级
     initialIndex?: number // 初始索引
@@ -9,14 +9,14 @@ interface ImageViewerProps {
     closeOnPressEsc?: boolean // 按下esc关闭
 }
 
-interface ImageViewerEmits {
+export interface ImageViewerEmits {
     (e: "close"): void
     (e: "switch", url: string, index: number): void
     (e: "rotate", deg: number):void
     (e: "wheel"):void
 }
 
-interface ImageViewerExpose {
+export interface ImageViewerExpose {
     close: () => void
     open: () => void
     setActiveItem: (index: number) => void
