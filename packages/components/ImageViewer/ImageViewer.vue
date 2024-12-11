@@ -24,10 +24,10 @@
                         <ym-icon icon="fa-times-circle" color="#fff" size="3x"></ym-icon>
                     </div>
                     <div class="ym-image__arrow">
-                        <div class="ym-image__arrow-item" @click="prev">
+                        <div class="ym-image__arrow-item ym-image__arrow-prev" @click="prev">
                             <ym-icon icon="fa-chevron-left" color="#fff" size="2xl"></ym-icon>
                         </div>
-                        <div class="ym-image__arrow-item" @click="next">
+                        <div class="ym-image__arrow-item ym-image__arrow-next" @click="next">
                             <ym-icon icon="fa-chevron-right" color="#fff" size="2xl"></ym-icon>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ const imageViewerStyle = computed(() => {
     }
 })
 
-const currentIndex = ref<number>(props.initialIndex ?? 0)
+const currentIndex = ref<number>(props.initialIndex)
 
 const currentImage = computed(() => {
     if(props.urlList.length === 0) return ''
@@ -109,8 +109,6 @@ const handleActionsMap = new Map<string, () => void>([
 ])
 
 const handleActions = (action: string) => {
-    console.log("action");
-    
     handleActionsMap.get(action)?.call(null)
 }
 
@@ -169,8 +167,6 @@ const handleHideOnClickModal = () => {
 }
 
 const handlePressEsc = (e: Event) => {
-    console.log(e);
-    
     if(!props.closeOnPressEsc) return ;
     e.preventDefault()
     e.stopPropagation()
@@ -182,8 +178,9 @@ const handlePressEsc = (e: Event) => {
 }
 
 const handleWheel = (e: WheelEvent) => {
-    
     const delta = e.deltaY || e.deltaX
+    console.log(delta);
+    
     if(delta > 0) {
         transform.scale -= props.zoomRate
         if(transform.scale < props.minScale) {
@@ -201,7 +198,7 @@ const handleWheel = (e: WheelEvent) => {
 
 const registerEventListener = () => {
     const keyEvent = throttle(handlePressEsc, 300)
-    const wheelEvent = throttle(handleWheel, 300)
+    const wheelEvent = handleWheel
     window.addEventListener('keydown', keyEvent)
     window.addEventListener('wheel', wheelEvent)
 
