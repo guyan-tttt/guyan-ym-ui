@@ -1,22 +1,13 @@
 <template>
   <div class="container">
     <button @click="open">打开</button>
-    <ImageViewer ref="imageRef" 
-      :urlList="srcList"
-     :initial-index="0" 
-     :hide-on-click-modal="true" 
-     closeOnPressEsc
-     @close="console.log('close')"
-     @rotate="console.log('rotate')"
-     @wheel="console.log('wheel')"
-     @switch="switchFun"
-     ></ImageViewer>
+    <Image :src="srcList[0]"></Image>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import ImageViewer from './components/Image-viewer.vue'
+import Image from './components/Image.vue'
 
 const value = ref(0)
 
@@ -32,12 +23,6 @@ const srcList = [
   'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg',
 ]
 
-const open = () => {
-  imageRef.value?.open()
-}
-const switchFun = (src: string, index: number) => {
-  console.log(src, index)
-}
 
 </script>
 

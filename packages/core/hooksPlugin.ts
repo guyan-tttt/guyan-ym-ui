@@ -15,7 +15,7 @@ export default function hooksPlugin({
 {
     return {
         name: "hooks-plugin",
-        buildStart() {
+        buildStart() { 
             each(rmFiles,(file) => {
                 shelljs.rm("-rf",file)
             })
