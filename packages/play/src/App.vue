@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <button @click="open">打开</button>
-    <Image :src="srcList[0]"></Image>
+    <button @click="open" >打开</button>
+    <!-- <div class="box"></div> -->
+    <Image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" style="width: 200px; height: 200px;" hideOnClickModal  closeOnPressEscape></Image>
+    <Image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" style="width: 200px; height: 200px;"></Image>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Image from './components/Image.vue'
+import Image from '../../components/Image/Image.vue'
 
 const value = ref(0)
 
@@ -23,7 +25,6 @@ const srcList = [
   'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg',
 ]
 
-
 </script>
 
 <style  scoped>
@@ -31,6 +32,12 @@ const srcList = [
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  /* height: 100vh; */
+}
+.box {
+  width: 100px;
+  height: 1700px;
+  background: red;
 }
 </style>

@@ -3,37 +3,9 @@
 <script setup lang="ts">
 import { isString } from 'lodash-es';
 import { computed,  onMounted, onUnmounted, ref, useAttrs,nextTick } from 'vue';
-import ImageViewer from '../../../components/ImageViewer/ImageViewer.vue';
+import ImageViewer from '../ImageViewer/ImageViewer.vue';
+import type { ImageEmits, ImageProps } from './type'
 
-type loadingType = "eager" | "lazy"
-
-type fitType = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
-
-
-interface ImageProps {
-    src:string // 图片地址
-    fit?: fitType // 图片填充方式
-    hideOnClickModal?: boolean //  是否点击遮罩层后隐藏图片
-    loading?: loadingType // 加载中图片
-    lazy?: boolean // 是否懒加载
-    scrollContainer?: string | HTMLElement // 滚动容器,容器必须是一个固定的元素，且image滚动的变化不会影响容器元素
-    alt?: string // 图片描述
-    previewSrcList?: string[] // 预览图片列表
-    zIndex?: number // 层级
-    initialIndex?: number // 初始预览索引
-    closeOnPressEscape?:boolean // 是否支持按下 ESC 关闭预览
-    zoomRate?: number // 缩放比例
-    minScale?: number // 最小缩放比例
-    maxScale?: number // 最大缩放比例
-}
-
-interface ImageEmits {
-    (e:"load", event: Event): void
-    (e: "error", event: Event) : void
-    (e: "switch", url:string):void
-    (e: "close"): void
-    (e: "show", event: Event): void
-}
 
 const props = withDefaults(defineProps<ImageProps>(),{
     fit: "fill",
@@ -144,6 +116,7 @@ const handleClick = async(e: Event) => {
 }
 
 const closePreview = () => {
+
     emits("close")
 }
 
@@ -172,7 +145,7 @@ onUnmounted(() => {
         <template v-else>
             <img 
                 class="ym-image__inner"
-                v-if="isLoading && imageSrc"
+                v-if="!isLoading && imageSrc"
                 :src="imageSrc"
                 :alt="alt"
                 :fit="fit"
@@ -210,37 +183,5 @@ onUnmounted(() => {
 
 
 <style scoped>
-.ym-image {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    .ym-image__inner {
-        object-fit: fill;
-        width: 100%;
-        height: 100%;
-    }
-    .ym-image__error {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #a8abb2;
-        background-color: #f5f7fa;
-        font-size: 14px;
-        width: 100%;
-        height: 100%;
-        font-weight: 700;
-    }
-    .ym-image__loading {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #a8abb2;
-        background-color: #f5f7fa;
-        font-size: 14px;
-        width: 100%;
-        height: 100%;
-        font-weight: 700;
-    }
-
-}
+@import url(./style.css);
 </style>

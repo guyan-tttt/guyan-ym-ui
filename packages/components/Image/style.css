@@ -1,0 +1,43 @@
+.ym-image  {
+    --ym-image-width: 100%;
+    --ym-image-height: 100%;
+    --ym-image-font-size: 14px;
+    --ym-image-error-bg: var(--ym-fill-color);
+    --ym-image-error-color: var(--ym-text-color-placeholder);
+    --ym-image-loading-bg: var(--ym-fill-color);
+    --ym-image-loading-color: var(--ym-text-color-placeholder);
+}
+
+.ym-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    .ym-image__inner {
+        object-fit: fill;
+        width: var(--ym-image-width);
+        height: var(--ym-image-height);
+    }
+    .ym-image__error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--ym-image-error-color);
+        background-color: var(--ym-image-error-bg);
+        font-size: var(--ym-image-font-size);
+        width: var(--ym-image-width);
+        height: var(--ym-image-height);
+        font-weight: 700;
+    }
+    .ym-image__loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--ym-image-loading-color);
+        background-color: var(--ym-image-loading-bg);
+        font-size: var(--ym-image-font-size);
+        width: var(--ym-image-width);
+        height: var(--ym-image-height);
+        font-weight: 700;
+    }
+
+}

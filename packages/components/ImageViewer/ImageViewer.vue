@@ -119,12 +119,13 @@ const changeVisible = (visible: boolean) => {
 }
 
 const handleOpen = () => {
-    
     changeVisible(true)
+    registerEventListener()
 }
 
 const handleClose = () => {
     changeVisible(false)
+    unregisterEventListener()
     emits("close")
 }
 
@@ -208,11 +209,11 @@ const unregisterEventListener = () => {
     window.removeEventListener('wheel', handleWheel)
 }
 onMounted(() => {
-    registerEventListener()
+    // registerEventListener()
 })
 
 onUnmounted(() => {
-    unregisterEventListener()
+    // unregisterEventListener()
 })
 </script>
 
