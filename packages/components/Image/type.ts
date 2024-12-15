@@ -7,7 +7,7 @@ export interface ImageProps {
     src:string // 图片地址
     fit?: fitType // 图片填充方式
     hideOnClickModal?: boolean //  是否点击遮罩层后隐藏图片
-    loading?: imageLoadingType // 加载中图片
+    loading?: imageLoadingType // 加载图片类型
     lazy?: boolean // 是否懒加载
     scrollContainer?: string | HTMLElement // 滚动容器,容器必须是一个固定的元素，且image滚动的变化不会影响容器元素
     alt?: string // 图片描述

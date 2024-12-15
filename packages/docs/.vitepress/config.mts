@@ -67,6 +67,15 @@ export default defineConfig({
           { text: "Form 表单", link: "/components/form"},
         ]
       },
+      
+      {
+        text: "媒体组件",
+        collapsed: false,
+        items: [
+          { text: "Image 图片", link: "/components/image"}
+        ]
+      },
+
       {
         text: "辅助组件",
         collapsed: false,

@@ -12,6 +12,9 @@
     position: relative;
     display: inline-block;
     overflow: hidden;
+    width: var(--ym-image-width);
+    height: var(--ym-image-height);
+
     .ym-image__inner {
         object-fit: fill;
         width: var(--ym-image-width);

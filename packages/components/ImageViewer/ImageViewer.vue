@@ -2,7 +2,7 @@
     <Teleport to="body">
         <Transition name="viewer-fade">
             <ym-overlay overlayClass="ym-image__viewer__overlay" v-if="showVisible" :zIndex="zIndex" @click="handleHideOnClickModal">
-                <div class="ym-image__viewer" @click.stop="">
+                <div class="ym-image__viewer" @click.stop="" ref="overlayRef">
                     <div class="ym-image_canvas" :style="imageViewerStyle">
                         <img  class="ym-image__viewer__img" :src="currentImage" alt="">
                     </div>
@@ -44,6 +44,11 @@ import type { ImageViewerProps, ImageViewerEmits,ImageViewerExpose } from './typ
 import YmOverlay from '../Overlay';
 import YmIcon from '../Icon';
 
+
+defineOptions({
+    name: 'YmImageViewer'
+})
+
 const props = withDefaults(defineProps<ImageViewerProps>(),{
     zIndex: 3000,
     initialIndex:0,
@@ -62,6 +67,8 @@ const transform = reactive({
     offsetX: 0,
     offsetY: 0
 })
+
+const overlayRef = ref(null)
 
 
 const imageViewerStyle = computed(() => {
@@ -170,6 +177,8 @@ const handleHideOnClickModal = () => {
 const handlePressEsc = (e: Event) => {
     if(!props.closeOnPressEsc) return ;
     e.preventDefault()
+    console.log(2);
+    
     e.stopPropagation()
     const event = e as KeyboardEvent
     let  code = event.code 
@@ -179,6 +188,8 @@ const handlePressEsc = (e: Event) => {
 }
 
 const handleWheel = (e: WheelEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
     const delta = e.deltaY || e.deltaX
     console.log(delta);
     
@@ -201,7 +212,7 @@ const registerEventListener = () => {
     const keyEvent = throttle(handlePressEsc, 300)
     const wheelEvent = handleWheel
     window.addEventListener('keydown', keyEvent)
-    window.addEventListener('wheel', wheelEvent)
+    window.addEventListener('wheel', wheelEvent,{ passive: false })
 
 }
 const unregisterEventListener = () => {

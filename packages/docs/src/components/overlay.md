@@ -6,8 +6,8 @@ next:
   --
 
 prev:
-  link: /components/form
-  text: Form 表单
+  link: /components/image
+  text: Image 图片
 ---
 
 # Overlay 遮罩层

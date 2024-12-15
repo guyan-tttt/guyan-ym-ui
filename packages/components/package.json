@@ -16,5 +16,8 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }

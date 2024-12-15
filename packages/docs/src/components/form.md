@@ -7,8 +7,8 @@ prev:
   text: Tooltip 文字提示
 
 next: 
-  link: components/overlay
-  text: Overlay 遮罩层
+  link: components/image
+  text: Image 图片
 ---
 
 # Form 表单

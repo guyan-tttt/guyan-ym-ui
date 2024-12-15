@@ -2,11 +2,15 @@
 
 <script setup lang="ts">
 import { isString } from 'lodash-es';
-import { computed,  onMounted, onUnmounted, ref, useAttrs,nextTick } from 'vue';
+import { computed,  onMounted, onUnmounted, ref, useAttrs,nextTick, watch } from 'vue';
 import ImageViewer from '../ImageViewer/ImageViewer.vue';
 import type { ImageEmits, ImageProps } from './type'
 
 
+
+defineOptions({
+    name:"YmImage"
+})
 const props = withDefaults(defineProps<ImageProps>(),{
     fit: "fill",
     hideOnClickModal: false,
@@ -61,20 +65,28 @@ const handleError = (event:Event) => {
 
 // 监听图片是否进入视窗
 const handleLazyLoad = (entries: IntersectionObserverEntry[]) => {
+
+    console.log(entries);
+    
     if(!isLazy.value || entries.length === 0) return
-    entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        imageSrc.value || loadImage()
+    if (entries[0].isIntersecting) {
+        if (imageSrc.value) return
+        loadImage()
       // 在此处理进入视窗后的逻辑
+      console.log('目标元素进入视窗',imageSrc.value);
+      
     } else {
       console.log('目标元素离开视窗');
       // 在此处理离开视窗后的逻辑
+      
     }
-})
+  
 }
 
 // 滚动容器
 const scrollContainer  = computed(() => {
+    
+    
     if(!props.scrollContainer) return null
     if(isString(props.scrollContainer)){
         return document.querySelector(props.scrollContainer)
@@ -86,16 +98,26 @@ const scrollContainer  = computed(() => {
 const imageRef = ref<HTMLImageElement>()
 
 // 图片监听器
-const imageObserver = new IntersectionObserver(handleLazyLoad, {
-  root: scrollContainer.value as Element || null, // 默认为视窗
-  rootMargin: '0px', // 视窗的外边距
-  threshold: 0.1 // 目标元素可见比例达到10%时触发回调
-})
+//@ts-ignore
+const imageObserver = ref<IntersectionObserver | null>(null)
+
+// 初始化监听器
+const initObserver = () => {
+    // console.log(scrollContainer.value);
+    
+    if(!IntersectionObserver) return
+    imageObserver.value = new IntersectionObserver(handleLazyLoad,{
+        root: scrollContainer.value,
+        rootMargin: "0px",
+        threshold: 0.01
+    })
+}
+
 
 // 添加懒加载
 const addLazyLoad = () => {
     if(!isLazy.value) return
-    imageObserver.observe(imageRef.value!)
+    imageObserver.value?.observe(imageRef.value!)
 }
 
 
@@ -123,15 +145,29 @@ const closePreview = () => {
 const switchPreview = (url: string) => {
     emits("switch",url)
 }
-onMounted(() => {
+onMounted(async() => {
+    console.log(isLazy.value);
+    
+    if(!isLazy.value) {
+        loadImage()
+    } else {
+        await nextTick()
+        console.log(scrollContainer.value);
+        
+        await initObserver()
+        addLazyLoad()
+    }
+})
+onUnmounted(() => {
+    imageObserver.value?.unobserve(imageRef.value!)
+})
+
+watch(() => props.src, () => {
     if(!isLazy.value) {
         loadImage()
     } else {
         addLazyLoad()
     }
-})
-onUnmounted(() => {
-    imageObserver.unobserve(imageRef.value!)
 })
 </script>
 
@@ -174,6 +210,10 @@ onUnmounted(() => {
              :initial-index="initialIndex"
              :close-on-press-esc="closeOnPressEscape"
              :hide-on-click-modal="hideOnClickModal"
+             :z-index="zIndex"
+             :zoom-rate="zoomRate"
+             :max-scale="maxScale"
+             :min-scale="minScale"
              @switch="switchPreview"
              @close="closePreview"
              ></ImageViewer>
