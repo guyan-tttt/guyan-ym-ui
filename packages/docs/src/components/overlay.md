@@ -3,7 +3,8 @@ title: Overlay
 description: Overlay 遮罩层
 
 next: 
-  --
+  link: /components/imageViewer
+  text: ImageViewer 图片预览器
 
 prev:
   link: /components/image

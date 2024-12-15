@@ -1,8 +1,8 @@
 <template>
     <div class="container lazy" ref="containerRef">
   
-        <div class="item" v-for="item in srcList" :key="item">
-            <ym-image :src="item"  fit="contain" lazy :scrollContainer="containerRef" style="height: 400px;"></ym-image>
+        <div class="item" v-for="(item,index) in srcList" :key="item">
+            <ym-image @load="load(index)" :src="item"  fit="contain" lazy :scrollContainer="containerRef" style="height: 400px;"></ym-image>
         </div>
   
     </div>
@@ -10,7 +10,8 @@
   
   <script setup lang="ts">
   import { ref , onMounted } from 'vue'
-  
+  import { YmMessage } from 'guyan-ym-ui';
+
   const containerRef = ref<any>()
   
   const srcList = [
@@ -24,6 +25,10 @@
   onMounted(() => {
     console.log(containerRef.value)
   })
+
+  const load = (index: any) => {
+    YmMessage.success(`第${index + 1}张图片加载完成`)
+  }
   </script>
   
   <style scoped>

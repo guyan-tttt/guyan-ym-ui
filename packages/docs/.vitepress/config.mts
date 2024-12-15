@@ -81,6 +81,7 @@ export default defineConfig({
         collapsed: false,
         items: [ 
           { text: "Overlay 遮罩层", link: "/components/overlay"},
+          { text: "ImageViewer 图片预览器", link: "/components/imageViewer"},
         ]
       }
 

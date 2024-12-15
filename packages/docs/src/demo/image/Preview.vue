@@ -16,7 +16,8 @@
     "https://haowallpaper.com/link/common/file/getCroppingImg/15918089447001472",
     "https://haowallpaper.com/link/common/file/getCroppingImg/16026675077107072",
     "https://haowallpaper.com/link/common/file/getCroppingImg/15701594680365376",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15946470577982848"
+    "https://haowallpaper.com/link/common/file/getCroppingImg/15946470577982848",
+    "https://haowallpaper.com/link/common/file/getCroppingImg/15947843037547904"
   ]
   
   onMounted(() => {
