@@ -1,30 +1,13 @@
 <template>
   <div class="container lazy" ref="containerRef">
 
-      <div class="item" v-for="item in srcList" :key="item">
-          <ym-image :src="item"  fit="contain"  style="height: 400px;"></ym-image>
-      </div>
+    <Avatar icon="home" :size="100"></Avatar>
 
   </div>
 </template>
 
 <script setup lang="ts">
-import  YmImage from '../../components/Image/Image.vue';
-import { ref , onMounted } from 'vue'
-
-const containerRef = ref<any>()
-
-const srcList = [
-  "https://haowallpaper.com/link/common/file/getCroppingImg/15946441491795328",
-  "https://haowallpaper.com/link/common/file/getCroppingImg/15918089447001472",
-  "https://haowallpaper.com/link/common/file/getCroppingImg/16026675077107072",
-  "https://haowallpaper.com/link/common/file/getCroppingImg/15701594680365376",
-  "https://haowallpaper.com/link/common/file/getCroppingImg/15946470577982848"
-]
-
-onMounted(() => {
-  console.log(containerRef.value)
-})
+import Avatar from './components/Avatar.vue'
 </script>
 
 <style scoped>
