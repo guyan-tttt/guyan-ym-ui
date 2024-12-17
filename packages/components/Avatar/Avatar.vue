@@ -1,26 +1,15 @@
 
 <script setup lang="ts">
-import { isNumber } from 'lodash-es';
+import { isNumber, isString } from 'lodash-es';
 import { computed, ref } from 'vue';
+import type { AvatarEmits, AvatarProps } from './type'
+import { debugWarn } from '@ym-UI/utils';
+import YmIcon from '../Icon';
 
 
-
-type AvatarSize = 'small' | 'medium' | 'large'
-
-type AvatarFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
-
-interface AvatarProps {
-    src?: string
-    icon?: string
-    size?: number | AvatarSize
-    shape?: 'circle' | 'square'
-    alt?: string
-    fit?: AvatarFit
-}
-
-interface AvatarEmits {
-    (e: 'error', err: Event): void
-}
+defineOptions({
+    name: "YmAvatar"
+})
 
 const props = withDefaults(defineProps<AvatarProps>(),{
     size: "medium",
@@ -31,10 +20,11 @@ const props = withDefaults(defineProps<AvatarProps>(),{
 const emits = defineEmits<AvatarEmits>()
 
 
-
 const isError = ref<boolean>(false)
 
 const handleError = (err: Event) => {
+    console.log('sa');
+    
     isError.value = true
     emits('error', err)
 }
@@ -45,6 +35,17 @@ const fitStyle = computed(() => {
     }
 })
 
+const slots  = defineSlots()
+
+const imageSrc = computed(() => {
+    console.log(props.src);
+    if(props.icon || slots.default ) return ""
+    if(!isString(props.src)) {
+        debugWarn('Avatar', 'src must be a string')
+        return ""
+    }
+    return props.src
+})
 </script>
 <template>
     <span 
@@ -60,8 +61,8 @@ const fitStyle = computed(() => {
     }"
     >
         <img 
-        v-if="src && !isError"
-        :src="src" 
+        v-if="imageSrc && !isError"
+        :src="imageSrc" 
         :alt="alt"
         :style="fitStyle"
         @error="handleError"
@@ -76,39 +77,6 @@ const fitStyle = computed(() => {
 </template>
 
 <style scoped>
-.ym-avatar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #909399;
-}
-.ym-avatar.is-small {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-}
-.ym-avatar.is-medium {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-}
-.ym-avatar.is-large {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-}
-
-.ym-avatar.is-circle {
-    border-radius: 50%;
-}
-.ym-avatar.is-square {
-    border-radius: 10px;
-}
-.ym-avatar img {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
+@import './style';
 
 </style>

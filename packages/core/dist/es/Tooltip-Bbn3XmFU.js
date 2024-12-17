@@ -1,8 +1,8 @@
 import { onMounted as e, watch as t, onUnmounted as a, defineComponent as o, ref as l, computed as i, watchEffect as n, openBlock as r, createElementBlock as u, mergeProps as s, toHandlers as v, renderSlot as c, createVNode as p, Transition as m, withCtx as d, createTextVNode as f, toDisplayString as g, createElementVNode as h, createCommentVNode as _ } from "vue";
 import { createPopper as y } from "@popperjs/core";
-import { u as k } from "./hooks-DswKn4P6.js";
-import { I as T, f as w, G as b, w as x, i as j } from "./vendor-BmDHKAAA.js";
-import { _ as B, w as L } from "./utils-B0xUaq8Y.js";
+import { u as k } from "./hooks-CF80WHXu.js";
+import { I as T, f as b, G as w, w as x, c as j } from "./vendor-BXKGMoVT.js";
+import { _ as B, w as L } from "./utils-CPHIa2sh.js";
 const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, virtualTriggering: { type: Boolean }, content: {}, trigger: { default: "hover" }, placement: { default: "bottom" }, manual: { type: Boolean }, disabled: { type: Boolean }, popperOptions: {}, transition: { default: "fade" }, showTimeout: { default: 0 }, hideTimeout: { default: 200 } }, emits: ["visible-change", "click-outside"], setup(o2, { expose: B2, emit: L2 }) {
   const N2 = o2, $2 = L2, E = l(false), I = l({}), O = l({}), R = l({}), Y = l(null), A = l(null), D = l(null), G = i(() => N2.virtualTriggering ? N2.virtualRef ?? A.value : A.value), M = i(() => ({ placement: N2.placement, modifiers: [{ name: "offset", options: { offset: [0, 9] } }], ...N2.popperOptions })), q = i(() => "hover" === N2.trigger ? N2.showTimeout : 0), z = i(() => "hover" === N2.trigger ? N2.hideTimeout : 0);
   let C, F, H;
@@ -30,7 +30,7 @@ const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, v
     I.value = {}, O.value = {}, R.value = {}, S();
   }
   return n(() => {
-    N2.manual || S(), C = b(x(Q, null, true), q.value), F = b(x(Q, null, false), z.value);
+    N2.manual || S(), C = w(x(Q, null, true), q.value), F = w(x(Q, null, false), z.value);
   }), B2({ show: J, hide: function() {
     C == null ? void 0 : C.cancel(), Q(false);
   } }), t(E, (e2) => {
@@ -47,7 +47,7 @@ const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, v
     let n2, r2;
     const u2 = /* @__PURE__ */ new Map(), s2 = () => {
       const e2 = l2.value;
-      T(e2) && w(i2.value, (t2, a2) => {
+      T(e2) && b(i2.value, (t2, a2) => {
         u2.set(a2, t2), e2 == null ? void 0 : e2.addEventListener(a2, t2);
       });
     };
@@ -55,7 +55,7 @@ const N = B(o({ name: "YmTooltip", __name: "Tooltip", props: { virtualRef: {}, v
       r2 = t(l2, () => o3.virtualTriggering && s2(), { immediate: true }), n2 = t(i2, () => {
         o3.virtualTriggering && ((() => {
           const e2 = l2.value;
-          T(e2) && w(["mouseenter", "click", "contextmenu"], (t2) => u2.has(t2) && (e2 == null ? void 0 : e2.removeEventListener(t2, u2.get(t2))));
+          T(e2) && b(["mouseenter", "click", "contextmenu"], (t2) => u2.has(t2) && (e2 == null ? void 0 : e2.removeEventListener(t2, u2.get(t2))));
         })(), s2(), C == null ? void 0 : C.cancel(), Q(false));
       }, { deep: true });
     }), a(() => {

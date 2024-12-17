@@ -1,8 +1,8 @@
-import { t as e, _ as s, w as t } from "./utils-B0xUaq8Y.js";
+import { t as e, _ as s, w as t } from "./utils-CPHIa2sh.js";
 import { defineComponent as r, computed as a, ref as o, watch as l, openBlock as i, createElementBlock as p, normalizeClass as n, normalizeStyle as d, createElementVNode as u, renderSlot as c, toDisplayString as y, createCommentVNode as m, createBlock as f, unref as g } from "vue";
-import { a as h } from "./Icon-Dd1wFBNY.js";
-import { i as k } from "./hooks-DswKn4P6.js";
-import { z as v, d as x, l as w } from "./vendor-BmDHKAAA.js";
+import { a as h } from "./Icon-BN1S7njp.js";
+import { i as k } from "./hooks-CF80WHXu.js";
+import { z as v, i as x, l as w } from "./vendor-BXKGMoVT.js";
 const _ = { class: "ym-progress-bar" }, $ = { key: 0, class: "ym-progress-bar__innerText" }, b = { key: 1 }, B = { key: 0, class: "ym-progress-text" }, T = { key: 1 }, j = { class: "ym-progress-circle" }, F = ["stroke"], I = { key: 0, class: "ym-progress-text" }, W = { key: 1 }, D = t(s(r({ name: "YmProgress", inheritAttrs: false, __name: "Progress", props: { percentage: { default: 10 }, width: { default: "200px" }, color: {}, status: { default: "primary" }, showText: { type: Boolean, default: true }, format: { type: Function, default: (e2) => `${e2}%` }, textInside: { type: Boolean, default: false }, strokeWidth: { default: 6 }, striped: { type: Boolean, default: false }, stripedFlow: { type: Boolean, default: false }, duration: { default: 6 }, type: { default: "line" } }, setup(s2) {
   const t2 = s2, r2 = a(() => t2.format && v(t2.format) ? t2.format(t2.percentage) : `${t2.percentage}%`), D2 = a(() => x(t2.width) && w(t2.width, "px") ? t2.width : t2.width + "px"), M = o(0);
   l(() => t2.percentage, (e2) => {

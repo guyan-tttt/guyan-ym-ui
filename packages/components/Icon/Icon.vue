@@ -14,7 +14,7 @@ const props =defineProps<IconProps>()
 
 const filterProps = computed(() => omit(props,['type','color']))
 
-const customStyle = computed(() =>  ({color: props.color ?? void 0}))
+const customStyle = computed(() =>  ({color: props.color}))
 
 const iconRef = ref<HTMLButtonElement>()
 

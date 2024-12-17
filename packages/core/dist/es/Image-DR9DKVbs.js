@@ -1,8 +1,8 @@
-import { _ as e, w as a } from "./utils-B0xUaq8Y.js";
+import { _ as e, w as a } from "./utils-CPHIa2sh.js";
 import { defineComponent as l, reactive as o, ref as i, computed as s, onMounted as t, onUnmounted as c, openBlock as r, createBlock as n, Teleport as m, createVNode as d, Transition as v, withCtx as u, unref as f, createElementVNode as _, withModifiers as g, normalizeStyle as w, createCommentVNode as y, useAttrs as p, nextTick as x, watch as z, createElementBlock as k, mergeProps as h, renderSlot as I, createTextVNode as C, Fragment as S } from "vue";
-import { t as L, d as O } from "./vendor-BmDHKAAA.js";
-import { Y as b } from "./Overlay-DGdQCS4b.js";
-import { a as E } from "./Icon-Dd1wFBNY.js";
+import { t as L, i as O } from "./vendor-BXKGMoVT.js";
+import { Y as b } from "./Overlay-3FG9sPIA.js";
+import { a as E } from "./Icon-BN1S7njp.js";
 const R = ["src"], Y = { class: "ym-image__toolbar" }, M = { class: "ym-image__arrow" }, P = e(l({ name: "YmImageViewer", __name: "ImageViewer", props: { urlList: {}, zIndex: { default: 3e3 }, initialIndex: { default: 0 }, hideOnClickModal: { type: Boolean, default: false }, zoomRate: { default: 0.2 }, minScale: { default: 0.1 }, maxScale: { default: 2 }, closeOnPressEsc: { type: Boolean, default: false } }, emits: ["close", "switch", "rotate", "wheel"], setup(e2, { expose: a2, emit: l2 }) {
   const p2 = e2, x2 = l2, z2 = o({ scale: 1, deg: 0, offsetX: 0, offsetY: 0 }), k2 = i(null), h2 = s(() => ({ transform: `translate3d(${z2.offsetX}px, ${z2.offsetY}px, 0) scale(${z2.scale}) rotate(${z2.deg}deg)` })), I2 = i(p2.initialIndex), C2 = s(() => 0 === p2.urlList.length ? "" : p2.urlList[I2.value]), S2 = /* @__PURE__ */ new Map([["zoomIn", () => {
     z2.scale -= p2.zoomRate, z2.scale < p2.minScale && (z2.scale = p2.minScale);

@@ -26,6 +26,7 @@ import {
     YmProgress,
     YmImageViewer,
     YmImage,
+    YmAvatar
 } from '@ym-UI/components'
 import type { Plugin } from 'vue'
 
@@ -57,5 +58,6 @@ export default [
     YmFormItem,
     YmProgress,
     YmImageViewer,
-    YmImage
+    YmImage,
+    YmAvatar
 ] as Plugin[]

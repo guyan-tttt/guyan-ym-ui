@@ -1,0 +1,38 @@
+.ym-avatar {
+    --ym-avatar-small-size: 32px;
+    --ym-avatar-small-font-size: 16px;
+    --ym-avatar-medium-size: 40px;
+    --ym-avatar-medium-font-size: 20px;
+    --ym-avatar-large-size: 48px;
+    --ym-avatar-large-font-size: 24px;
+    --ym-avatar-bg:var(--ym-text-color-disabled)
+}
+
+
+.ym-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--ym-avatar-bg);
+}
+
+@each $val in small, medium, large {
+    .ym-avatar.is-$(val) {
+        width: var(--ym-avatar-$(val)-size);
+        height: var(--ym-avatar-$(val)-size);
+        font-size: var(--ym-avatar-$(val)-font-size);
+    }
+}
+
+.ym-avatar.is-circle {
+    border-radius: 50%;
+}
+.ym-avatar.is-square {
+    border-radius: 10px;
+}
+.ym-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
