@@ -44,7 +44,8 @@ export default defineConfig({
         text: "展示组件",
         collapsed: false,
         items: [
-          { text: "Progress 进度条", link: "/components/progress"}
+          { text: "Progress 进度条", link: "/components/progress"},
+          {text: "Avatar 头像", link: "/components/avatar"},
         ]
       },
       {
