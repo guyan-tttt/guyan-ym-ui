@@ -19,6 +19,7 @@ const props = withDefaults(defineProps<DropdownProps>(),{
     trigger: "click",
     hideOnClick: true,
     item: () => [] as DropdownItemProps[],
+    disabled: false,
 })
 
 const emit  = defineEmits<DropdownEmits>()
@@ -79,7 +80,6 @@ provide<DropdownContext>(DROPDOWN_CTX_KEY,{
 
      <!-- 自定义切换按钮 -->
      <slot v-else name="default"></slot>
-
     <template #content>
         <!-- 菜单内容 -->
         <div class="ym-dropdown__menu">

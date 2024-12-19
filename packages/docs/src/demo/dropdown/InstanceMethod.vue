@@ -16,7 +16,7 @@ const dropdownRef = ref<DropdownInstance>();
   <ym-button @click="() => dropdownRef?.close()" >close</ym-button>
   <br />
   <ym-dropdown ref="dropdownRef" :items="items">
-    <span class="dropdown-link">
+    <span >
       Dropdown List
       <ym-icon icon="angle-down" />
     </span>

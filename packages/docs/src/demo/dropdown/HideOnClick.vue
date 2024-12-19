@@ -14,7 +14,7 @@ const items: DropdownItemProps[] = [
     <div class="col">
       <div class="desc">hide-on-click="true"(default)</div>
       <ym-dropdown :items="items">
-        <span class="dropdown-link">
+        <span>
           Dropdown List
           <ym-icon icon="angle-down" />
         </span>

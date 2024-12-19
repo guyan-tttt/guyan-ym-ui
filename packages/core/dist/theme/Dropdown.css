@@ -55,28 +55,28 @@
     margin: 6px 0;
     border-top: 1px solid var(--ym-dropdown-menuItem-divided-color);
 }
-.ym-dropdown .ym-dropdown__menu[data-v-af84036c] {
+.ym-dropdown .ym-dropdown__menu[data-v-148098e7] {
   --ym-dropdown-menuItem-hover-fill: var(--ym-color-primary-light-9);
   --ym-dropdown-menuItem-hover-color: var(--ym-color-primary);
   --ym-dropdown-menuItem-disabled-color: var(--ym-border-color-lighter);
   --ym-dropdown-menuItem-divided-color: var(--ym-border-color-lighter);
 }
-.ym-dropdown[data-v-af84036c] {
+.ym-dropdown[data-v-148098e7] {
   display: inline-block;
 }
-.ym-dropdown .er-tooltip[data-v-af84036c] {
+.ym-dropdown .er-tooltip[data-v-148098e7] {
     --ym-popover-padding: 5px 0;
 }
-.ym-dropdown.is-disabled[data-v-af84036c]>*{
+.ym-dropdown.is-disabled[data-v-148098e7]>*{
     color: var(--ym-text-color-placeholder) !important;
     cursor: not-allowed !important;
 }
-.ym-dropdown__menu[data-v-af84036c] {
+.ym-dropdown__menu[data-v-148098e7] {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.ym-dropdown__menu .ym-dropdown__item[data-v-af84036c] {
+.ym-dropdown__menu .ym-dropdown__item[data-v-148098e7] {
     display: flex;
     align-items: center;
     white-space: nowrap;
@@ -89,26 +89,26 @@
     cursor: pointer;
     outline: none;
 }
-.ym-dropdown__menu .ym-dropdown__item[data-v-af84036c]:hover {
+.ym-dropdown__menu .ym-dropdown__item[data-v-148098e7]:hover {
       background-color: var(--ym-dropdown-menuItem-hover-fill);
       color: var(--ym-dropdown-menuItem-hover-color);
 }
-.ym-dropdown__menu .ym-dropdown__item.is-disabled[data-v-af84036c] {
+.ym-dropdown__menu .ym-dropdown__item.is-disabled[data-v-148098e7] {
       color: var(--ym-dropdown-menuItem-disabled-color);
       cursor: not-allowed;
       background-image: none;
 }
-.ym-dropdown__menu .ym-dropdown__item--large[data-v-af84036c] {
+.ym-dropdown__menu .ym-dropdown__item--large[data-v-148098e7] {
     padding: 7px 20px;
     line-height: 22px;
     font-size: 14px;
 }
-.ym-dropdown__menu .ym-dropdown__item--small[data-v-af84036c] {
+.ym-dropdown__menu .ym-dropdown__item--small[data-v-148098e7] {
     padding: 2px 12px;
     line-height: 20px;
     font-size: 12px;
 }
-.ym-dropdown__menu .divided-placeholder[data-v-af84036c] {
+.ym-dropdown__menu .divided-placeholder[data-v-148098e7] {
     margin: 6px 0;
     border-top: 1px solid var(--ym-dropdown-menuItem-divided-color);
 }

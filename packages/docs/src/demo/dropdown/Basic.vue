@@ -14,7 +14,7 @@ const items: DropdownItemProps[] = [
     <div class="col">
       <div class="desc">通过 slot 传入 item</div>
       <ym-dropdown>
-        <span class="dropdown-link">
+        <span >
           Dropdown List
           <ym-icon icon="angle-down" />
         </span>

@@ -18,7 +18,7 @@ function handleCommand(command: DropdownCommand) {
 
 <template>
   <ym-dropdown :items="items" @command="handleCommand">
-    <span class="dropdown-link">
+    <span >
       Dropdown List
       <ym-icon icon="angle-down" />
     </span>

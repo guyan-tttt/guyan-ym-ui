@@ -11,6 +11,7 @@ export declare const YmDropdown: {
         };
         disabled: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         content: {
             type: import('vue').PropType<string>;
@@ -56,6 +57,7 @@ export declare const YmDropdown: {
         command: (value: import('packages/core').DropdownCommand) => void;
         click: (value: MouseEvent) => void;
     }, import('vue').PublicProps, {
+        disabled: boolean;
         trigger: "hover" | "click" | "contextmenu";
         hideOnClick: boolean;
     }, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
@@ -77,6 +79,7 @@ export declare const YmDropdown: {
         };
         disabled: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         content: {
             type: import('vue').PropType<string>;
@@ -118,6 +121,7 @@ export declare const YmDropdown: {
         open(): void;
         close(): void;
     }, {}, {}, {}, {
+        disabled: boolean;
         trigger: "hover" | "click" | "contextmenu";
         hideOnClick: boolean;
     }>;
@@ -136,6 +140,7 @@ export declare const YmDropdown: {
     };
     disabled: {
         type: import('vue').PropType<boolean>;
+        default: boolean;
     };
     content: {
         type: import('vue').PropType<string>;
@@ -181,6 +186,7 @@ export declare const YmDropdown: {
     command: (value: import('packages/core').DropdownCommand) => void;
     click: (value: MouseEvent) => void;
 }, string, {
+    disabled: boolean;
     trigger: "hover" | "click" | "contextmenu";
     hideOnClick: boolean;
 }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
