@@ -44,6 +44,8 @@ const props = withDefaults(defineProps<PaginationProps>(), {
     jumper: false,
     sizeSelector: false,
     totalor: false,
+    prevIcon: "chevron-left",
+    nextIcon: "chevron-right"
 })
 
 const emits = defineEmits<PaginationEmits>()
@@ -129,6 +131,7 @@ const pagers = computed(() => {
 
 // 单击对应的页码
 const handleClick = (index: number) =>  {
+    if(props.disabled) return
     if(index > 0 && index <= count.value!) {
         currentIndex.value = index
         // 触发事件提交
@@ -138,6 +141,7 @@ const handleClick = (index: number) =>  {
 
 // 上一页
 const handlePrevClick = () => {
+    if(props.disabled) return
     if(currentIndex.value > 1) {
         currentIndex.value--
         emits("current-change", currentIndex.value)
@@ -147,6 +151,7 @@ const handlePrevClick = () => {
 
 // 下一页
 const handleNextClick = () => {
+    if(props.disabled) return
     if(currentIndex.value < count.value!) {
         currentIndex.value++
         emits("current-change", currentIndex.value)
@@ -172,6 +177,7 @@ const pageSizeList = computed(() => {
 })
 
 const handleSizeChange = (val: number) => {
+    if(props.disabled) return
     if(val > 0) {
         currentPageSize.value = val
         currentIndex.value = 1
@@ -180,6 +186,7 @@ const handleSizeChange = (val: number) => {
 }
 
 const handleKeyDown = (e: KeyboardEvent) => {
+    if(props.disabled) return
     if(e.key === 'Enter') {
         const value = Number(inputValue.value)
         if(value > 0 && value <= count.value!) {
@@ -189,12 +196,42 @@ const handleKeyDown = (e: KeyboardEvent) => {
     }
 }
 
+
+const mouseover = (e: MouseEvent) => {
+    // 判断当前是否是禁用
+    if(props.disabled) return
+    // 判断当前是否分页标签项或者按钮
+    const target = e.target as HTMLElement
+
+    if(target.tagName === 'LI') {
+        target!.classList.add("hover")
+        return 
+    }
+    if(target.tagName === 'BUTTON') {
+        target.classList.add("hover")
+        return 
+    }
+    if((target.parentNode as any)?.tagName === 'BUTTON') {
+        (target.parentNode as any).classList.add("hover")
+    }
+}
+
+const mouseleave = (e: MouseEvent) => {
+    // 判断当前是否是禁用
+    if(props.disabled) return
+    // 判断当前是否分页标签项或者按钮
+    const target = e.target as HTMLElement
+    target.classList.remove("hover")
+}
+
 </script>
 <template>
    <div class="ym-pagination"
     :class="{
-        [`is-background`]: props.background
+        [`is-background`]: props.background,
+        [`is-disabled`]: props.disabled
     }"
+    @mouseover="mouseover"
    >
         <!-- 上一页按钮 -->
         <button 
@@ -204,8 +241,10 @@ const handleKeyDown = (e: KeyboardEvent) => {
                 disabled: currentIndex === 1
             }"
             @click="handlePrevClick"
-        >
-            <ym-icon icon="chevron-left"></ym-icon>
+            @mouseleave="mouseleave"
+        >   
+            <span v-if="prevText">{{ prevText }}</span>
+            <ym-icon :icon="prevIcon" v-else></ym-icon>
         </button>
         <!-- 上一页按钮 -->
         <!-- 页码列表 -->
@@ -213,14 +252,15 @@ const handleKeyDown = (e: KeyboardEvent) => {
             <!-- 第一页 -->
             <li 
                 :class="{
-                    active: currentIndex === 1
+                    active: !props.disabled && currentIndex === 1
                 }"
                 @click="handleClick(1)"
+                @mouseleave="mouseleave"
             >
                 1
             </li>
             <!-- 上一页省略号 -->
-            <li v-if="showPrevMore">
+            <li v-if="showPrevMore" @mouseleave="mouseleave">
                 <ym-icon icon="fa-ellipsis-h"></ym-icon>
             </li>
             <!-- 其余页码 -->
@@ -228,10 +268,11 @@ const handleKeyDown = (e: KeyboardEvent) => {
             v-for="pager in pagers"
             :key="pager"
             :class="{
-                active: pager === currentIndex
+                active: !props.disabled && pager === currentIndex
             }"
             class="number"
             @click="handleClick(pager)"
+            @mouseleave="mouseleave"
             >
             {{ pager }}
             </li>
@@ -239,6 +280,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
         <!-- 下一页省略号 -->
             <li 
             v-if="showNextMore"
+            @mouseleave="mouseleave"
             >
             <ym-icon icon="fa-ellipsis-h"></ym-icon>
             <!-- <ym-icon icon="chevron-right" size="xl"></ym-icon> -->
@@ -246,9 +288,10 @@ const handleKeyDown = (e: KeyboardEvent) => {
             <!-- 最后一页 -->
             <li
                 :class="{
-                        active: currentIndex === count
+                        active: !props.disabled && currentIndex === count
                     }"
                 @click="handleClick(Number(count))"
+                @mouseleave="mouseleave"
             >
             {{ count }}
             </li>
@@ -262,8 +305,10 @@ const handleKeyDown = (e: KeyboardEvent) => {
                 disabled: currentIndex === count
             }"
             @click="handleNextClick"
-        >
-            <ym-icon icon="chevron-right" ></ym-icon>
+            @mouseleave="mouseleave"
+        >   
+            <span v-if="nextText">{{ nextText }}</span>
+            <ym-icon :icon="nextIcon" v-else></ym-icon>
         </button>
         <!-- 下一页按钮 -->
         <div 
@@ -275,6 +320,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
                 <ym-input 
                 type="text" 
                 size="small"
+                :disabled="props.disabled"
                 v-model="inputValue"
                 @keydown=" handleKeyDown"
                   />
@@ -290,6 +336,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
             placeholder="选择页数"
             :options="pageSizeList"
             @change="handleSizeChange"
+            :disabled="props.disabled"
             >
             </ym-select>
         </div>
@@ -330,7 +377,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
             cursor: pointer;
             text-align: center;
             box-sizing: border-box;
-            &:hover {
+            &.hover {
                 color: #409eff;
                 font-weight: 700;
             }
@@ -360,7 +407,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
         &.disabled {
             color: #c0c4cc !important;
             cursor: not-allowed;
-            background-color: #f4f4f5 !important;
+            background: #f4f4f5 !important;
         }
     }
     .ym-pagination-next {
@@ -375,7 +422,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
             li {
                 background: #f4f4f5;
                 border-radius: 2px;
-                &:hover {
+                &.hover {
                     background: #409eff;
                     color: #fff;
                 }
@@ -388,7 +435,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
         button {
             background: #f4f4f5;
             border-radius: 2px;
-            &:hover {
+            &.hover {
                 background: #409eff;
                 color: #fff;
             }
@@ -420,6 +467,13 @@ const handleKeyDown = (e: KeyboardEvent) => {
             height: 24px ;
             font-size: inherit;
         }
+    }
+    &.is-disabled {
+        * {
+            color: #c0c4cc !important;
+            cursor: not-allowed !important;
+        }
+
     }
 
 

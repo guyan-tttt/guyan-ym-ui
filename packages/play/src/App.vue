@@ -6,6 +6,9 @@
     :pagerCount="8"
     background
     @current-change="currentChange"
+    jumper
+    sizeSelector
+    totalor
     ></Paginiation>
   </div>
 </template>
