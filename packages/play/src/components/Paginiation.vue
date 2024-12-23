@@ -21,11 +21,16 @@ interface PaginationProps {
     disabled?: boolean // 是否禁用
     prevIcon?: string // 替代图标显示的上一页图标
     nextIcon?: string // 替代图标显示的下一页图标
+    jumper?: boolean // 是否使用跳页
+    sizeSelector?: boolean // 是否使用数据条数选择器
+    totalor?: boolean // 是否显示总条数
 }
 
 interface PaginationEmits {
     (e: "size-change",val: number):void
     (e: "current-change",val: number):void
+    (e: "prev-click", val: number):void
+    (e: "next-click", val: number):void
 }
 
 const props = withDefaults(defineProps<PaginationProps>(), {
@@ -36,6 +41,9 @@ const props = withDefaults(defineProps<PaginationProps>(), {
     currentPage: 1,
     pageSizes: [10, 20, 30, 40, 50] as any,
     disabled: false,
+    jumper: false,
+    sizeSelector: false,
+    totalor: false,
 })
 
 const emits = defineEmits<PaginationEmits>()
@@ -133,6 +141,7 @@ const handlePrevClick = () => {
     if(currentIndex.value > 1) {
         currentIndex.value--
         emits("current-change", currentIndex.value)
+        emits("prev-click", currentIndex.value)
     }
 }
 
@@ -141,6 +150,7 @@ const handleNextClick = () => {
     if(currentIndex.value < count.value!) {
         currentIndex.value++
         emits("current-change", currentIndex.value)
+        emits("next-click", currentIndex.value)
     }
 }
 
@@ -169,14 +179,16 @@ const handleSizeChange = (val: number) => {
     }
 }
 
-const handleInput = (val: string) => {
-    const value = Number(val)
-    if(isNaN(value)) return debugWarn("Pagination", "请输入一个有效的数字")
-    if(value > 0 && value <= count.value!) {
-        currentIndex.value = value
-        emits("current-change", value)
+const handleKeyDown = (e: KeyboardEvent) => {
+    if(e.key === 'Enter') {
+        const value = Number(inputValue.value)
+        if(value > 0 && value <= count.value!) {
+            currentIndex.value = value
+            emits("current-change", value)
+        }
     }
 }
+
 </script>
 <template>
    <div class="ym-pagination"
@@ -254,19 +266,25 @@ const handleInput = (val: string) => {
             <ym-icon icon="chevron-right" ></ym-icon>
         </button>
         <!-- 下一页按钮 -->
-        <div class="ym-pagination-jumper">
+        <div 
+         class="ym-pagination-jumper"
+            v-if="props.jumper"
+        >
             前往
             <div class="ym-pagination-jumper__input">
                 <ym-input 
                 type="text" 
                 size="small"
                 v-model="inputValue"
-                @input="handleInput"
+                @keydown=" handleKeyDown"
                   />
             </div>
             页
         </div>
-        <div class="ym-pagination-sizes">
+        <div 
+         class="ym-pagination-sizes"
+         v-if="props.sizeSelector"
+        >
             <ym-select 
             v-model="sizeValue" 
             placeholder="选择页数"
@@ -275,7 +293,10 @@ const handleInput = (val: string) => {
             >
             </ym-select>
         </div>
-        <div class="ym-pagination-total">
+        <div 
+        v-if="props.totalor"
+        class="ym-pagination-total"
+        >
             共 {{ count }} 页
         </div>
    </div>
@@ -350,7 +371,7 @@ const handleInput = (val: string) => {
     }
 
     &.is-background {
-        .pager {
+        .ym-pager {
             li {
                 background: #f4f4f5;
                 border-radius: 2px;
