@@ -1,7 +1,7 @@
 <template>
   <div>
     <Paginiation 
-    :total="100" 
+    :total="10" 
     :currentPage="current" 
     :pagerCount="8"
     background

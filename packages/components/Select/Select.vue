@@ -134,8 +134,8 @@ function handleSelect(options:SelectOptionProps) {
 
     selectStates.inputValue = options.label // 更新输入框值
     selectStates.selectedOption = options // 更新选中值
-    emits("update:modelValue", options.value) // 更新值
-    emits("change", options.value) // 触发change事件
+    emits("update:modelValue", options.value as string) // 更新值
+    emits("change", options.value as string) // 触发change事件
     //TODO:  formItem 
     controlVisible(false) // 关闭下拉框
     inputRef.value?.focus() // 聚焦输入框

@@ -114,8 +114,6 @@ const handleClick = (index: number) =>  {
         // 触发事件提交
         emits("current-change", index)
     }
-    console.log("click");
-    
 }
 
 // 上一页
@@ -152,12 +150,10 @@ const pageSizeList = computed(() => {
             }
         })
     }
-    return []
 })
 
 const handleSizeChange = (val: string) => {
     const value = Number(val)
-    if(props.disabled) return
     if(value > 0) {
         currentPageSize.value = value
         currentIndex.value = 1
@@ -166,8 +162,7 @@ const handleSizeChange = (val: string) => {
 }
 
 const handleKeyDown = (e: KeyboardEvent) => {
-    if(props.disabled) return
-    if(e.key === 'Enter') {
+    if(e.key.toLocaleUpperCase() === 'ENTER') {
         const value = Number(inputValue.value)
         if(isNaN(value)) return debugWarn("Pagination", "分页跳转器必须输入数字")
         if(value > 0 && value <= count.value!) {
