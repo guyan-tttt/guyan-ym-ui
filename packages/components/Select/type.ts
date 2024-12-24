@@ -7,7 +7,7 @@ export type CustomFilterRemoteFunc = (
 ) => Promise<SelectOptionProps[] | void>;
 
 export interface SelectOptionProps {
-  value: string;
+  value: string | number;
   label: string;
   disabled?: boolean;
 }

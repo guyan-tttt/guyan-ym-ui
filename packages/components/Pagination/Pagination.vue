@@ -3,35 +3,12 @@
 <script setup lang="ts">
 import { debugWarn } from '@ym-UI/utils';
 import { isArray } from 'lodash-es';
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref, watch, watchEffect } from 'vue';
+import type { PaginationEmits, PaginationProps } from './type'
+import YmIcon from '../Icon/Icon.vue'
+import YmInput from '../Input/Input.vue'
+import YmSelect from '../Select/Select.vue'
 
-
-type PaginationSize = 'small' | 'medium' | 'large'
-
-interface PaginationProps {
-    size?: PaginationSize // 大小
-    background?: boolean // 是否显示背景
-    pageSize?: number // 每页显示条数
-    total: number // 总条数
-    pagerCount?: number // 显示的页码个数
-    currentPage?: number // 当前页
-    pageSizes?: number[] // 每页显示个数选择器的选项设置
-    prevText?:string // 替代图标显示的上一页文字
-    nextText?: string // 替代图标显示的下一页文字
-    disabled?: boolean // 是否禁用
-    prevIcon?: string // 替代图标显示的上一页图标
-    nextIcon?: string // 替代图标显示的下一页图标
-    jumper?: boolean // 是否使用跳页
-    sizeSelector?: boolean // 是否使用数据条数选择器
-    totalor?: boolean // 是否显示总条数
-}
-
-interface PaginationEmits {
-    (e: "size-change",val: number):void
-    (e: "current-change",val: number):void
-    (e: "prev-click", val: number):void
-    (e: "next-click", val: number):void
-}
 
 const props = withDefaults(defineProps<PaginationProps>(), {
     size: 'medium',
@@ -39,7 +16,7 @@ const props = withDefaults(defineProps<PaginationProps>(), {
     pageSize: 5,
     pagerCount: 5,
     currentPage: 1,
-    pageSizes: [10, 20, 30, 40, 50] as any,
+    pageSizes: [5, 10, 15, 20] as any,
     disabled: false,
     jumper: false,
     sizeSelector: false,
@@ -137,6 +114,8 @@ const handleClick = (index: number) =>  {
         // 触发事件提交
         emits("current-change", index)
     }
+    console.log("click");
+    
 }
 
 // 上一页
@@ -161,7 +140,7 @@ const handleNextClick = () => {
 
 const inputValue = ref<string>("")
 
-const sizeValue = ref<number>()
+const sizeValue = ref<string | number>(currentPageSize.value)
 
 // 改变每页显示的条数
 const pageSizeList = computed(() => {
@@ -176,12 +155,13 @@ const pageSizeList = computed(() => {
     return []
 })
 
-const handleSizeChange = (val: number) => {
+const handleSizeChange = (val: string) => {
+    const value = Number(val)
     if(props.disabled) return
-    if(val > 0) {
-        currentPageSize.value = val
+    if(value > 0) {
+        currentPageSize.value = value
         currentIndex.value = 1
-        emits("size-change", val)
+        emits("size-change", value)
     }
 }
 
@@ -189,9 +169,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
     if(props.disabled) return
     if(e.key === 'Enter') {
         const value = Number(inputValue.value)
-        console.log(value);
-        
-        if(isNaN(value)) return debugWarn("Pagination", "输入的值必须是数字")
+        if(isNaN(value)) return debugWarn("Pagination", "分页跳转器必须输入数字")
         if(value > 0 && value <= count.value!) {
             currentIndex.value = value
             emits("current-change", value)
@@ -226,6 +204,24 @@ const mouseleave = (e: MouseEvent) => {
     const target = e.target as HTMLElement
     target.classList.remove("hover")
 }
+
+// 监听props.pageSize和props.currentPage的变化
+watch(() => props.pageSize, (val) => {
+    if(!props.sizeSelector && props.pageSizes.length <= 0) {
+        return debugWarn("Pagination", "当使用sizeSelector属性时，pageSizes属性无效")
+    }
+    if(val && val > 0 && val <= props.pageSizes[props.pageSizes.length - 1]) {
+        currentPageSize.value = val
+        sizeValue.value = val
+        currentIndex.value = 1
+    }
+})
+
+watch(() => props.currentPage, (val) => {
+    if(val && val > 0 && val <= count.value) {
+        currentIndex.value = val
+    }
+})
 
 </script>
 <template>
@@ -335,7 +331,7 @@ const mouseleave = (e: MouseEvent) => {
          v-if="props.sizeSelector"
         >
             <ym-select 
-            v-model="sizeValue" 
+            v-model="sizeValue as string" 
             placeholder="选择页数"
             :options="pageSizeList"
             @change="handleSizeChange"
@@ -352,135 +348,7 @@ const mouseleave = (e: MouseEvent) => {
    </div>
 </template>
 <style  scoped>
-.ym-pagination {
-    white-space: nowrap;
-    color:#000;
-    font-size: 14px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    .ym-pager {
-        user-select: none;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            min-width: 26px;
-            max-height: 26px;
-            color:#606266;
-            padding: 4px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            box-sizing: border-box;
-            &.hover {
-                color: #409eff;
-                font-weight: 700;
-            }
-            &.active {
-                font-weight: 700;
-                color: #409eff;
-            }
-            
-        }
-
-    }
-    button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-        min-width: 26px;
-        height: 26px;
-        line-height: 26px;
-        color: #606266;
-        padding: 4px;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-        box-sizing: border-box;
-        background: transparent;
-        &.disabled {
-            color: #c0c4cc !important;
-            cursor: not-allowed;
-            background: #f4f4f5 !important;
-        }
-    }
-    .ym-pagination-next {
-        margin-left: 8px;
-    }
-    .ym-pagination-prev {
-        margin-right: 8px;
-    }
-
-    &.is-background {
-        .ym-pager {
-            li {
-                background: #f4f4f5;
-                border-radius: 2px;
-                &.hover {
-                    background: #409eff;
-                    color: #fff;
-                }
-                &.active {
-                    background: #409eff;
-                    color: #fff;
-                }
-            }
-        }
-        button {
-            background: #f4f4f5;
-            border-radius: 2px;
-            &.hover {
-                background: #409eff;
-                color: #fff;
-            }
-            &.active {
-                background: #409eff;
-                color: #fff;
-            }
-        }
-
-    }
-    .ym-pagination-jumper {
-        margin-left: 8px;
-        color: #606266;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        .ym-pagination-jumper__input {
-            width: 50px;
-        }
-    }
-    .ym-pagination-total {
-        margin-left: 8px;
-        color: #606266;
-    }
-    .ym-pagination-sizes {
-        width: 120px;
-        margin-left: 8px;
-        :deep(input) {
-            height: 24px ;
-            font-size: inherit;
-        }
-    }
-    &.is-disabled {
-        * {
-            color: #c0c4cc !important;
-            cursor: not-allowed !important;
-        }
-
-    }
-
-
-}
+@import './style';
 
 
 </style>

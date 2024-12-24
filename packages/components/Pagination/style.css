@@ -1,0 +1,141 @@
+.ym-pagination {
+    --ym-pagination-text-color: var(--ym-text-color-regular);
+    --ym-pagination-bg-color-active:var(--ym-color-primary);
+    --ym-pagination-bg-color: var(--ym-bg-color-page);
+    --ym-pagination-font-size: 14px;
+    --ym-pagination-font-weigh: 700;
+    --ym-pagination-item-width: 26px;
+    --ym-pagination-item-height: 26px;
+    --ym-pagination-text-color-disabled: var(--ym-text-color-disabled);
+    --ym-pagination-text-color-active: var(--ym-color-white);
+    --ym-pagination-item-margin: 8px;
+    white-space: nowrap;
+    font-size:var(--ym-pagination-font-size);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    .ym-pager {
+        user-select: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: var(--ym-pagination-item-margin);
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--ym-pagination-font-size);
+            min-width: var(--ym-pagination-item-width);
+            max-height: var( --ym-pagination-item-height);
+            color:var(--ym-pagination-text-color);
+            padding: 4px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+            &.hover {
+                color: var(--ym-pagination-bg-color-active);
+                font-weight: var(--ym-pagination-font-weigh)
+            }
+            &.active {
+                font-weight: var(--ym-pagination-font-weigh);
+                color: var(--ym-pagination-bg-color-active);
+            }
+            
+        }
+
+    }
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--ym-pagination-font-size);
+        min-width:var( --ym-pagination-item-width);
+        height: var( --ym-pagination-item-height);
+        line-height: var( --ym-pagination-item-height);
+        color: var(--ym-pagination-text-color);
+        padding: 4px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        box-sizing: border-box;
+        background: transparent;
+        &.disabled {
+            color: var(--ym-pagination-text-color-disabled) !important;
+            cursor: not-allowed;
+            
+        }
+    }
+    .ym-pagination-next {
+        margin-left: var( --ym-pagination-item-margin);
+    }
+    .ym-pagination-prev {
+        margin-right: var( --ym-pagination-item-margin);
+    }
+
+    &.is-background {
+        .ym-pager {
+            li {
+                background: var(--ym-pagination-bg-color);
+                border-radius: 2px;
+                &.hover {
+                    background: var(--ym-pagination-bg-color-active);
+                    color: var(--ym-pagination-text-color-active);
+                }
+                &.active {
+                    background: var(--ym-pagination-bg-color-active);
+                    color: var(--ym-pagination-text-color-active);
+                }
+            }
+        }
+        button {
+            background: var(--ym-pagination-bg-color);
+            border-radius: 2px;
+            &.hover {
+                background: var(--ym-pagination-bg-color-active);
+                color: var(--ym-pagination-text-color-active);
+            }
+            &.active {
+                background: var(--ym-pagination-bg-color-active);
+                color: var(--ym-pagination-text-color-active);
+            }
+            &.disabled {
+                background: var(--ym-pagination-bg-color) !important;
+            }
+        }
+
+    }
+    .ym-pagination-jumper {
+        margin-left: var( --ym-pagination-item-margin);
+        color: var(--ym-pagination-text-color);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        .ym-pagination-jumper__input {
+            width: 50px;
+        }
+    }
+    .ym-pagination-total {
+        margin-left: var( --ym-pagination-item-margin);
+        color: var(--ym-pagination-text-color);
+    }
+    .ym-pagination-sizes {
+        width: 120px;
+        margin-left: var( --ym-pagination-item-margin);
+        :deep(input) {
+            height: 24px ;
+            font-size: inherit;
+        }
+    }
+    &.is-disabled {
+        * {
+            color: var(--ym-pagination-text-color-disabled) !important;
+            cursor: not-allowed !important;
+        }
+
+    }
+
+
+}
