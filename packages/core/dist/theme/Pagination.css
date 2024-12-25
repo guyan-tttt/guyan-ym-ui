@@ -1,0 +1,154 @@
+.ym-pagination[data-v-6b19275c] {
+    --ym-pagination-text-color: var(--ym-text-color-regular);
+    --ym-pagination-bg-color-active:var(--ym-color-primary);
+    --ym-pagination-bg-color: var(--ym-bg-color-page);
+    --ym-pagination-font-size: 14px;
+    --ym-pagination-font-weigh: 700;
+    --ym-pagination-item-width: 26px;
+    --ym-pagination-item-height: 26px;
+    --ym-pagination-text-color-disabled: var(--ym-text-color-disabled);
+    --ym-pagination-text-color-active: var(--ym-color-white);
+    --ym-pagination-item-margin: 8px;
+    white-space: nowrap;
+    font-size:var(--ym-pagination-font-size);
+    font-weight: 400;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.ym-pagination .ym-pager[data-v-6b19275c] {
+        -webkit-user-select: none;
+           -moz-user-select: none;
+                user-select: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        gap: var(--ym-pagination-item-margin);
+}
+.ym-pagination .ym-pager li[data-v-6b19275c] {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                    align-items: center;
+            font-size: var(--ym-pagination-font-size);
+            min-width: var(--ym-pagination-item-width);
+            max-height: var( --ym-pagination-item-height);
+            color:var(--ym-pagination-text-color);
+            padding: 4px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0;
+}
+.ym-pagination .ym-pager li.hover[data-v-6b19275c] {
+                color: var(--ym-pagination-bg-color-active);
+                font-weight: var(--ym-pagination-font-weigh)
+}
+.ym-pagination .ym-pager li.active[data-v-6b19275c] {
+                font-weight: var(--ym-pagination-font-weigh);
+                color: var(--ym-pagination-bg-color-active);
+}
+.ym-pagination button[data-v-6b19275c] {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        font-size: var(--ym-pagination-font-size);
+        min-width:var( --ym-pagination-item-width);
+        height: var( --ym-pagination-item-height);
+        line-height: var( --ym-pagination-item-height);
+        color: var(--ym-pagination-text-color);
+        padding: 4px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        box-sizing: border-box;
+        background: transparent;
+}
+.ym-pagination button.disabled[data-v-6b19275c] {
+            color: var(--ym-pagination-text-color-disabled) !important;
+            cursor: not-allowed;
+}
+.ym-pagination .ym-pagination-next[data-v-6b19275c] {
+        margin-left: var( --ym-pagination-item-margin);
+}
+.ym-pagination .ym-pagination-prev[data-v-6b19275c] {
+        margin-right: var( --ym-pagination-item-margin);
+}
+.ym-pagination.is-background .ym-pager li[data-v-6b19275c] {
+                background: var(--ym-pagination-bg-color);
+                border-radius: 2px;
+}
+.ym-pagination.is-background .ym-pager li.hover[data-v-6b19275c] {
+                    background: var(--ym-pagination-bg-color-active);
+                    color: var(--ym-pagination-text-color-active);
+}
+.ym-pagination.is-background .ym-pager li.active[data-v-6b19275c] {
+                    background: var(--ym-pagination-bg-color-active);
+                    color: var(--ym-pagination-text-color-active);
+}
+.ym-pagination.is-background button[data-v-6b19275c] {
+            background: var(--ym-pagination-bg-color);
+            border-radius: 2px;
+}
+.ym-pagination.is-background button.hover[data-v-6b19275c] {
+                background: var(--ym-pagination-bg-color-active);
+                color: var(--ym-pagination-text-color-active);
+}
+.ym-pagination.is-background button.active[data-v-6b19275c] {
+                background: var(--ym-pagination-bg-color-active);
+                color: var(--ym-pagination-text-color-active);
+}
+.ym-pagination.is-background button.disabled[data-v-6b19275c] {
+                background: var(--ym-pagination-bg-color) !important;
+}
+.ym-pagination .ym-pagination-jumper[data-v-6b19275c] {
+        margin-left: var( --ym-pagination-item-margin);
+        color: var(--ym-pagination-text-color);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        gap: 4px;
+}
+.ym-pagination .ym-pagination-jumper .ym-pagination-jumper__input[data-v-6b19275c] {
+            width: 50px;
+}
+.ym-pagination .ym-pagination-total[data-v-6b19275c] {
+        margin-left: var( --ym-pagination-item-margin);
+        color: var(--ym-pagination-text-color);
+}
+.ym-pagination .ym-pagination-sizes[data-v-6b19275c] {
+        width: 120px;
+        margin-left: var( --ym-pagination-item-margin);
+}
+.ym-pagination .ym-pagination-sizes[data-v-6b19275c] input {
+            height: 24px ;
+            font-size: inherit;
+}
+.ym-pagination.is-disabled[data-v-6b19275c] * {
+            color: var(--ym-pagination-text-color-disabled) !important;
+            cursor: not-allowed !important;
+}

@@ -19,6 +19,7 @@
     padding: 0;
     box-shadow: 0 1px 3px #ccc;
     border: 1px solid #ccc;
+    -webkit-transition: 0.3s ease-in;
     transition: 0.3s ease-in;
     overflow: hidden;
     padding: 0 10px;
@@ -28,9 +29,16 @@
       margin: 10px 0;
       padding: 0;
       list-style: none;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
 }
 .menu ul li[data-v-0de9e977] {
         margin: 0 10px;
@@ -40,11 +48,13 @@
         text-align: center;
         border-bottom: 1px solid #efefef;
         cursor: pointer;
+        -webkit-transition: all 0.2s ease-in;
         transition: all 0.2s ease-in;
 }
 .menu ul li[data-v-0de9e977]:hover {
           background-color: #efefef;
-          transform: translateY(-10px);
+          -webkit-transform: translateY(-10px);
+                  transform: translateY(-10px);
           box-shadow: 0 0 10px #ccc;
           border: 1px solid #fff;
           color: #46bff0;

@@ -3,8 +3,8 @@ title: Avatar
 description: Avatar 组件
 
 next:
-  link: /components/message
-  text: Message 消息
+  link: /components/pagination
+  text: Pagination 分页
 
 prev:
   link: /components/progress

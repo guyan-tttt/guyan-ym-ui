@@ -21,3 +21,4 @@ export * from './Progress';
 export * from './Image';
 export * from './ImageViewer';
 export * from './Avatar';
+export * from './Pagination';

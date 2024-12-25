@@ -8,9 +8,15 @@
     --ym-avatar-bg:var(--ym-text-color-disabled)
 }
 .ym-avatar[data-v-fba503a0] {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
     overflow: hidden;
     background-color: var(--ym-avatar-bg);
 }

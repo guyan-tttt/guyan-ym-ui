@@ -1,11 +1,11 @@
 <template>
   <div>
     <Paginiation 
-    :total="10" 
+    :total="200" 
     :currentPage="current" 
-    :pagerCount="8"
+    :pagerCount="10"
     background
-    :page-size="page"
+    :page-size="5"
     @current-change="currentChange"
     jumper
     sizeSelector

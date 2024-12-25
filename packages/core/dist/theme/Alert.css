@@ -21,8 +21,13 @@
     background-color: var(--ym-alert-bg-color);
     overflow: hidden;
     opacity: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-transition: opacity var(--ym-transition-duration);
     transition: opacity var(--ym-transition-duration);
     margin-top: var(--ym-alert-top-margin);
 }
@@ -70,7 +75,9 @@
           color: var(--ym-color-white);
 }
 .ym-alert.text-center[data-v-4eaf3a48] {
-      justify-content: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
 }
 .ym-alert.text-center span[data-v-4eaf3a48],.ym-alert.text-center p[data-v-4eaf3a48] {
         text-align: center;

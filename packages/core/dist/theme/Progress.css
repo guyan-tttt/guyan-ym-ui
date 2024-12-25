@@ -14,11 +14,17 @@
 .ym-progress[data-v-27f1aacb] {
     position: relative;
     line-height: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
 }
 .ym-progress-bar[data-v-27f1aacb] {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
     box-sizing: border-box;
     width: 100%;
 }
@@ -36,7 +42,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 .ym-progress-bar__outer[data-v-27f1aacb] {
     border-radius: 100px;
@@ -55,13 +62,15 @@
     border-radius: 100px;
     line-height: 1;
     white-space: nowrap;
+    -webkit-transition: width .6s ease;
     transition: width .6s ease;
 }
 .ym-progress-bar__inner .ym-progress-bar__innerText[data-v-27f1aacb] {
         position: absolute;
         top: 50%;
         right: 10px;
-        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
         color: #fff;
         font-size: 12px;
         font-weight: 700;
@@ -112,6 +121,12 @@
             color: var(--ym-color-danger);
 }
 .ym-progress-bar__inner.is-striped[data-v-27f1aacb] {
+    background-image: -webkit-linear-gradient(
+        45deg, rgba(0, 0, 0, .3) 25%, 
+        transparent 25%, transparent 50%, 
+        rgba(0, 0, 0, .3) 50%,
+            rgba(0, 0, 0, .3) 75%, 
+            transparent 75%, transparent);
     background-image: linear-gradient(
         45deg, rgba(0, 0, 0, .3) 25%, 
         transparent 25%, transparent 50%, 
@@ -119,6 +134,14 @@
             rgba(0, 0, 0, .3) 75%, 
             transparent 75%, transparent);
     background-size: 1.25em 1.25em;
+}
+@-webkit-keyframes stripedFlow-27f1aacb {
+0% {
+            background-position: -100%;
+}
+100% {
+            background-position: 100%;
+}
 }
 @keyframes stripedFlow-27f1aacb {
 0% {
@@ -129,5 +152,6 @@
 }
 }
 .ym-progress-bar__inner.isStripedFlow[data-v-27f1aacb] {
-    animation: stripedFlow-27f1aacb linear infinite;
+    -webkit-animation: stripedFlow-27f1aacb linear infinite;
+            animation: stripedFlow-27f1aacb linear infinite;
 }

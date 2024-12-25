@@ -1,6 +1,10 @@
 .ym-popconfirm .ym-popconfirm__main[data-v-cf34893e] {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      align-items: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
 }
 .ym-popconfirm .ym-popconfirm__main i[data-v-cf34893e] {
         margin-right: 5px;

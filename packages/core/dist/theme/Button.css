@@ -20,9 +20,15 @@
 --ym-border: 1px solid var(--ym-button-border-color);
 }
 .ym-button[data-v-81525f79] {
+display: -webkit-inline-box;
+display: -webkit-inline-flex;
 display: inline-flex;
-justify-content: center;
-align-items: center;
+-webkit-box-pack: center;
+-webkit-justify-content: center;
+        justify-content: center;
+-webkit-box-align: center;
+-webkit-align-items: center;
+        align-items: center;
 line-height: 1;
 height: 32px;
 white-space: nowrap;
@@ -31,9 +37,12 @@ color: var(--ym-button-text-color);
 text-align: center;
 box-sizing: border-box;
 outline: none;
+-webkit-transition: 0.1s;
 transition: 0.1s;
 font-weight: var(--ym-button-font-weight);
-user-select: none;
+-webkit-user-select: none;
+   -moz-user-select: none;
+        user-select: none;
 vertical-align: middle;
 -webkit-appearance: none;
 background-color: var(--ym-button-bg-color);
@@ -108,6 +117,9 @@ height: 1em;
 0 10px 13px rgba(31, 45, 61, 0.1),
 0 0 0 -1px rgba(32, 160, 255, 0.2),
 0 0 0 -25px var(--ym-button-bg-color);
+-webkit-transition:
+all 0.25s,
+box-shadow 0s;
 transition:
 all 0.25s,
 box-shadow 0s;
@@ -118,6 +130,9 @@ letter-spacing: 1px;
       0 10px 13px var(--ym-button-bg-color),
       0 0 0 25px rgba(32, 160, 255, 0),
       0 0 0 25px rgba(32, 160, 255, 0);
+    -webkit-transition:
+      all 1s,
+      box-shadow 1s ease-out 0.1s;
     transition:
       all 1s,
       box-shadow 1s ease-out 0.1s;
@@ -359,9 +374,15 @@ margin-left: 0;
 --ym-border: 1px solid var(--ym-button-border-color);
 }
 .ym-button[data-v-13675c9a] {
+display: -webkit-inline-box;
+display: -webkit-inline-flex;
 display: inline-flex;
-justify-content: center;
-align-items: center;
+-webkit-box-pack: center;
+-webkit-justify-content: center;
+        justify-content: center;
+-webkit-box-align: center;
+-webkit-align-items: center;
+        align-items: center;
 line-height: 1;
 height: 32px;
 white-space: nowrap;
@@ -370,9 +391,12 @@ color: var(--ym-button-text-color);
 text-align: center;
 box-sizing: border-box;
 outline: none;
+-webkit-transition: 0.1s;
 transition: 0.1s;
 font-weight: var(--ym-button-font-weight);
-user-select: none;
+-webkit-user-select: none;
+   -moz-user-select: none;
+        user-select: none;
 vertical-align: middle;
 -webkit-appearance: none;
 background-color: var(--ym-button-bg-color);
@@ -447,6 +471,9 @@ height: 1em;
 0 10px 13px rgba(31, 45, 61, 0.1),
 0 0 0 -1px rgba(32, 160, 255, 0.2),
 0 0 0 -25px var(--ym-button-bg-color);
+-webkit-transition:
+all 0.25s,
+box-shadow 0s;
 transition:
 all 0.25s,
 box-shadow 0s;
@@ -457,6 +484,9 @@ letter-spacing: 1px;
       0 10px 13px var(--ym-button-bg-color),
       0 0 0 25px rgba(32, 160, 255, 0),
       0 0 0 25px rgba(32, 160, 255, 0);
+    -webkit-transition:
+      all 1s,
+      box-shadow 1s ease-out 0.1s;
     transition:
       all 1s,
       box-shadow 1s ease-out 0.1s;

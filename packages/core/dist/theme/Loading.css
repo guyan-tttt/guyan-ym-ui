@@ -8,6 +8,7 @@
 }
 .ym-loading {
     opacity: 1;
+    -webkit-transition: opacity var(--ym-transition-duration);
     transition: opacity var(--ym-transition-duration);
 }
 .ym-loading.ym-loading__mask {
@@ -21,9 +22,15 @@
       width: var(--ym-loading-mask-size);
       z-index: var(--ym-loading-z-index);
       background: var(--ym-loading-bg-color);
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
 }
 .ym-loading.ym-loading__mask.is-fullscreen {
         position: fixed;

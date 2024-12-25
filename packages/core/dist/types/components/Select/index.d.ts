@@ -182,7 +182,7 @@ export declare const YmOption: {
             default: boolean;
         };
         value: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<string | number>;
             required: true;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {
@@ -204,7 +204,7 @@ export declare const YmOption: {
             default: boolean;
         };
         value: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<string | number>;
             required: true;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
@@ -223,7 +223,7 @@ export declare const YmOption: {
         default: boolean;
     };
     value: {
-        type: import('vue').PropType<string>;
+        type: import('vue').PropType<string | number>;
         required: true;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {

@@ -4,11 +4,16 @@
     --ym-form-content-font-size: var(--ym-font-size-base);
 }
 .ym-form-item[data-v-00d75393] {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
     margin-bottom: 18px;
 }
 .ym-form-item[data-v-00d75393]:has(> .position-top){
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
 }
 .ym-form-item .ym-form-item__label[data-v-00d75393] {
       height: 32px;
@@ -17,27 +22,42 @@
       padding: 0;
       padding-right: 10px;
       box-sizing: border-box;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
       display: inline-flex;
       font-size: var(--ym-form-label-font-size);    
       color: var(--ym-text-color-regular);
 }
 .ym-form-item .ym-form-item__label.position-right[data-v-00d75393] {
         padding-left: 12px;
-        justify-content: flex-end;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+                justify-content: flex-end;
 }
 .ym-form-item .ym-form-item__label.position-left[data-v-00d75393] {
         padding-right: 12px;
-        justify-content: flex-start;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+                justify-content: flex-start;
 }
 .ym-form-item .ym-form-item__label.position-top[data-v-00d75393] {
         padding-bottom: 12px;
-        justify-content: flex-start;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+                justify-content: flex-start;
 }
 .ym-form-item .ym-form-item__content[data-v-00d75393] {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      flex: 1;
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
       line-height: 32px;
       font-size: var(--ym-form-content-font-size);
       min-width: 0;

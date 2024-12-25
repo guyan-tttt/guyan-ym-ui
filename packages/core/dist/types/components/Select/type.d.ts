@@ -4,7 +4,7 @@ export type RenderLabelFunc = (option: SelectOptionProps) => VNode | string;
 export type CustomFilterFunc = (value: string) => SelectOptionProps[];
 export type CustomFilterRemoteFunc = (value: string) => Promise<SelectOptionProps[] | void>;
 export interface SelectOptionProps {
-    value: string;
+    value: string | number;
     label: string;
     disabled?: boolean;
 }

@@ -17,6 +17,8 @@
     --ym-input-height: var(--ym-component-size);
     position: relative;
     font-size: var(--ym-font-size-base);
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
     width: 100%;
     line-height: var(--ym-input-height);
@@ -74,13 +76,18 @@
         --ym-input-inner-height: calc(var(--ym-input-height, 24px) - 2px);
 }
 .ym-input__prefix[data-v-ee17fb0d], .ym-input__suffix[data-v-ee17fb0d] {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
     white-space: nowrap;
-    flex-shrink: 0;
-    flex-wrap: nowrap;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+    -webkit-flex-wrap: nowrap;
+            flex-wrap: nowrap;
     height: 100%;
     text-align: center;
     color: var(--ym-input-icon-color, var(--ym-text-color-placeholder));
+    -webkit-transition: all var(--ym-transition-duration);
     transition: all var(--ym-transition-duration);
 }
 .ym-input__prefix[data-v-ee17fb0d] >:first-child {
@@ -99,9 +106,15 @@
     background-color: var(--ym-fill-color-light);
     color: var(--ym-color-info);
     position: relative;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
     min-height: 100%;
     border-radius: var(--ym-input-border-radius);
     padding: 0 20px;
@@ -146,6 +159,7 @@
     -webkit-appearance: none;
     box-shadow: 0 0 0 1px var(--ym-input-border-color, var(--ym-border-color)) inset;
     border-radius: var(--ym-input-border-radius, var(--ym-border-radius-base));
+    -webkit-transition: var(--ym-transition-box-shadow);
     transition: var(--ym-transition-box-shadow);
     border: none;
 }
@@ -153,18 +167,33 @@
       outline: none;
       box-shadow: 0 0 0 1px var(--ym-input-focus-border-color) inset;
 }
+.ym-textarea__wrapper[data-v-ee17fb0d]::-webkit-input-placeholder {
+      color: var(--ym-input-placeholder-color);
+}
+.ym-textarea__wrapper[data-v-ee17fb0d]::-moz-placeholder {
+      color: var(--ym-input-placeholder-color);
+}
 .ym-textarea__wrapper[data-v-ee17fb0d]::placeholder {
       color: var(--ym-input-placeholder-color);
 }
 .ym-input__wrapper[data-v-ee17fb0d] {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: inline-flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
     padding: 1px 11px;
     background-color: var(--ym-input-bg-color, var(--ym-fill-color-blank));
     background-image: none;
     border-radius: var(--ym-input-border-radius, var(--ym-border-radius-base));
+    -webkit-transition: var(--ym-transition-box-shadow);
     transition: var(--ym-transition-box-shadow);
     box-shadow: 0 0 0 1px var(--ym-input-border-color, var(--ym-border-color)) inset;
 }
@@ -177,7 +206,9 @@
 .ym-input__wrapper .ym-input__inner[data-v-ee17fb0d] {
       --ym-input-inner-height: calc(var(--ym-input-height, 32px) - 2px);
       width: 100%;
-      flex-grow: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+              flex-grow: 1;
       -webkit-appearance: none;
       color: var(--ym-input-text-color, var(--ym-text-color-regular));
       font-size: inherit;
@@ -189,15 +220,28 @@
       background: none;
       box-sizing: border-box;
 }
+.ym-input__wrapper .ym-input__inner[data-v-ee17fb0d]::-webkit-input-placeholder {
+        color: var(--ym-input-placeholder-color);
+}
+.ym-input__wrapper .ym-input__inner[data-v-ee17fb0d]::-moz-placeholder {
+        color: var(--ym-input-placeholder-color);
+}
 .ym-input__wrapper .ym-input__inner[data-v-ee17fb0d]::placeholder {
         color: var(--ym-input-placeholder-color);
 }
 .ym-input__wrapper .ym-icon[data-v-ee17fb0d] {
       height: inherit;
       line-height: inherit;
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-transition: all var(--ym-transition-duration);
       transition: all var(--ym-transition-duration);
       margin-left: 8px;
 }

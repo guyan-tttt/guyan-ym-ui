@@ -9,5 +9,14 @@ module.exports = {
           beforeEach: [require("postcss-for"), require("postcss-color-mix")],
         },
       }),
+      // 添加浏览器前缀，提高兼容性
+      require('autoprefixer')({
+        overrideBrowserslist: [
+          "Android 4.1",
+          "iOS 7.1",
+          "Chrome > 31",
+          "ff > 31",
+          //'last 2 versions', // 所有主流浏览器最近2个版本
+      ],grid: true})
     ],
   };

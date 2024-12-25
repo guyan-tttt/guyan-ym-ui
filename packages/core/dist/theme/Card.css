@@ -17,6 +17,7 @@
     border: 1px solid var(--ym-card-border-color);
     overflow: hidden;
     color: var(--ym-card-text-color);
+    -webkit-transition: var(--ym-card-transition);
     transition: var(--ym-card-transition);
 }
 .ym-card__header[data-v-ddcb3f87] {

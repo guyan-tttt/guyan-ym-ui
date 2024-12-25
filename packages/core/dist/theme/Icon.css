@@ -6,9 +6,15 @@
 }
 .ym-icon[data-v-53cab965] {
   --ym-icon-color: inherit;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   position: relative;
   fill: currentColor;
   color: var(--ym-icon-color);

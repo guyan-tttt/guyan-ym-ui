@@ -9,9 +9,12 @@ import YmIcon from '../Icon/Icon.vue'
 import YmInput from '../Input/Input.vue'
 import YmSelect from '../Select/Select.vue'
 
+defineOptions({
+    name: 'YmPagination'
+})
+
 
 const props = withDefaults(defineProps<PaginationProps>(), {
-    size: 'medium',
     background: false,
     pageSize: 5,
     pagerCount: 5,
@@ -44,12 +47,12 @@ const count = computed(() => {
 // 处理上一页或下一页为省略号
 watchEffect(() => {
     // 取当前需要显示的页码数的中位数，之后用于判断当前页面在于中位数左边还是右边
-    const halfPagerCount = (props.pagerCount - 1) / 2
+    const halfPagerCount = (props.pagerCount - 1) / 2 // 2.5
     // 重新初始化
     showNextMore.value = false
     showPrevMore.value = false
     // 总数是否大于页码数，如果否，则说明当前不需要显示省略号
-    if(count.value! > currentPageSize.value) {
+    if(props.total! > currentPageSize.value) {
         // 显示上一页省略号
         if(currentIndex.value! > props.pagerCount! - halfPagerCount) {
             showPrevMore.value = true
@@ -277,7 +280,6 @@ watch(() => props.currentPage, (val) => {
             @mouseleave="mouseleave"
             >
             <ym-icon icon="fa-ellipsis-h"></ym-icon>
-            <!-- <ym-icon icon="chevron-right" size="xl"></ym-icon> -->
             </li>
             <!-- 最后一页 -->
             <li
@@ -286,6 +288,7 @@ watch(() => props.currentPage, (val) => {
                     }"
                 @click="handleClick(Number(count))"
                 @mouseleave="mouseleave"
+                v-if="count > 1"
             >
             {{ count }}
             </li>
@@ -343,7 +346,5 @@ watch(() => props.currentPage, (val) => {
    </div>
 </template>
 <style  scoped>
-@import './style';
-
-
+@import './style.css';
 </style>

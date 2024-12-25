@@ -8,6 +8,7 @@
 }
 .ym-tooltip .fade-enter-active[data-v-0926dd93],
     .ym-tooltip .fade-leave-active[data-v-0926dd93] {
+      -webkit-transition: opacity var(--ym-transition-duration);
       transition: opacity var(--ym-transition-duration);
 }
 .ym-tooltip .fade-enter-from[data-v-0926dd93],
@@ -42,7 +43,8 @@
 .ym-tooltip .ym-tooltip__popper #arrow[data-v-0926dd93]::before {
         visibility: visible;
         content: '';
-        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
 }
 .ym-tooltip .ym-tooltip__popper[data-popper-placement^='top'] > #arrow[data-v-0926dd93] {
         bottom: -5px;

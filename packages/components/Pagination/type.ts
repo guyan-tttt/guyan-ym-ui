@@ -1,7 +1,5 @@
-export type PaginationSize = 'small' | 'medium' | 'large'
 
 export interface PaginationProps {
-    size?: PaginationSize // 大小
     background?: boolean // 是否显示背景
     pageSize?: number // 每页显示条数
     total: number // 总条数

@@ -7,8 +7,8 @@ next:
   text: MessageBox 消息弹出框
 
 prev:
-  link: /components/progress
-  text: Progress 进度条
+  link: /components/pagination
+  text: Pagination 分页
 ---
 
 # Message 消息提示
