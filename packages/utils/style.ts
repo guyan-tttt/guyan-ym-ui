@@ -5,7 +5,7 @@ const SCOPE = "utils/style" as const
 
 const isStringNumber = (val: string) => {
     if(!isString(val)) return false
-    return Number.isNaN(Number(val))
+    return !Number.isNaN(Number(val))
 }
 
 export function addUnit(value?: string | number, defaultUnit =  'px') {
