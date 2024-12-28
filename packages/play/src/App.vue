@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import { YmMessage, YmMessageBox } from 'guyan-ym-ui'
 
-import Dialog from './components/Dialog.vue'
+import Dialog from '../../components/Dialog/Dialog.vue'
 import { ref } from 'vue'
 
 const show = ref(false)

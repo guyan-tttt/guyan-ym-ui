@@ -1,0 +1,76 @@
+.dialog-fade-enter-active {
+    transition: opacity 0.3s;
+}
+.dialog-fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+
+.dialog-fade-enter-from,
+.dialog-fade-leave-to {
+    opacity: 0;
+}
+
+
+.ym-dialog {
+    --ym-dialog-width: 50%;
+    --ym-dialog-margin-top: 15vh;
+    --ym-dialog-bg-color: var(--ym-bg-color);
+    --ym-dialog-box-shadow: var(--ym-bg-color-page);
+    --ym-dialog-title-font-size: 20px;
+    --ym-dialog-content-font-size: 14px;
+    --ym-dialog-font-line-height: 20px;
+    --ym-dialog-padding-primary: 18px;
+    --ym-dialog-border-radius: 10px;
+    --ym-dialog-context-color: var(--ym-text-color-regular);
+    --ym-dialog-title-color: var(--ym-text-color-primary);
+    --ym-dialog-border-color: var( --ym-border-color);
+    position: relative;
+    margin: var(--ym-dialog-margin-top, 15vh) auto 50px;
+    background: var(--ym-dialog-bg-color);
+    border-radius: var(--ym-dialog-border-radius);
+    box-shadow: var(--ym-dialog-box-shadow);
+    box-sizing: border-box;
+    padding: var(--ym-dialog-padding-primary);
+    width: var(--ym-dialog-width, 50%);
+    overflow-wrap: break-word;
+    border: 1px solid var(--ym-dialog-border-color);
+    .ym-dialog__header {
+        display: flex;
+        position: relative;
+        padding-bottom: var(--ym-dialog-padding-primary);
+        .ym-dialog__header__close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: var(--ym-dialog-title-font-size);
+            color: var(--ym-dialog-context-color) !important;
+            transition: transform 0.3s;
+            transform: rotate(0deg);
+            &:hover {
+                transform: rotate(-360deg);
+            }
+        }
+        .ym-dialog__header__title {
+            font-size: var(--ym-dialog-title-font-size);
+            line-height: var(--ym-dialog-font-line-height);
+            color: var(--ym-dialog-title-color) !important;
+            font-weight: 700;
+        }
+    }
+    .ym-dialog__footer {
+        padding-top: var(--ym-dialog-padding-primary);
+        text-align: right;
+        box-sizing: border-box;
+
+    }
+    .ym-dialog__body {
+        color: var(--ym-dialog-context-color);
+        font-size: var(--ym-dialog-content-font-size);
+    }
+}

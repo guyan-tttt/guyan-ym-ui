@@ -1,54 +1,16 @@
 
 
 <script setup lang="ts">
-import { useEventListener } from '@ym-UI/hooks';
 import { addUnit } from '@ym-UI/utils';
-import { YmMessage } from 'guyan-ym-ui';
 import { delay, isFunction } from 'lodash-es';
 import { computed, ref, watch } from 'vue';
-
-
+import type { DialogEmits, DialogProps, DialogSlot } from './type'
+import YmIcon from '../Icon/Icon.vue'
+import YmOverlay from '../Overlay/Overlay.vue';
 defineOptions({
     name: "YmDialog"
 })
-interface DialogProps {
-    modelValue: boolean // 是否显示
-    title?: string // 标题
-    width?: string | number // 宽度
-    fullscreen?: boolean // 是否全屏
-    top?: string // 距离顶部距离
-    modal?: boolean // 是否显示遮罩
-    modalClass?: string // 遮罩样式
-    lockScroll?: boolean // 是否锁定滚动
-    openDelay?: number // 打开延时
-    closeDelay?: number // 关闭延时
-    closeOnClickModal?: boolean // 点击遮罩是否关闭
-    closeOnPressEscape?: boolean // 按下ESC是否关闭
-    showClose?: boolean // 是否显示关闭按钮
-    beforeClose?: (done: () => void) => void // 关闭前的回调
-    center?: boolean // 是否居中
-    closeIcon?: string // 关闭图标
-    zIndex?: number // 层级
-    customClass?: string // 自定义类名
-    appendTo?: string // 挂载节点
-    header?: boolean // 是否显示头部
-    footer?: boolean // 是否显示底部
-    alginCenter?: boolean // 是否居中
-}
 
-interface DialogEmits {
-    (e: 'open'): void
-    (e: 'close'): void
-    (e: "opened"): void
-    (e: "closed"): void
-    (e: "update:modelValue", value: boolean): void
-}
-
-interface DialogSlot {
-    header: () => any
-    footer: () => any
-    default: () => any
-}
 
 const props = withDefaults(defineProps<DialogProps>(),{
     width: '40%',
@@ -77,6 +39,11 @@ const slots = defineSlots<DialogSlot>()
 
 // 关闭操作
 const closeDialog = () => {
+    console.log('sasasas');
+    console.log(props.beforeClose,props.title);
+    console.log(props.modelValue);
+    
+    
     // 判断关闭前的回调是否需要执行，如果需要则将关闭操作封装为回调函数传出去由用户决定是否执行
     if(props.beforeClose && isFunction(props.beforeClose)) {
         props.beforeClose(() => {
@@ -87,8 +54,6 @@ const closeDialog = () => {
         visible.value = false
         emits("update:modelValue", false)
     }
-    
-    
 }
 
 // 打开操作
@@ -117,6 +82,8 @@ const dialogWidth = computed(() => {
 })
 
 watch(() => props.modelValue, (val) =>  {
+    console.log("watch", val);
+    
     if(val)  {
         // 监听打开，做延迟处理
         delay(openDialog, props.openDelay)
@@ -150,6 +117,24 @@ const removeKeyDownEventListener = (keyDown: (event: KeyboardEvent) => void ) =>
     window.removeEventListener("keydown", keyDown)
 }
 
+const opened = () => {
+    console.log("opened");
+    
+    emits("opened")
+}
+
+const closed = () => {
+    emits("closed")
+}
+
+const open = () => {
+    emits("open")
+}
+
+const close = () => {
+    emits("close")
+}
+
 
 </script>
 
@@ -157,12 +142,13 @@ const removeKeyDownEventListener = (keyDown: (event: KeyboardEvent) => void ) =>
     <teleport :to="appendTo">
         <transition 
         name="dialog-fade"
-        @beforeEnter="emits('open')"
-        @after-enter="emits('opened')"
-        @after-leave="emits('closed')"
-        @beforeLeave="emits('close')"
+        @beforeEnter="opened"
+        @after-enter="open"
+        @after-leave="closed"
+        @beforeLeave="close"
         >
             <ym-overlay
+            class="ym-dialog-overlay"
                 v-if="visible"
                 :mask="modal"
                 :zIndex="zIndex"
@@ -216,79 +202,5 @@ const removeKeyDownEventListener = (keyDown: (event: KeyboardEvent) => void ) =>
 </template>
 
 <style scoped>
-.dialog-fade-enter-active {
-    transition: opacity 0.3s;
-}
-.dialog-fade-leave-active {
-    transition: opacity 0.3s;
-}
-
-
-.dialog-fade-enter-from,
-.dialog-fade-leave-to {
-    opacity: 0;
-}
-
-
-.ym-dialog {
-    --el-dialog-width: 50%;
-    --el-dialog-margin-top: 15vh;
-    --el-dialog-bg-color: #fff;
-    --el-dialog-box-shadow: #ececec;
-    --el-dialog-title-font-size: 20px;
-    --el-dialog-content-font-size: 14px;
-    --el-dialog-font-line-height: 20px;
-    --el-dialog-padding-primary: 18px;
-    --el-dialog-border-radius: 10px;
-    --ym-dialog-context-color: #606266;
-    --ym-dialog-title-color: #303133;
-    position: relative;
-    margin: var(--el-dialog-margin-top, 15vh) auto 50px;
-    background: var(--el-dialog-bg-color);
-    border-radius: var(--el-dialog-border-radius);
-    box-shadow: var(--el-dialog-box-shadow);
-    box-sizing: border-box;
-    padding: var(--el-dialog-padding-primary);
-    width: var(--el-dialog-width, 50%);
-    overflow-wrap: break-word;
-    border: 1px solid #ebeef5;
-    .ym-dialog__header {
-        display: flex;
-        position: relative;
-        padding-bottom: var(--el-dialog-padding-primary);
-        .ym-dialog__header__close {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 0;
-            background: transparent;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: var(--el-dialog-title-font-size);
-            color: var(--ym-dialog-context-color) !important;
-            transition: transform 0.3s;
-            transform: rotate(0deg);
-            &:hover {
-                transform: rotate(-360deg);
-            }
-        }
-        .ym-dialog__header__title {
-            font-size: var(--el-dialog-title-font-size);
-            line-height: var(--el-dialog-font-line-height);
-            color: var(--ym-dialog-title-color) !important;
-            font-weight: 700;
-        }
-    }
-    .ym-dialog__footer {
-        padding-top: var(--el-dialog-padding-primary);
-        text-align: right;
-        box-sizing: border-box;
-
-    }
-    .ym-dialog__body {
-        color: var(--ym-dialog-context-color);
-        font-size: var(--el-dialog-content-font-size);
-    }
-}
+@import './style';
 </style>
