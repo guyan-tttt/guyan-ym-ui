@@ -22,7 +22,8 @@ const props = withDefaults(defineProps<ImageProps>(),{
     closeOnPressEscape: false,
     zoomRate: 0.2,
     minScale: 0.2 ,
-    maxScale: 2
+    maxScale: 2,
+    preview: false
 })
 const emits = defineEmits<ImageEmits>()
 
@@ -203,7 +204,7 @@ watch(() => props.src, () => {
                 </slot>
              </div>
         </template>
-        <div class="ym-image__preview">
+        <div class="ym-image__preview" v-if="preview">
             <ImageViewer
              ref="previewRef"
              :url-list="previewUrlList"

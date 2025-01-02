@@ -18,6 +18,7 @@ export interface ImageProps {
     zoomRate?: number // 缩放比例
     minScale?: number // 最小缩放比例
     maxScale?: number // 最大缩放比例
+    preview?: boolean // 是否开启预览
 }
 
 export interface ImageEmits {

@@ -15,6 +15,7 @@ export interface ImageProps {
     zoomRate?: number;
     minScale?: number;
     maxScale?: number;
+    preview?: boolean;
 }
 export interface ImageEmits {
     (e: "load", event: Event): void;

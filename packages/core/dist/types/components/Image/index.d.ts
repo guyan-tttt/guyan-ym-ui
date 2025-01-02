@@ -4,6 +4,10 @@ export declare const YmImage: {
             type: import('vue').PropType<import('packages/core').imageLoadingType>;
             default: string;
         };
+        preview: {
+            type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
         zIndex: {
             type: import('vue').PropType<number>;
             default: number;
@@ -68,6 +72,7 @@ export declare const YmImage: {
         show: (event: Event) => void;
     }, import('vue').PublicProps, {
         loading: import('packages/core').imageLoadingType;
+        preview: boolean;
         zIndex: number;
         initialIndex: number;
         hideOnClickModal: boolean;
@@ -89,6 +94,10 @@ export declare const YmImage: {
         loading: {
             type: import('vue').PropType<import('packages/core').imageLoadingType>;
             default: string;
+        };
+        preview: {
+            type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         zIndex: {
             type: import('vue').PropType<number>;
@@ -148,6 +157,7 @@ export declare const YmImage: {
         onShow?: ((event: Event) => any) | undefined;
     }>, {}, {}, {}, {}, {
         loading: import('packages/core').imageLoadingType;
+        preview: boolean;
         zIndex: number;
         initialIndex: number;
         hideOnClickModal: boolean;
@@ -166,6 +176,10 @@ export declare const YmImage: {
     loading: {
         type: import('vue').PropType<import('packages/core').imageLoadingType>;
         default: string;
+    };
+    preview: {
+        type: import('vue').PropType<boolean>;
+        default: boolean;
     };
     zIndex: {
         type: import('vue').PropType<number>;
@@ -231,6 +245,7 @@ export declare const YmImage: {
     show: (event: Event) => void;
 }, string, {
     loading: import('packages/core').imageLoadingType;
+    preview: boolean;
     zIndex: number;
     initialIndex: number;
     hideOnClickModal: boolean;

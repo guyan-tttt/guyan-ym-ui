@@ -101,7 +101,7 @@ describe("Dialog.vue", () => {
         })
         
         visible.show = true
-        console.log(wrapper4.vm.visible);
+
         await rAF()
         await setTimeout(() => {}, 500)
         const dialog = document.querySelector(".ym-dialog")

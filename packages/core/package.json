@@ -1,6 +1,6 @@
 {
   "name": "guyan-ym-ui",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "description": "一款基于Vue3 + TS 的个人开发组件库",
   "main": "./dist/umd/index.umd.cjs",
   "type": "module",
@@ -25,13 +25,19 @@
   ],
   "scripts": {
     "build": "run-p build:es build:umd",
-    "build:watch" : "run-p build:umd:watch build:es:watch",
+    "build:watch": "run-p build:umd:watch build:es:watch",
     "build:umd": "vite build --config vite.umd.config.ts",
     "build:es": "vite build --config vite.es.config.ts",
     "build:umd:watch": "vite build --watch --config vite.umd.config.ts",
     "build:es:watch": "vite build --watch --config vite.es.config.ts",
-    "release": "release-it"
-    
+    "release": "release-it",
+    "patch": "pnpm version patch",
+    "minor": "pnpm version minor",
+    "major": "pnpm version major",
+    "core:publish": "nrm use npm && npm publish",
+    "patch:publish": "run-s patch core:publish",
+    "minor:publish": "run-s minor core:publish",
+    "major:publish": "run-s major core:publish"
   },
   "keywords": [],
   "author": "",
@@ -41,7 +47,6 @@
     "@ym-UI/components": "workspace:*",
     "terser": "^5.36.0",
     "vite-plugin-compression2": "^1.3.1"
-
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

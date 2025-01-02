@@ -1,7 +1,7 @@
 <template>
     <div class="container lazy" >
         <div class="item" v-for="(item,index) in srcList" :key="item">
-            <ym-image :src="item"  fit="contain" :initialIndex="index" :previewSrcList="srcList"></ym-image>
+            <ym-image preview :src="item"  fit="contain" :initialIndex="index" :previewSrcList="srcList"></ym-image>
         </div>
     </div>
   </template>
