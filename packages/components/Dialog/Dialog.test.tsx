@@ -84,13 +84,15 @@ describe("Dialog.vue", () => {
         const visible = reactive({
             show: true
         })
-        const beforeClose1 = (done:Function) => {
-            done()
-        }
+        const beforeClose1 = vi.fn()
         const wrapper4 = mount(Dialog, {
             props: {
                 modelValue: visible.show,
-                beforeClose: beforeClose1,
+                beforeClose: (done) =>  {
+                    done()
+                    console.log("执行了");
+                    beforeClose1()
+                },
                 title: "标题",
                 'onUpdate:modelValue' : (val) => {
                     console.log('2222',val);
@@ -106,15 +108,129 @@ describe("Dialog.vue", () => {
         await setTimeout(() => {}, 500)
         const dialog = document.querySelector(".ym-dialog")
         expect(dialog).toBeTruthy()
-        // const closeBtn2 = dialog?.querySelector(".ym-dialog__header__close")
-        // await closeBtn2?.dispatchEvent(new MouseEvent("click"))
-        // await rAF()
-        // await setTimeout(() => {}, 500)
-        
-        // visible.show = true
-        // await rAF()
-        // await setTimeout(() => {}, 500)
-        // console.log(wrapper4.vm.visible);
-        
+        const closeBtn2 = dialog?.querySelector(".ym-dialog__header__close")   
+        await closeBtn2?.dispatchEvent(new MouseEvent("click"))
+        await rAF()
+        expect(beforeClose1).toHaveBeenCalled()
+        wrapper4.unmount()
+    })
+    it("5.测试打开弹框",async() => {
+        const show = ref(false)
+        const wrapper = mount(Dialog, {
+            props: {
+                modelValue: show.value,
+                title: "标题"
+            }
+        })
+
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+         await wrapper.vm.open()
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeTruthy()
+        wrapper.unmount()
+    })
+    it("6.测试点击遮罩层关闭",async() => {
+        const wrapper1 = mount(Dialog, {
+            props: {
+                modelValue: true,
+                title: "标题",
+                closeOnClickModal: true,
+                width: 200
+            }
+        })
+        const dialog = document.querySelector(".ym-dialog-overlay")
+        await dialog?.dispatchEvent(new MouseEvent("click"))
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+        wrapper1.unmount()
+
+        const wrapper2 = mount(Dialog, {
+            props:
+                {
+                    modelValue: true,
+                    title: "标题",
+                    closeOnClickModal: false,
+                    width: 200,
+                }
+        })
+        const dialog2 = document.querySelector(".ym-dialog-overlay")
+        await dialog2?.dispatchEvent(new MouseEvent("click"))
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeTruthy()
+        wrapper2.unmount()
+
+    })
+    it("7.v-model测试",async() => {
+        const wrapper = mount(Dialog, {
+            props: {
+                modelValue: false,
+                title: "标题",
+                "onUpdate:modelValue": (val) => {
+                    wrapper.setProps({modelValue: val})
+                }
+            }
+        })
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+        await wrapper.setProps({modelValue: true})
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeTruthy()
+        await wrapper.setProps({modelValue: false})
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+        await wrapper.setProps({modelValue: true})
+        await rAF()
+        const close = document.querySelector(".ym-dialog__header__close")
+        await close?.dispatchEvent(new MouseEvent("click"))
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+        wrapper.unmount()
+    })
+    it("8.按ESc 关闭弹框", async() => {
+        const wrapper1 = mount(Dialog, {
+            props: {
+                modelValue: false,
+                title: "标题"
+            }
+        })
+        await wrapper1.setProps({modelValue: true})
+        await rAF()
+        const dialog = document.querySelector(".ym-dialog")
+        expect(dialog).toBeTruthy()
+        await window?.dispatchEvent(new KeyboardEvent("keydown", {
+            key: "Escape"
+        }))
+        await rAF()
+        expect(document.querySelector(".ym-dialog")).toBeFalsy()
+        wrapper1.unmount()
+
+        const wrapper2 = mount(Dialog, {
+            props: {
+                modelValue: false,
+                title: "标题",
+                closeOnPressEscape: false
+            }
+        })
+        await wrapper2.setProps({modelValue: true})
+        await rAF()
+        const dialog2 = document.querySelector(".ym-dialog")
+        expect(dialog2).toBeTruthy()
+        await window?.dispatchEvent(new KeyboardEvent("keydown", {
+            key: "Escape"
+        }))
+        await rAF()
+        wrapper2.unmount()
+    })
+    it("9.测试满屏",async() => {
+        const wrapper = mount(Dialog, {
+            props: {
+                modelValue: true,
+                title: "标题",
+                fullscreen: true
+            }
+        })
+        const dialog = document.querySelector(".ym-dialog")
+        expect(dialog).toBeTruthy()
+        expect(dialog?.getAttribute("style"))?.includes("width: 100%;")
+        wrapper.unmount()
     })
 })

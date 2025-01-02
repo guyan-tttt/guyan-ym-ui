@@ -4,7 +4,7 @@
 import { addUnit } from '@ym-UI/utils';
 import { delay, isFunction } from 'lodash-es';
 import { computed, ref, watch } from 'vue';
-import type { DialogEmits, DialogProps, DialogSlot } from './type'
+import type { DialogEmits, DialogInstance, DialogProps, DialogSlot } from './type'
 import YmIcon from '../Icon/Icon.vue'
 import YmOverlay from '../Overlay/Overlay.vue';
 defineOptions({
@@ -39,11 +39,7 @@ const slots = defineSlots<DialogSlot>()
 
 // 关闭操作
 const closeDialog = () => {
-    console.log('sasasas');
-    console.log(props.beforeClose,props.title);
-    console.log(props.modelValue);
-    
-    
+
     // 判断关闭前的回调是否需要执行，如果需要则将关闭操作封装为回调函数传出去由用户决定是否执行
     if(props.beforeClose && isFunction(props.beforeClose)) {
         props.beforeClose(() => {
@@ -82,8 +78,7 @@ const dialogWidth = computed(() => {
 })
 
 watch(() => props.modelValue, (val) =>  {
-    console.log("watch", val);
-    
+
     if(val)  {
         // 监听打开，做延迟处理
         delay(openDialog, props.openDelay)
@@ -102,6 +97,9 @@ watch(() => props.modelValue, (val) =>  {
 
 // 监听键盘按下事件
 const keyDown = (e: KeyboardEvent) => {
+    console.log('keyDown');
+    
+    // 触发键盘事件
     if(!props.closeOnPressEscape) return
     if(e.key === "Escape") {
         if(e.target instanceof HTMLInputElement) return
@@ -117,24 +115,14 @@ const removeKeyDownEventListener = (keyDown: (event: KeyboardEvent) => void ) =>
     window.removeEventListener("keydown", keyDown)
 }
 
-const opened = () => {
-    console.log("opened");
-    
-    emits("opened")
-}
 
-const closed = () => {
-    emits("closed")
-}
 
-const open = () => {
-    emits("open")
-}
 
-const close = () => {
-    emits("close")
-}
-
+defineExpose<DialogInstance>({
+    visible: visible,
+    open: openDialog,
+    close: closeDialog
+})
 
 </script>
 
@@ -142,10 +130,10 @@ const close = () => {
     <teleport :to="appendTo">
         <transition 
         name="dialog-fade"
-        @beforeEnter="opened"
-        @after-enter="open"
-        @after-leave="closed"
-        @beforeLeave="close"
+        @beforeEnter="$emit('opened')"
+        @after-enter="$emit('open')"
+        @after-leave="$emit('closed')"
+        @beforeLeave="$emit('close')"
         >
             <ym-overlay
             class="ym-dialog-overlay"

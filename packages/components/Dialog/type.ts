@@ -1,3 +1,5 @@
+import type { Ref } from "vue"
+
 export interface DialogProps {
     modelValue: boolean // 是否显示
     title?: string // 标题
@@ -35,4 +37,10 @@ export interface DialogSlot {
     header: () => any
     footer: () => any
     default: () => any
+}
+
+export interface DialogInstance {
+    visible: Ref<boolean>
+    close: () => void
+    open: () => void
 }
