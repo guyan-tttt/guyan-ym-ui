@@ -1,3 +1,5 @@
+import { Ref } from 'vue';
+
 export interface DialogProps {
     modelValue: boolean;
     title?: string;
@@ -33,4 +35,9 @@ export interface DialogSlot {
     header: () => any;
     footer: () => any;
     default: () => any;
+}
+export interface DialogInstance {
+    visible: Ref<boolean>;
+    close: () => void;
+    open: () => void;
 }

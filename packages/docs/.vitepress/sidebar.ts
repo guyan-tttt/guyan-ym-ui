@@ -18,6 +18,7 @@ export const sidebarList = [
       { text: "Tooltip 提示", link: "/components/tooltip" },
       { text: "Popconfirm 气泡确认", link: "/components/popconfirm" },
       { text: "Dropdown 下拉菜单", link: "/components/dropdown" },
+      { text: "Dialog 对话框", link: "/components/dialog"}
     ],
   },
   {

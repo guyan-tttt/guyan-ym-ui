@@ -10,6 +10,7 @@
     @closed="YmMessage.success('closed')"
     :before-close="beforeClose"
     center
+    fullscreen
     >
       <template #header>
         <!-- <h1>标题</h1> -->

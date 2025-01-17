@@ -7,8 +7,8 @@ next:
   text: Avatar 头像
 
 prev:
-  link: /components/dropdown
-  text: Dropdown 下拉菜单
+  link: /components/dialog
+  text: Dialog 对话框
 ---
 
 # Progress 进度条

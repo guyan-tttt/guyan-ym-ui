@@ -22,3 +22,4 @@ export * from './Image';
 export * from './ImageViewer';
 export * from './Avatar';
 export * from './Pagination';
+export * from './Dialog';

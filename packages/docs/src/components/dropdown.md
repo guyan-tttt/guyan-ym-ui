@@ -3,8 +3,8 @@ title: Collapse
 description: Collapse 组件文档
 
 next:
-  link: /components/progress
-  text: Progress 进度条
+  link: /components/dialog
+  text: Dialog 对话框
 
 prev:
   link: /components/popconfirm
