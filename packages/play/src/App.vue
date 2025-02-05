@@ -1,36 +1,41 @@
 <template>
   <div>
-    <Dialog 
-    v-model="show" 
-    title="这是标题" 
-    top="20vh"
-    @close="YmMessage.success('close')"
-    @open="YmMessage.success('open')"
-    @opened="YmMessage.success('opend')"
-    @closed="YmMessage.success('closed')"
+    <Drawer
+    v-model="show"
+    position="right"
+    width="50%"
     :before-close="beforeClose"
-    center
-    fullscreen
+    :close-on-press-escape="true"
+    @open="open"
+    @close="close"
+    @opened="opened"
+    @closed="closed"
     >
-      <template #header>
-        <!-- <h1>标题</h1> -->
-      </template>
-      <template #footer>
-          <div>
-            <ym-button type="primary">确认</ym-button>
-            <ym-button @click="show = false">取消</ym-button>
-          </div>
-      </template>
-      <span>这是一个dialog弹框</span>
-    </Dialog>
-    <ym-button @click="open">开启</ym-button>
+    <template #header>
+      <div>
+
+        <h3>标题</h3>
+      </div>
+    </template>
+    <template #footer>
+      <div>
+        <h3>底部</h3>
+      </div>
+    </template>
+    <p>xaxabxaaaaaaaaaaaaaaa</p>
+  </Drawer>
+
+
+  <ym-button @click="show = !show">按钮</ym-button>
+  <Upload></Upload>
   </div>
 </template>
 
 <script setup lang="ts">
 import { YmMessage, YmMessageBox } from 'guyan-ym-ui'
 
-import Dialog from '../../components/Dialog/Dialog.vue'
+import Drawer from './components/Drawer.vue'
+import Upload from './components/Upload.vue'
 import { ref } from 'vue'
 
 const show = ref(false)
@@ -49,12 +54,24 @@ const beforeClose =(done:Function) => {
     }
     )
 }
+const open = () => {
+  YmMessage.info('打开')
+}
+const close = () => {
+  YmMessage.warning('关闭')
+}
+const opened = () => {
+  YmMessage.success('打开')
+}
 
-const open  = () => {
-  show.value = true
+const closed = () => {
+  YmMessage.error('关闭')
 }
 </script>
 
-<style lang="scss" scoped>
+
+
+
+<style  scoped>
 
 </style>

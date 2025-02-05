@@ -21,7 +21,8 @@
     "@storybook/vue3-vite": "8.4.2",
     "@vitejs/plugin-vue": "^5.1.4",
     "storybook": "8.4.2",
-    "guyan-ym-ui": "workspace:*"
+    "guyan-ym-ui": "workspace:*",
+    "uuid": "^11.0.5"
 
   }
 }

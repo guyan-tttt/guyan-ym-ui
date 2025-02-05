@@ -22,5 +22,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
 },
-"include": ["env.d.ts","packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue", "vitest.config.ts", "packages/docs/src/demo/input/Clearable.vue"]
+"include": ["env.d.ts","packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue", "vitest.config.ts", "packages/docs/src/demo/input/Clearable.vue", "packages/utils/array/chunk.js", "packages/utils/array/slice.ts"]
 }
