@@ -4,6 +4,8 @@
     v-model="show"
     position="right"
     width="50%"
+    title="caccscscs"
+    :modal="false"
     :before-close="beforeClose"
     :close-on-press-escape="true"
     @open="open"
@@ -62,7 +64,11 @@ const opened = () => {
 const closed = () => {
   YmMessage.error('关闭')
 }
-
+onMounted(() => {
+  setTimeout(() => {
+    show.value = false
+  }, 4000)
+})
 </script>
 
 

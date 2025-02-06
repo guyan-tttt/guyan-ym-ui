@@ -13,3 +13,4 @@ export declare const RenderVnode: import('vue').DefineComponent<import('vue').Ex
 export * from './install';
 export * from './error';
 export * from './style';
+export * from './fetchAPI';

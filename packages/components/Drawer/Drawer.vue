@@ -24,7 +24,8 @@ const props = withDefaults(defineProps<DrawerProps>(), {
   footer: true,
   closeIcon: 'xmark',
   modalClass: '',
-  appendTo: 'body'
+  appendTo: 'body',
+  
 })
 
 
@@ -68,13 +69,22 @@ const handleKeydown = (e: KeyboardEvent) => {
 }
 
 // 监听modelValue,
-watch(() => props.modelValue, (val) => {
-    val && handleEnter()
+watch(() => props.modelValue, async(val) => {
+  if(val) {
+    handleEnter()
+    visible.value = val
+  }
+
   if (val && props.closeOnPressEscape) {
     console.log("监听键盘事件");
     window.addEventListener('keydown', handleKeydown)
   } else {
-
+    await requestAnimationFrame(() => {
+    isActive.value = true
+    requestAnimationFrame(() => {
+      visible.value = val
+    })
+  })
     window.removeEventListener('keydown', handleKeydown)
   }
 })
@@ -99,6 +109,8 @@ const handleClickOverlay = () => {
     }
 }
 
+const visible = ref(props.modelValue)
+
 </script>
 
 <template>
@@ -108,7 +120,7 @@ const handleClickOverlay = () => {
         :mask="modal" 
         :mask-class="modalClass"
         :z-index="zIndex"
-        v-if="modelValue"
+        v-if="visible"
         @click="handleClickOverlay"
       />
     </transition>
@@ -121,7 +133,7 @@ const handleClickOverlay = () => {
     @after-leave="$emit('closed')"
      >
       <div 
-        v-if="modelValue"
+        v-if="visible"
         class="ym-drawer"
         :style="drawerStyle"
        :class="{
@@ -132,7 +144,9 @@ const handleClickOverlay = () => {
       >
         <header v-if="header " class="ym-drawer__header">
           <div class="ym-drawer__header__content" >
-            <slot name="header"  v-if="$slots.header"></slot>
+            <slot name="header"  v-if="$slots.header || props.title">
+              <span>{{ props.title }}</span>
+            </slot>
           </div>
           <button 
             v-if="showClose"

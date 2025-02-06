@@ -23,3 +23,4 @@ export * from './ImageViewer'
 export * from './Avatar'
 export * from "./Pagination"
 export * from './Dialog'
+export * from './Drawer'

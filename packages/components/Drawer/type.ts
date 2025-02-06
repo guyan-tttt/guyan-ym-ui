@@ -19,6 +19,7 @@ export interface DrawerProps {
   bodyClass?: string; // 内容区样式
   footerClass?: string; // 底部样式
   zIndex?: number; // 层级
+  title?: string; // 标题
 }
 
 export interface DrawerEmits {
