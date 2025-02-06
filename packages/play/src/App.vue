@@ -11,12 +11,7 @@
     @opened="opened"
     @closed="closed"
     >
-    <template #header>
-      <div>
-
-        <h3>标题</h3>
-      </div>
-    </template>
+    
     <template #footer>
       <div>
         <h3>底部</h3>
@@ -26,17 +21,17 @@
   </Drawer>
 
 
-  <ym-button @click="show = !show">按钮</ym-button>
-  <Upload></Upload>
+  <ym-button @click="show = true">按钮</ym-button>
+  <!-- <Upload></Upload> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { YmMessage, YmMessageBox } from 'guyan-ym-ui'
 
-import Drawer from './components/Drawer.vue'
-import Upload from './components/Upload.vue'
-import { ref } from 'vue'
+import Drawer from '../../components/Drawer/Drawer.vue'
+// import Upload from './components/Upload.vue'
+import { onMounted, ref } from 'vue'
 
 const show = ref(false)
 
@@ -67,6 +62,7 @@ const opened = () => {
 const closed = () => {
   YmMessage.error('关闭')
 }
+
 </script>
 
 
