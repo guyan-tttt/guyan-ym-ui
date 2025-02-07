@@ -117,10 +117,10 @@ export default defineConfig({
                         return "vendor"; // 将第三方库打包到一个名为vendor的chunk中
                     }
                     if(id.includes("/packages/hooks")) {
-                        return "hooks"; // 将hooks打包到一个名为vendor的chunk中
+                        return "hooks"; // 将hooks打包到一个名为hook的chunk中
                     }
                     if(id.includes("/packages/utils")) {
-                        return "utils"; // 将utils打包到一个名为vendor的chunk中
+                        return "utils"; // 将utils打包到一个名为utils的chunk中
                     }
                     if(id.includes("plugin-vue:export-helper")) {
                         return "utils"

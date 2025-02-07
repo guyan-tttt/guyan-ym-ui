@@ -1,79 +1,44 @@
 <template>
-  <div>
-    <Drawer
-    v-model="show"
-    position="right"
-    width="50%"
-    title="caccscscs"
-    :modal="false"
-    :before-close="beforeClose"
-    :close-on-press-escape="true"
-    @open="open"
-    @close="close"
-    @opened="opened"
-    @closed="closed"
-    >
-    
-    <template #footer>
-      <div>
-        <h3>底部</h3>
+  <DraggableList 
+    v-model:items="list" 
+    axis="vertical"
+  >
+    <template #item="{ item, index }">
+      <div class="custom-item">
+        <span class="handle">☰</span>
+        {{ item.text }}
       </div>
     </template>
-    <p>xaxabxaaaaaaaaaaaaaaa</p>
-  </Drawer>
-
-
-  <ym-button @click="show = true">按钮</ym-button>
-  <!-- <Upload></Upload> -->
-  </div>
+  </DraggableList>
 </template>
 
-<script setup lang="ts">
-import { YmMessage, YmMessageBox } from 'guyan-ym-ui'
-
-import Drawer from '../../components/Drawer/Drawer.vue'
-// import Upload from './components/Upload.vue'
-import { onMounted, ref } from 'vue'
-
-const show = ref(false)
-
-const beforeClose =(done:Function) => {
-  
-    YmMessageBox.confirm('确定关闭吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        done()
-      }).catch(() => {
-        YmMessage.info('取消关闭')
-        show.value = true
-    }
-    )
-}
-const open = () => {
-  YmMessage.info('打开')
-}
-const close = () => {
-  YmMessage.warning('关闭')
-}
-const opened = () => {
-  YmMessage.success('打开')
-}
-
-const closed = () => {
-  YmMessage.error('关闭')
-}
-onMounted(() => {
-  setTimeout(() => {
-    show.value = false
-  }, 4000)
-})
+<script setup>
+ import DraggableList  from './components/DraggableList.vue'
+import { ref } from 'vue'
+const list = ref([
+  { id: 1, text: 'Item 1' },
+  { id: 2, text: 'Item 2' },
+  { id: 3, text: 'Item 3' },
+  { id: 4, text: 'Item 4' },
+  { id: 5, text: 'Item 5' },
+  { id: 6, text: 'Item 6' },
+  { id: 7, text: 'Item 7' },
+  { id: 8, text: 'Item 8' },
+  { id: 9, text: 'Item 9' },
+  { id: 10, text: 'Item 10' },
+])
 </script>
 
+<style>
+.custom-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
 
-
-
-<style  scoped>
-
+.handle {
+  margin-right: 12px;
+  cursor: grab;
+}
 </style>
