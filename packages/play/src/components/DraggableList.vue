@@ -1,10 +1,10 @@
 <template>
-
-<TransitionGroup name="list" tag="div" class="draggable-list">
+<div class="draggable-list">
+  <TransitionGroup name="list" tag="div" class="draggable-list">
   <div 
       v-for="(item, index) in items"
       :key="item.id"
-      class="list-item"
+      class="list-item draggable-item"
       :class="{ 'dragging': draggingIndex === index, 'placeholder': dragOverIndex === index }"
       :data-index="index"
       draggable="true"
@@ -17,6 +17,8 @@
       </slot>
     </div>
 </TransitionGroup>
+</div>
+
 </template>
 
 <script setup lang="ts">
@@ -95,7 +97,7 @@ const reorderItems = (from: number, to: number) => {
 
 .list-enter-active,
 .list-leave-active {
-  transition: all 0.5s ease;
+  transition: all 1s ease;
 }
 .list-enter-from,
 .list-leave-to {

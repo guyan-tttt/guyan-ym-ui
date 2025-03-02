@@ -1,5 +1,5 @@
 <template>
-  <DraggableList 
+  <!-- <DraggableList 
     v-model:items="list" 
     axis="vertical"
   >
@@ -9,24 +9,38 @@
         {{ item.text }}
       </div>
     </template>
-  </DraggableList>
+  </DraggableList> -->
+
+  <Upload  v-model="fileList" @file-change="updateChange" draggable>
+    <!-- <img src="https://haowallpaper.com/link/common/file/getCroppingImg/15918089447001472" alt=""> -->
+  </Upload>
 </template>
 
-<script setup>
- import DraggableList  from './components/DraggableList.vue'
-import { ref } from 'vue'
-const list = ref([
-  { id: 1, text: 'Item 1' },
-  { id: 2, text: 'Item 2' },
-  { id: 3, text: 'Item 3' },
-  { id: 4, text: 'Item 4' },
-  { id: 5, text: 'Item 5' },
-  { id: 6, text: 'Item 6' },
-  { id: 7, text: 'Item 7' },
-  { id: 8, text: 'Item 8' },
-  { id: 9, text: 'Item 9' },
-  { id: 10, text: 'Item 10' },
-])
+<script setup lang="ts">
+import { ref } from 'vue';
+import Upload from './components/Upload.vue'
+//  import DraggableList  from './components/DraggableList.vue'
+// import { ref } from 'vue'
+// const list = ref([
+//   { id: 1, text: 'Item 1' },
+//   { id: 2, text: 'Item 2' },
+//   { id: 3, text: 'Item 3' },
+//   { id: 4, text: 'Item 4' },
+//   { id: 5, text: 'Item 5' },
+//   { id: 6, text: 'Item 6' },
+//   { id: 7, text: 'Item 7' },
+//   { id: 8, text: 'Item 8' },
+//   { id: 9, text: 'Item 9' },
+//   { id: 10, text: 'Item 10' },
+// ])
+
+const fileList = ref([])
+
+const updateChange = (files: any[]) => {
+  console.log(files,1)
+  console.log(fileList.value,2)
+
+}
 </script>
 
 <style>

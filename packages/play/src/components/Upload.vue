@@ -1,5 +1,9 @@
 <template>
-  <div class="ym-upload">
+  <div class="ym-upload" 
+    :class="{
+      [`is-${type}`]: type,
+    }"
+  >
     <div 
       class="ym-upload__dragger"
       :class="{ 'is-dragover': dragState }"
@@ -8,9 +12,17 @@
       @dragleave.prevent="handleDragLeave"
       @drop.prevent="handleDrop"
     >
-      <ym-icon :icon="uploadIcon" size="xs" color="#8c939d" />
-      <div class="ym-upload__text">
-        将文件拖到此处或<em>点击上传</em>
+      <div class="ym-upload__content">
+        <div class="ym-upload__default" v-if="type ==='default'">
+          <ym-icon :icon="uploadIcon" c />
+          <div class="ym-upload__text">
+            将文件拖到此处或<em>点击上传</em>
+          </div>
+        </div>
+        <div class="ym-upload__avatar" v-else-if="type ==='avatar'">
+          <ym-icon icon="plus" size="2xl" color="#8c939d"></ym-icon>
+          <slot ></slot>
+        </div>
       </div>
       <input 
         ref="fileInput"
@@ -22,14 +34,14 @@
       />
     </div>
 
-    <transition-group name="ym-upload-list" tag="ul" class="ym-upload-list">
+    <transition-group name="ym-upload-list" tag="ul" class="ym-upload-list" v-if="type === 'default'">
       <li 
         v-for="file in fileList" 
         :key="file.uid"
         class="ym-upload-list__item"
       >
         <div class="ym-upload-list__info">
-          <ym-icon :icon="getFileIcon(file)" class="ym-upload-list__icon" />
+          <ym-icon :icon="getFileIcon(file)" class="ym-upload-list__icon"  />
           <span class="ym-upload-list__name">{{ file.name }}</span>
           <span class="ym-upload-list__size">({{ formatFileSize(file.size) }})</span>
         </div>
@@ -85,6 +97,7 @@ interface UploadFile {
   raw: File
   progress: number
 }
+type PropsType = "default" | "avatar" | "picture-list"
 
 /**
  * 组件属性定义
@@ -95,11 +108,14 @@ interface UploadFile {
  * @property disabled - 是否禁用
  */
 interface UploadProps {
-  multiple?: boolean
-  accept?: string
-  maxSize?: number
-  action?: string
-  disabled?: boolean
+  multiple?: boolean // 是否支持多选文件
+  accept?: string // 接受的文件类型
+  maxSize?: number // 最大文件大小（MB）
+  action?: string // 上传接口地址
+  disabled?: boolean // 是否禁用
+  type?: PropsType // 上传组件类型
+  draggable?: boolean // 是否支持拖拽上传
+  modelValue?: UploadFile[] // 上传文件列表
 }
 
 // 组件属性默认值
@@ -107,18 +123,21 @@ const props = withDefaults(defineProps<UploadProps>(), {
   multiple: false,
   accept: '*/*',
   maxSize: 10,
-  disabled: false
+  disabled: false,
+  type: 'default',
+  draggable: false,
+  modelValue: () => []
 })
 
 // 定义组件事件
-const emit = defineEmits(['file-change', 'upload', 'remove', 'upload-success', 'upload-error'])
+const emit = defineEmits(['file-change', 'upload', 'remove', 'upload-success', 'upload-error','update:modelValue'])
 
 // DOM引用：文件输入框
 const fileInput = ref<HTMLInputElement | null>(null)
 // 拖拽状态
 const dragState = ref(false)
 // 文件列表（响应式数组）
-const fileList = reactive<UploadFile[]>([])
+const fileList = reactive<UploadFile[]>(props.modelValue)
 
 /**
  * 计算上传区域图标
@@ -148,6 +167,9 @@ const handleDragLeave = () => {
  * @param e - 拖放事件对象
  */
 const handleDrop = (e: DragEvent) => {
+  console.log("dsdsd");
+  
+  if(props.disabled || !props.draggable) return
   dragState.value = false
   if (props.disabled) return
   const files = e.dataTransfer?.files
@@ -184,7 +206,7 @@ const processFiles = async (files: File[]) => {
     }
     
     fileList.push(uploadFile)
-    
+    emit('update:modelValue', fileList)
     if (props.action) {
       try {
         uploadFile.status = 'uploading'
@@ -298,7 +320,15 @@ defineExpose({ upload })
 
 <style scoped >
 .ym-upload {
-  width: 100%;
+  &.is-default {
+    width: 100%;
+  }
+  &.is-avatar {
+    width: 180px;
+  }
+  &.is-picture-list {
+    width: 100%;
+  }
   
   &__dragger {
     position: relative;
@@ -316,6 +346,14 @@ defineExpose({ upload })
     &:hover,
     &.is-dragover {
       border-color: #409eff;
+    }
+
+    .ym-upload__content {
+      .ym-upload__default {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
   }
   
