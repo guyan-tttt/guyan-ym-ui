@@ -3,8 +3,42 @@
     :class="{
       [`is-${type}`]: type,
     }"
-  >
-    <div 
+  > 
+
+  <transition-group name="ym-upload-picture-list" tag="ul" class="ym-upload-picture-list" v-if="type === 'picture-list'">
+      <li 
+        v-for="file in pictureList" 
+        :key="file.uid"
+        class="ym-upload-list__item "
+      >
+        <ym-icon @click="handleRemovePicture(file)" class="picture-list-item__close" icon="trash" size="xl" color="#999"></ym-icon>
+        <img :src="file.url" alt="">
+      </li>
+      <div 
+        key="upload"
+        class="ym-upload__dragger-picture-list"
+        :class="{ 'is-dragover': dragState }"
+        @dragenter.prevent="handleDragEnter"
+        @dragover.prevent="handleDragOver"
+        @dragleave.prevent="handleDragLeave"
+        @drop.prevent="handleDrop"
+      >
+        <div class="ym-upload__picture-list-item" v-if="type ==='picture-list'">
+          <ym-icon  icon="plus" size="2xl" color="#8c939d"></ym-icon>
+        </div>
+      <input 
+        ref="fileInput"
+        type="file" 
+        class="ym-upload__input"
+        :multiple="multiple"
+        :accept="accept"
+        @change="handleFileChange"
+      />
+    </div>
+  </transition-group>
+    
+    <div
+      v-else
       class="ym-upload__dragger"
       :class="{ 'is-dragover': dragState }"
       @dragenter.prevent="handleDragEnter"
@@ -20,7 +54,7 @@
           </div>
         </div>
         <div class="ym-upload__avatar" v-else-if="type ==='avatar'">
-          <ym-icon icon="plus" size="2xl" color="#8c939d"></ym-icon>
+          <ym-icon v-if="fileList.length === 0" icon="plus" size="2xl" color="#8c939d"></ym-icon>
           <slot ></slot>
         </div>
       </div>
@@ -70,6 +104,7 @@
         </div>
       </li>
     </transition-group>
+
   </div>
 </template>
 
@@ -77,6 +112,7 @@
 import { ref, reactive, computed } from 'vue'
 import { YmIcon } from 'guyan-ym-ui'
 import { fetchAPI } from '@ym-UI/utils'
+import { isArray, isNil } from 'lodash-es';
 
 /**
  * 上传文件对象接口
@@ -118,11 +154,17 @@ interface UploadProps {
   modelValue?: UploadFile[] // 上传文件列表
 }
 
+interface PictureItem {
+  url: string
+  uid: string
+  file: UploadFile
+}
+
 // 组件属性默认值
 const props = withDefaults(defineProps<UploadProps>(), {
   multiple: false,
   accept: '*/*',
-  maxSize: 10,
+  maxSize: 5,
   disabled: false,
   type: 'default',
   draggable: false,
@@ -138,6 +180,8 @@ const fileInput = ref<HTMLInputElement | null>(null)
 const dragState = ref(false)
 // 文件列表（响应式数组）
 const fileList = reactive<UploadFile[]>(props.modelValue)
+// 图片墙列表
+const pictureList = reactive<PictureItem[]>([])
 
 /**
  * 计算上传区域图标
@@ -167,8 +211,6 @@ const handleDragLeave = () => {
  * @param e - 拖放事件对象
  */
 const handleDrop = (e: DragEvent) => {
-  console.log("dsdsd");
-  
   if(props.disabled || !props.draggable) return
   dragState.value = false
   if (props.disabled) return
@@ -181,6 +223,7 @@ const handleDrop = (e: DragEvent) => {
  * @param e - 输入框变化事件
  */
 const handleFileChange = (e: Event) => {
+  
   const input = e.target as HTMLInputElement
   const files = input.files
   if (files) processFiles(Array.from(files))
@@ -192,9 +235,17 @@ const handleFileChange = (e: Event) => {
  * @param files - 待处理的File对象数组
  */
 const processFiles = async (files: File[]) => {
+  
   for (const file of files) {
+    // 判断是否超过最大限制
+    if(fileList.length >= props.maxSize) return console.error('文件数量超过最大限制')
     if (!validateFile(file)) continue
-    
+    // 判断avatar模式
+    if(props.type === 'avatar' || props.type === 'picture-list') {
+      // 这两种模式下必须要传递图片
+      const imgTypes = ['image/jpeg', 'image/png', 'image/gif','image/jpg','image/webp']
+      if(!validateType(file,imgTypes)) return console.error(`当前模式下不支持该文件类型: ${file.type}`)
+    }
     const uploadFile: UploadFile = {
       uid: Math.random().toString(36),
       name: file.name,
@@ -204,8 +255,17 @@ const processFiles = async (files: File[]) => {
       raw: file,
       progress: 0
     }
-    
+    // 判断是否是avatar模式,在该模式下,只允许上传一张图片
+  if(props.type === 'avatar' && fileList.length >= 1) {
+      fileList.shift()
+  }
     fileList.push(uploadFile)
+    // 图片墙模式
+    props.type === 'picture-list' && pictureList.push({
+      url: URL.createObjectURL(uploadFile.raw),
+      uid: uploadFile.uid,
+      file: uploadFile
+    })
     emit('update:modelValue', fileList)
     if (props.action) {
       try {
@@ -250,7 +310,7 @@ const processFiles = async (files: File[]) => {
  */
 const validateFile = (file: File) => {
   // 类型验证
-  if (props.accept !== '*/*' && !file.type.match(props.accept)) {
+  if (props.accept !== '*/*' && !validateType(file)) {
     console.error(`不支持的文件类型: ${file.type}`)
     return false
   }
@@ -273,6 +333,7 @@ const handleRemove = (file: UploadFile) => {
   if (index > -1) {
     fileList.splice(index, 1)
     emit('remove', file)
+    emit("update:modelValue", fileList)
   }
 }
 
@@ -314,21 +375,39 @@ const upload = () => {
   emit('upload', fileList)
 }
 
+const validateType = (file: File, types?: string[]) => {
+  if(isNil(types) || !isArray(types) || types?.length === 0) return true
+  for(const type of types) {
+    if(file.type.includes(type)) return true
+  }
+  return false
+}
+
+// 移除图片
+const handleRemovePicture = (picture: PictureItem) => {
+    const index = pictureList.findIndex(p => p.uid === picture.uid)
+    if(index > -1) {
+      pictureList.splice(index, 1)
+      handleRemove(picture.file)
+    }
+}
+
 // 暴露方法给父组件
 defineExpose({ upload })
 </script>
 
 <style scoped >
 .ym-upload {
+  /* width: 100%; */
   &.is-default {
     width: 100%;
   }
   &.is-avatar {
     width: 180px;
+    height: 180px;
   }
-  &.is-picture-list {
-    width: 100%;
-  }
+ 
+  
   
   &__dragger {
     position: relative;
@@ -354,6 +433,10 @@ defineExpose({ upload })
         flex-direction: column;
         align-items: center;
       }
+      .ym-upload__picture-list {
+          width: 180px;
+          height: 180px;
+      }
     }
   }
   
@@ -374,6 +457,67 @@ defineExpose({ upload })
     height: 100%;
     opacity: 0;
     cursor: pointer;
+  }
+
+  .ym-upload-picture-list {
+    width: 90%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    li {
+      padding: 0;
+      width: 180px;
+      height: 180px;
+      position: relative;
+      img {
+        width: 180px;
+        height: 180px;
+        overflow: hidden;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .picture-list-item__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      &:hover {
+        .picture-list-item__close {
+          opacity: 1;
+          font-size: 18px;
+        }
+      }
+    }
+    .ym-upload__dragger-picture-list {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      border: 2px dashed #d9d9d9;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s;
+      cursor: pointer;
+      &:hover,
+      &.is-dragover {
+        border-color: #409eff;
+      }
+      .ym-upload__picture-list-item {
+        width: 180px;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
   }
 }
 
@@ -436,6 +580,15 @@ defineExpose({ upload })
 }
 .ym-upload-list-enter-from,
 .ym-upload-list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.ym-upload-picture-list-enter-active,
+.ym-upload-picture-list-leave-active {
+  transition: all 0.3s;
+}
+.ym-upload-picture-list-enter-from,
+.ym-upload-picture-list-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }

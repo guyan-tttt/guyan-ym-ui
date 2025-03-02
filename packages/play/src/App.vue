@@ -11,8 +11,8 @@
     </template>
   </DraggableList> -->
 
-  <Upload  v-model="fileList" @file-change="updateChange" draggable>
-    <!-- <img src="https://haowallpaper.com/link/common/file/getCroppingImg/15918089447001472" alt=""> -->
+  <Upload type="picture-list"  v-model="fileList" @file-change="updateChange" draggable>
+    <!-- <img v-if="imgSrc" :src="imgSrc" alt="" class="img" > -->
   </Upload>
 </template>
 
@@ -35,11 +35,13 @@ import Upload from './components/Upload.vue'
 // ])
 
 const fileList = ref([])
+const imgSrc = ref("")
 
 const updateChange = (files: any[]) => {
   console.log(files,1)
   console.log(fileList.value,2)
-
+  const file = files[0]
+  imgSrc.value = URL.createObjectURL(file.raw)
 }
 </script>
 
@@ -54,5 +56,12 @@ const updateChange = (files: any[]) => {
 .handle {
   margin-right: 12px;
   cursor: grab;
+}
+.img {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 10px;
 }
 </style>
