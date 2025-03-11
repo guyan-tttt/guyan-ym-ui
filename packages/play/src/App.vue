@@ -11,7 +11,7 @@
     </template>
   </DraggableList> -->
 
-  <Upload type="picture-list"  v-model="fileList" @file-change="updateChange" draggable>
+  <Upload type="default"  v-model="fileList" @file-change="updateChange" draggable>
     <!-- <img v-if="imgSrc" :src="imgSrc" alt="" class="img" > -->
   </Upload>
 </template>
