@@ -10,6 +10,7 @@ export declare const RenderVnode: import('vue').DefineComponent<import('vue').Ex
         required: true;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+export declare const rAF: () => Promise<unknown>;
 export * from './install';
 export * from './error';
 export * from './style';

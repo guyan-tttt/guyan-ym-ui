@@ -1,0 +1,248 @@
+.ym-upload[data-v-b2037957] {
+    /* width: 100%; */
+    --ym-upload-avatar-width:180px;
+    --ym-upload-avatar-height:180px;
+    --ym-upload-default-width:100%;
+    --ym-upload-default-height:180px;
+  
+    --ym-upload-border-radius:8px;
+    --ym-upload-border:2px dashed #d9d9d9;
+    --ym-upload-transition: border-color 0.3s;
+    --ym-upload-cursor:pointer;
+    --ym-upload-hover-border-color:#409eff;
+    --ym-upload-dragover-border-color:#409eff;
+    --ym-upload-text-margin-top:8px;
+    --ym-upload-text-color:#606266;
+    --ym-uoload-avatar-border-raduis: 10px;
+    --ym-upload-list-bg-color: #f5f7fa;
+    --ym-upload-list-hover-bg-color: #f0f0f0;
+}
+.ym-upload.is-default[data-v-b2037957] {
+      width:var(--ym-upload-default-width);
+}
+.ym-upload.is-avatar[data-v-b2037957] {
+      width: var(--ym-upload-avatar-width);
+      height: var(--ym-upload-avatar-height);
+}
+.ym-upload__dragger[data-v-b2037957] {
+      position: relative;
+      width: var(--ym-upload-default-width);
+      height: var(--ym-upload-default-height);
+      border: var(--ym-upload-border);
+      border-radius: var(--ym-upload-border-radius);
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-transition: var(--ym-upload-transition);
+      transition: var(--ym-upload-transition);
+      cursor: var(--ym-upload-cursor);
+}
+.ym-upload__dragger[data-v-b2037957]:hover,
+      .ym-upload__dragger.is-dragover[data-v-b2037957] {
+        border-color: var(--ym-upload-hover-border-color);
+}
+.ym-upload__dragger .ym-upload__content .ym-upload__default[data-v-b2037957] {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+                  align-items: center;
+}
+.ym-upload__dragger .ym-upload__content .ym-upload__picture-list[data-v-b2037957] {
+            width: var(--ym-upload-avatar-width);
+            height: var(--ym-upload-avatar-height);
+}
+.ym-upload__text[data-v-b2037957] {
+      margin-top: 8px;
+      color: var(--ym-upload-text-color);
+      font-size: 14px;
+}
+.ym-upload__text em[data-v-b2037957] {
+        color: var(--ym-upload-text-color);
+        font-style: normal;
+}
+.ym-upload__input[data-v-b2037957] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+}
+.ym-upload .ym-upload-picture-list[data-v-b2037957] {
+      width: 90%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      gap: 5px;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-flex-wrap: wrap;
+              flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+}
+.ym-upload .ym-upload-picture-list li[data-v-b2037957] {
+        padding: 0;
+        width: var(--ym-upload-avatar-width);
+        height: var(--ym-upload-avatar-height);
+        position: relative;
+}
+.ym-upload .ym-upload-picture-list li img[data-v-b2037957] {
+          width: var(--ym-upload-avatar-width);
+          height: var(--ym-upload-avatar-height);
+          overflow: hidden;
+          object-fit: cover;
+          border-radius: var(--ym-uoload-avatar-border-raduis);
+}
+.ym-upload .ym-upload-picture-list li .picture-list-item__close[data-v-b2037957] {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          opacity: 0;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          font-size: 12px;
+          cursor: pointer;
+}
+.ym-upload .ym-upload-picture-list li:hover .picture-list-item__close[data-v-b2037957] {
+            opacity: 1;
+            font-size: 18px;
+}
+.ym-upload .ym-upload-picture-list .ym-upload__dragger-picture-list[data-v-b2037957] {
+        width: var(--ym-upload-avatar-width);
+        height: var(--ym-upload-avatar-height);
+        position: relative;
+        border: var(--ym-upload-border);
+        border-radius: var(--ym-upload-border-radius);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-transition:var(--ym-upload-transition);
+        transition:var(--ym-upload-transition);
+        cursor: pointer;
+}
+.ym-upload .ym-upload-picture-list .ym-upload__dragger-picture-list[data-v-b2037957]:hover,
+        .ym-upload .ym-upload-picture-list .ym-upload__dragger-picture-list.is-dragover[data-v-b2037957] {
+          border-color: var(--ym-upload-hover-border-color);
+}
+.ym-upload .ym-upload-picture-list .ym-upload__dragger-picture-list .ym-upload__picture-list-item[data-v-b2037957] {
+          width: var(--ym-upload-avatar-width);
+          height: var(--ym-upload-avatar-height);
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+                  justify-content: center;
+}
+.ym-upload-list[data-v-b2037957] {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.ym-upload-list__item[data-v-b2037957] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      background-color: var(--ym-upload-list-bg-color);
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+}
+.ym-upload-list__item[data-v-b2037957]:hover {
+        background-color: var(--ym-upload-list-hover-bg-color);
+}
+.ym-upload-list__info[data-v-b2037957] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      gap: 8px;
+}
+.ym-upload-list__icon[data-v-b2037957] {
+      -webkit-flex-shrink: 0;
+              flex-shrink: 0;
+}
+.ym-upload-list__name[data-v-b2037957] {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+.ym-upload-list__size[data-v-b2037957] {
+      color: #909399;
+}
+.ym-upload-list__actions[data-v-b2037957] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      gap: 8px;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+}
+.ym-upload-list__delete[data-v-b2037957]:hover {
+      color: #f56c6c;
+      cursor: pointer;
+}
+.ym-upload-list-enter-active[data-v-b2037957],
+  .ym-upload-list-leave-active[data-v-b2037957] {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.ym-upload-list-enter-from[data-v-b2037957],
+  .ym-upload-list-leave-to[data-v-b2037957] {
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+}
+.ym-upload-picture-list-enter-active[data-v-b2037957],
+  .ym-upload-picture-list-leave-active[data-v-b2037957] {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.ym-upload-picture-list-enter-from[data-v-b2037957],
+  .ym-upload-picture-list-leave-to[data-v-b2037957] {
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+}

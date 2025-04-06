@@ -49,6 +49,7 @@ export const sidebarList = [
       { text: "Switch 开关", link: "/components/switch" },
       { text: "Select 选择器", link: "/components/select" },
       { text: "Form 表单", link: "/components/form" },
+      { text: "Upload 上传器", link: "/components/upload"}
     ],
   },
 
