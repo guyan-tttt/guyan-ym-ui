@@ -7,8 +7,8 @@ next:
   text: Overlay 遮罩层
 
 prev:
-  link: components/from
-  text: Form 表单
+  link: components/upload
+  text: Upload 上传
 ---
 
 # Image 图片

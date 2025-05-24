@@ -37,6 +37,7 @@ describe('Drawer组件测试', () => {
     const drawerOverlay = document.querySelector('.ym-overlay')
     expect(drawerOverlay).toBeTruthy()
     await wrapper.setProps({ modelValue: false })
+    await rAF()
     expect(document.querySelector(".ym-drawer")).toBeFalsy()
     wrapper.unmount()
   })
@@ -89,6 +90,7 @@ describe('Drawer组件测试', () => {
     expect(drawerOverlay).toBeTruthy()
     await drawerOverlay?.click()
     await rAF()
+    await rAF()
     expect(document.querySelector(".ym-drawer")).toBeFalsy()
     await wrapper.setProps({ closeOnClickOverlay: false, modelValue: true })
     expect(drawerOverlay).toBeTruthy()
@@ -110,6 +112,7 @@ describe('Drawer组件测试', () => {
     const close = document.querySelector('.ym-drawer__close') as HTMLElement
     expect(close).toBeTruthy()
     await close?.click()
+    await rAF()
     await rAF()
     expect(document.querySelector(".ym-drawer")).toBeFalsy()
     wrapper.unmount()
@@ -150,6 +153,7 @@ describe('Drawer组件测试', () => {
       key: "Escape"
     }))
     await rAF()
+    await rAF()
     expect(document.querySelector(".ym-drawer")).toBeFalsy()
     wrapper.unmount()
   })
@@ -168,6 +172,7 @@ describe('Drawer组件测试', () => {
     const drawer = document.querySelector(".ym-drawer") as HTMLElement
     expect(drawer).toBeTruthy()
     await (drawer.querySelector('.ym-drawer__close') as HTMLElement)?.click()
+    await rAF()
     await rAF()
     expect(beforeClose).toHaveBeenCalled()
     wrapper.unmount()

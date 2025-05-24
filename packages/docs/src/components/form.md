@@ -7,8 +7,8 @@ prev:
   text: Tooltip 文字提示
 
 next: 
-  link: components/image
-  text: Image 图片
+  link: components/upload
+  text: Upload 上传器
 ---
 
 # Form 表单
