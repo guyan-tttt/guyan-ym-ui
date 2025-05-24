@@ -23,6 +23,6 @@
     "storybook": "8.4.2",
     "guyan-ym-ui": "workspace:*",
     "uuid": "^11.0.5"
-
+    
   }
 }

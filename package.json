@@ -71,6 +71,7 @@
     "guyan-ym-ui": "workspace:*",
     "jsdom": "^24.0.0",
     "lodash-es": "^4.17.21",
-    "vue": "^3.4.19"
+    "vue": "^3.4.19",
+    "fabric": "^6.6.5"
   }
 }
