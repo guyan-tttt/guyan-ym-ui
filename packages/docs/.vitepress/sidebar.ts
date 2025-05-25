@@ -56,7 +56,11 @@ export const sidebarList = [
   {
     text: "媒体组件",
     collapsed: false,
-    items: [{ text: "Image 图片", link: "/components/image" }],
+    items: [
+      { text: "Image 图片", link: "/components/image" },
+      { text: "ImageMark 图片标注", link: "/components/imageMark" },
+
+    ],
   },
 
   {

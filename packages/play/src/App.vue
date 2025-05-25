@@ -16,6 +16,7 @@
   </Upload> -->
   <ImageMark
     ref="imageMarkRef"
+    :utils="['rect', 'circle']"
     src="https://jeek-space-blog.top:3000/images/article/d1f2ec4df6a8ca406690312ca69b8d00.jpeg"
   ></ImageMark>
   <ym-button @click="exportData">导出数据</ym-button>

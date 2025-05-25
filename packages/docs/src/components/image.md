@@ -3,8 +3,8 @@ title: Image
 description: Image 组件文档
 
 next:
-  link: components/overlay
-  text: Overlay 遮罩层
+  link: components/imageMark
+  text: ImageMark 图片标注
 
 prev:
   link: components/upload

@@ -24,7 +24,7 @@
       <div class="image-mark__content" >
         <ym-context-menu customize>
           <div id="canvas-box" :style="{width: props.width}">
-              <canvas :width="props.width" id="label-canvas"  />
+              <canvas :width="props.width" id="label-canvas" ref="canvasRef"  />
           </div>
           <template #menu>
             <div class="image-mark__menu">
@@ -66,6 +66,7 @@ const emits = defineEmits<ImageEditorEmits>()
 
 // fabric画布对象
 const fabricObj = ref<Canvas>()
+const canvasRef = ref<HTMLCanvasElement>()
 
 // 绘图对象列表
 const maxWidth = ref(props.maxWidth || 600);
@@ -102,7 +103,7 @@ const toolIcon = {
 
 // 工具图标
 const tools = computed(() => {
-    return props.utils.map(item => {
+    return props.utils.filter(item => toolIcon.hasOwnProperty(item)).map(item => {
         return {
         type: item as EditorType,
         // @ts-expect-error
@@ -138,7 +139,8 @@ const fabricCanvas = async() => {
     if(fabricObj.value){ 
         fabricObj.value.clear()
     } else {
-        fabricObj.value = new Canvas('label-canvas',{
+        if(!canvasRef.value) return
+        fabricObj.value = new Canvas(canvasRef.value,{
         // 此处设置画布的初始属性
         uniformScaling: false, // 等比例缩放
         enableRetinaScaling: false, 
