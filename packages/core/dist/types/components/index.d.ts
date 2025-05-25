@@ -25,3 +25,4 @@ export * from './Pagination';
 export * from './Dialog';
 export * from './Drawer';
 export * from './Upload';
+export * from './ImageMark';

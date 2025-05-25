@@ -1,0 +1,71 @@
+
+.image-mark {
+    overflow: hidden;
+    .image-mark__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+        .image-mark__utils {
+        display: flex;
+        gap: 10px;
+        .image-mark__utils-item  {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover,&.active {
+            color: #fff;
+            background-color: #409eff;
+            }
+        }
+        }
+        .image-mark__operation {
+        display: flex;
+        gap: 8px;
+        .ym-icon {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        }
+    }
+    .image-mark__content {
+        overflow: hidden;
+        ::v-deep(#canvas-box) {
+        overflow: hidden !important;
+        }
+        
+    }
+}
+.image-mark__menu {
+    padding: 20px 10px;
+    background-color: #fff;
+    color: #666;
+    .image-mark__menu-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &.active {
+        color: #409eff;
+        }
+    }
+}
+::v-deep(.menu) {
+    background-color: #fff !important;
+    padding: 0;
+}
+::v-deep(.ym-content-menu) {
+    width: 100%;
+}

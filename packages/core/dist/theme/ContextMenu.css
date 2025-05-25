@@ -12,7 +12,6 @@
     --ym-context-menu-disabled-text-color: var(--ym-disabled-text-color);
     --ym-context-menu-disabled-border-color: var(--ym-border-color-lighter);
     position: fixed;
-    background-color: var(--ym-context-menu-bg-color);
     color: var(--ym-context-menu-text-color);
     width: 150px;
     border-radius: 20px;
@@ -22,7 +21,6 @@
     -webkit-transition: 0.3s ease-in;
     transition: 0.3s ease-in;
     overflow: hidden;
-    padding: 0 10px;
 }
 .menu ul[data-v-0de9e977] {
       width: 100%;

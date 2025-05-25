@@ -30,7 +30,8 @@ import {
   YmPagination,
   YmDialog,
   YmDrawer,
-  YmUpload
+  YmUpload,
+  YmImageMark,
 } from "@ym-UI/components";
 import type { Plugin } from "vue";
 
@@ -66,5 +67,6 @@ export default [
   YmPagination,
   YmDialog,
   YmDrawer,
-  YmUpload
+  YmUpload,
+  YmImageMark
 ] as Plugin[];
