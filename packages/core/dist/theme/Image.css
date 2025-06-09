@@ -261,3 +261,8 @@
 [data-v-aa4729d0] .ym-content-menu {
     width: 100%;
 }
+
+.ym-image-cropper__content-cropper[data-v-0602d881] {
+    overflow: hidden;
+}
+  

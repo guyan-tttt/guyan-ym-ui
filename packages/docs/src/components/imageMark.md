@@ -3,8 +3,8 @@ title: ImageMark
 description: ImageMark 组件文档
 
 next:
-  link: components/overlay
-  text: Overlay 遮罩层
+  link: components/imageCropper
+  text: ImageCropper 图片裁剪
 
 prev:
   link: components/image

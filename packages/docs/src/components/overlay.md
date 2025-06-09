@@ -7,8 +7,9 @@ next:
   text: ImageViewer 图片预览器
 
 prev:
-  link: /components/image
-  text: Image 图片
+  link: /components/imageCropper
+  text: ImageCropper 图片裁剪
+
 ---
 
 # Overlay 遮罩层
