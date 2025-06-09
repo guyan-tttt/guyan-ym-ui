@@ -12,12 +12,12 @@
   const containerRef = ref<any>()
   
   const srcList = [
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15946441491795328",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15918089447001472",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/16026675077107072",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15701594680365376",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15946470577982848",
-    "https://haowallpaper.com/link/common/file/getCroppingImg/15947843037547904"
+    "https://jeek-space-blog.top:3000/images/article/ab93e2fb1e216541d1aeb751600909f2.jpeg",
+    "https://jeek-space-blog.top:3000/images/article/d1f2ec4df6a8ca406690312ca69b8d00.jpeg",
+    "https://jeek-space-blog.top:3000/images/article/43b9c7996880bc8e02858997790e15f7.jpeg",
+    "https://jeek-space-blog.top:3000/images/article/ea6e433dd3c1e06527b6ac05e76d1677.jpeg",
+    "https://jeek-space-blog.top:3000/images/article/6c372c58e9f76a1059cec97dae6b84d7.jpeg",
+    "https://jeek-space-blog.top:3000/images/article/94ba620bf0f1e5b65e5f4889a88d8fba.png"
   ]
   
   onMounted(() => {

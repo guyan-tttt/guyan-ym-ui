@@ -22,7 +22,8 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "storybook": "8.4.2",
     "guyan-ym-ui": "workspace:*",
-    "uuid": "^11.0.5"
+    "uuid": "^11.0.5",
+    "vue-cropper": "^1.1.4"
     
   }
 }

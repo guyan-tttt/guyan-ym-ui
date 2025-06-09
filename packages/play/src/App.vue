@@ -14,7 +14,7 @@
   <!-- <Upload type="default"  v-model="fileList" @file-change="updateChange" draggable>
      <img v-if="imgSrc" :src="imgSrc" alt="" class="img" > 
   </Upload> -->
-  <ImageMark
+  <!-- <ImageMark
     ref="imageMarkRef"
     :utils="['rect', 'circle']"
     src="https://jeek-space-blog.top:3000/images/article/d1f2ec4df6a8ca406690312ca69b8d00.jpeg"
@@ -22,14 +22,17 @@
   <ym-button @click="exportData">导出数据</ym-button>
   <ym-button @click="update">渲染数据</ym-button>
   <ym-button @click="clear">清空数据</ym-button>
-  <ym-button @click="hidden">隐藏数据</ym-button>
+  <ym-button @click="hidden">隐藏数据</ym-button> -->
+  <ImageCropper
+    src="https://jeek-space-blog.top:3000/images/article/c286943e69f11921ebff214c3fa1e1dd.png"
+  ></ImageCropper>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 // import Upload from './components/Upload.vue'
 import ImageMark from '../../components/ImageMark/ImageMark.vue';
-
+import ImageCropper from './components/ImageCropper.vue';
 
 const imageMarkRef = ref<any>(null);
 const list  = []

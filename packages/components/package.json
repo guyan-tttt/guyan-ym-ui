@@ -16,7 +16,8 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5",
-    "fabric": "^6.6.5"
+    "fabric": "^6.6.5",
+    "vue-cropper": "^1.1.4"
   },
   "jest": {
     "testEnvironment": "jsdom"

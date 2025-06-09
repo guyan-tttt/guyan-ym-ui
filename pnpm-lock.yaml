@@ -144,6 +144,9 @@ importers:
       fabric:
         specifier: ^6.6.5
         version: 6.6.5
+      vue-cropper:
+        specifier: ^1.1.4
+        version: 1.1.4
 
   packages/core:
     dependencies:
@@ -162,9 +165,15 @@ importers:
       async-validator:
         specifier: ^4.2.5
         version: 4.2.5
+      fabric:
+        specifier: ^6.6.5
+        version: 6.6.5
       vue:
         specifier: ^3.4.19
         version: 3.5.12(typescript@5.6.3)
+      vue-cropper:
+        specifier: ^1.1.4
+        version: 1.1.4
     devDependencies:
       '@rollup/plugin-terser':
         specifier: ^0.4.4
@@ -241,6 +250,9 @@ importers:
       uuid:
         specifier: ^11.0.5
         version: 11.0.5
+      vue-cropper:
+        specifier: ^1.1.4
+        version: 1.1.4
 
   packages/theme: {}
 
@@ -2762,6 +2774,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
@@ -4137,6 +4150,9 @@ packages:
 
   vue-component-type-helpers@2.2.10:
     resolution: {integrity: sha512-iDUO7uQK+Sab2tYuiP9D1oLujCWlhHELHMgV/cB13cuGbG4qwkLHvtfWb6FzvxrIOPDnU0oHsz2MlQjhYDeaHA==}
+
+  vue-cropper@1.1.4:
+    resolution: {integrity: sha512-5m98vBsCEI9rbS4JxELxXidtAui3qNyTHLHg67Qbn7g8cg+E6LcnC+hh3SM/p94x6mFh6KRxT1ttnta+wCYqWA==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -8745,6 +8761,8 @@ snapshots:
   vue-component-type-helpers@2.1.10: {}
 
   vue-component-type-helpers@2.2.10: {}
+
+  vue-cropper@1.1.4: {}
 
   vue-demi@0.14.10(vue@3.5.12(typescript@5.6.3)):
     dependencies:
