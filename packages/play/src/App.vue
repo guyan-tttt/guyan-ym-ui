@@ -23,37 +23,39 @@
   <ym-button @click="update">渲染数据</ym-button>
   <ym-button @click="clear">清空数据</ym-button>
   <ym-button @click="hidden">隐藏数据</ym-button> -->
-  <ImageCropper
+  <!-- <ImageCropper
     src="https://jeek-space-blog.top:3000/images/article/c286943e69f11921ebff214c3fa1e1dd.png"
-  ></ImageCropper>
+  ></ImageCropper> -->
+  <ym-switch activeText="超长文本内容测试-开启" inactiveText="超长文本内容测试-关闭"></ym-switch>
+  <ym-switch size="small" activeText="超长文本内容测试-开启" inactiveText="超长文本内容测试-关闭"></ym-switch>
+  <ym-switch size="large" activeText="超长文本内容测试-开启" inactiveText="超长文本内容测试-关闭"></ym-switch>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+// import { ref } from 'vue';
 // import Upload from './components/Upload.vue'
-import ImageMark from '../../components/ImageMark/ImageMark.vue';
-import ImageCropper from './components/ImageCropper.vue';
+// import ImageCropper from './components/ImageCropper.vue';
 
-const imageMarkRef = ref<any>(null);
-const list  = []
-const exportData = () => {
-  list.value = imageMarkRef.value?.exportData();
-  console.log(list.value);
-}
+// const imageMarkRef = ref<any>(null);
+// const list  = []
+// const exportData = () => {
+//   list.value = imageMarkRef.value?.exportData();
+//   console.log(list.value);
+// }
 
-const update = () => {
-  imageMarkRef.value?.update(list.value)
-  console.log('update');
-}
+// const update = () => {
+//   imageMarkRef.value?.update(list.value)
+//   console.log('update');
+// }
 
-const clear = () => {
-  imageMarkRef.value?.clear()
+// const clear = () => {
+//   imageMarkRef.value?.clear()
 
-}
+// }
 
-const hidden = () => {
-  imageMarkRef.value?.hidden()
-}
+// const hidden = () => {
+//   imageMarkRef.value?.hidden()
+// }
 </script>
 
 <style>
