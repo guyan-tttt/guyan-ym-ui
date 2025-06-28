@@ -56,6 +56,9 @@
         width: 20px;
         height: 20px;
       }
+      .ym-switch__core-inner{
+        margin: 0 4px;
+      }
     }
     &.is-checked {
       .ym-switch__core .ym-switch__core-action {

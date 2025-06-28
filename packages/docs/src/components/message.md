@@ -7,8 +7,9 @@ next:
   text: MessageBox 消息弹出框
 
 prev:
-  link: /components/pagination
-  text: Pagination 分页
+  link: /components/richText
+  text: 富文本渲染器
+
 ---
 
 # Message 消息提示

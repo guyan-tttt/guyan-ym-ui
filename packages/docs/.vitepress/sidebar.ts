@@ -28,7 +28,8 @@ export const sidebarList = [
     items: [
       { text: "Progress 进度条", link: "/components/progress" },
       { text: "Avatar 头像", link: "/components/avatar" },
-      { text: "Pagination 分页器", link: "/components/pagination"}
+      { text: "Pagination 分页器", link: "/components/pagination"},
+      { text: 'RichText 富文本渲染器', link: '/components/richText'}
     ],
   },
   {

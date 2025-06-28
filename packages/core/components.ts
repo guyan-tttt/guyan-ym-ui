@@ -32,7 +32,8 @@ import {
   YmDrawer,
   YmUpload,
   YmImageMark,
-  YmImageCropper
+  YmImageCropper,
+  YmRichText
 } from "@ym-UI/components";
 import type { Plugin } from "vue";
 
@@ -71,4 +72,5 @@ export default [
   YmUpload,
   YmImageMark,
   YmImageCropper,
+  YmRichText
 ] as Plugin[];
