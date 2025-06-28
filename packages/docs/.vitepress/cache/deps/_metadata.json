@@ -23,7 +23,7 @@
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
-      "src": "../../../../../node_modules/.pnpm/@vitepress-demo-preview+component@2.3.2_vitepress@1.0.0-rc.44_@algolia+client-search@5.13.0_@_cjdwlj2rqrwmnvykp44uxzpzr4/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
+      "src": "../../../../../node_modules/.pnpm/@vitepress-demo-preview+com_fcdc143ba52cca0861d39738ba154e3e/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
       "fileHash": "68861555",
       "needsInterop": false
@@ -41,7 +41,7 @@
       "needsInterop": false
     },
     "@fortawesome/vue-fontawesome": {
-      "src": "../../../../../node_modules/.pnpm/@fortawesome+vue-fontawesome@3.0.8_@fortawesome+fontawesome-svg-core@6.6.0_vue@3.5.12_typescript@5.6.3_/node_modules/@fortawesome/vue-fontawesome/index.es.js",
+      "src": "../../../../../node_modules/.pnpm/@fortawesome+vue-fontawesom_ba0cf9ab40a7c410b640428b307281c4/node_modules/@fortawesome/vue-fontawesome/index.es.js",
       "file": "@fortawesome_vue-fontawesome.js",
       "fileHash": "5b189f7b",
       "needsInterop": false

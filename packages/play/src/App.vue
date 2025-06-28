@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+// import { ref } from 'vue';
 // import Upload from './components/Upload.vue'
 import ImageMark from '../../components/ImageMark/ImageMark.vue';
 import ImageCropper from './components/ImageCropper.vue';
@@ -44,26 +44,26 @@ const strContent = `
 <img src="https://img95.699pic.com/photo/50059/8720.jpg_wh300.jpg!/fh/300/quality/90" />
 `
 
-const imageMarkRef = ref<any>(null);
-const list  = []
-const exportData = () => {
-  list.value = imageMarkRef.value?.exportData();
-  console.log(list.value);
-}
+// const imageMarkRef = ref<any>(null);
+// const list  = []
+// const exportData = () => {
+//   list.value = imageMarkRef.value?.exportData();
+//   console.log(list.value);
+// }
 
-const update = () => {
-  imageMarkRef.value?.update(list.value)
-  console.log('update');
-}
+// const update = () => {
+//   imageMarkRef.value?.update(list.value)
+//   console.log('update');
+// }
 
-const clear = () => {
-  imageMarkRef.value?.clear()
+// const clear = () => {
+//   imageMarkRef.value?.clear()
 
-}
+// }
 
-const hidden = () => {
-  imageMarkRef.value?.hidden()
-}
+// const hidden = () => {
+//   imageMarkRef.value?.hidden()
+// }
 </script>
 
 <style>

@@ -11,7 +11,7 @@ import {
   watch
 } from "./chunk-GJVE5CKW.js";
 
-// ../../node_modules/.pnpm/@fortawesome+vue-fontawesome@3.0.8_@fortawesome+fontawesome-svg-core@6.6.0_vue@3.5.12_typescript@5.6.3_/node_modules/@fortawesome/vue-fontawesome/index.es.js
+// ../../node_modules/.pnpm/@fortawesome+vue-fontawesom_ba0cf9ab40a7c410b640428b307281c4/node_modules/@fortawesome/vue-fontawesome/index.es.js
 function ownKeys(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {

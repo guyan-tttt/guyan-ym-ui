@@ -56,6 +56,9 @@
         width: 20px;
         height: 20px;
 }
+.ym-switch--large .ym-switch__core .ym-switch__core-inner[data-v-6062b175]{
+        margin: 0 4px;
+}
 .ym-switch--large.is-checked .ym-switch__core .ym-switch__core-action[data-v-6062b175] {
         left: calc(100% - 21px);
         color: var(--ym-switch-on-color);
