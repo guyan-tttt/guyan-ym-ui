@@ -3,8 +3,8 @@ title: Pagination
 description: Pagination 分页器
 
 next:
-  link: components/message
-  text:  Message 消息提示
+  link: /components/richText
+  text: 富文本渲染器
 
 prev:
   link: components/avatar

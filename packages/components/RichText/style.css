@@ -1,0 +1,42 @@
+.ym-rich-text .ym-rich-text-content{
+    --rich--text-font-color: var(--ym-text-color-primary)
+    line-height: 1.6;
+    color:var(--rich--text-font-color);
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: normal;
+    }
+
+    ul {
+        padding: 20px;
+        list-style: initial;
+    }
+    :is(dir, menu, ol, ul) ul {
+        list-style-type: circle;
+    }
+    ol {
+        list-style:decimal;
+        padding: 20px;
+    }
+
+    blockquote,
+    q {
+        quotes: inherit;
+    }
+
+    blockquote::before,
+    blockquote::after,
+    q::before,
+    q::after {
+        content: normal;
+    }
+}
