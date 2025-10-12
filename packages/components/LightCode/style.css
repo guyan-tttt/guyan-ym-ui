@@ -1,0 +1,66 @@
+.ym-light-code {
+    border-radius: 5px;
+    position: relative;
+    .ym-light-tool {
+        position: absolute;
+        top: 2px;
+        right: 10px;
+        z-index: 1;
+        .tool-item {
+            display: inline-block;
+            margin-right: 10px;
+            .copy-btn {
+                display: inline-block;
+                padding: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover {
+                    .ym-icon {
+                      color: var(--ym-color-primary) !important;
+                    }
+                }
+            }
+            :deep(.ym-select) {
+                width: 150px;
+            }
+        }
+    }
+    &::before {
+        margin: 0;
+        background: #fc625d;
+        border-radius: 50%;
+        box-shadow:
+            20px 0 #fdbc40,
+            40px 0 #35cd4b;
+        content: " ";
+        height: 10px;
+        margin-top: 5px;
+        position: absolute;
+        width: 10px;
+        top: 10px;
+        left: 20px;
+    }
+    & pre {
+        overflow: auto;
+        margin: 0;
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        border: 1px solid #1e1e1e;
+        border-radius: 5px;
+    }
+    & code {
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courie;
+        font-size: 14px;
+        line-height: 1.45;
+        display: flex;
+        margin: 0 20px;
+        padding-top: 10px;
+        :deep(.ym-rich-text) {
+            flex: 1;
+        }
+    }
+    &.is-dark {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+    }
+}

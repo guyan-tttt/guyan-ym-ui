@@ -36,6 +36,8 @@
       margin: 6px 0;
       padding: 0;
       box-sizing: border-box;
+      max-height: 400px;
+      overflow-y: scroll;
 }
 .ym-select .ym-select__menu-item[data-v-97183b17] { 
       margin: 0;
@@ -109,6 +111,8 @@
       margin: 6px 0;
       padding: 0;
       box-sizing: border-box;
+      max-height: 400px;
+      overflow-y: scroll;
 }
 .ym-select .ym-select__menu-item[data-v-10688a69] { 
       margin: 0;

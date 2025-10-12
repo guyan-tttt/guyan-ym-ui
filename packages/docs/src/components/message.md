@@ -7,8 +7,8 @@ next:
   text: MessageBox 消息弹出框
 
 prev:
-  link: /components/richText
-  text: 富文本渲染器
+  link: /components/lightCode
+  text: LightCode 代码高亮
 
 ---
 

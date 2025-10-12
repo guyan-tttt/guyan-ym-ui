@@ -4,8 +4,8 @@ description: 富文本渲染器，支持HTML 格式的文本内容。
 
 
 next:
-  link: components/message
-  text: Message 消息提示
+  link: components/lightCode
+  text: LightCode 代码高亮
 
 
 prev:
