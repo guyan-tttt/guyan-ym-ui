@@ -5,20 +5,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": " vitest --coverage" 
+    "test": " vitest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    
-  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@types/remarkable": "^2.0.8",
     "async-validator": "^4.2.5",
+    "dompurify": "^3.0.6",
     "fabric": "^6.6.5",
+    "remarkable": "^2.0.1",
     "vue-cropper": "^1.1.4",
-    "dompurify": "^3.0.6"
+    "highlight.js": "^11.11.1"
   },
   "jest": {
     "testEnvironment": "jsdom"

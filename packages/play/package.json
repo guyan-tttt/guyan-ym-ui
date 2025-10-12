@@ -19,13 +19,15 @@
     "@storybook/test": "8.4.2",
     "@storybook/vue3": "8.4.2",
     "@storybook/vue3-vite": "8.4.2",
+    "@types/remarkable": "^2.0.8",
     "@vitejs/plugin-vue": "^5.1.4",
-    "storybook": "8.4.2",
+    "dompurify": "^3.0.6",
     "guyan-ym-ui": "workspace:*",
+    "jsbarcode": "^3.11.6",
+    "remarkable": "^2.0.1",
+    "storybook": "8.4.2",
     "uuid": "^11.0.5",
     "vue-cropper": "^1.1.4",
-    "jsbarcode": "^3.11.6",
-    "dompurify": "^3.0.6"
-    
+    "highlight.js": "^11.11.1"
   }
 }

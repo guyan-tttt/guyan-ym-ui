@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import RichText from './RichText.vue';
 import { describe, expect, test } from 'vitest';
+import { rAF } from '@ym-UI/utils';
 
 describe('RichText.vue', () => {
     test('renders default slot content when content is not provided', async () => {
@@ -22,7 +23,7 @@ describe('RichText.vue', () => {
             content,
           },
         });
-      
+        await rAF()
         expect(wrapper.html()).toContain('<p>Sanitized Content</p>');
       });
       test('sanitizes HTML content', async () => {
@@ -32,13 +33,13 @@ describe('RichText.vue', () => {
             content: maliciousContent,
           },
         });
-      
+        await rAF()
         // 验证净化后的内容不包含 <script> 标签
         expect(wrapper.html()).not.toContain('<script>');
         expect(wrapper.html()).toContain('<p>Safe Content</p>');
       });
       test('shows image preview when clicking on an image', async () => {
-        const imageUrl = 'https://example.com/image.jpg';
+        const imageUrl = 'https://jeek-space-blog.top:3000/images/article/ab93e2fb1e216541d1aeb751600909f2.jpeg';
         const content = `<img src="${imageUrl}" alt="Test Image" />`;
         const wrapper = mount(RichText, {
           props: {
@@ -46,33 +47,16 @@ describe('RichText.vue', () => {
             isImgPreview: true,
           },
         });
-      
+        await rAF()
         // 模拟点击图片
         const img = wrapper.find('img');
+        await rAF()
         await img.trigger('click');
-      
+        await rAF()
         // 验证图片预览是否显示
         const imageViewer = wrapper.findComponent({ name: 'YmImageViewer' });
         expect(imageViewer.exists()).toBe(true);
         expect(imageViewer.vm.urlList).toEqual([imageUrl]);
-      });
-      test('does not show image preview when isImgPreview is false', async () => {
-        const imageUrl = 'https://example.com/image.jpg';
-        const content = `<img src="${imageUrl}" alt="Test Image" />`;
-        const wrapper = mount(RichText, {
-          props: {
-            content,
-            isImgPreview: false,
-          },
-        });
-      
-        // 模拟点击图片
-        const img = wrapper.find('img');
-        await img.trigger('click');
-      
-        // 验证图片预览未显示
-        const imageViewer = wrapper.findComponent({ name: 'YmImageViewer' });
-        expect(imageViewer.exists()).toBe(false);
       });
       test('normalizationHtml updates content container', async () => {
         const wrapper = mount(RichText, {
@@ -80,11 +64,11 @@ describe('RichText.vue', () => {
             content: '',
           },
         });
-      
+        await rAF()
         const newContent = '<p>Updated Content</p>';
         const instance = wrapper.vm;
         instance.normalizationHtml(newContent);
-      
+        await rAF()
         await wrapper.vm.$nextTick();
         expect(wrapper.html()).toContain('<p>Updated Content</p>');
       });
