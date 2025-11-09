@@ -2,9 +2,11 @@
     <ym-context-menu type="primary" customize >
         <div class="content">自定义菜单内容</div>
         <template #menu>
-            <ym-button type="success" circle icon="search"></ym-button>
-            <ym-button type="danger" circle icon="search"></ym-button> 
-            <ym-button type="warning" circle icon="search"></ym-button>
+            <div class="menu-container">
+                <ym-button type="success" circle icon="search"></ym-button>
+                <ym-button type="danger" circle icon="home"></ym-button> 
+                <ym-button type="warning" circle icon="book"></ym-button>
+            </div>
         </template>
     </ym-context-menu>
 </template>
@@ -22,5 +24,10 @@
     align-items: center;
     border-radius: 20px;
     margin: 5px 0;
+}
+.menu-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 </style>

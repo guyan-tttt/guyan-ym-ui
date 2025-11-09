@@ -46,7 +46,7 @@
           font-size: var(--ym-alert-title-font-size-with-desc);
         }
       } 
-      .er-alert__description{
+      .ym-alert__description{
         font-size: var(--ym-alert-desc-font-size);
         margin: 0;
       }
@@ -55,8 +55,9 @@
         font-size: var(--ym-alert-close-font-size);
         opacity: 1;
         position: absolute;
-        top: 12px;
         right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
         cursor: pointer;
         :deep(.er-icon) {
           vertical-align: top;

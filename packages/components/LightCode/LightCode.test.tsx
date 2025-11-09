@@ -9,17 +9,17 @@ import { rAF } from "@ym-UI/utils";
 
 describe("LightCode.vue", () => {
 
-  test("基础渲染", () => {
+  test("基础渲染", async () => {
     const wrapper = mount(LightCode, {
       props: {
         code: "console.log('hello')",
         language: "javascript"
       }
     });
-
+    await rAF()
     expect(wrapper.find('.ym-light-code').exists()).toBe(true);
     expect(wrapper.find('pre code').exists()).toBe(true);
-    expect(wrapper.find('.ym-light-tool').exists()).toBe(true);
+    expect(wrapper.find('.ym-light-tool').exists()).toBe(false);
   });
 
   test("宽高自定义", () => {
@@ -59,11 +59,12 @@ describe("LightCode.vue", () => {
 
     const wrapper = mount(LightCode, {
       props: {
-        code: "console.log('test')"
+        code: "console.log('test')",
+        custom: true,
       }
     });
 
-
+    await rAF()
     await wrapper.find('.copy-btn').trigger('click');
 
     expect(writeTextMock).toHaveBeenCalledWith("console.log('test')");

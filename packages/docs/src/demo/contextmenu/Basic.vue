@@ -1,19 +1,21 @@
 <template>
-    <ym-context-menu type="primary" :options="options">
-        <div class="content">primary</div>
-    </ym-context-menu>
-    <ym-context-menu type="success" :options="options">
-        <div class="content">success</div>
-    </ym-context-menu>
-    <ym-context-menu type="info" :options="options">
-        <div class="content">info</div>
-    </ym-context-menu>
-    <ym-context-menu type="danger" :options="options">
-        <div class="content">danger</div>
-    </ym-context-menu>
-    <ym-context-menu type="warning" :options="options">
-        <div class="content">warning</div>
-    </ym-context-menu>
+    <div class="container">
+        <ym-context-menu type="primary" :options="options">
+            <div class="content">primary</div>
+        </ym-context-menu>
+        <ym-context-menu type="success" :options="options">
+            <div class="content">success</div>
+        </ym-context-menu>
+        <ym-context-menu type="info" :options="options">
+            <div class="content">info</div>
+        </ym-context-menu>
+        <ym-context-menu type="danger" :options="options">
+            <div class="content">danger</div>
+        </ym-context-menu>
+        <ym-context-menu type="warning" :options="options">
+            <div class="content">warning</div>
+        </ym-context-menu>
+    </div>
 </template>
 
 <script setup>
@@ -42,8 +44,14 @@ const options = [
 </script>
 
 <style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 .content {
-    width: 400px;
+    width: 500px;
     height: 100px;
     background-color: #ececec;
     display: flex;

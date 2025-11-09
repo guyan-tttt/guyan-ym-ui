@@ -53,7 +53,7 @@
 .ym-alert .ym-alert__content .er-alert__title.with-desc[data-v-4eaf3a48] {
           font-size: var(--ym-alert-title-font-size-with-desc);
 }
-.ym-alert .ym-alert__content .er-alert__description[data-v-4eaf3a48]{
+.ym-alert .ym-alert__content .ym-alert__description[data-v-4eaf3a48]{
         font-size: var(--ym-alert-desc-font-size);
         margin: 0;
 }
@@ -61,8 +61,10 @@
         font-size: var(--ym-alert-close-font-size);
         opacity: 1;
         position: absolute;
-        top: 12px;
         right: 15px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
         cursor: pointer;
 }
 .ym-alert .ym-alert__content .ym-alert__close[data-v-4eaf3a48] .er-icon {
