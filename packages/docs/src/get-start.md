@@ -8,11 +8,17 @@ next:
 
 ## 安装
 
-
-```bash
+::: code-group
+```bash[npm]
 npm i guyan-ym-ui --save
 ```
-
+```bash[pnpm]
+pnpm add  guyan-ym-ui --save
+```
+```bash[yarn]
+yarn add  guyan-ym-ui --save
+```
+:::
 ## 开始使用
 
 **全局使用**

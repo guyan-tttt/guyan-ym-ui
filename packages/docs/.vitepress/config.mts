@@ -9,7 +9,16 @@ import { sidebarList } from "./sidebar";
 export default defineConfig({
   srcDir: "./src",
   lastUpdated: true,
-  head: [["link", { rel: "icon", href: "./logo.ico" }]],
+  head: [
+    ["link", { rel: "icon", href: "./logo.ico" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css",
+      },
+    ],
+  ],
   title: "云墨UI",
   description: "一个个人UI组件库",
   base: "/guyan-ym-ui/",

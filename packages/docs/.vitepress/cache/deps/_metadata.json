@@ -2,12 +2,12 @@
   "hash": "8fbb207f",
   "configHash": "27d6e3c0",
   "lockfileHash": "693bb89b",
-  "browserHash": "ba36f55b",
+  "browserHash": "c859fd3a",
   "optimized": {
     "vue": {
       "src": "../../../../../node_modules/.pnpm/vue@3.5.12_typescript@5.6.3/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "fd16661a",
+      "fileHash": "93f184f4",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
@@ -19,19 +19,19 @@
     "vitepress > @vueuse/core": {
       "src": "../../../../../node_modules/.pnpm/@vueuse+core@10.11.1_vue@3.5.12_typescript@5.6.3_/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "9da96d71",
+      "fileHash": "f5044fad",
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
       "src": "../../../../../node_modules/.pnpm/@vitepress-demo-preview+component@2.3.2_vitepress@1.0.0-rc.44_@algolia+client-search@5.13.0_@_cjdwlj2rqrwmnvykp44uxzpzr4/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
-      "fileHash": "8e792206",
+      "fileHash": "fcb285c1",
       "needsInterop": false
     },
     "@fortawesome/fontawesome-svg-core": {
       "src": "../../../../../node_modules/.pnpm/@fortawesome+fontawesome-svg-core@6.6.0/node_modules/@fortawesome/fontawesome-svg-core/index.mjs",
       "file": "@fortawesome_fontawesome-svg-core.js",
-      "fileHash": "39482742",
+      "fileHash": "6011574d",
       "needsInterop": false
     },
     "@fortawesome/free-solid-svg-icons": {
@@ -43,7 +43,7 @@
     "@fortawesome/vue-fontawesome": {
       "src": "../../../../../node_modules/.pnpm/@fortawesome+vue-fontawesome@3.0.8_@fortawesome+fontawesome-svg-core@6.6.0_vue@3.5.12_typescript@5.6.3_/node_modules/@fortawesome/vue-fontawesome/index.es.js",
       "file": "@fortawesome_vue-fontawesome.js",
-      "fileHash": "74f66420",
+      "fileHash": "688b1945",
       "needsInterop": false
     },
     "@popperjs/core": {
@@ -57,14 +57,20 @@
       "file": "async-validator.js",
       "fileHash": "649c5734",
       "needsInterop": false
+    },
+    "lodash-es": {
+      "src": "../../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/lodash.js",
+      "file": "lodash-es.js",
+      "fileHash": "2ed9e796",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-GJVE5CKW": {
-      "file": "chunk-GJVE5CKW.js"
-    },
     "chunk-4HX7LETB": {
       "file": "chunk-4HX7LETB.js"
+    },
+    "chunk-GJVE5CKW": {
+      "file": "chunk-GJVE5CKW.js"
     }
   }
 }

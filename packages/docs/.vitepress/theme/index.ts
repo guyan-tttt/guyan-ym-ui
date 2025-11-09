@@ -5,6 +5,7 @@ import { ElementPlusContainer } from "@vitepress-demo-preview/component";
 
 import "@vitepress-demo-preview/component/dist/style.css";
 import "guyan-ym-ui/dist/index.css";
+import './index.css'
 
 export default {
   ...DefaultTheme,

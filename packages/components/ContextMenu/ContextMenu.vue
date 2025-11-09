@@ -110,7 +110,9 @@ defineExpose({
               <li v-for="item in options" :key="item.label" @click="item.handle(item)">{{ item.label }}</li>
             </ul>
             <template v-else>
-            <slot name="menu"></slot>
+            <div class="menu-slot">
+              <slot name="menu"></slot>
+            </div>
           </template>
           </div>
         </Transition>

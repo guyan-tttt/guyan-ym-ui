@@ -33,6 +33,8 @@
     width: var(--ym-dialog-width, 50%);
     overflow-wrap: break-word;
     border: 1px solid var(--ym-dialog-border-color);
+    -webkit-animation: comeout-bed4a56f 0.5s;
+            animation: comeout-bed4a56f 0.5s;
 }
 .ym-dialog .ym-dialog__header[data-v-bed4a56f] {
         display: -webkit-box;
@@ -59,10 +61,6 @@
             -webkit-transform: rotate(0deg);
                     transform: rotate(0deg);
 }
-.ym-dialog .ym-dialog__header .ym-dialog__header__close[data-v-bed4a56f]:hover {
-                -webkit-transform: rotate(-360deg);
-                        transform: rotate(-360deg);
-}
 .ym-dialog .ym-dialog__header .ym-dialog__header__title[data-v-bed4a56f] {
             font-size: var(--ym-dialog-title-font-size);
             line-height: var(--ym-dialog-font-line-height);
@@ -77,4 +75,24 @@
 .ym-dialog .ym-dialog__body[data-v-bed4a56f] {
         color: var(--ym-dialog-context-color);
         font-size: var(--ym-dialog-content-font-size);
+}
+@-webkit-keyframes comeout-bed4a56f {
+0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+}
+100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+}
+}
+@keyframes comeout-bed4a56f {
+0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+}
+100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+}
 }
